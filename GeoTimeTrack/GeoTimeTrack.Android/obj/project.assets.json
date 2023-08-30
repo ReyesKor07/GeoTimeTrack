@@ -5036,11 +5036,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\brand\\source\\repos\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.Android\\GeoTimeTrack.Android.csproj",
+      "projectUniqueName": "D:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.Android\\GeoTimeTrack.Android.csproj",
       "projectName": "GeoTimeTrack.Android",
-      "projectPath": "C:\\Users\\brand\\source\\repos\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.Android\\GeoTimeTrack.Android.csproj",
+      "projectPath": "D:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.Android\\GeoTimeTrack.Android.csproj",
       "packagesPath": "C:\\Users\\brand\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\brand\\source\\repos\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.Android\\obj\\",
+      "outputPath": "D:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -5061,8 +5061,8 @@
       "frameworks": {
         "monoandroid13.0": {
           "projectReferences": {
-            "C:\\Users\\brand\\source\\repos\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.csproj": {
-              "projectPath": "C:\\Users\\brand\\source\\repos\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.csproj"
+            "D:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.csproj": {
+              "projectPath": "D:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.csproj"
             }
           }
         }

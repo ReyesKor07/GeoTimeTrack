@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\brand\\source\\repos\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.iOS\\GeoTimeTrack.iOS.csproj": {}
+    "D:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.iOS\\GeoTimeTrack.iOS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\brand\\source\\repos\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.iOS\\GeoTimeTrack.iOS.csproj": {
+    "D:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.iOS\\GeoTimeTrack.iOS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\brand\\source\\repos\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.iOS\\GeoTimeTrack.iOS.csproj",
+        "projectUniqueName": "D:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.iOS\\GeoTimeTrack.iOS.csproj",
         "projectName": "GeoTimeTrack.iOS",
-        "projectPath": "C:\\Users\\brand\\source\\repos\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.iOS\\GeoTimeTrack.iOS.csproj",
+        "projectPath": "D:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.iOS\\GeoTimeTrack.iOS.csproj",
         "packagesPath": "C:\\Users\\brand\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\brand\\source\\repos\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.iOS\\obj\\",
+        "outputPath": "D:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.iOS\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -32,8 +32,8 @@
         "frameworks": {
           "xamarinios10": {
             "projectReferences": {
-              "C:\\Users\\brand\\source\\repos\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.csproj": {
-                "projectPath": "C:\\Users\\brand\\source\\repos\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.csproj"
+              "D:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.csproj": {
+                "projectPath": "D:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.csproj"
               }
             }
           }
@@ -84,14 +84,14 @@
         }
       }
     },
-    "C:\\Users\\brand\\source\\repos\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.csproj": {
+    "D:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\brand\\source\\repos\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.csproj",
+        "projectUniqueName": "D:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.csproj",
         "projectName": "GeoTimeTrack",
-        "projectPath": "C:\\Users\\brand\\source\\repos\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.csproj",
+        "projectPath": "D:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.csproj",
         "packagesPath": "C:\\Users\\brand\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\brand\\source\\repos\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack\\obj\\",
+        "outputPath": "D:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

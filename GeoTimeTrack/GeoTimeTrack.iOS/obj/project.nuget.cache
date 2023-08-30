@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JGQ3Pc0+XV/9QitL0eiTvDup+Bl2fxqBBE0L8erDRS7pyK98EX60CM/474C90RUNqDCOFvSlmIauIaiI4uj0Ew==",
+  "dgSpecHash": "On/l5t4Akco1P2fLXPymEerw7OgPiKxlR06rZQ7ByM+lxkeRVi1tDPP1RG3urQWfqs05//8EkQq7x3gMLnXFjg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\brand\\source\\repos\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.iOS\\GeoTimeTrack.iOS.csproj",
+  "projectFilePath": "D:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.iOS\\GeoTimeTrack.iOS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\brand\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\brand\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",

@@ -17,7 +17,7 @@ namespace GeoTimeTrack
     {
         public MainPage()
         {
-            InitializeComponent();
+            InitializeComponent(); // Si funciona
 
             // Establecer la posición inicial del mapa
             Position initialPosition = new Position(26.029673, -98.275527);

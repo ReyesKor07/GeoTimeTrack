@@ -25,11 +25,11 @@ androidgeneratejnimarshalmethods=false
 os=windows_nt
 androidincludedebugsymbols=true
 androidpackagenamingpolicy=lowercasecrc64
-_nugetassetstimestamp=638289115020315119
+_nugetassetstimestamp=638289980340341145
 typemapkind=strings-asm
 androidsupportedabis=arm64-v8a
 armeabi-v7a
 x86
 x86_64
 androidmanifestplaceholders=
-projectfullpath=c:\users\brand\source\repos\geotimetrack\geotimetrack\geotimetrack.android\geotimetrack.android.csproj
+projectfullpath=d:\geotimetrack\geotimetrack\geotimetrack.android\geotimetrack.android.csproj
