@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GeoTimeTrack.AccountCreationPage"
+             BackgroundColor="White">
+
+    <ScrollView>
+        <StackLayout Margin="20" Spacing="20">
+            <!-- Icono de la app -->
+            <Frame CornerRadius="100" BorderColor="#1c2757" BackgroundColor="Transparent" HeightRequest="100" WidthRequest="100" HorizontalOptions="Center">
+                <Image Source="GeoTime.jpeg" VerticalOptions="CenterAndExpand" HeightRequest="100" Aspect="AspectFit"/>
+            </Frame>
+
+            <Label Text="Crea tu cuenta" TextColor="#1c2757" FontSize="24" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+
+            <Label Text="Nombre" TextColor="#1c2757" FontSize="18" FontAttributes="Bold" Margin="0,20,0,0"/>
+            <Entry x:Name="usernameEntry" Placeholder="Nombre" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="18" BackgroundColor="#F4F4F4"/>
+
+            <Label Text="Apellidos" TextColor="#1c2757" FontSize="18" FontAttributes="Bold" Margin="0,20,0,0"/>
+            <Entry x:Name="userlastnameEntry" Placeholder="Apellidos" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="18" BackgroundColor="#F4F4F4"/>
+
+            <Label Text="Correo electrónico" TextColor="#1c2757" FontSize="18" FontAttributes="Bold" Margin="0,20,0,0"/>
+            <Entry x:Name="emailEntry" Placeholder="Correo electrónico" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="18" BackgroundColor="#F4F4F4"/>
+
+            <Label Text="Contraseña" TextColor="#1c2757" FontSize="18" FontAttributes="Bold" Margin="0,20,0,0"/>
+            <Entry x:Name="passwordEntry" Placeholder="Contraseña" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="18" BackgroundColor="#F4F4F4" IsPassword="True"/>
+
+            <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" Spacing="10" Margin="0,10,0,0">
+                <Label Text="Mostrar contraseña" TextColor="#1c2757" FontSize="16" VerticalTextAlignment="Center"/>
+                <Switch x:Name="showPasswordSwitch" VerticalOptions="CenterAndExpand" OnColor="#0a9ec8" ThumbColor="#0a9ec8" Toggled="OnShowPasswordSwitchToggled"/>
+            </StackLayout>
+
+            <Button Text="Crear Usuario" TextTransform="None" Clicked="OnCreateUserButtonClicked" BackgroundColor="#0a9ec8"  TextColor="White" FontSize="Large" CornerRadius="20" HeightRequest="50" HorizontalOptions="CenterAndExpand"/>
+
+            <Label Text="¿Ya tienes una cuenta? Iniciar sesión" TextColor="#1c2757" FontSize="16" HorizontalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnLoginLabelTapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>

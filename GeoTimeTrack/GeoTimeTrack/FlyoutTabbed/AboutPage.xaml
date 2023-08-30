@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GeoTimeTrack.FlyoutTabbed.AboutPage"
+             BackgroundColor="White"
+             Title="About" 
+             IconImageSource="About.png">
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Imagen del lado izquierdo -->
+            <Frame BorderColor="#0a9ec8" BackgroundColor="#0a9ec8" HeightRequest="100" WidthRequest="100" HorizontalOptions="Center">
+                <Image Source="GeoTimeTransparent.png" VerticalOptions="CenterAndExpand" HeightRequest="100" Aspect="AspectFit" Opacity=".9" />
+            </Frame>
+
+            <!-- Mensaje del lado derecho -->
+            <StackLayout Grid.Column="1" BackgroundColor="Transparent" VerticalOptions="CenterAndExpand" Margin="20" Padding="10">
+                <Label Text="GeoTimeTrack" FontSize="Title" FontAttributes="Bold"/>
+                <Label Text="Version: 1.0" FontSize="Subtitle"/>
+                <Label Text="Copyright © 2023 Reyes Inc." FontSize="Subtitle"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>

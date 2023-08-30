@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+            xmlns:Local="clr-namespace:GeoTimeTrack" 
+            xmlns:Local1="clr-namespace:GeoTimeTrack.FlyoutTabbed"
+            x:Class="GeoTimeTrack.FlyoutTabbed.TabsPage"
+            BarBackgroundColor="#1c2757" UnselectedTabColor="#0a9ec8">
+
+    <!--
+    <Local:MainPage/>
+    <Local1:AboutPage/>
+    -->
+
+</TabbedPage>

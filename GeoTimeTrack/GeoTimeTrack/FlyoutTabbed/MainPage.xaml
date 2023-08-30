@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
+             x:Class="GeoTimeTrack.MainPage"
+             BackgroundColor="#95DFFB"
+             Title="Inicio"
+             IconImageSource="GeoTimeTransparent.png">
+
+    <ScrollView>
+        <StackLayout Margin="20" Spacing="20" VerticalOptions="CenterAndExpand">
+
+            <!-- Separador visual  -->
+            <!-- <BoxView HeightRequest="100" Color="Transparent"/> -->
+            
+            <Frame BorderColor="#F4F4F4" BackgroundColor="#F4F4F4" CornerRadius="10" HasShadow="True">
+                <maps:Map x:Name="map" BackgroundColor="#F4F4F4" HeightRequest="300"/>
+            </Frame>
+
+            <Grid VerticalOptions="CenterAndExpand">
+                <Grid.RowDefinitions> <RowDefinition Height="Auto" /> </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions> <ColumnDefinition Width="*" /> <ColumnDefinition Width="*" /> </Grid.ColumnDefinitions>
+
+                <!-- Botón de Entrada -->
+                <Button x:Name="entryButton" Text="Entrada" Clicked="OnEntryButtonClicked" BackgroundColor="#1c2757" TextColor="White" FontSize="20" CornerRadius="20" HeightRequest="50"
+                Grid.Row="0" Grid.Column="0" Margin="5"/>
+
+                <!-- Botón de Salida -->
+                <Button x:Name="exitButton" Text="Salida" Clicked="OnExitButtonClicked" BackgroundColor="#FF1A1A" TextColor="White" FontSize="20" CornerRadius="20" HeightRequest="50"
+                Grid.Row="0" Grid.Column="1" Margin="5"/>
+            </Grid>
+
+            <Grid BackgroundColor="White" VerticalOptions="CenterAndExpand">
+                <Grid.RowDefinitions> <RowDefinition Height="Auto" /> <RowDefinition Height="Auto" /> <RowDefinition Height="Auto" /> <RowDefinition Height="Auto" /> <RowDefinition Height="Auto" /> <RowDefinition Height="Auto" /> </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions> <ColumnDefinition Width="*" /> <ColumnDefinition Width="*" /> </Grid.ColumnDefinitions>
+
+                <!-- Tiempo Laboral -->
+                <Label Text="Tiempo Laboral" TextColor="DarkRed" FontSize="25" FontAttributes="Bold" BackgroundColor="#FFC3BF" HorizontalTextAlignment="Center"
+               Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
+
+                <Entry x:Name="workTimeEntry" Placeholder="Hora : Minuto : Segundo" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="18" IsReadOnly="True" BackgroundColor="#F2F2F2" HorizontalTextAlignment="Center"
+               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" />
+
+                <!-- Entrada -->
+                <Label Text="Entrada" TextColor="DarkBlue" FontSize="23" FontAttributes="Bold" BackgroundColor="#95DFFB" HorizontalTextAlignment="Center"
+               Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" />
+
+                <Label Text=" Tiempo" TextColor="#1c2757" FontSize="20" FontAttributes="Bold"
+               Grid.Row="3" Grid.Column="0" />
+
+                <Entry x:Name="entryTimeEntry" Placeholder="Hora : Minuto : Segundo" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="16" IsReadOnly="True" BackgroundColor="#F2F2F2" HorizontalTextAlignment="Center"
+               Grid.Row="3" Grid.Column="1" />
+
+                <Label Text=" Fecha" TextColor="#1c2757" FontSize="20" FontAttributes="Bold"
+               Grid.Row="4" Grid.Column="0" />
+
+                <Entry x:Name="entryDateEntry" Placeholder="Dia / Fecha / Mes / Año" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="14" IsReadOnly="True" BackgroundColor="#F2F2F2" HorizontalTextAlignment="Center"
+               Grid.Row="4" Grid.Column="1" />
+
+                <Label Text=" Latitud y Longitud" TextColor="#1c2757" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Start"
+               Grid.Row="5" Grid.Column="0" />
+
+                <Entry x:Name="entryLocationEntry" Placeholder="Latitud | Longitud" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="18" IsReadOnly="True" BackgroundColor="#F2F2F2" HorizontalTextAlignment="Center"
+               Grid.Row="5" Grid.Column="1" />
+
+                <!-- Salida -->
+                <Label Text="Salida" TextColor="DarkBlue" FontSize="23" FontAttributes="Bold" BackgroundColor="#95DFFB" HorizontalTextAlignment="Center"
+                Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" />
+
+                <Label Text=" Tiempo" TextColor="#1c2757" FontSize="20" FontAttributes="Bold"
+                Grid.Row="7" Grid.Column="0" />
+
+                <Entry x:Name="exitTimeEntry" Placeholder="Hora : Minuto : Segundo" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="16" IsReadOnly="True" BackgroundColor="#F2F2F2" HorizontalTextAlignment="Center"
+                Grid.Row="7" Grid.Column="1" />
+
+                <Label Text=" Fecha" TextColor="#1c2757" FontSize="20" FontAttributes="Bold"
+                Grid.Row="8" Grid.Column="0" />
+
+                <Entry x:Name="exitDateEntry" Placeholder="Dia / Fecha / Mes / Año" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="14" IsReadOnly="True" BackgroundColor="#F2F2F2" HorizontalTextAlignment="Center"
+                 Grid.Row="8" Grid.Column="1" />
+
+                <Label Text=" Latitud y Longitud" TextColor="#1c2757" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Start"
+                Grid.Row="9" Grid.Column="0" />
+
+                <Entry x:Name="exitLocationEntry" Placeholder="Latitud | Longitud" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="18" IsReadOnly="True" BackgroundColor="#F2F2F2" HorizontalTextAlignment="Center"
+                Grid.Row="9" Grid.Column="1" />
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
