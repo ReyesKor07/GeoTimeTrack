@@ -10,6 +10,7 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 
 using Xamarin.Forms.GoogleMaps;
+using GeoTimeTrack.FlyoutTabbed;
 
 namespace GeoTimeTrack
 {
@@ -17,15 +18,21 @@ namespace GeoTimeTrack
     {
         public MainPage()
         {
-            InitializeComponent(); // Si funciona
+            InitializeComponent();
 
             // Establecer la posición inicial del mapa
-            Position initialPosition = new Position(26.029673, -98.275527);
+            Position initialPosition = new Position(26.028688727720997, -98.27560757446295);
             map.MoveToRegion(MapSpan.FromCenterAndRadius(initialPosition, Distance.FromMeters(200)));
         }
 
+        // Coordenadas fijas para comparación
+        private readonly double targetLatitude = 26.028688727720997;
+        private readonly double targetLongitude = -98.27560757446295;
+
         private DateTime entryTime; // Almacena la hora de entrada
         private DateTime exitTime;  // Almacena la hora de salida
+
+
 
         private async void OnEntryButtonClicked(object sender, EventArgs e)
         {
@@ -69,8 +76,13 @@ namespace GeoTimeTrack
                     entryButton.IsEnabled = false;
                     exitButton.IsEnabled = true;
 
-                    // Mostrar la ubicación de entrada en el campo de texto
-                    entryLocationEntry.Text = $"{location.Latitude} | {location.Longitude}";
+                    // // Mostrar la ubicación de entrada en el campo de texto // entryLocationEntry.Text = $"{location.Latitude} | {location.Longitude}";
+
+                    // Calcular la distancia entre las coordenadas fijas y la ubicación actual del usuario
+                    double distanceToTarget = Location.CalculateDistance(location.Latitude, location.Longitude, targetLatitude, targetLongitude, DistanceUnits.Kilometers);
+
+                    // Mostrar la distancia en el campo de texto
+                    entryLocationEntry.Text = $"{distanceToTarget:F2} km";
                 }
                 else
                 {
@@ -123,8 +135,13 @@ namespace GeoTimeTrack
                         exitDateEntry.Text = exitTime.ToString("dddd dd MMMM yyyy");
                         workTimeEntry.Text = timeDifference.ToString(@"hh\:mm\:ss");
 
-                        // Mostrar la ubicación de salida en el campo de texto
-                        exitLocationEntry.Text = $"{location.Latitude} | {location.Longitude}";
+                        // // Mostrar la ubicación de salida en el campo de texto // exitLocationEntry.Text = $"{location.Latitude} | {location.Longitude}";
+
+                        // Calcular la distancia entre las coordenadas fijas y la ubicación actual del usuario
+                        double distanceToTarget = Location.CalculateDistance(location.Latitude, location.Longitude, targetLatitude, targetLongitude, DistanceUnits.Kilometers);
+
+                        // Mostrar la distancia en el campo de texto
+                        exitLocationEntry.Text = $"{distanceToTarget:F2} km";
                     }
                     else
                     {

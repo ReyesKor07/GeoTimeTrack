@@ -14,5 +14,7 @@ namespace GeoTimeTrack.Data
         public DateTime ExitTime { get; set; }
         public double Latitude { get; set; }
         public double Longitude { get; set; }
+        public DateTime EntryDate { get; internal set; }
+        public string EntryDistance { get; internal set; }
     }
 }

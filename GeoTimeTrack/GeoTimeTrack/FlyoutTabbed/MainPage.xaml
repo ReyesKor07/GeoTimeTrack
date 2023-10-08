@@ -12,9 +12,27 @@
 
             <!-- Separador visual  -->
             <!-- <BoxView HeightRequest="100" Color="Transparent"/> -->
-            
             <Frame BorderColor="#F4F4F4" BackgroundColor="#F4F4F4" CornerRadius="10" HasShadow="True">
-                <maps:Map x:Name="map" BackgroundColor="#F4F4F4" HeightRequest="300"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <!-- Para el Picker -->
+                        <RowDefinition Height="*" />
+                        <!-- Para el Map -->
+                    </Grid.RowDefinitions>
+
+                    <!-- Picker para seleccionar el tipo de mapa -->
+                    <Picker x:Name="mapTypePicker" Grid.Row="0">
+                        <Picker.Title>Selecciona el tipo de mapa</Picker.Title>
+                        <Picker.Items>
+                            <x:String>Mapa</x:String>
+                            <x:String>Satélite</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                    <!-- Mapa -->
+                    <maps:Map x:Name="map" Grid.Row="1" BackgroundColor="#F4F4F4" HeightRequest="300" />
+                </Grid>
             </Frame>
 
             <Grid VerticalOptions="CenterAndExpand">
@@ -57,11 +75,11 @@
                 <Entry x:Name="entryDateEntry" Placeholder="Dia / Fecha / Mes / Año" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="14" IsReadOnly="True" BackgroundColor="#F2F2F2" HorizontalTextAlignment="Center"
                Grid.Row="4" Grid.Column="1" />
 
-                <Label Text=" Latitud y Longitud" TextColor="#1c2757" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Start"
+                <Label Text=" Distancia" TextColor="#1c2757" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Start"
                Grid.Row="5" Grid.Column="0" />
 
-                <Entry x:Name="entryLocationEntry" Placeholder="Latitud | Longitud" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="18" IsReadOnly="True" BackgroundColor="#F2F2F2" HorizontalTextAlignment="Center"
-               Grid.Row="5" Grid.Column="1" />
+                <Entry x:Name="entryLocationEntry" Placeholder="Distancia en metros" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="18" IsReadOnly="True" BackgroundColor="#F2F2F2" HorizontalTextAlignment="Center"
+                Grid.Row="5" Grid.Column="1" />
 
                 <!-- Salida -->
                 <Label Text="Salida" TextColor="DarkBlue" FontSize="23" FontAttributes="Bold" BackgroundColor="#95DFFB" HorizontalTextAlignment="Center"
@@ -79,10 +97,10 @@
                 <Entry x:Name="exitDateEntry" Placeholder="Dia / Fecha / Mes / Año" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="14" IsReadOnly="True" BackgroundColor="#F2F2F2" HorizontalTextAlignment="Center"
                  Grid.Row="8" Grid.Column="1" />
 
-                <Label Text=" Latitud y Longitud" TextColor="#1c2757" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Start"
+                <Label Text=" Distancia" TextColor="#1c2757" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Start"
                 Grid.Row="9" Grid.Column="0" />
 
-                <Entry x:Name="exitLocationEntry" Placeholder="Latitud | Longitud" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="18" IsReadOnly="True" BackgroundColor="#F2F2F2" HorizontalTextAlignment="Center"
+                <Entry x:Name="exitLocationEntry" Placeholder="Distancia en metros" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="18" IsReadOnly="True" BackgroundColor="#F2F2F2" HorizontalTextAlignment="Center"
                 Grid.Row="9" Grid.Column="1" />
             </Grid>
         </StackLayout>

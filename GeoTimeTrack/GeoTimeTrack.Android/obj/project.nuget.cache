@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "A9sm8dG1U2PUqBS70+UKq5yGvfiV089SNgjhaWpa/q9yFES7Im4K6W98kW4fjfp02aVVwzl9axqOmNkpz60TYA==",
+  "dgSpecHash": "YS0gwa7wbJwVYZ4PYp/4SMLQ6alkji0W19KKMt72u6X/wv8Gx1/dTuCl1wD8HGawgSrGBjiO11b+etx1PiSauQ==",
   "success": true,
   "projectFilePath": "D:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.Android\\GeoTimeTrack.Android.csproj",
   "expectedPackageFiles": [
@@ -12,6 +12,8 @@
     "C:\\Users\\brand\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3.android\\2.0.4\\sqlitepclraw.lib.e_sqlite3.android.2.0.4.nupkg.sha512",
     "C:\\Users\\brand\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\2.0.4\\sqlitepclraw.provider.e_sqlite3.2.0.4.nupkg.sha512",
     "C:\\Users\\brand\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
+    "C:\\Users\\brand\\.nuget\\packages\\system.data.sqlclient\\4.8.5\\system.data.sqlclient.4.8.5.nupkg.sha512",
+    "C:\\Users\\brand\\.nuget\\packages\\system.globalization.calendars\\4.3.0\\system.globalization.calendars.4.3.0.nupkg.sha512",
     "C:\\Users\\brand\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
     "C:\\Users\\brand\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Users\\brand\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "On/l5t4Akco1P2fLXPymEerw7OgPiKxlR06rZQ7ByM+lxkeRVi1tDPP1RG3urQWfqs05//8EkQq7x3gMLnXFjg==",
+  "dgSpecHash": "J3Xv6mCbNtSoFMkA0y1HKobSqL7zHHP/6gm6UDsWqWzLbyiFnh9lD9+qUqTyOd1DfIyqSiy8QZCCy68ZCqzAaw==",
   "success": true,
   "projectFilePath": "D:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.iOS\\GeoTimeTrack.iOS.csproj",
   "expectedPackageFiles": [
@@ -11,6 +11,8 @@
     "C:\\Users\\brand\\.nuget\\packages\\sqlitepclraw.core\\2.0.4\\sqlitepclraw.core.2.0.4.nupkg.sha512",
     "C:\\Users\\brand\\.nuget\\packages\\sqlitepclraw.provider.dynamic_cdecl\\2.0.4\\sqlitepclraw.provider.dynamic_cdecl.2.0.4.nupkg.sha512",
     "C:\\Users\\brand\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
+    "C:\\Users\\brand\\.nuget\\packages\\system.data.sqlclient\\4.8.5\\system.data.sqlclient.4.8.5.nupkg.sha512",
+    "C:\\Users\\brand\\.nuget\\packages\\system.globalization.calendars\\4.3.0\\system.globalization.calendars.4.3.0.nupkg.sha512",
     "C:\\Users\\brand\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
     "C:\\Users\\brand\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Users\\brand\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",

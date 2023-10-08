@@ -15,7 +15,7 @@
 
             <Label Text="Correo electrónico" TextColor="#1c2757" FontSize="18" FontAttributes="Bold" Margin="0,20,0,0"/>
 
-            <Entry Placeholder="Ingrese su correo electrónico" PlaceholderColor="#46474A" FontSize="16" BackgroundColor="#F4F4F4" TextColor="#1c2757"/>
+            <Entry x:Name="emailEntry" Placeholder="Ingrese su correo electrónico" PlaceholderColor="#46474A" FontSize="16" BackgroundColor="#F4F4F4" TextColor="#1c2757"/>
 
             <Label Text="Contraseña" TextColor="#1c2757" FontSize="18" FontAttributes="Bold" Margin="0,20,0,0"/>
 

@@ -13,11 +13,14 @@
 
             <Label Text="Crea tu cuenta" TextColor="#1c2757" FontSize="24" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
 
-            <Label Text="Nombre" TextColor="#1c2757" FontSize="18" FontAttributes="Bold" Margin="0,20,0,0"/>
+            <Label Text="Nombre(s)" TextColor="#1c2757" FontSize="18" FontAttributes="Bold" Margin="0,20,0,0"/>
             <Entry x:Name="usernameEntry" Placeholder="Nombre" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="18" BackgroundColor="#F4F4F4"/>
 
-            <Label Text="Apellidos" TextColor="#1c2757" FontSize="18" FontAttributes="Bold" Margin="0,20,0,0"/>
-            <Entry x:Name="userlastnameEntry" Placeholder="Apellidos" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="18" BackgroundColor="#F4F4F4"/>
+            <Label Text="Apellido Paterno" TextColor="#1c2757" FontSize="18" FontAttributes="Bold" Margin="0,20,0,0"/>
+            <Entry x:Name="userlastnameEntry" Placeholder="Apellido Paterno" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="18" BackgroundColor="#F4F4F4"/>
+
+            <Label Text="Apellido Materno" TextColor="#1c2757" FontSize="18" FontAttributes="Bold" Margin="0,20,0,0"/>
+            <Entry x:Name="usermiddlenameEntry" Placeholder="Apellido Materno" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="18" BackgroundColor="#F4F4F4"/>
 
             <Label Text="Correo electrónico" TextColor="#1c2757" FontSize="18" FontAttributes="Bold" Margin="0,20,0,0"/>
             <Entry x:Name="emailEntry" Placeholder="Correo electrónico" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="18" BackgroundColor="#F4F4F4"/>
