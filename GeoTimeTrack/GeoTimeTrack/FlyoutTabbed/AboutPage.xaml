@@ -7,24 +7,15 @@
              IconImageSource="About.png">
 
     <ContentPage.Content>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+        <StackLayout VerticalOptions="CenterAndExpand" Padding="20">
+            <Image Source="GeoTimeTransparent.png" HeightRequest="150" Aspect="AspectFit" HorizontalOptions="Center" Margin="0,0,0,30"/>
 
-            <!-- Imagen del lado izquierdo -->
-            <Frame BorderColor="#0a9ec8" BackgroundColor="#0a9ec8" HeightRequest="100" WidthRequest="100" HorizontalOptions="Center">
-                <Image Source="GeoTimeTransparent.png" VerticalOptions="CenterAndExpand" HeightRequest="100" Aspect="AspectFit" Opacity=".9" />
-            </Frame>
+            <Label Text="GeoTimeTrack" FontSize="28" TextColor="#1c2757" FontAttributes="Bold" HorizontalTextAlignment="Center" Margin="0,0,0,10"/>
 
-            <!-- Mensaje del lado derecho -->
-            <StackLayout Grid.Column="1" BackgroundColor="Transparent" VerticalOptions="CenterAndExpand" Margin="20" Padding="10">
-                <Label Text="GeoTimeTrack" FontSize="Title" FontAttributes="Bold"/>
-                <Label Text="Version: 1.0" FontSize="Subtitle"/>
-                <Label Text="Copyright © 2023 Reyes Inc." FontSize="Subtitle"/>
-            </StackLayout>
-        </Grid>
+            <Label Text="Version: 1.0" FontSize="18" TextColor="#1c2757" HorizontalTextAlignment="Center" Margin="0,0,0,5"/>
+
+            <Label Text="Copyright © 2023 Reyes Inc." FontSize="18" TextColor="#1c2757" HorizontalTextAlignment="Center" Margin="0,0,0,0"/>
+        </StackLayout>
     </ContentPage.Content>
 
 </ContentPage>

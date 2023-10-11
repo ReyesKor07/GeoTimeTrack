@@ -9,31 +9,26 @@
 
     <ScrollView>
         <StackLayout Margin="20" Spacing="20" VerticalOptions="CenterAndExpand">
-
+            <Label Text="Hola: " TextColor="DarkRed" FontSize="25" FontAttributes="Bold" BackgroundColor="#FFC3BF" HorizontalTextAlignment="Center"></Label>
             <!-- Separador visual  -->
             <!-- <BoxView HeightRequest="100" Color="Transparent"/> -->
-            <Frame BorderColor="#F4F4F4" BackgroundColor="#F4F4F4" CornerRadius="10" HasShadow="True">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <!-- Para el Picker -->
-                        <RowDefinition Height="*" />
-                        <!-- Para el Map -->
-                    </Grid.RowDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
 
-                    <!-- Picker para seleccionar el tipo de mapa -->
-                    <Picker x:Name="mapTypePicker" Grid.Row="0">
-                        <Picker.Title>Selecciona el tipo de mapa</Picker.Title>
-                        <Picker.Items>
-                            <x:String>Mapa</x:String>
-                            <x:String>Satélite</x:String>
-                        </Picker.Items>
-                    </Picker>
+                <!-- Mapa -->
+                <maps:Map x:Name="map" Grid.Row="0" BackgroundColor="#F4F4F4" HeightRequest="300" />
 
-                    <!-- Mapa -->
-                    <maps:Map x:Name="map" Grid.Row="1" BackgroundColor="#F4F4F4" HeightRequest="300" />
-                </Grid>
-            </Frame>
+                <!-- Interruptor para cambiar el tipo de mapa -->
+                <Frame Grid.Row="1" BorderColor="#F4F4F4" CornerRadius="10" HasShadow="True" Padding="10">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Label Text="Cambiar a Satélite" FontSize="Medium" VerticalOptions="Center"/>
+                        <Switch x:Name="mapTypeSwitch" HorizontalOptions="Center" Margin="10,0,0,0"/>
+                    </StackLayout>
+                </Frame>
+            </Grid>
 
             <Grid VerticalOptions="CenterAndExpand">
                 <Grid.RowDefinitions> <RowDefinition Height="Auto" /> </Grid.RowDefinitions>
@@ -75,7 +70,7 @@
                 <Entry x:Name="entryDateEntry" Placeholder="Dia / Fecha / Mes / Año" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="14" IsReadOnly="True" BackgroundColor="#F2F2F2" HorizontalTextAlignment="Center"
                Grid.Row="4" Grid.Column="1" />
 
-                <Label Text=" Distancia" TextColor="#1c2757" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Start"
+                <Label Text=" Distancia (Km)" TextColor="#1c2757" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Start"
                Grid.Row="5" Grid.Column="0" />
 
                 <Entry x:Name="entryLocationEntry" Placeholder="Distancia en metros" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="18" IsReadOnly="True" BackgroundColor="#F2F2F2" HorizontalTextAlignment="Center"
@@ -97,7 +92,7 @@
                 <Entry x:Name="exitDateEntry" Placeholder="Dia / Fecha / Mes / Año" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="14" IsReadOnly="True" BackgroundColor="#F2F2F2" HorizontalTextAlignment="Center"
                  Grid.Row="8" Grid.Column="1" />
 
-                <Label Text=" Distancia" TextColor="#1c2757" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Start"
+                <Label Text=" Distancia (Km)" TextColor="#1c2757" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Start"
                 Grid.Row="9" Grid.Column="0" />
 
                 <Entry x:Name="exitLocationEntry" Placeholder="Distancia en metros" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="18" IsReadOnly="True" BackgroundColor="#F2F2F2" HorizontalTextAlignment="Center"
