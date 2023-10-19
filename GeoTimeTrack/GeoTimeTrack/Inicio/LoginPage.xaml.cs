@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Data;
+using GeoTimeTrack.Data;
 
 namespace GeoTimeTrack
 {
@@ -43,63 +45,61 @@ namespace GeoTimeTrack
                     return;
                 }
 
-                /*IP Casa*/
-                SqlConnection cn = new SqlConnection(@"Data source = 192.168.0.11; Initial Catalog = BD_GeoTimeTrack; Integrated Security=False; User Id= BD_GeoTimeTrack; Password=Xamarin2023");
-                /*IP Secundaria*/
-                // SqlConnection cn = new SqlConnection(@"Data source = 192.168.1.129; Initial Catalog = BD_GeoTimeTrack; Integrated Security=False; User Id= BD_GeoTimeTrack; Password=Xamarin2023");
-                /*IP UAT*/
-                // SqlConnection cn = new SqlConnection(@"Data source = 172.23.145.36; Initial Catalog = BD_GeoTimeTrack; Integrated Security=False; User Id= BD_GeoTimeTrack; Password=Xamarin2023");
+                ConexionSQLServer.Abrir();
 
+                // Consulta SQL para verificar si el correo existe en la base de datos
+                string emailCheckQuery = "SELECT COUNT(*) FROM Usuario WHERE Email = @email";
+                using (SqlCommand emailCheckCmd = new SqlCommand(emailCheckQuery, ConexionSQLServer.cn))
                 {
-                    cn.Open();
-                    // Consulta SQL para verificar si el correo existe en la base de datos
-                    string emailCheckQuery = "SELECT COUNT(*) FROM Usuario WHERE Email = @email";
-                    using (SqlCommand emailCheckCmd = new SqlCommand(emailCheckQuery, cn))
-                    {
-                        emailCheckCmd.Parameters.AddWithValue("@email", emailEntry.Text);
-                        int emailCount = (int)emailCheckCmd.ExecuteScalar();
+                    emailCheckCmd.Parameters.AddWithValue("@email", emailEntry.Text);
+                    int emailCount = (int)emailCheckCmd.ExecuteScalar();
 
-                        if (emailCount == 0)
-                        {
-                            // El correo no existe
-                            DisplayAlert("Error", "El correo proporcionado no existe.", "OK");
-                            return;
-                        }
-                    }
-                    // Consulta SQL para obtener el usuario por correo y contraseña
-                    string query = "SELECT IdUsuario, Nombre, ApellidoP FROM Usuario WHERE Email = @email AND Password = @password";
-                    using (SqlCommand cmd = new SqlCommand(query, cn))
+                    if (emailCount == 0)
                     {
-                        cmd.Parameters.AddWithValue("@email", emailEntry.Text);
-                        cmd.Parameters.AddWithValue("@password", passwordEntry.Text);
-                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        // El correo no existe
+                        DisplayAlert("Error", "El correo proporcionado no existe.", "OK");
+                        return;
+                    }
+                }
+
+                // Consulta SQL para obtener el usuario por correo y contraseña
+                string query = "SELECT IdUsuario, Nombre, ApellidoP FROM Usuario WHERE Email = @email AND Password = @password";
+                using (SqlCommand cmd = new SqlCommand(query, ConexionSQLServer.cn))
+                {
+                    cmd.Parameters.AddWithValue("@email", emailEntry.Text);
+                    cmd.Parameters.AddWithValue("@password", passwordEntry.Text);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
                         {
-                            if (reader.Read())
-                            {
-                                string nombre = reader.GetString(reader.GetOrdinal("Nombre"));
-                                string apellidoP = reader.GetString(reader.GetOrdinal("ApellidoP"));
-                                int userId = reader.GetInt32(reader.GetOrdinal("IdUsuario"));
-                                Name = nombre;
-                                LastName = apellidoP;
-                                UserID = userId;
-                                DisplayAlert("Bienvenido", $"Hola {nombre} {apellidoP}, ID: {userId}", "OK");
-                                Clear(); navigation();
-                            }
-                            else
-                            {
-                                // Contraseña incorrecta
-                                DisplayAlert("Error", "La contraseña es incorrecta.", "OK");
-                            }
+                            string nombre = reader.GetString(reader.GetOrdinal("Nombre"));
+                            string apellidoP = reader.GetString(reader.GetOrdinal("ApellidoP"));
+                            int userId = reader.GetInt32(reader.GetOrdinal("IdUsuario"));
+                            Name = nombre;
+                            LastName = apellidoP;
+                            UserID = userId;
+                            DisplayAlert("Bienvenido", $"Hola {nombre} {apellidoP}, ID: {userId}", "OK");
+                            Clear();
+                            navigation();
+                        }
+                        else
+                        {
+                            // Contraseña incorrecta
+                            DisplayAlert("Error", "La contraseña es incorrecta.", "OK");
                         }
                     }
-                    cn.Close();
                 }
             }
             catch (Exception ex)
             {
-                DisplayAlert("Error", ex.Message, "OK");
+                DisplayAlert("Error", ex.Message + "LoginPage", "OK");
+            }
+            finally
+            {
+                ConexionSQLServer.Cerrar();
             }
         }
+
 
         private async void OnForgotPasswordLabelTapped(object sender, EventArgs e)
         {

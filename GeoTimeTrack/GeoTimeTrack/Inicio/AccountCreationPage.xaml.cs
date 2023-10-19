@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using GeoTimeTrack.Data;
 
 namespace GeoTimeTrack
 {
@@ -37,51 +38,38 @@ namespace GeoTimeTrack
                     DisplayAlert("Error", "Por favor, complete todos los campos.", "OK");
                     return;
                 }
-
-                /*IP Casa*/
-                SqlConnection cn = new SqlConnection(@"Data source = 192.168.0.11; Initial Catalog = BD_GeoTimeTrack; Integrated Security=False; User Id= BD_GeoTimeTrack; Password=Xamarin2023");
-                /*IP Secundaria*/
-                // SqlConnection cn = new SqlConnection(@"Data source = 192.168.1.129; Initial Catalog = BD_GeoTimeTrack; Integrated Security=False; User Id= BD_GeoTimeTrack; Password=Xamarin2023");
-                /*IP UAT*/
-                // SqlConnection cn = new SqlConnection(@"Data source = 172.23.145.36; Initial Catalog = BD_GeoTimeTrack; Integrated Security=False; User Id= BD_GeoTimeTrack; Password=Xamarin2023");
-
-                if (cn.State == System.Data.ConnectionState.Closed)
+                ConexionSQLServer.Abrir();
+                string emailCheckQuery = "SELECT COUNT(*) FROM Usuario WHERE Email = @email"; // Consulta SQL para verificar si el correo electrónico ya existe
+                using (SqlCommand emailCheckCmd = new SqlCommand(emailCheckQuery, ConexionSQLServer.cn))
                 {
-                    cn.Open();
+                    emailCheckCmd.Parameters.AddWithValue("@email", emailEntry.Text);
+                    int emailCount = (int)emailCheckCmd.ExecuteScalar();
 
-                    // Consulta SQL para verificar si el correo electrónico ya existe
-                    string emailCheckQuery = "SELECT COUNT(*) FROM Usuario WHERE Email = @email";
-                    using (SqlCommand emailCheckCmd = new SqlCommand(emailCheckQuery, cn))
+                    if (emailCount > 0)
                     {
-                        emailCheckCmd.Parameters.AddWithValue("@email", emailEntry.Text);
-                        int emailCount = (int)emailCheckCmd.ExecuteScalar();
-
-                        if (emailCount > 0)
-                        {
-                            // El correo ya existe
-                            DisplayAlert("Error", "El correo proporcionado ya está registrado.", "OK");
-                        }
-                        else
-                        {
-                            // El correo no existe, insertar el nuevo usuario
-                            SqlCommand cmd = new SqlCommand("INSERT INTO Usuario(Nombre, ApellidoP, ApellidoM, Email, Password) VALUES (@name, @apellidoP, @apellidoM, @email, @password)", cn);
-                            cmd.CommandType = System.Data.CommandType.Text;
-                            cmd.Parameters.AddWithValue("@name", usernameEntry.Text);
-                            cmd.Parameters.AddWithValue("@apellidoP", userlastnameEntry.Text);
-                            cmd.Parameters.AddWithValue("@apellidoM", usermiddlenameEntry.Text);
-                            cmd.Parameters.AddWithValue("@email", emailEntry.Text);
-                            cmd.Parameters.AddWithValue("@password", passwordEntry.Text);
-                            cmd.ExecuteNonQuery();
-                            DisplayAlert("Info", "Usuario creado con éxito", "OK");
-                            Clear();
-                        }
+                        // El correo ya existe
+                        DisplayAlert("Error", "El correo proporcionado ya está registrado.", "OK");
                     }
-                    cn.Close();
+                    else
+                    {
+                        // El correo no existe, insertar el nuevo usuario
+                        SqlCommand cmd = new SqlCommand("INSERT INTO Usuario(Nombre, ApellidoP, ApellidoM, Email, Password) VALUES (@name, @apellidoP, @apellidoM, @email, @password)", ConexionSQLServer.cn);
+                        cmd.CommandType = System.Data.CommandType.Text;
+                        cmd.Parameters.AddWithValue("@name", usernameEntry.Text);
+                        cmd.Parameters.AddWithValue("@apellidoP", userlastnameEntry.Text);
+                        cmd.Parameters.AddWithValue("@apellidoM", usermiddlenameEntry.Text);
+                        cmd.Parameters.AddWithValue("@email", emailEntry.Text);
+                        cmd.Parameters.AddWithValue("@password", passwordEntry.Text);
+                        cmd.ExecuteNonQuery();
+                        DisplayAlert("Info", "Usuario creado con éxito", "OK");
+                        Clear();
+                    }
                 }
+                ConexionSQLServer.Cerrar();
             }
             catch (Exception ex)
             {
-                DisplayAlert("Error", ex.Message, "OK");
+                DisplayAlert("Error", ex.Message + "AccountCreatePage", "OK");
             }
         }
 

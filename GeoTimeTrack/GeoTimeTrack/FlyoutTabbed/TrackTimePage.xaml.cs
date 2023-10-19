@@ -26,6 +26,10 @@ namespace GeoTimeTrack.FlyoutTabbed
         public decimal DistanciaEntrada { get; set; }
         public decimal DistanciaSalida { get; set; }
         public string TiempoTotal { get; set; }
+
+        public static DateTime EntradaFecha { get; set; }
+        public static string EntradaHora { get; set; }
+        public static string SalidaHora { get; set; }
     }
 
     public partial class TrackTimePage : ContentPage
@@ -35,7 +39,8 @@ namespace GeoTimeTrack.FlyoutTabbed
         public TrackTimePage()
         {
             InitializeComponent();
-            UserId = LoginPage.UserID;
+            // UserId = LoginPage.UserID;
+            UserId = 16;
             List<Registro> userRecords = ObtenerRegistrosDeUsuario(UserId); // Obtener los registros de tiempo del usuario en función de su ID
             Registro.ItemsSource = userRecords; // Configurar el ListView
         }
@@ -55,9 +60,7 @@ namespace GeoTimeTrack.FlyoutTabbed
                 try
                 {
                     cn.Open();
-
                     string query = "SELECT FechaEntrada, HoraEntrada, HoraSalida, DistanciaEntrada, DistanciaSalida, TiempoTotal FROM Registro WHERE IdUsuario = @userId";
-                    // string query = "SELECT FechaEntrada, DistanciaEntrada, DistanciaSalida FROM Registro WHERE IdUsuario = @userId";
                     using (SqlCommand cmd = new SqlCommand(query, cn))
                     {
                         cmd.Parameters.AddWithValue("@userId", UserId);
@@ -72,7 +75,7 @@ namespace GeoTimeTrack.FlyoutTabbed
                                     HoraSalida = reader.GetTimeSpan(reader.GetOrdinal("HoraSalida")).ToString(),
                                     DistanciaEntrada = reader.GetDecimal(reader.GetOrdinal("DistanciaEntrada")),
                                     DistanciaSalida = reader.GetDecimal(reader.GetOrdinal("DistanciaSalida")),
-                                    TiempoTotal = reader.GetTimeSpan(reader.GetOrdinal("TiempoTotal")).ToString()
+                                    TiempoTotal = reader.GetTimeSpan(reader.GetOrdinal("TiempoTotal")).ToString(),
                                 };
                                 registros.Add(registro);
                             }

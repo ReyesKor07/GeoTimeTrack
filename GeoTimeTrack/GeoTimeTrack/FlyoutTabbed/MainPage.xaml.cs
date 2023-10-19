@@ -39,29 +39,6 @@ namespace GeoTimeTrack
             string mapTypeText = e.Value ? "Satélite" : "Mapa"; // Cambiar el texto del Label para reflejar el estado actual
         }
 
-        //public MainPage()
-        //{
-        //    InitializeComponent();
-
-        //    // Establecer la posición inicial del mapa
-        //    Position initialPosition = new Position(26.028688727720997, -98.27560757446295);
-        //    map.MoveToRegion(MapSpan.FromCenterAndRadius(initialPosition, Distance.FromMeters(200)));
-
-        //    // Agregar un controlador de eventos al Switch
-        //    mapTypeSwitch.Toggled += MapTypeSwitch_Toggled;
-        //}
-
-        //private void MapTypeSwitch_Toggled(object sender, ToggledEventArgs e)
-        //{
-        //    // Cambiar el tipo de mapa (MapType) en función del estado del Switch
-        //    map.MapType = e.Value ? MapType.Satellite : MapType.Street;
-
-        //    // Cambiar el texto del Label para reflejar el estado actual
-        //    string mapTypeText = e.Value ? "Satélite" : "Mapa";
-        //    // Actualizar el texto del Label
-        //    // (asumiendo que tienes un Label para mostrar el tipo de mapa)
-        //}
-
         // Coordenadas fijas para comparación
         private readonly double targetLatitude = 26.028688727720997;
         private readonly double targetLongitude = -98.27560757446295;
@@ -252,7 +229,7 @@ namespace GeoTimeTrack
             }
             catch (Exception ex)
             {
-                DisplayAlert("Error", ex.Message, "Okay");
+                DisplayAlert("Error", ex.Message + "MainPage.Conexion", "OK");
             }
         }
     }

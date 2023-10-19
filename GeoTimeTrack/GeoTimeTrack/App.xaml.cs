@@ -13,9 +13,11 @@ namespace GeoTimeTrack
 
             // Envolver la página en un NavigationPage
             // MainPage = new MainPage();
-            MainPage = new TrackTimePage();
+            // MainPage = new TrackTimePage();
             // MainPage = new NavigationPage(new HomePage());
             // MainPage = new NavigationPage(new DeploymentPage());
+            // MainPage = new NavigationPage(new AccountCreationPage());
+            MainPage = new NavigationPage(new LoginPage());
         }
 
         protected override void OnStart()
