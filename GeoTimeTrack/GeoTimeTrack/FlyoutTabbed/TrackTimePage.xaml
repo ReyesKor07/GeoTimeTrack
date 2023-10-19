@@ -2,12 +2,54 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GeoTimeTrack.FlyoutTabbed.TrackTimePage"
+             x:Name="trackTimePage"
              BackgroundColor="White"
              Title="TrackTime" 
              IconImageSource="TrackTime.png">
 
     <ScrollView>
-
+        <ListView x:Name="Registro" SeparatorColor="#1c2757" HasUnevenRows="True">
+            <ListView.Header>
+                <Grid BackgroundColor="#F5F5F5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Fecha Entrada" Grid.Column="0" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" />
+                    <Label Text="Hora Entrada" Grid.Column="1" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" />
+                    <Label Text="Hora Salida" Grid.Column="2" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" />
+                    <Label Text="Distancia Entrada" Grid.Column="3" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" />
+                    <Label Text="Distancia Salida" Grid.Column="4" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" />
+                    <Label Text="Tiempo Total" Grid.Column="5" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" />
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid BackgroundColor="White" Padding="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="2*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding FechaEntrada, StringFormat='{0:yyyy/MM/dd}'}" Grid.Column="0" HorizontalOptions="CenterAndExpand" />
+                            <Label Text="{Binding HoraEntrada}" Grid.Column="1" HorizontalOptions="CenterAndExpand" />
+                            <Label Text="{Binding HoraSalida}" Grid.Column="2" HorizontalOptions="CenterAndExpand" />
+                            <Label Text="{Binding DistanciaEntrada}" Grid.Column="3" HorizontalOptions="CenterAndExpand" />
+                            <Label Text="{Binding DistanciaSalida}" Grid.Column="4" HorizontalOptions="CenterAndExpand" />
+                            <Label Text="{Binding TiempoTotal}" Grid.Column="5" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </ScrollView>
 
 </ContentPage>

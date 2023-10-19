@@ -9,7 +9,9 @@
 
     <ScrollView>
         <StackLayout Margin="20" Spacing="20" VerticalOptions="CenterAndExpand">
-            <Label Text="Hola: " TextColor="DarkRed" FontSize="25" FontAttributes="Bold" BackgroundColor="#FFC3BF" HorizontalTextAlignment="Center"></Label>
+
+            <Label x:Name="HolaLabel" Text="" TextColor="DarkBlue" FontSize="25" FontAttributes="Bold" BackgroundColor="White" HorizontalTextAlignment="Center"></Label>
+            
             <!-- Separador visual  -->
             <!-- <BoxView HeightRequest="100" Color="Transparent"/> -->
             <Grid>
@@ -67,10 +69,10 @@
                 <Label Text=" Fecha" TextColor="#1c2757" FontSize="20" FontAttributes="Bold"
                Grid.Row="4" Grid.Column="0" />
 
-                <Entry x:Name="entryDateEntry" Placeholder="Dia / Fecha / Mes / Año" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="14" IsReadOnly="True" BackgroundColor="#F2F2F2" HorizontalTextAlignment="Center"
+                <Entry x:Name="entryDateEntry" Placeholder="Año - Mes - Fecha" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="16" IsReadOnly="True" BackgroundColor="#F2F2F2" HorizontalTextAlignment="Center"
                Grid.Row="4" Grid.Column="1" />
 
-                <Label Text=" Distancia (Km)" TextColor="#1c2757" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Start"
+                <Label Text=" Distancia (m)" TextColor="#1c2757" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Start"
                Grid.Row="5" Grid.Column="0" />
 
                 <Entry x:Name="entryLocationEntry" Placeholder="Distancia en metros" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="18" IsReadOnly="True" BackgroundColor="#F2F2F2" HorizontalTextAlignment="Center"
@@ -89,10 +91,10 @@
                 <Label Text=" Fecha" TextColor="#1c2757" FontSize="20" FontAttributes="Bold"
                 Grid.Row="8" Grid.Column="0" />
 
-                <Entry x:Name="exitDateEntry" Placeholder="Dia / Fecha / Mes / Año" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="14" IsReadOnly="True" BackgroundColor="#F2F2F2" HorizontalTextAlignment="Center"
+                <Entry x:Name="exitDateEntry" Placeholder="Año - Mes - Fecha" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="16" IsReadOnly="True" BackgroundColor="#F2F2F2" HorizontalTextAlignment="Center"
                  Grid.Row="8" Grid.Column="1" />
 
-                <Label Text=" Distancia (Km)" TextColor="#1c2757" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Start"
+                <Label Text=" Distancia (m)" TextColor="#1c2757" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Start"
                 Grid.Row="9" Grid.Column="0" />
 
                 <Entry x:Name="exitLocationEntry" Placeholder="Distancia en metros" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="18" IsReadOnly="True" BackgroundColor="#F2F2F2" HorizontalTextAlignment="Center"

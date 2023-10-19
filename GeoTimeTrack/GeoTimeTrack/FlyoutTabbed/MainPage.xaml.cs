@@ -17,28 +17,50 @@ namespace GeoTimeTrack
 {
     public partial class MainPage : ContentPage
     {
+        string Nombre;
+        string ApellidoP;
+        int UserId;
+
         public MainPage()
         {
             InitializeComponent();
-
-            // Establecer la posición inicial del mapa
-            Position initialPosition = new Position(26.028688727720997, -98.27560757446295);
+            Nombre = LoginPage.Name;
+            ApellidoP = LoginPage.LastName;
+            UserId = LoginPage.UserID;
+            HolaLabel.Text = $"Hola {Nombre} {ApellidoP}, ID:{UserId}";
+            Position initialPosition = new Position(26.028688727720997, -98.27560757446295); // Establecer la posición inicial del mapa
             map.MoveToRegion(MapSpan.FromCenterAndRadius(initialPosition, Distance.FromMeters(200)));
-
-            // Agregar un controlador de eventos al Switch
-            mapTypeSwitch.Toggled += MapTypeSwitch_Toggled;
+            mapTypeSwitch.Toggled += MapTypeSwitch_Toggled; // Agregar un controlador de eventos al Switch
         }
 
         private void MapTypeSwitch_Toggled(object sender, ToggledEventArgs e)
         {
-            // Cambiar el tipo de mapa (MapType) en función del estado del Switch
-            map.MapType = e.Value ? MapType.Satellite : MapType.Street;
-
-            // Cambiar el texto del Label para reflejar el estado actual
-            string mapTypeText = e.Value ? "Satélite" : "Mapa";
-            // Actualizar el texto del Label
-            // (asumiendo que tienes un Label para mostrar el tipo de mapa)
+            map.MapType = e.Value ? MapType.Satellite : MapType.Street; // Cambiar el tipo de mapa (MapType) en función del estado del Switch
+            string mapTypeText = e.Value ? "Satélite" : "Mapa"; // Cambiar el texto del Label para reflejar el estado actual
         }
+
+        //public MainPage()
+        //{
+        //    InitializeComponent();
+
+        //    // Establecer la posición inicial del mapa
+        //    Position initialPosition = new Position(26.028688727720997, -98.27560757446295);
+        //    map.MoveToRegion(MapSpan.FromCenterAndRadius(initialPosition, Distance.FromMeters(200)));
+
+        //    // Agregar un controlador de eventos al Switch
+        //    mapTypeSwitch.Toggled += MapTypeSwitch_Toggled;
+        //}
+
+        //private void MapTypeSwitch_Toggled(object sender, ToggledEventArgs e)
+        //{
+        //    // Cambiar el tipo de mapa (MapType) en función del estado del Switch
+        //    map.MapType = e.Value ? MapType.Satellite : MapType.Street;
+
+        //    // Cambiar el texto del Label para reflejar el estado actual
+        //    string mapTypeText = e.Value ? "Satélite" : "Mapa";
+        //    // Actualizar el texto del Label
+        //    // (asumiendo que tienes un Label para mostrar el tipo de mapa)
+        //}
 
         // Coordenadas fijas para comparación
         private readonly double targetLatitude = 26.028688727720997;
@@ -50,6 +72,7 @@ namespace GeoTimeTrack
         private decimal entrylatitudeEntry;
         private decimal exitlongitudeEntry;
         private decimal exitlatitudeEntry;
+        private int IDuserEntry;
 
         private async void OnEntryButtonClicked(object sender, EventArgs e)
         {
@@ -61,8 +84,7 @@ namespace GeoTimeTrack
 
                 if (location != null)
                 {
-                    // Crear una instancia de TimeEntry para la entrada y guardarla en la base de datos
-                    var entry = new TimeEntry
+                    var entry = new TimeEntry // Crea una instancia de TimeEntry para la entrada y guarda en la base de datos
                     {
                         EntryTime = entryTime,
                         Latitude = location.Latitude,
@@ -72,8 +94,7 @@ namespace GeoTimeTrack
                     var dbHelper = new DatabaseHelper();
                     await dbHelper.InsertTimeEntry(entry);
 
-                    // Agregar un marcador al mapa para la ubicación de entrada
-                    Pin entryLocationPin = new Pin
+                    Pin entryLocationPin = new Pin // Agregar un marcador al mapa para la ubicación de entrada
                     {
                         Type = PinType.Place,
                         Label = "Entrada",
@@ -81,21 +102,17 @@ namespace GeoTimeTrack
                     };
                     map.Pins.Add(entryLocationPin);
 
-                    // Actualizar los campos de la interfaz con la hora y ubicación de entrada
-                    entryTimeEntry.Text = entryTime.ToString("HH:mm:ss");
+                    entryTimeEntry.Text = entryTime.ToString("HH:mm:ss"); // Actualizar los campos de la interfaz con la hora y ubicación de entrada
                     // entryDateEntry.Text = entryTime.ToString("dddd dd MMMM yyyy");
                     entryDateEntry.Text = entryTime.ToString("yyyy-MM-dd");
 
-                    // Centrar el mapa en la ubicación de entrada
-                    var newMapSpan = MapSpan.FromCenterAndRadius(entryLocationPin.Position, Distance.FromMeters(20));
+                    var newMapSpan = MapSpan.FromCenterAndRadius(entryLocationPin.Position, Distance.FromMeters(20)); // Centrar el mapa en la ubicación de entrada
                     map.MoveToRegion(newMapSpan);
 
-                    // Deshabilitar el botón de entrada y habilitar el de salida
-                    entryButton.IsEnabled = false;
+                    entryButton.IsEnabled = false; // Deshabilitar el botón de entrada y habilitar el de salida
                     exitButton.IsEnabled = true;
 
-                    // Ubicación de entrada
-                    // entryLocationEntry.Text = $"{location.Latitude} | {location.Longitude}";
+                    // entryLocationEntry.Text = $"{location.Latitude} | {location.Longitude}"; // Ubicación de entrada
 
                     entrylongitudeEntry = ((decimal)location.Latitude);
                     entrylatitudeEntry = ((decimal)location.Longitude);
@@ -103,8 +120,7 @@ namespace GeoTimeTrack
                     // Calcular la distancia entre las coordenadas fijas y la ubicación actual del usuario
                     double distanceToTarget = Location.CalculateDistance(location.Latitude, location.Longitude, targetLatitude, targetLongitude, DistanceUnits.Kilometers);
 
-                    // Mostrar la distancia en el campo de texto
-                    entryLocationEntry.Text = $"{distanceToTarget:F2}";
+                    entryLocationEntry.Text = $"{distanceToTarget:F2}"; // Mostrar la distancia en el campo de texto
                 }
                 else
                 {
@@ -129,8 +145,7 @@ namespace GeoTimeTrack
 
                     if (location != null)
                     {
-                        // Crear una instancia de TimeEntry para la salida y guardarla en la base de datos
-                        var exitEntry = new TimeEntry
+                        var exitEntry = new TimeEntry // Crear una instancia de TimeEntry para la salida y guardarla en la base de datos
                         {
                             ExitTime = exitTime,
                             Latitude = location.Latitude,
@@ -140,8 +155,7 @@ namespace GeoTimeTrack
                         var dbHelper = new DatabaseHelper();
                         await dbHelper.InsertTimeEntry(exitEntry);
 
-                        // Agregar un marcador al mapa para la ubicación de salida
-                        Pin exitLocationPin = new Pin
+                        Pin exitLocationPin = new Pin // Agregar un marcador al mapa para la ubicación de salida
                         {
                             Type = PinType.Place,
                             Label = "Salida",
@@ -149,26 +163,23 @@ namespace GeoTimeTrack
                         };
                         map.Pins.Add(exitLocationPin);
 
-                        // Calcular la diferencia de tiempo entre entrada y salida
-                        TimeSpan timeDifference = exitTime - entryTime;
+                        TimeSpan timeDifference = exitTime - entryTime; // Calcular la diferencia de tiempo entre entrada y salida
 
-                        // Actualizar los campos de la interfaz con la hora y ubicación de salida
-                        exitTimeEntry.Text = exitTime.ToString("HH:mm:ss");
-                            // exitDateEntry.Text = exitTime.ToString("dddd dd MMMM yyyy");
+                        exitTimeEntry.Text = exitTime.ToString("HH:mm:ss"); // Actualizar los campos de la interfaz con la hora y ubicación de salida
+                     // exitDateEntry.Text = exitTime.ToString("dddd dd MMMM yyyy");
                         exitDateEntry.Text = exitTime.ToString("yyyy-MM-dd");
                         workTimeEntry.Text = timeDifference.ToString(@"hh\:mm\:ss");
-
-                        // Ubicación de salida
-                        // exitLocationEntry.Text = $"{location.Latitude} | {location.Longitude}";
+                        // exitLocationEntry.Text = $"{location.Latitude} | {location.Longitude}"; // Ubicación de salida
 
                         exitlongitudeEntry = ((decimal)location.Latitude);
                         exitlatitudeEntry = ((decimal)location.Longitude);
 
+                        IDuserEntry = UserId;
+
                         // Calcular la distancia entre las coordenadas fijas y la ubicación actual del usuario
                         double distanceToTarget = Location.CalculateDistance(location.Latitude, location.Longitude, targetLatitude, targetLongitude, DistanceUnits.Kilometers);
 
-                        // Mostrar la distancia en el campo de texto
-                        exitLocationEntry.Text = $"{distanceToTarget:F2}";
+                        exitLocationEntry.Text = $"{distanceToTarget:F2}"; // Mostrar la distancia en el campo de texto
                     }
                     else
                     {
@@ -194,33 +205,31 @@ namespace GeoTimeTrack
 
         //public void Clear()
         //{
-        //    entryTimeEntry.Text = null;
-        //    entryDateEntry.Text = null;
-        //    entrylongitudeEntry = 0;
-        //    entrylatitudeEntry = 0;
-        //    entryLocationEntry.Text = null;
-
-        //    exitTimeEntry.Text = null;
-        //    exitDateEntry.Text = null;
-        //    exitlongitudeEntry = 0;
-        //    exitlatitudeEntry = 0;
-        //    exitLocationEntry.Text = null;
-
-        //    workTimeEntry.Text = null;
+        //    /*Borrar datos Entrada Entry*/
+        //    entryTimeEntry.Text = null; entryDateEntry.Text = null; entrylongitudeEntry = 0; entrylatitudeEntry = 0; entryLocationEntry.Text = null;
+        //    /*Borrar datos Salida Entry*/
+        //    exitTimeEntry.Text = null; exitDateEntry.Text = null; exitlongitudeEntry = 0; exitlatitudeEntry = 0;
+        //    exitLocationEntry.Text = null; // workTimeEntry.Text = null;
         //}
 
         public void Conexion()
         {
             try
             {
-                SqlConnection cn = new SqlConnection(@"Data source = 192.168.0.9; Initial Catalog = BD_GeoTimeTrack; Integrated Security=False; User Id= BD_GeoTimeTrack; Password=Xamarin2023");
-
+                /*IP Casa*/
+                SqlConnection cn = new SqlConnection(@"Data source = 192.168.0.11; Initial Catalog = BD_GeoTimeTrack; Integrated Security=False; User Id= BD_GeoTimeTrack; Password=Xamarin2023");
+                /*IP Secundaria*/
+                // SqlConnection cn = new SqlConnection(@"Data source = 192.168.1.129; Initial Catalog = BD_GeoTimeTrack; Integrated Security=False; User Id= BD_GeoTimeTrack; Password=Xamarin2023");
+                /*IP UAT*/
+                // SqlConnection cn = new SqlConnection(@"Data source = 172.23.145.36; Initial Catalog = BD_GeoTimeTrack; Integrated Security=False; User Id= BD_GeoTimeTrack; Password=Xamarin2023");
                 if (cn.State == System.Data.ConnectionState.Closed)
                 {
                     cn.Open();
 
-                    SqlCommand cmd = new SqlCommand("INSERT INTO Registro(HoraEntrada, FechaEntrada, LatitudEntrada, LongitudEntrada, DistanciaEntrada, HoraSalida, FechaSalida, LatitudSalida, LongitudSalida, DistanciaSalida, TiempoTrabajado)VALUES(@entryTime, @entryDate, @entrylongitude, @entrylatitude, @entryLocation, @exitTime, @exitDate, @exitlongitude, @exitlatitude, @exitLocation, @workTime)", cn);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO Registro(IdUsuario, HoraEntrada, FechaEntrada, LatitudEntrada, LongitudEntrada, DistanciaEntrada, HoraSalida, FechaSalida, LatitudSalida, LongitudSalida, DistanciaSalida, TiempoTotal)VALUES(@iduser, @entryTime, @entryDate, @entrylongitude, @entrylatitude, @entryLocation, @exitTime, @exitDate, @exitlongitude, @exitlatitude, @exitLocation, @workTime)", cn);
                     cmd.CommandType = System.Data.CommandType.Text;
+                    /*ID Usuario*/
+                    cmd.Parameters.AddWithValue("@iduser", IDuserEntry);
                     /*Entrada*/
                     cmd.Parameters.AddWithValue("@entryTime", entryTimeEntry.Text);
                     cmd.Parameters.AddWithValue("@entryDate", entryDateEntry.Text);
@@ -235,9 +244,9 @@ namespace GeoTimeTrack
                     cmd.Parameters.AddWithValue("@exitLocation", exitLocationEntry.Text);
                     /*Tiempo Laboral*/
                     cmd.Parameters.AddWithValue("@workTime", workTimeEntry.Text);
-
                     cmd.ExecuteNonQuery();
-                    DisplayAlert("Info", "Usuario creado con exito", "Okay");
+                    DisplayAlert("Info", "Datos capturados con exito", "Okay");
+                    // Clear();
                     cn.Close();
                 }
             }
