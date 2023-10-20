@@ -12,7 +12,9 @@
             <ListView.Header>
                 <Grid BackgroundColor="#1c2757">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="1*" />
+                        <!-- Columna para Contador -->
+                        <ColumnDefinition Width="2*" />
                         <!-- Columna para Fecha -->
                         <ColumnDefinition Width="2*" />
                         <!-- Columna para Distancia Entrada -->
@@ -21,10 +23,11 @@
                         <ColumnDefinition Width="2*" />
                         <!-- Columna para Tiempo Total -->
                     </Grid.ColumnDefinitions>
-                    <Label Text="Fecha" TextColor="White" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
-                    <Label Text="Entrada" TextColor="White" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
-                    <Label Text="Salida" TextColor="White" Grid.Column="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
-                    <Label Text="Tiempo" TextColor="White" Grid.Column="3" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
+                    <Label Text="#" TextColor="White" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
+                    <Label Text="Fecha" TextColor="White" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
+                    <Label Text="Entrada" TextColor="White" Grid.Column="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
+                    <Label Text="Salida" TextColor="White" Grid.Column="3" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
+                    <Label Text="Tiempo" TextColor="White" Grid.Column="4" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
                 </Grid>
             </ListView.Header>
             <ListView.ItemTemplate>
@@ -32,19 +35,22 @@
                     <ViewCell>
                         <Grid BackgroundColor="#DEEFFF" Padding="10">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="3*" />
+                                <ColumnDefinition Width="1*" />
+                                <!-- Columna para Contador -->
+                                <ColumnDefinition Width="2*" />
                                 <!-- Columna para Fecha -->
                                 <ColumnDefinition Width="2*" />
                                 <!-- Columna para Distancia Entrada -->
                                 <ColumnDefinition Width="2*" />
                                 <!-- Columna para Distancia Salida -->
                                 <ColumnDefinition Width="2*" />
-                                <!-- Columna para Tiempo Total  -->
+                                <!-- Columna para Tiempo Total -->
                             </Grid.ColumnDefinitions>
-                            <Label Text="{Binding FechaEntrada, StringFormat='{0:dd/MM/yyyy}'}" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                            <Label Text="{Binding DistanciaEntrada}" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                            <Label Text="{Binding DistanciaSalida}" Grid.Column="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                            <Label Text="{Binding TiempoTotal}" Grid.Column="3" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding Contador}" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding FechaEntrada, StringFormat='{0:dd/MM/yyyy}'}" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding DistanciaEntrada}" Grid.Column="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding DistanciaSalida}" Grid.Column="3" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding TiempoTotal}" Grid.Column="4" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>

@@ -54,6 +54,8 @@ namespace GeoTimeTrack
                     emailCheckCmd.Parameters.AddWithValue("@email", emailEntry.Text);
                     int emailCount = (int)emailCheckCmd.ExecuteScalar();
 
+                    emailCheckCmd.Dispose(); // Cierra y libera recursos del DataReader
+
                     if (emailCount == 0)
                     {
                         // El correo no existe
@@ -99,7 +101,6 @@ namespace GeoTimeTrack
                 ConexionSQLServer.Cerrar();
             }
         }
-
 
         private async void OnForgotPasswordLabelTapped(object sender, EventArgs e)
         {

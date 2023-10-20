@@ -28,11 +28,14 @@
 
             <Button Text="Iniciar Sesión" BackgroundColor="#0a9ec8" TextTransform="None" TextColor="White" FontSize="20" CornerRadius="20" HeightRequest="50" Clicked="OnMainPageButtonClicked"/>
 
+            <!--
             <Label Text="¿Olvidaste tu contraseña? Haga clic aquí" TextColor="#1c2757" FontSize="16" HorizontalTextAlignment="Center">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnForgotPasswordLabelTapped"/>
                 </Label.GestureRecognizers>
             </Label>
+            -->
+            
         </StackLayout>
     </ScrollView>
     

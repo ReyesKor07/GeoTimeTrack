@@ -81,8 +81,8 @@ namespace GeoTimeTrack
 
                     entryTimeEntry.Text = entryTime.ToString("HH:mm:ss"); // Actualizar los campos de la interfaz con la hora y ubicación de entrada
                     // entryDateEntry.Text = entryTime.ToString("dddd dd MMMM yyyy");
-                    entryDateEntry.Text = entryTime.ToString("yyyy-MM-dd");
-
+                    // entryDateEntry.Text = entryTime.ToString("yyyy-MM-dd");
+                    entryDateEntry.Text = entryTime.ToString("dd-MM-yyyy");
                     var newMapSpan = MapSpan.FromCenterAndRadius(entryLocationPin.Position, Distance.FromMeters(20)); // Centrar el mapa en la ubicación de entrada
                     map.MoveToRegion(newMapSpan);
 
@@ -94,10 +94,19 @@ namespace GeoTimeTrack
                     entrylongitudeEntry = ((decimal)location.Latitude);
                     entrylatitudeEntry = ((decimal)location.Longitude);
 
-                    // Calcular la distancia entre las coordenadas fijas y la ubicación actual del usuario
-                    double distanceToTarget = Location.CalculateDistance(location.Latitude, location.Longitude, targetLatitude, targetLongitude, DistanceUnits.Kilometers);
+                    // Crear Location para la ubicación actual del usuario
+                    Location userLocation = new Location(location.Latitude, location.Longitude);
 
-                    entryLocationEntry.Text = $"{distanceToTarget:F2}"; // Mostrar la distancia en el campo de texto
+                    // Crear Location para las coordenadas fijas
+                    Location fixedLocation = new Location(targetLatitude, targetLongitude);
+
+                    // Calcular la distancia en metros entre las dos ubicaciones
+                    double distanceInMeters = Location.CalculateDistance(userLocation, fixedLocation, DistanceUnits.Kilometers) * 1000;
+
+                    entryLocationEntry.Text = $"{distanceInMeters:F2}"; // Mostrar la distancia en metros
+
+
+
                 }
                 else
                 {
@@ -153,10 +162,16 @@ namespace GeoTimeTrack
 
                         IDuserEntry = UserId;
 
-                        // Calcular la distancia entre las coordenadas fijas y la ubicación actual del usuario
-                        double distanceToTarget = Location.CalculateDistance(location.Latitude, location.Longitude, targetLatitude, targetLongitude, DistanceUnits.Kilometers);
+                        // Crear Location para la ubicación actual del usuario
+                        Location userLocation = new Location(location.Latitude, location.Longitude);
 
-                        exitLocationEntry.Text = $"{distanceToTarget:F2}"; // Mostrar la distancia en el campo de texto
+                        // Crear Location para las coordenadas fijas
+                        Location fixedLocation = new Location(targetLatitude, targetLongitude);
+
+                        // Calcular la distancia en metros entre las dos ubicaciones
+                        double distanceInMeters = Location.CalculateDistance(userLocation, fixedLocation, DistanceUnits.Kilometers) * 1000;
+
+                        exitLocationEntry.Text = $"{distanceInMeters:F2}"; // Mostrar la distancia en metros
                     }
                     else
                     {
@@ -180,52 +195,32 @@ namespace GeoTimeTrack
             }
         }
 
-        //public void Clear()
-        //{
-        //    /*Borrar datos Entrada Entry*/
-        //    entryTimeEntry.Text = null; entryDateEntry.Text = null; entrylongitudeEntry = 0; entrylatitudeEntry = 0; entryLocationEntry.Text = null;
-        //    /*Borrar datos Salida Entry*/
-        //    exitTimeEntry.Text = null; exitDateEntry.Text = null; exitlongitudeEntry = 0; exitlatitudeEntry = 0;
-        //    exitLocationEntry.Text = null; // workTimeEntry.Text = null;
-        //}
-
         public void Conexion()
         {
             try
             {
-                /*IP Casa*/
-                SqlConnection cn = new SqlConnection(@"Data source = 192.168.0.11; Initial Catalog = BD_GeoTimeTrack; Integrated Security=False; User Id= BD_GeoTimeTrack; Password=Xamarin2023");
-                /*IP Secundaria*/
-                // SqlConnection cn = new SqlConnection(@"Data source = 192.168.1.129; Initial Catalog = BD_GeoTimeTrack; Integrated Security=False; User Id= BD_GeoTimeTrack; Password=Xamarin2023");
-                /*IP UAT*/
-                // SqlConnection cn = new SqlConnection(@"Data source = 172.23.145.36; Initial Catalog = BD_GeoTimeTrack; Integrated Security=False; User Id= BD_GeoTimeTrack; Password=Xamarin2023");
-                if (cn.State == System.Data.ConnectionState.Closed)
-                {
-                    cn.Open();
-
-                    SqlCommand cmd = new SqlCommand("INSERT INTO Registro(IdUsuario, HoraEntrada, FechaEntrada, LatitudEntrada, LongitudEntrada, DistanciaEntrada, HoraSalida, FechaSalida, LatitudSalida, LongitudSalida, DistanciaSalida, TiempoTotal)VALUES(@iduser, @entryTime, @entryDate, @entrylongitude, @entrylatitude, @entryLocation, @exitTime, @exitDate, @exitlongitude, @exitlatitude, @exitLocation, @workTime)", cn);
-                    cmd.CommandType = System.Data.CommandType.Text;
-                    /*ID Usuario*/
-                    cmd.Parameters.AddWithValue("@iduser", IDuserEntry);
-                    /*Entrada*/
-                    cmd.Parameters.AddWithValue("@entryTime", entryTimeEntry.Text);
-                    cmd.Parameters.AddWithValue("@entryDate", entryDateEntry.Text);
-                    cmd.Parameters.AddWithValue("@entrylongitude", entrylongitudeEntry);
-                    cmd.Parameters.AddWithValue("@entrylatitude", entrylatitudeEntry);
-                    cmd.Parameters.AddWithValue("@entryLocation", entryLocationEntry.Text);
-                    /*Salida*/
-                    cmd.Parameters.AddWithValue("@exitTime", exitTimeEntry.Text);
-                    cmd.Parameters.AddWithValue("@exitDate", exitDateEntry.Text);
-                    cmd.Parameters.AddWithValue("@exitlongitude", exitlongitudeEntry);
-                    cmd.Parameters.AddWithValue("@exitlatitude", exitlatitudeEntry);
-                    cmd.Parameters.AddWithValue("@exitLocation", exitLocationEntry.Text);
-                    /*Tiempo Laboral*/
-                    cmd.Parameters.AddWithValue("@workTime", workTimeEntry.Text);
-                    cmd.ExecuteNonQuery();
-                    DisplayAlert("Info", "Datos capturados con exito", "Okay");
-                    // Clear();
-                    cn.Close();
-                }
+                ConexionSQLServer.Abrir();
+                SqlCommand cmd = new SqlCommand("INSERT INTO Registro(IdUsuario, HoraEntrada, FechaEntrada, LatitudEntrada, LongitudEntrada, DistanciaEntrada, HoraSalida, FechaSalida, LatitudSalida, LongitudSalida, DistanciaSalida, TiempoTotal)VALUES(@iduser, @entryTime, @entryDate, @entrylongitude, @entrylatitude, @entryLocation, @exitTime, @exitDate, @exitlongitude, @exitlatitude, @exitLocation, @workTime)", ConexionSQLServer.cn);
+                cmd.CommandType = System.Data.CommandType.Text;
+                /*ID Usuario*/
+                cmd.Parameters.AddWithValue("@iduser", IDuserEntry);
+                /*Entrada*/
+                cmd.Parameters.AddWithValue("@entryTime", entryTimeEntry.Text);
+                cmd.Parameters.AddWithValue("@entryDate", entryDateEntry.Text);
+                cmd.Parameters.AddWithValue("@entrylongitude", entrylongitudeEntry);
+                cmd.Parameters.AddWithValue("@entrylatitude", entrylatitudeEntry);
+                cmd.Parameters.AddWithValue("@entryLocation", entryLocationEntry.Text);
+                /*Salida*/
+                cmd.Parameters.AddWithValue("@exitTime", exitTimeEntry.Text);
+                cmd.Parameters.AddWithValue("@exitDate", exitDateEntry.Text);
+                cmd.Parameters.AddWithValue("@exitlongitude", exitlongitudeEntry);
+                cmd.Parameters.AddWithValue("@exitlatitude", exitlatitudeEntry);
+                cmd.Parameters.AddWithValue("@exitLocation", exitLocationEntry.Text);
+                /*Tiempo Laboral*/
+                cmd.Parameters.AddWithValue("@workTime", workTimeEntry.Text);
+                cmd.ExecuteNonQuery();
+                DisplayAlert("Info", "Datos capturados con exito", "Okay");
+                ConexionSQLServer.Cerrar();
             }
             catch (Exception ex)
             {
