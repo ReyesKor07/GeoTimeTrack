@@ -21,11 +21,8 @@ namespace GeoTimeTrack
 
         public void Clear()
         {
-            usernameEntry.Text = null;
-            userlastnameEntry.Text = null;
-            usermiddlenameEntry.Text = null;
-            emailEntry.Text = null;
-            passwordEntry.Text = null;
+            usernameEntry.Text = null; userlastnameEntry.Text = null; usermiddlenameEntry.Text = null;
+            emailEntry.Text = null; passwordEntry.Text = null;
         }
 
         private void OnCreateUserButtonClicked(object sender, EventArgs e)
@@ -53,13 +50,14 @@ namespace GeoTimeTrack
                     else
                     {
                         // El correo no existe, insertar el nuevo usuario
-                        SqlCommand cmd = new SqlCommand("INSERT INTO Usuario(Nombre, ApellidoP, ApellidoM, Email, Password) VALUES (@name, @apellidoP, @apellidoM, @email, @password)", ConexionSQLServer.cn);
+                        SqlCommand cmd = new SqlCommand("INSERT INTO Usuario(Nombre, ApellidoP, ApellidoM, Email, Password, Rol) VALUES (@name, @apellidoP, @apellidoM, @email, @password, @rol)", ConexionSQLServer.cn);
                         cmd.CommandType = System.Data.CommandType.Text;
                         cmd.Parameters.AddWithValue("@name", usernameEntry.Text);
                         cmd.Parameters.AddWithValue("@apellidoP", userlastnameEntry.Text);
                         cmd.Parameters.AddWithValue("@apellidoM", usermiddlenameEntry.Text);
                         cmd.Parameters.AddWithValue("@email", emailEntry.Text);
                         cmd.Parameters.AddWithValue("@password", passwordEntry.Text);
+                        cmd.Parameters.AddWithValue("@rol", "Usuario");
                         cmd.ExecuteNonQuery();
                         DisplayAlert("Info", "Usuario creado con éxito", "OK");
                         Clear();
@@ -73,17 +71,14 @@ namespace GeoTimeTrack
             }
         }
 
-
         private async void OnLoginLabelTapped(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
-            // await Navigation.PushModalAsync(new LoginPage());
         }
 
         private void OnShowPasswordSwitchToggled(object sender, ToggledEventArgs e)
         {
-            // Cambia el valor de IsPassword según el estado del Switch
-            passwordEntry.IsPassword = !e.Value;
+            passwordEntry.IsPassword = !e.Value; // Cambia el valor de IsPassword según el estado del Switch
         }
     }
 }

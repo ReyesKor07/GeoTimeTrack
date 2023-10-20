@@ -43,12 +43,20 @@ namespace GeoTimeTrack
         private readonly double targetLatitude = 26.028688727720997;
         private readonly double targetLongitude = -98.27560757446295;
 
+        private Color entryPinColor = Color.Blue; // Color del pin de entrada
+        private Color exitPinColor = Color.Red; // Color del pin de salida
+
+        private Pin entryLocationPin; // Variable para el Pin de Entrada
+        private Pin exitLocationPin;  // Variable para el Pin de Salida
+
         private DateTime entryTime; // Almacena la hora de entrada
         private DateTime exitTime;  // Almacena la hora de salida
+
         private decimal entrylongitudeEntry;
         private decimal entrylatitudeEntry;
         private decimal exitlongitudeEntry;
         private decimal exitlatitudeEntry;
+        
         private int IDuserEntry;
 
         private async void OnEntryButtonClicked(object sender, EventArgs e)
@@ -61,27 +69,23 @@ namespace GeoTimeTrack
 
                 if (location != null)
                 {
-                    var entry = new TimeEntry // Crea una instancia de TimeEntry para la entrada y guarda en la base de datos
+                    // Verificar si ya existe un pin de entrada anterior y eliminarlo
+                    if (entryLocationPin != null)
                     {
-                        EntryTime = entryTime,
-                        Latitude = location.Latitude,
-                        Longitude = location.Longitude
-                    };
+                        map.Pins.Remove(entryLocationPin);
+                    }
 
-                    var dbHelper = new DatabaseHelper();
-                    await dbHelper.InsertTimeEntry(entry);
-
-                    Pin entryLocationPin = new Pin // Agregar un marcador al mapa para la ubicación de entrada
+                    // Crear un nuevo pin de entrada
+                    entryLocationPin = new Pin
                     {
                         Type = PinType.Place,
                         Label = "Entrada",
-                        Position = new Position(location.Latitude, location.Longitude)
+                        Position = new Position(location.Latitude, location.Longitude),
+                        Icon = BitmapDescriptorFactory.DefaultMarker(entryPinColor)
                     };
                     map.Pins.Add(entryLocationPin);
 
                     entryTimeEntry.Text = entryTime.ToString("HH:mm:ss"); // Actualizar los campos de la interfaz con la hora y ubicación de entrada
-                    // entryDateEntry.Text = entryTime.ToString("dddd dd MMMM yyyy");
-                    // entryDateEntry.Text = entryTime.ToString("yyyy-MM-dd");
                     entryDateEntry.Text = entryTime.ToString("dd-MM-yyyy");
                     var newMapSpan = MapSpan.FromCenterAndRadius(entryLocationPin.Position, Distance.FromMeters(20)); // Centrar el mapa en la ubicación de entrada
                     map.MoveToRegion(newMapSpan);
@@ -89,24 +93,16 @@ namespace GeoTimeTrack
                     entryButton.IsEnabled = false; // Deshabilitar el botón de entrada y habilitar el de salida
                     exitButton.IsEnabled = true;
 
-                    // entryLocationEntry.Text = $"{location.Latitude} | {location.Longitude}"; // Ubicación de entrada
-
                     entrylongitudeEntry = ((decimal)location.Latitude);
                     entrylatitudeEntry = ((decimal)location.Longitude);
 
                     // Crear Location para la ubicación actual del usuario
                     Location userLocation = new Location(location.Latitude, location.Longitude);
-
                     // Crear Location para las coordenadas fijas
                     Location fixedLocation = new Location(targetLatitude, targetLongitude);
-
                     // Calcular la distancia en metros entre las dos ubicaciones
                     double distanceInMeters = Location.CalculateDistance(userLocation, fixedLocation, DistanceUnits.Kilometers) * 1000;
-
                     entryLocationEntry.Text = $"{distanceInMeters:F2}"; // Mostrar la distancia en metros
-
-
-
                 }
                 else
                 {
@@ -115,7 +111,7 @@ namespace GeoTimeTrack
             }
             catch (Exception)
             {
-                await DisplayAlert("Error", $"Por favor, asegúrate de tener el GPS activado.", "OK");
+                await DisplayAlert("Error", "Por favor, asegúrate de tener el GPS activado.", "OK");
             }
         }
 
@@ -123,65 +119,57 @@ namespace GeoTimeTrack
         {
             try
             {
-                if (entryTime != DateTime.MinValue) // Verificar si ya se registró una entrada
+                if (entryTime != DateTime.MinValue)
                 {
+                    IDuserEntry = UserId;
+
                     exitTime = DateTime.Now; // Registrar la hora de salida
 
                     var location = await Geolocation.GetLocationAsync();
 
                     if (location != null)
                     {
-                        var exitEntry = new TimeEntry // Crear una instancia de TimeEntry para la salida y guardarla en la base de datos
+                        // Verificar si ya existe un pin de salida anterior y eliminarlo
+                        if (exitLocationPin != null)
                         {
-                            ExitTime = exitTime,
-                            Latitude = location.Latitude,
-                            Longitude = location.Longitude
-                        };
+                            map.Pins.Remove(exitLocationPin);
+                        }
 
-                        var dbHelper = new DatabaseHelper();
-                        await dbHelper.InsertTimeEntry(exitEntry);
-
-                        Pin exitLocationPin = new Pin // Agregar un marcador al mapa para la ubicación de salida
+                        // Crear un nuevo pin de salida
+                        exitLocationPin = new Pin
                         {
                             Type = PinType.Place,
                             Label = "Salida",
-                            Position = new Position(location.Latitude, location.Longitude)
+                            Position = new Position(location.Latitude, location.Longitude),
+                            Icon = BitmapDescriptorFactory.DefaultMarker(exitPinColor)
                         };
                         map.Pins.Add(exitLocationPin);
 
                         TimeSpan timeDifference = exitTime - entryTime; // Calcular la diferencia de tiempo entre entrada y salida
 
                         exitTimeEntry.Text = exitTime.ToString("HH:mm:ss"); // Actualizar los campos de la interfaz con la hora y ubicación de salida
-                     // exitDateEntry.Text = exitTime.ToString("dddd dd MMMM yyyy");
-                        exitDateEntry.Text = exitTime.ToString("yyyy-MM-dd");
+                        exitDateEntry.Text = exitTime.ToString("dd-MM-yyyy");
                         workTimeEntry.Text = timeDifference.ToString(@"hh\:mm\:ss");
-                        // exitLocationEntry.Text = $"{location.Latitude} | {location.Longitude}"; // Ubicación de salida
+                        var newMapSpan = MapSpan.FromCenterAndRadius(exitLocationPin.Position, Distance.FromMeters(20)); // Centrar el mapa en la ubicación de entrada
+                        map.MoveToRegion(newMapSpan);
 
                         exitlongitudeEntry = ((decimal)location.Latitude);
                         exitlatitudeEntry = ((decimal)location.Longitude);
 
-                        IDuserEntry = UserId;
-
                         // Crear Location para la ubicación actual del usuario
                         Location userLocation = new Location(location.Latitude, location.Longitude);
-
                         // Crear Location para las coordenadas fijas
                         Location fixedLocation = new Location(targetLatitude, targetLongitude);
-
                         // Calcular la distancia en metros entre las dos ubicaciones
                         double distanceInMeters = Location.CalculateDistance(userLocation, fixedLocation, DistanceUnits.Kilometers) * 1000;
-
                         exitLocationEntry.Text = $"{distanceInMeters:F2}"; // Mostrar la distancia en metros
                     }
                     else
                     {
                         await DisplayAlert("Error", "No se pudo obtener la ubicación actual", "OK");
                     }
-
                     Conexion();
-
-                    // Habilitar el botón de entrada y deshabilitar el de salida
-                    entryButton.IsEnabled = true;
+                    entryButton.IsEnabled = true; // Habilitar el botón de entrada y deshabilitar el de salida
                     exitButton.IsEnabled = false;
                 }
                 else
