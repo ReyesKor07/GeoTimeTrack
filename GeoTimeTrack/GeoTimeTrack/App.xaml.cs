@@ -15,6 +15,7 @@ namespace GeoTimeTrack
             // MainPage = new MainPage();
             // MainPage = new TrackTimePage();
             MainPage = new NavigationPage(new HomePage());
+            // MainPage = new NavigationPage(new MainPage());
             // MainPage = new NavigationPage(new DeploymentPage());
             // MainPage = new NavigationPage(new AccountCreationPage());
             // MainPage = new NavigationPage(new LoginPage());

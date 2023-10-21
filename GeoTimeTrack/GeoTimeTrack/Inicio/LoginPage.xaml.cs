@@ -44,10 +44,7 @@ namespace GeoTimeTrack
                     DisplayAlert("Error", "Por favor, complete todos los campos.", "OK");
                     return;
                 }
-
                 ConexionSQLServer.Abrir();
-
-                // Consulta SQL para verificar si el correo existe en la base de datos
                 string emailCheckQuery = "SELECT COUNT(*) FROM Usuario WHERE Email = @email";
                 using (SqlCommand emailCheckCmd = new SqlCommand(emailCheckQuery, ConexionSQLServer.cn))
                 {
@@ -63,7 +60,6 @@ namespace GeoTimeTrack
                         return;
                     }
                 }
-
                 // Consulta SQL para obtener el usuario por correo y contraseña
                 string query = "SELECT IdUsuario, Nombre, ApellidoP FROM Usuario WHERE Email = @email AND Password = @password";
                 using (SqlCommand cmd = new SqlCommand(query, ConexionSQLServer.cn))
@@ -80,13 +76,12 @@ namespace GeoTimeTrack
                             Name = nombre;
                             LastName = apellidoP;
                             UserID = userId;
-                            DisplayAlert("Bienvenido", $"Hola {nombre} {apellidoP}, ID: {userId}", "OK");
+                            DisplayAlert("Inicio de sesión exitoso", $"¡Bienvenido, {nombre} {apellidoP}!\nTu ID de usuario es: {userId}", "Continuar");
                             Clear();
                             navigation();
                         }
                         else
                         {
-                            // Contraseña incorrecta
                             DisplayAlert("Error", "La contraseña es incorrecta.", "OK");
                         }
                     }
@@ -104,13 +99,12 @@ namespace GeoTimeTrack
 
         private async void OnForgotPasswordLabelTapped(object sender, EventArgs e)
         {
-            // Navega a la página ForgotPasswordPage
             await Navigation.PushModalAsync(new ForgotPasswordPage());
         }
 
         private void OnShowPasswordSwitchToggled(object sender, ToggledEventArgs e)
         {
-            passwordEntry.IsPassword = !e.Value; // Cambia el valor de IsPassword según el estado del Switch
+            passwordEntry.IsPassword = !e.Value;
         }
     }
 }

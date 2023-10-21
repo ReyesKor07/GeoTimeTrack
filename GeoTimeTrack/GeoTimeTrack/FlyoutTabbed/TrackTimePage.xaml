@@ -7,6 +7,10 @@
              Title="TrackTime" 
              IconImageSource="TrackTime.png">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Refresh" Clicked="OnButtonClicked" />
+    </ContentPage.ToolbarItems>
+
     <ScrollView>
         <ListView x:Name="Registro" SeparatorColor="#1c2757" HasUnevenRows="True">
             <ListView.Header>

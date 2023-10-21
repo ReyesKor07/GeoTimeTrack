@@ -27,8 +27,9 @@ namespace GeoTimeTrack
             Nombre = LoginPage.Name;
             ApellidoP = LoginPage.LastName;
             UserId = LoginPage.UserID;
-            HolaLabel.Text = $"Hola {Nombre} {ApellidoP}, ID:{UserId}";
-            Position initialPosition = new Position(26.028688727720997, -98.27560757446295); // Establecer la posición inicial del mapa
+            HolaLabel.Text = $"¡Hola {Nombre} {ApellidoP},\nTu ID es: {UserId}";
+            Position initialPosition = new Position(26.028688727720997, -98.27560757446295); // Establecer la posición inicial del mapa UAT
+            // Position initialPosition = new Position(26.007790168972313, -98.24903183076913); // Establecer la posición inicial del mapa C.I. 
             map.MoveToRegion(MapSpan.FromCenterAndRadius(initialPosition, Distance.FromMeters(200)));
             mapTypeSwitch.Toggled += MapTypeSwitch_Toggled; // Agregar un controlador de eventos al Switch
         }
@@ -39,9 +40,13 @@ namespace GeoTimeTrack
             string mapTypeText = e.Value ? "Satélite" : "Mapa"; // Cambiar el texto del Label para reflejar el estado actual
         }
 
-        // Coordenadas fijas para comparación
+        // Coordenadas fijas para comparación UAT
         private readonly double targetLatitude = 26.028688727720997;
         private readonly double targetLongitude = -98.27560757446295;
+
+        // Coordenadas fijas para comparación C.I.
+        // private readonly double targetLatitude = 26.007790168972313;
+        // private readonly double targetLongitude = -98.24903183076913;
 
         private Color entryPinColor = Color.Blue; // Color del pin de entrada
         private Color exitPinColor = Color.Red; // Color del pin de salida
@@ -244,5 +249,23 @@ namespace GeoTimeTrack
             /*Tiempo Laboral*/
             workTimeEntry.Text = null;
         }
+
+        private async void OnLogoutButtonClicked(object sender, EventArgs e)
+        {
+            string name = LoginPage.Name;
+            string lastname = LoginPage.LastName;
+            int userid = LoginPage.UserID;
+            bool answer = await DisplayAlert("Confirmación", "¿Estás seguro de que deseas cerrar la sesión?", "Sí", "Cancelar");
+            if (answer)
+            {
+                // Elimina los datos de usuario almacenados
+                name = null; 
+                lastname = null; 
+                userid = 0;
+                // Redirige al usuario a la página de inicio de sesión o a la página de inicio de la aplicación
+                await Navigation.PushModalAsync(new LoginPage()); // O la página principal de tu aplicación
+            }
+        }
+
     }
 }

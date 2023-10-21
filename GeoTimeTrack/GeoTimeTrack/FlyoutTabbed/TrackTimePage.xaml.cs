@@ -42,6 +42,15 @@ namespace GeoTimeTrack.FlyoutTabbed
             Registro.ItemsSource = userRecords;
         }
 
+        private void OnButtonClicked(object sender, EventArgs e)
+        {
+            // Llama nuevamente al método para obtener registros actualizados
+            List<Registro> userRecords = ObtenerRegistrosDeUsuario(UserId);
+
+            // Actualiza la propiedad ItemsSource con la nueva lista de registros
+            Registro.ItemsSource = userRecords;
+        }
+
         private List<Registro> ObtenerRegistrosDeUsuario(int UserId)
         {
             List<Registro> registros = new List<Registro>();

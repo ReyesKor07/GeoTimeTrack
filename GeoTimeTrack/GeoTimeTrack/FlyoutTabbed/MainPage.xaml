@@ -7,11 +7,17 @@
              Title="Inicio"
              IconImageSource="GeoTimeTransparent.png">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cerrar Sesión" Clicked="OnLogoutButtonClicked"/>
+    </ContentPage.ToolbarItems>
+
     <ScrollView>
         <StackLayout Margin="20" Spacing="20" VerticalOptions="CenterAndExpand">
 
-            <Label x:Name="HolaLabel" Text="" TextColor="DarkBlue" FontSize="25" FontAttributes="Bold" BackgroundColor="White" HorizontalTextAlignment="Center"></Label>
-            
+            <Frame BorderColor="DarkBlue" CornerRadius="5" Padding="5" HasShadow="True">
+                <Label x:Name="HolaLabel" Text="" TextColor="DarkBlue" FontSize="Medium" FontAttributes="Bold" BackgroundColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HeightRequest="60"/>
+            </Frame>
+
             <!-- Separador visual  -->
             <!-- <BoxView HeightRequest="100" Color="Transparent"/> -->
             <Grid>
@@ -21,7 +27,9 @@
                 </Grid.RowDefinitions>
 
                 <!-- Mapa -->
-                <maps:Map x:Name="map" Grid.Row="0" BackgroundColor="#F4F4F4" HeightRequest="300" />
+                <Frame BorderColor="DarkBlue" CornerRadius="5" HasShadow="True" Padding="0">
+                    <maps:Map x:Name="map" Grid.Row="0" BackgroundColor="White" HeightRequest="300" />
+                </Frame>
 
                 <!-- Interruptor para cambiar el tipo de mapa -->
                 <Frame Grid.Row="1" BorderColor="#F4F4F4" CornerRadius="10" HasShadow="True" Padding="10">
@@ -33,8 +41,13 @@
             </Grid>
 
             <Grid VerticalOptions="CenterAndExpand">
-                <Grid.RowDefinitions> <RowDefinition Height="Auto" /> </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions> <ColumnDefinition Width="*" /> <ColumnDefinition Width="*" /> </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
                 <!-- Botón de Entrada -->
                 <Button x:Name="entryButton" Text="Entrada" Clicked="OnEntryButtonClicked" BackgroundColor="#1c2757" TextColor="White" FontSize="20" CornerRadius="20" HeightRequest="50"
@@ -44,7 +57,11 @@
                 <Button x:Name="exitButton" Text="Salida" Clicked="OnExitButtonClicked" BackgroundColor="#FF1A1A" TextColor="White" FontSize="20" CornerRadius="20" HeightRequest="50"
                 Grid.Row="0" Grid.Column="1" Margin="5"/>
             </Grid>
-
+            
+            <!--
+            <Button Text="Cerrar Sesión" Clicked="OnLogoutButtonClicked" TextColor="#FFFFFF" BackgroundColor="#1c2757" FontSize="20" CornerRadius="30" HeightRequest="50" Margin="20, 10, 20, 0"> </Button>
+            -->
+            
             <Grid BackgroundColor="White" VerticalOptions="CenterAndExpand">
                 <Grid.RowDefinitions> <RowDefinition Height="Auto" /> <RowDefinition Height="Auto" /> <RowDefinition Height="Auto" /> <RowDefinition Height="Auto" /> <RowDefinition Height="Auto" /> <RowDefinition Height="Auto" /> </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions> <ColumnDefinition Width="*" /> <ColumnDefinition Width="*" /> </Grid.ColumnDefinitions>
