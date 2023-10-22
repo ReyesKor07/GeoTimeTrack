@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
              x:Class="GeoTimeTrack.MainPage"
-             BackgroundColor="#95DFFB"
+             BackgroundColor="White"
              Title="Inicio"
              IconImageSource="GeoTimeTransparent.png">
 
@@ -14,12 +14,11 @@
     <ScrollView>
         <StackLayout Margin="20" Spacing="20" VerticalOptions="CenterAndExpand">
 
-            <Frame BorderColor="DarkBlue" CornerRadius="5" Padding="5" HasShadow="True">
-                <Label x:Name="HolaLabel" Text="" TextColor="DarkBlue" FontSize="Medium" FontAttributes="Bold" BackgroundColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HeightRequest="60"/>
+            <Frame BorderColor="#0C148E" CornerRadius="15" Padding="5" HasShadow="True" BackgroundColor="#F4F4F4" >
+                <Label x:Name="HolaLabel" Text="" TextColor="#044368" FontSize="Medium" FontAttributes="Bold" BackgroundColor="#F4F4F4" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HeightRequest="60" />
             </Frame>
 
             <!-- Separador visual  -->
-            <!-- <BoxView HeightRequest="100" Color="Transparent"/> -->
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
@@ -27,15 +26,15 @@
                 </Grid.RowDefinitions>
 
                 <!-- Mapa -->
-                <Frame BorderColor="DarkBlue" CornerRadius="5" HasShadow="True" Padding="0">
-                    <maps:Map x:Name="map" Grid.Row="0" BackgroundColor="White" HeightRequest="300" />
+                <Frame BorderColor="#BB6228" CornerRadius="15" Padding="5" HasShadow="True" BackgroundColor="#F4F4F4">
+                    <maps:Map x:Name="map" Grid.Row="0" BackgroundColor="#F4F4F4" HeightRequest="300" />
                 </Frame>
 
                 <!-- Interruptor para cambiar el tipo de mapa -->
-                <Frame Grid.Row="1" BorderColor="#F4F4F4" CornerRadius="10" HasShadow="True" Padding="10">
+                <Frame Grid.Row="1" BorderColor="#0C148E" CornerRadius="15" HasShadow="True" Padding="10" BackgroundColor="#F4F4F4">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                        <Label Text="Cambiar a Satélite" FontSize="Medium" VerticalOptions="Center"/>
-                        <Switch x:Name="mapTypeSwitch" HorizontalOptions="Center" Margin="10,0,0,0"/>
+                        <Label Text="Cambiar a Satélite" TextColor="#044368" FontSize="Medium" VerticalOptions="Center" BackgroundColor="#F4F4F4"/>
+                        <Switch x:Name="mapTypeSwitch" OnColor="#044368" ThumbColor="#BB6228" HorizontalOptions="Center" Margin="10,0,0,0"/>
                     </StackLayout>
                 </Frame>
             </Grid>
@@ -50,72 +49,78 @@
                 </Grid.ColumnDefinitions>
 
                 <!-- Botón de Entrada -->
-                <Button x:Name="entryButton" Text="Entrada" Clicked="OnEntryButtonClicked" BackgroundColor="#1c2757" TextColor="White" FontSize="20" CornerRadius="20" HeightRequest="50"
+                <Button x:Name="entryButton" Text="Entrada" Clicked="OnEntryButtonClicked" BackgroundColor="#044368" TextColor="White" BorderColor="Red" Padding="5" FontSize="20" CornerRadius="20" HeightRequest="50"
                 Grid.Row="0" Grid.Column="0" Margin="5"/>
 
                 <!-- Botón de Salida -->
-                <Button x:Name="exitButton" Text="Salida" Clicked="OnExitButtonClicked" BackgroundColor="#FF1A1A" TextColor="White" FontSize="20" CornerRadius="20" HeightRequest="50"
+                <Button x:Name="exitButton" Text="Salida" Clicked="OnExitButtonClicked" BackgroundColor="#BB6228" TextColor="White" FontSize="20" CornerRadius="20" HeightRequest="50"
                 Grid.Row="0" Grid.Column="1" Margin="5"/>
             </Grid>
-            
-            <!--
-            <Button Text="Cerrar Sesión" Clicked="OnLogoutButtonClicked" TextColor="#FFFFFF" BackgroundColor="#1c2757" FontSize="20" CornerRadius="30" HeightRequest="50" Margin="20, 10, 20, 0"> </Button>
-            -->
-            
-            <Grid BackgroundColor="White" VerticalOptions="CenterAndExpand">
+
+            <Grid BackgroundColor="Transparent" VerticalOptions="CenterAndExpand">
                 <Grid.RowDefinitions> <RowDefinition Height="Auto" /> <RowDefinition Height="Auto" /> <RowDefinition Height="Auto" /> <RowDefinition Height="Auto" /> <RowDefinition Height="Auto" /> <RowDefinition Height="Auto" /> </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions> <ColumnDefinition Width="*" /> <ColumnDefinition Width="*" /> </Grid.ColumnDefinitions>
 
                 <!-- Tiempo Laboral -->
-                <Label Text="Tiempo Laboral" TextColor="DarkRed" FontSize="25" FontAttributes="Bold" BackgroundColor="#FFC3BF" HorizontalTextAlignment="Center"
-               Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
+                <Frame CornerRadius="15" BorderColor="#F4F4F4" Padding="0" HasShadow="True" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" >
+                    <Label Text="Tiempo Laboral" TextColor="White" FontSize="25" FontAttributes="Bold" BackgroundColor="#BB6228" HorizontalTextAlignment="Center"/>
+                </Frame>
 
-                <Entry x:Name="workTimeEntry" Placeholder="Hora : Minuto : Segundo" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="18" IsReadOnly="True" BackgroundColor="#F2F2F2" HorizontalTextAlignment="Center"
-               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" />
+                <Frame CornerRadius="15" BorderColor="#F4F4F4" Padding="0" HasShadow="True" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" >
+                    <Entry x:Name="workTimeEntry" Placeholder="Hora : Minuto : Segundo" PlaceholderColor="#044368" TextColor="#1c2757" FontSize="18" IsReadOnly="True" BackgroundColor="White" HorizontalTextAlignment="Center"/>
+                </Frame>
 
                 <!-- Entrada -->
-                <Label Text="Entrada" TextColor="DarkBlue" FontSize="23" FontAttributes="Bold" BackgroundColor="#95DFFB" HorizontalTextAlignment="Center"
-               Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" />
+                <Frame CornerRadius="15" BorderColor="#F4F4F4" Padding="0" HasShadow="True" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" >
+                    <Label Text="Entrada" TextColor="White" FontSize="23" FontAttributes="Bold" BackgroundColor="#044368" HorizontalTextAlignment="Center"/>
+                </Frame>
 
-                <Label Text=" Tiempo" TextColor="#1c2757" FontSize="20" FontAttributes="Bold"
+                <Label Text="  Tiempo:" TextColor="#BB6228" FontSize="20" FontAttributes="Bold"
                Grid.Row="3" Grid.Column="0" />
 
-                <Entry x:Name="entryTimeEntry" Placeholder="Hora : Minuto : Segundo" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="16" IsReadOnly="True" BackgroundColor="#F2F2F2" HorizontalTextAlignment="Center"
-               Grid.Row="3" Grid.Column="1" />
+                <Frame CornerRadius="15" BorderColor="#F4F4F4" Padding="0" HasShadow="True" Grid.Row="3" Grid.Column="1" >
+                    <Entry x:Name="entryTimeEntry" Placeholder="Hora : Minuto : Segundo" PlaceholderColor="#044368" TextColor="#1c2757" FontSize="16" IsReadOnly="True" BackgroundColor="White" HorizontalTextAlignment="Center"/>
+                </Frame>
 
-                <Label Text=" Fecha" TextColor="#1c2757" FontSize="20" FontAttributes="Bold"
+                <Label Text="  Fecha:" TextColor="#BB6228" FontSize="20" FontAttributes="Bold"
                Grid.Row="4" Grid.Column="0" />
 
-                <Entry x:Name="entryDateEntry" Placeholder="Fecha - Mes - Año" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="16" IsReadOnly="True" BackgroundColor="#F2F2F2" HorizontalTextAlignment="Center"
-               Grid.Row="4" Grid.Column="1" />
+                <Frame CornerRadius="15" BorderColor="#F4F4F4" Padding="0" HasShadow="True" Grid.Row="4" Grid.Column="1" >
+                    <Entry x:Name="entryDateEntry" Placeholder="Fecha - Mes - Año" PlaceholderColor="#044368" TextColor="#1c2757" FontSize="16" IsReadOnly="True" BackgroundColor="White" HorizontalTextAlignment="Center"/>
+                </Frame>
 
-                <Label Text=" Distancia (m)" TextColor="#1c2757" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Start"
+                <Label Text="  Distancia (m):" TextColor="#BB6228" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Start"
                Grid.Row="5" Grid.Column="0" />
 
-                <Entry x:Name="entryLocationEntry" Placeholder="Distancia en metros" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="16" IsReadOnly="True" BackgroundColor="#F2F2F2" HorizontalTextAlignment="Center"
-                Grid.Row="5" Grid.Column="1" />
+                <Frame CornerRadius="15" BorderColor="#F4F4F4" Padding="0" HasShadow="True" Grid.Row="5" Grid.Column="1" >
+                    <Entry x:Name="entryLocationEntry" Placeholder="Distancia en metros" PlaceholderColor="#044368" TextColor="#1c2757" FontSize="16" IsReadOnly="True" BackgroundColor="White" HorizontalTextAlignment="Center"/>
+                </Frame>
 
                 <!-- Salida -->
-                <Label Text="Salida" TextColor="DarkBlue" FontSize="23" FontAttributes="Bold" BackgroundColor="#95DFFB" HorizontalTextAlignment="Center"
-                Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" />
+                <Frame CornerRadius="15" BorderColor="#F4F4F4" Padding="0" HasShadow="True" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2">
+                    <Label Text="Salida" TextColor="#F2F2F2" FontSize="23" FontAttributes="Bold" BackgroundColor="#044368" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                </Frame>
 
-                <Label Text=" Tiempo" TextColor="#1c2757" FontSize="20" FontAttributes="Bold"
+                <Label Text="  Tiempo:" TextColor="#BB6228" FontSize="20" FontAttributes="Bold"
                 Grid.Row="7" Grid.Column="0" />
 
-                <Entry x:Name="exitTimeEntry" Placeholder="Hora : Minuto : Segundo" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="16" IsReadOnly="True" BackgroundColor="#F2F2F2" HorizontalTextAlignment="Center"
-                Grid.Row="7" Grid.Column="1" />
+                <Frame CornerRadius="15" BorderColor="#F4F4F4" Padding="0" HasShadow="True" Grid.Row="7" Grid.Column="1" >
+                    <Entry x:Name="exitTimeEntry" Placeholder="Hora : Minuto : Segundo" PlaceholderColor="#044368" TextColor="#1c2757" FontSize="16" IsReadOnly="True" BackgroundColor="White" HorizontalTextAlignment="Center"/>
+                </Frame>
 
-                <Label Text=" Fecha" TextColor="#1c2757" FontSize="20" FontAttributes="Bold"
+                <Label Text="  Fecha:" TextColor="#BB6228" FontSize="20" FontAttributes="Bold"
                 Grid.Row="8" Grid.Column="0" />
 
-                <Entry x:Name="exitDateEntry" Placeholder="Fecha - Mes - Año" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="16" IsReadOnly="True" BackgroundColor="#F2F2F2" HorizontalTextAlignment="Center"
-                 Grid.Row="8" Grid.Column="1" />
+                <Frame CornerRadius="15" BorderColor="#F4F4F4" Padding="0" HasShadow="True" Grid.Row="8" Grid.Column="1" >
+                    <Entry x:Name="exitDateEntry" Placeholder="Fecha - Mes - Año" PlaceholderColor="#044368" TextColor="#1c2757" FontSize="16" IsReadOnly="True" BackgroundColor="White" HorizontalTextAlignment="Center"/>
+                </Frame>
 
-                <Label Text=" Distancia (m)" TextColor="#1c2757" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Start"
+                <Label Text="  Distancia (m):" TextColor="#BB6228" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Start"
                 Grid.Row="9" Grid.Column="0" />
 
-                <Entry x:Name="exitLocationEntry" Placeholder="Distancia en metros" PlaceholderColor="#46474A" TextColor="#1c2757" FontSize="16" IsReadOnly="True" BackgroundColor="#F2F2F2" HorizontalTextAlignment="Center"
-                Grid.Row="9" Grid.Column="1" />
+                <Frame CornerRadius="15" BorderColor="#F4F4F4" Padding="0" HasShadow="True" Grid.Row="9" Grid.Column="1">
+                    <Entry x:Name="exitLocationEntry" Placeholder="Distancia en metros" PlaceholderColor="#044368" TextColor="#1c2757" FontSize="16" IsReadOnly="True" BackgroundColor="White" HorizontalTextAlignment="Center"/>
+                </Frame>
             </Grid>
         </StackLayout>
     </ScrollView>

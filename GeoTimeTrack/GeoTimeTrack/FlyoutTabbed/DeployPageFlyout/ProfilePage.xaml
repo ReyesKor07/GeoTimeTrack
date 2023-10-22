@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GeoTimeTrack.FlyoutTabbed.DeployPageFlyout.ProfilePage"
+             BackgroundColor="White">
+
+    <ScrollView>
+        <StackLayout Margin="20" Spacing="20" Padding="10">
+            <!-- Icono de perfil -->
+            <Frame CornerRadius="100" BorderColor="#1c2757" BackgroundColor="Transparent" HeightRequest="100" WidthRequest="100" HorizontalOptions="CenterAndExpand">
+                <Image Source="User_icon.png" VerticalOptions="CenterAndExpand" HeightRequest="80" Aspect="AspectFit"/>
+            </Frame>
+
+            <!-- Título de la página -->
+            <Label Text="Perfil de Usuario" TextColor="#BB6228" FontSize="40" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" />
+
+            <!-- ID de usuario (no editable) -->
+            <Label Text="ID de Usuario" TextColor="#044368" FontSize="18" FontAttributes="Bold" />
+            <Frame CornerRadius="10" BorderColor="#F4F4F4" Padding="0" HasShadow="True">
+                <Entry x:Name="IdUsuarioEntry" PlaceholderColor="#BB6228" TextColor="#1c2757" FontSize="18" BackgroundColor="#F4F4F4" IsEnabled="False" />
+            </Frame>
+
+            <!-- Rol del usuario (no editable) -->
+            <Label Text="Rol" TextColor="#044368" FontSize="18" FontAttributes="Bold" />
+            <Frame CornerRadius="10" BorderColor="#F4F4F4" Padding="0" HasShadow="True">
+                <Entry x:Name="RolEntry" PlaceholderColor="#BB6228" TextColor="#1c2757" FontSize="18" BackgroundColor="#F4F4F4" IsEnabled="False" />
+            </Frame>
+
+            <!-- Nombre del usuario -->
+            <Label Text="Nombre(s)" TextColor="#044368" FontSize="18" FontAttributes="Bold" />
+            <Frame CornerRadius="10" BorderColor="#F4F4F4" Padding="0" HasShadow="True">
+                <Entry x:Name="NombreEntry" PlaceholderColor="#BB6228" TextColor="#1c2757" FontSize="18" BackgroundColor="#F4F4F4" IsEnabled="True" />
+            </Frame>
+
+            <!-- Apellido Paterno del usuario -->
+            <Label Text="Apellido Paterno" TextColor="#044368" FontSize="18" FontAttributes="Bold" />
+            <Frame CornerRadius="10" BorderColor="#F4F4F4" Padding="0" HasShadow="True">
+                <Entry x:Name="ApellidoPEntry" PlaceholderColor="#BB6228" TextColor="#1c2757" FontSize="18" BackgroundColor="#F4F4F4" IsEnabled="True" />
+            </Frame>
+
+            <!-- Apellido Materno del usuario -->
+            <Label Text="Apellido Materno" TextColor="#044368" FontSize="18" FontAttributes="Bold" />
+            <Frame CornerRadius="10" BorderColor="#F4F4F4" Padding="0" HasShadow="True">
+                <Entry x:Name="ApellidoMEntry" PlaceholderColor="#BB6228" TextColor="#1c2757" FontSize="18" BackgroundColor="#F4F4F4" IsEnabled="True" />
+            </Frame>
+
+            <!-- Email del usuario -->
+            <Label Text="Correo electrónico" TextColor="#044368" FontSize="18" FontAttributes="Bold" />
+            <Frame CornerRadius="10" BorderColor="#F4F4F4" Padding="0" HasShadow="True">
+                <Entry x:Name="EmailEntry" PlaceholderColor="#BB6228" TextColor="#1c2757" FontSize="18" BackgroundColor="#F4F4F4" IsEnabled="True" />
+            </Frame>
+
+            <!-- Contraseña del usuario -->
+            <Label Text="Contraseña" TextColor="#044368" FontSize="18" FontAttributes="Bold" />
+            <Frame CornerRadius="10" BorderColor="#F4F4F4" Padding="0" HasShadow="True">
+                <Entry x:Name="passwordEntry" PlaceholderColor="#BB6228" TextColor="#1c2757" FontSize="18" BackgroundColor="#F4F4F4" IsPassword="True" IsEnabled="True" />
+            </Frame>
+
+            <!-- Mostrar contraseña -->
+            <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" Spacing="10">
+                <Label Text="Mostrar contraseña" TextColor="#044368" FontSize="16" VerticalTextAlignment="Center"/>
+                <Switch x:Name="showPasswordSwitch" VerticalOptions="CenterAndExpand" OnColor="#044368" ThumbColor="#BB6228" Toggled="OnShowPasswordSwitchToggled"/>
+            </StackLayout>
+
+            <!-- Botón para guardar los cambios -->
+            <Button Text="Guardar Cambios" Clicked="GuardarCambios_Clicked" BackgroundColor="#BB6228" TextColor="White" FontSize="Large" CornerRadius="20" HeightRequest="50" HorizontalOptions="CenterAndExpand"/>
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>

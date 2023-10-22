@@ -4,7 +4,7 @@
             xmlns:Local="clr-namespace:GeoTimeTrack" 
             xmlns:Local1="clr-namespace:GeoTimeTrack.FlyoutTabbed"
             x:Class="GeoTimeTrack.FlyoutTabbed.TabsPage"
-            BarBackgroundColor="#1c2757" UnselectedTabColor="#0a9ec8">
+            BarBackgroundColor="#044368" UnselectedTabColor="#044368">
 
     <!--
     <Local:MainPage/>

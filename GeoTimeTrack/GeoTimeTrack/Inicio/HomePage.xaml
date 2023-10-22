@@ -12,13 +12,13 @@
         <!--
         <Image Source="GeoTimeTransparent.png" VerticalOptions="CenterAndExpand" HeightRequest="200" Aspect="AspectFit"/>
         -->
-        <Label Text="Bienvenido a GeoTimeTrack" TextColor="#1c2757" FontSize="30" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+        <Label Text="Bienvenido a GeoTimeTrack" TextColor="#044368" FontSize="30" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
 
-        <Button x:Name="loginButton" Text="Iniciar sesión" TextTransform="None" BackgroundColor="#0a9ec8" TextColor="White" FontSize="20" CornerRadius="30" WidthRequest="220" HeightRequest="60" Clicked="OnLoginButtonClicked"/>
+        <Button x:Name="loginButton" Text="Iniciar sesión" TextTransform="None" BackgroundColor="#044368" TextColor="White" FontSize="20" CornerRadius="30" WidthRequest="220" HeightRequest="60" Clicked="OnLoginButtonClicked"/>
 
-        <Label Text="¿No tienes una cuenta?" TextColor="#1c2757" FontSize="17" HorizontalTextAlignment="Center"/>
+        <Label Text="¿No tienes una cuenta?" TextColor="#044368" FontSize="17" HorizontalTextAlignment="Center"/>
 
-        <Button x:Name="registerButton" Text="Registrate" TextTransform="None" BackgroundColor="#06061e" TextColor="White" FontSize="20" CornerRadius="30" WidthRequest="220" HeightRequest="60" Clicked="OnRegisterButtonClicked"/>
+        <Button x:Name="registerButton" Text="Registrate" TextTransform="None" BackgroundColor="#BB6228" TextColor="White" FontSize="20" CornerRadius="30" WidthRequest="220" HeightRequest="60" Clicked="OnRegisterButtonClicked"/>
     
     </StackLayout>
 

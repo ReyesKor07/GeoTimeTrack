@@ -48,3 +48,4 @@ D:\GeoTimeTrack\GeoTimeTrack\GeoTimeTrack\obj\Debug\netstandard2.0\XamlC.stamp
 D:\GeoTimeTrack\GeoTimeTrack\GeoTimeTrack\obj\Debug\netstandard2.0\GeoTimeTrack.dll
 D:\GeoTimeTrack\GeoTimeTrack\GeoTimeTrack\obj\Debug\netstandard2.0\refint\GeoTimeTrack.dll
 D:\GeoTimeTrack\GeoTimeTrack\GeoTimeTrack\obj\Debug\netstandard2.0\GeoTimeTrack.pdb
+D:\GeoTimeTrack\GeoTimeTrack\GeoTimeTrack\obj\Debug\netstandard2.0\FlyoutTabbed\DeployPageFlyout\ProfilePage.xaml.g.cs

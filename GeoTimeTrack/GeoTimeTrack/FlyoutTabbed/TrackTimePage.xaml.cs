@@ -27,6 +27,7 @@ namespace GeoTimeTrack.FlyoutTabbed
         public decimal DistanciaEntrada { get; set; }
         public decimal DistanciaSalida { get; set; }
         public string TiempoTotal { get; set; }
+        public string FechaHoraEntradaSalida { get; set; }
     }
 
     public partial class TrackTimePage : ContentPage
@@ -77,6 +78,7 @@ namespace GeoTimeTrack.FlyoutTabbed
                                     DistanciaEntrada = reader.GetDecimal(reader.GetOrdinal("DistanciaEntrada")),
                                     DistanciaSalida = reader.GetDecimal(reader.GetOrdinal("DistanciaSalida")),
                                     TiempoTotal = reader.GetTimeSpan(reader.GetOrdinal("TiempoTotal")).ToString(),
+                                    FechaHoraEntradaSalida = $"{reader.GetDateTime(reader.GetOrdinal("FechaEntrada")).ToString("ddd, dd MMM", new System.Globalization.CultureInfo("es-ES"))} {reader.GetTimeSpan(reader.GetOrdinal("HoraEntrada")).ToString(@"hh\:mm")} - {reader.GetTimeSpan(reader.GetOrdinal("HoraSalida")).ToString(@"hh\:mm")}",
                                 };
                                 registros.Add(registro);
                                 contador++; // Incrementa el contador para el siguiente registro

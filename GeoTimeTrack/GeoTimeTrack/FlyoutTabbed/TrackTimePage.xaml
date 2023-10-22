@@ -8,13 +8,13 @@
              IconImageSource="TrackTime.png">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Refresh" Clicked="OnButtonClicked" />
+        <ToolbarItem Text="Refresh" Clicked="OnButtonClicked"/>
     </ContentPage.ToolbarItems>
 
     <ScrollView>
-        <ListView x:Name="Registro" SeparatorColor="#1c2757" HasUnevenRows="True">
+        <ListView x:Name="Registro" SeparatorColor="#044368" HasUnevenRows="True">
             <ListView.Header>
-                <Grid BackgroundColor="#1c2757">
+                <Grid BackgroundColor="#044368">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*" />
                         <!-- Columna para Contador -->
@@ -29,9 +29,9 @@
                     </Grid.ColumnDefinitions>
                     <Label Text="#" TextColor="White" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
                     <Label Text="Fecha" TextColor="White" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
-                    <Label Text="Entrada" TextColor="White" Grid.Column="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
-                    <Label Text="Salida" TextColor="White" Grid.Column="3" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
-                    <Label Text="Tiempo" TextColor="White" Grid.Column="4" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
+                    <Label Text="Entrada (m)" TextColor="White" Grid.Column="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
+                    <Label Text="Salida (m)" TextColor="White" Grid.Column="3" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
+                    <Label Text="Tiempo (h)" TextColor="White" Grid.Column="4" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
                 </Grid>
             </ListView.Header>
             <ListView.ItemTemplate>
@@ -50,11 +50,11 @@
                                 <ColumnDefinition Width="2*" />
                                 <!-- Columna para Tiempo Total -->
                             </Grid.ColumnDefinitions>
-                            <Label Text="{Binding Contador}" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                            <Label Text="{Binding FechaEntrada, StringFormat='{0:dd/MM/yyyy}'}" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                            <Label Text="{Binding DistanciaEntrada}" Grid.Column="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                            <Label Text="{Binding DistanciaSalida}" Grid.Column="3" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                            <Label Text="{Binding TiempoTotal}" Grid.Column="4" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding Contador}" Grid.Column="0" TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding FechaHoraEntradaSalida}" Grid.Column="1" TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding DistanciaEntrada, StringFormat='{0}m'}" TextColor="Black" Grid.Column="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding DistanciaSalida, StringFormat='{0}m'}" TextColor="Black" Grid.Column="3" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding TiempoTotal}" TextColor="Black" Grid.Column="4" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>

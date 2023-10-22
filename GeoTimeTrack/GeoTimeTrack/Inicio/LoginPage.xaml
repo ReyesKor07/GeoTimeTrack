@@ -11,25 +11,29 @@
                 <Image Source="GeoTime.jpeg" VerticalOptions="CenterAndExpand" HeightRequest="100" Aspect="AspectFit"/>
             </Frame>
 
-            <Label Text="Iniciar Sesión" TextColor="#1c2757" FontSize="40" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+            <Label Text="Iniciar Sesión" TextColor="#BB6228" FontSize="40" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
 
-            <Label Text="Correo electrónico" TextColor="#1c2757" FontSize="18" FontAttributes="Bold" Margin="0,20,0,0"/>
+            <Label Text="Correo electrónico" TextColor="#044368" FontSize="18" FontAttributes="Bold" Margin="0,20,0,0"/>
 
-            <Entry x:Name="emailEntry" Placeholder="Ingrese su correo electrónico" PlaceholderColor="#46474A" FontSize="16" BackgroundColor="#F4F4F4" TextColor="#1c2757"/>
+            <Frame CornerRadius="10" BorderColor="#F4F4F4" Padding="0" HasShadow="True">
+                <Entry x:Name="emailEntry" PlaceholderColor="#BB6228" FontSize="16" BackgroundColor="#F4F4F4" TextColor="#1c2757"/>
+            </Frame>
 
-            <Label Text="Contraseña" TextColor="#1c2757" FontSize="18" FontAttributes="Bold" Margin="0,20,0,0"/>
+            <Label Text="Contraseña" TextColor="#044368" FontSize="18" FontAttributes="Bold" Margin="0,20,0,0"/>
 
-            <Entry x:Name="passwordEntry" Placeholder="Ingrese su contraseña" PlaceholderColor="#46474A" FontSize="18" BackgroundColor="#F4F4F4" TextColor="#1c2757" IsPassword="True" Margin="0,5,0,0"/>
+            <Frame CornerRadius="10" BorderColor="#F4F4F4" Padding="0" HasShadow="True">
+                <Entry x:Name="passwordEntry" PlaceholderColor="#BB6228" FontSize="18" BackgroundColor="#F4F4F4" TextColor="#1c2757" IsPassword="True"/>
+            </Frame>
 
             <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" Spacing="10" Margin="0,1,0,0">
-                <Label Text="Mostrar contraseña" TextColor="#1c2757" FontSize="16" VerticalTextAlignment="Center"/>
-                <Switch x:Name="showPasswordSwitch" VerticalOptions="CenterAndExpand" OnColor="#0a9ec8" ThumbColor="#0a9ec8" Toggled="OnShowPasswordSwitchToggled"/>
+                <Label Text="Mostrar contraseña" TextColor="#044368" FontSize="16" VerticalTextAlignment="Center"/>
+                <Switch x:Name="showPasswordSwitch" VerticalOptions="CenterAndExpand" OnColor="#044368" ThumbColor="#BB6228" Toggled="OnShowPasswordSwitchToggled"/>
             </StackLayout>
 
-            <Button Text="Iniciar Sesión" BackgroundColor="#0a9ec8" TextTransform="None" TextColor="White" FontSize="20" CornerRadius="20" HeightRequest="50" Clicked="OnMainPageButtonClicked"/>
+            <Button Text="Iniciar Sesión" BackgroundColor="#BB6228" TextTransform="None" TextColor="White" FontSize="20" CornerRadius="20" HeightRequest="50" Clicked="OnMainPageButtonClicked"/>
 
             <!--
-            <Label Text="¿Olvidaste tu contraseña? Haga clic aquí" TextColor="#1c2757" FontSize="16" HorizontalTextAlignment="Center">
+            <Label Text="¿Olvidaste tu contraseña? Haga clic aquí" TextColor="#044368" FontSize="16" HorizontalTextAlignment="Center">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnForgotPasswordLabelTapped"/>
                 </Label.GestureRecognizers>

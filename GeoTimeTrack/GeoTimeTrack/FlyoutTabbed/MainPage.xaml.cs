@@ -17,17 +17,17 @@ namespace GeoTimeTrack
 {
     public partial class MainPage : ContentPage
     {
+        int UserId;
         string Nombre;
         string ApellidoP;
-        int UserId;
 
         public MainPage()
         {
             InitializeComponent();
+            UserId = LoginPage.UserID;
             Nombre = LoginPage.Name;
             ApellidoP = LoginPage.LastName;
-            UserId = LoginPage.UserID;
-            HolaLabel.Text = $"¡Hola {Nombre} {ApellidoP},\nTu ID es: {UserId}";
+            HolaLabel.Text = $"¡Hola! {Nombre} {ApellidoP} \nTu ID es: {UserId}";
             Position initialPosition = new Position(26.028688727720997, -98.27560757446295); // Establecer la posición inicial del mapa UAT
             // Position initialPosition = new Position(26.007790168972313, -98.24903183076913); // Establecer la posición inicial del mapa C.I. 
             map.MoveToRegion(MapSpan.FromCenterAndRadius(initialPosition, Distance.FromMeters(200)));
@@ -69,11 +69,8 @@ namespace GeoTimeTrack
             try
             {
                 entryTime = DateTime.Now; // Registrar la hora de entrada
-
                 var location = await Geolocation.GetLocationAsync();
-
                 Clear();
-
                 if (location != null)
                 {
                     // Crear Location para la ubicación actual del usuario
@@ -82,7 +79,6 @@ namespace GeoTimeTrack
                     Location fixedLocation = new Location(targetLatitude, targetLongitude);
                     // Calcular la distancia en metros entre las dos ubicaciones
                     double distanceInMeters = Location.CalculateDistance(userLocation, fixedLocation, DistanceUnits.Kilometers) * 1000;
-
                     if (distanceInMeters <= 100) // Verificar si la distancia es igual o menor a 100 metros
                     {
                         // Verificar si ya existe un pin de entrada anterior y eliminarlo
@@ -90,7 +86,6 @@ namespace GeoTimeTrack
                         {
                             map.Pins.Remove(entryLocationPin);
                         }
-
                         // Crear un nuevo pin de entrada
                         entryLocationPin = new Pin
                         {
@@ -100,17 +95,13 @@ namespace GeoTimeTrack
                             Icon = BitmapDescriptorFactory.DefaultMarker(entryPinColor)
                         };
                         map.Pins.Add(entryLocationPin);
-
                         entryTimeEntry.Text = entryTime.ToString("HH:mm:ss"); // Actualizar los campos de la interfaz con la hora y ubicación de entrada
                         entryDateEntry.Text = entryTime.ToString("dd-MM-yyyy");
                         var newMapSpan = MapSpan.FromCenterAndRadius(entryLocationPin.Position, Distance.FromMeters(20)); // Centrar el mapa en la ubicación de entrada
                         map.MoveToRegion(newMapSpan);
-
                         entrylongitudeEntry = (decimal)location.Latitude;
                         entrylatitudeEntry = (decimal)location.Longitude;
-
                         entryLocationEntry.Text = $"{distanceInMeters:F2}"; // Mostrar la distancia en metros
-
                         entryButton.IsEnabled = false; // Deshabilitar el botón de entrada y habilitar el de salida
                         exitButton.IsEnabled = true;
                     }
@@ -137,11 +128,8 @@ namespace GeoTimeTrack
                 if (entryTime != DateTime.MinValue)
                 {
                     IDuserEntry = UserId;
-
                     exitTime = DateTime.Now; // Registrar la hora de salida
-
                     var location = await Geolocation.GetLocationAsync();
-
                     if (location != null)
                     {
                         // Crear Location para la ubicación actual del usuario
@@ -150,7 +138,6 @@ namespace GeoTimeTrack
                         Location fixedLocation = new Location(targetLatitude, targetLongitude);
                         // Calcular la distancia en metros entre las dos ubicaciones
                         double distanceInMeters = Location.CalculateDistance(userLocation, fixedLocation, DistanceUnits.Kilometers) * 1000;
-
                         if (distanceInMeters <= 100) // Verificar si la distancia es igual o menor a 100 metros
                         {
                             // Verificar si ya existe un pin de salida anterior y eliminarlo
@@ -158,7 +145,6 @@ namespace GeoTimeTrack
                             {
                                 map.Pins.Remove(exitLocationPin);
                             }
-
                             // Crear un nuevo pin de salida
                             exitLocationPin = new Pin
                             {
@@ -168,20 +154,15 @@ namespace GeoTimeTrack
                                 Icon = BitmapDescriptorFactory.DefaultMarker(exitPinColor)
                             };
                             map.Pins.Add(exitLocationPin);
-
                             TimeSpan timeDifference = exitTime - entryTime; // Calcular la diferencia de tiempo entre entrada y salida
-
                             exitTimeEntry.Text = exitTime.ToString("HH:mm:ss"); // Actualizar los campos de la interfaz con la hora y ubicación de salida
                             exitDateEntry.Text = exitTime.ToString("dd-MM-yyyy");
                             workTimeEntry.Text = timeDifference.ToString(@"hh\:mm\:ss");
                             var newMapSpan = MapSpan.FromCenterAndRadius(exitLocationPin.Position, Distance.FromMeters(20)); // Centrar el mapa en la ubicación de salida
                             map.MoveToRegion(newMapSpan);
-
                             exitlongitudeEntry = (decimal)location.Latitude;
                             exitlatitudeEntry = (decimal)location.Longitude;
-
                             exitLocationEntry.Text = $"{distanceInMeters:F2}"; // Mostrar la distancia en metros
-
                             entryButton.IsEnabled = true; // Habilitar el botón de entrada y deshabilitar el de salida
                             exitButton.IsEnabled = false;
                             Conexion();
@@ -266,6 +247,5 @@ namespace GeoTimeTrack
                 await Navigation.PushModalAsync(new LoginPage()); // O la página principal de tu aplicación
             }
         }
-
     }
 }

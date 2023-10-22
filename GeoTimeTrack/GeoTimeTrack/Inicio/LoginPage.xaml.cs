@@ -16,14 +16,19 @@ namespace GeoTimeTrack
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {
+        public static int UserID { get; private set; }
         public static string Name { get; private set; }
         public static string LastName { get; private set; }
-        public static int UserID { get; private set; }
+        public static string MiddleName { get; private set; }
+        public static string Email { get; private set; }
+        public static string Password { get; private set; }
+        public static string Rol { get; private set; }
 
         public LoginPage()
         {
             InitializeComponent();
         }
+
         public void Clear()
         {
             emailEntry.Text = null;
@@ -41,8 +46,7 @@ namespace GeoTimeTrack
             {
                 if (string.IsNullOrWhiteSpace(emailEntry.Text) || string.IsNullOrWhiteSpace(passwordEntry.Text))
                 {
-                    DisplayAlert("Error", "Por favor, complete todos los campos.", "OK");
-                    return;
+                    DisplayAlert("Error", "Por favor, complete todos los campos.", "OK"); return;
                 }
                 ConexionSQLServer.Abrir();
                 string emailCheckQuery = "SELECT COUNT(*) FROM Usuario WHERE Email = @email";
@@ -55,13 +59,11 @@ namespace GeoTimeTrack
 
                     if (emailCount == 0)
                     {
-                        // El correo no existe
-                        DisplayAlert("Error", "El correo proporcionado no existe.", "OK");
-                        return;
+                        DisplayAlert("Error", "El correo proporcionado no existe.", "OK"); return;
                     }
                 }
                 // Consulta SQL para obtener el usuario por correo y contraseña
-                string query = "SELECT IdUsuario, Nombre, ApellidoP FROM Usuario WHERE Email = @email AND Password = @password";
+                string query = "SELECT IdUsuario, Nombre, ApellidoP, ApellidoM, Email, Password, Rol FROM Usuario WHERE Email = @email AND Password = @password";
                 using (SqlCommand cmd = new SqlCommand(query, ConexionSQLServer.cn))
                 {
                     cmd.Parameters.AddWithValue("@email", emailEntry.Text);
@@ -70,12 +72,14 @@ namespace GeoTimeTrack
                     {
                         if (reader.Read())
                         {
+                            int userId = reader.GetInt32(reader.GetOrdinal("IdUsuario"));
                             string nombre = reader.GetString(reader.GetOrdinal("Nombre"));
                             string apellidoP = reader.GetString(reader.GetOrdinal("ApellidoP"));
-                            int userId = reader.GetInt32(reader.GetOrdinal("IdUsuario"));
-                            Name = nombre;
-                            LastName = apellidoP;
-                            UserID = userId;
+                            string apellidoM = reader.GetString(reader.GetOrdinal("ApellidoM"));
+                            string email = reader.GetString(reader.GetOrdinal("Email"));
+                            string password = reader.GetString(reader.GetOrdinal("Password"));
+                            string rol = reader.GetString(reader.GetOrdinal("Rol"));
+                            UserID = userId;  Name = nombre; LastName = apellidoP; MiddleName = apellidoM; Email = email; Password = password; Rol = rol;
                             DisplayAlert("Inicio de sesión exitoso", $"¡Bienvenido, {nombre} {apellidoP}!\nTu ID de usuario es: {userId}", "Continuar");
                             Clear();
                             navigation();

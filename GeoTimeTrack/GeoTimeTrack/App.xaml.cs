@@ -1,4 +1,5 @@
 ﻿using GeoTimeTrack.FlyoutTabbed;
+using GeoTimeTrack.FlyoutTabbed.DeployPageFlyout;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -12,13 +13,14 @@ namespace GeoTimeTrack
             InitializeComponent();
 
             // Envolver la página en un NavigationPage
-            // MainPage = new MainPage();
-            // MainPage = new TrackTimePage();
             MainPage = new NavigationPage(new HomePage());
+            // MainPage = new MainPage();
             // MainPage = new NavigationPage(new MainPage());
             // MainPage = new NavigationPage(new DeploymentPage());
+            // MainPage = new NavigationPage(new DeploymentPageFlyout());
+            // MainPage = new NavigationPage(new ProfilePage());
             // MainPage = new NavigationPage(new AccountCreationPage());
-            // MainPage = new NavigationPage(new LoginPage());
+            // MainPage = new NavigationPage(new TrackTimePage());
         }
 
         protected override void OnStart()

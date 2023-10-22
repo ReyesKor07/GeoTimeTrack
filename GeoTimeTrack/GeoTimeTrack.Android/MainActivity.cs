@@ -26,7 +26,14 @@ namespace GeoTimeTrack.Droid
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
-            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);    
+        }
+
+        [Obsolete]
+        // Maneja el evento BackButtonPressed para salir de la aplicación
+        private void OnBackButtonPressed(object sender, EventArgs e)
+        {
+
         }
     }
 }
