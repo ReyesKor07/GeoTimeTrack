@@ -16,6 +16,7 @@ namespace GeoTimeTrack.FlyoutTabbed
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DeploymentPageFlyout : ContentPage
     {
+        public string Usuario { get; set; }
         int UserId;
         string Nombre, ApellidoP, ApellidoM, Email, Password, Rol;
 
@@ -27,44 +28,39 @@ namespace GeoTimeTrack.FlyoutTabbed
 
             BindingContext = new DeploymentPageFlyoutViewModel();
             ListView = MenuItemsListView;
-
-            Nombre = LoginPage.Name;
-            ApellidoP = LoginPage.LastName;
+            // UserId = 1; Nombre = "Brandon"; ApellidoP = "Reyes"; ApellidoM = "De La Cruz"; Email = "brandonreyes@gmail.com"; Password = "123"; Rol = "Administrador";
+            UserId = LoginPage.UserID;
+            Nombre = LoginPage.Name; ApellidoP = LoginPage.LastName;
             Email = LoginPage.Email;
             Rol = LoginPage.Rol;
-            Usuario.Text = $"{Nombre} {ApellidoP} \n{Email}";
+            NombreLabel.Text = $"{Nombre} {ApellidoP}, ID: {UserId}";
+            EmailLabel.Text = $"Email: {Email}";
 
-            // Verificar el rol del usuario y mostrar/ocultar el botón "Admin" en consecuencia
             if (Rol == "Administrador")
-            {
-                AdminButton.IsVisible = true; // Mostrar el botón si el usuario es administrador
-            }
+            {   AdminButton.IsVisible = true; RolLabel.IsVisible = true; RolLabel.Text = $"{Rol}"; }
             else
-            {
-                AdminButton.IsVisible = false; // Ocultar el botón si el usuario no es administrador
-            }
+            { AdminButton.IsVisible = false; RolLabel.IsVisible = false; }
         }
 
-        public async void navigation()
-        {
-            await Navigation.PushModalAsync(new ProfilePage());
-        }
+        public async void NavigationProfilePage()
+        { await Navigation.PushModalAsync(new ProfilePage()); }
+        public async void NavigationAdminPage()
+        { await Navigation.PushModalAsync(new AdminPage()); }
 
         private async void Cuenta_Clicked(object sender, EventArgs e)
         {
-            try
-            {
-                navigation(); // Realiza la navegación a la página de perfil
-            }
+            try // Realiza la navegación a la página de perfil
+            { NavigationProfilePage(); }
             catch (Exception ex)
-            {
-                await DisplayAlert("Error", ex.Message + "DeploymentPageFlyout.Cuenta_Clicked", "OK");
-            }
+            { await DisplayAlert("Error", ex.Message + "DeploymentPageFlyout.Cuenta_Clicked", "OK"); }
         }
 
-        private void Admin_Clicked(object sender, EventArgs e)
+        private async void Admin_Clicked(object sender, EventArgs e)
         {
-
+            try // Realiza la navegación a la página de Administrador
+            { NavigationAdminPage(); }
+            catch (Exception ex)
+            { await DisplayAlert("Error", ex.Message + "DeploymentPageFlyout.Cuenta_Clicked", "OK"); }
         }
 
         class DeploymentPageFlyoutViewModel : INotifyPropertyChanged

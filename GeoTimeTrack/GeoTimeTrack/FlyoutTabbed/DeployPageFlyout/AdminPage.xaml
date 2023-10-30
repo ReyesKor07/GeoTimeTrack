@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GeoTimeTrack.FlyoutTabbed.DeployPageFlyout.AdminPage"
+             BackgroundColor="White">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Refresh" Clicked="OnButtonClicked"/>
+    </ContentPage.ToolbarItems>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Título de la página -->
+        <Frame Grid.Row="0" BackgroundColor="#044368">
+            <Label Text="Administrador" TextColor="White" FontSize="40" FontAttributes="Bold" VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" Margin="0,20,0,0"/>
+        </Frame>
+
+        <Grid Grid.Row="1" BackgroundColor="#BB6228" Padding="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="45" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Text="Usuarios" TextColor="White" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Title" />
+            <Label Grid.Column="1" Text="ID" TextColor="White" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Start" VerticalTextAlignment="Start" FontAttributes="Bold" FontSize="Title" />
+        </Grid>
+
+        <ScrollView Grid.Row="2">
+            <ListView x:Name="Usuarios" SeparatorColor="White" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+
+                            <Grid BackgroundColor="White" Padding="8">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="35" />
+                                </Grid.ColumnDefinitions>
+                                <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="White" BorderColor="#044368" CornerRadius="50" Padding="5" HasShadow="True">
+                                    <Button Text="{Binding NombreC}" TextColor="Black" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" FontAttributes="Bold" FontSize="16" Clicked="Button_Clicked" />
+                                </Frame>
+                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding IdUsuario}" TextColor="#1c2757" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold"/>
+                            </Grid>
+                            
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>

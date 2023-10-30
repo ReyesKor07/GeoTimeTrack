@@ -107,7 +107,7 @@ namespace GeoTimeTrack
                     }
                     else
                     {
-                        await DisplayAlert("Advertencia", "Estás fuera del rango para marcar tu asistencia (distancia superior a 100 metros).", "OK");
+                       await DisplayAlert("Advertencia", "Estás fuera del rango para marcar tu asistencia (distancia superior a 100 metros).", "OK");
                     }
                 }
                 else
@@ -193,19 +193,23 @@ namespace GeoTimeTrack
             try
             {
                 ConexionSQLServer.Abrir();
-                SqlCommand cmd = new SqlCommand("INSERT INTO Registro(IdUsuario, HoraEntrada, FechaEntrada, LatitudEntrada, LongitudEntrada, DistanciaEntrada, HoraSalida, FechaSalida, LatitudSalida, LongitudSalida, DistanciaSalida, TiempoTotal)VALUES(@iduser, @entryTime, @entryDate, @entrylongitude, @entrylatitude, @entryLocation, @exitTime, @exitDate, @exitlongitude, @exitlatitude, @exitLocation, @workTime)", ConexionSQLServer.cn);
+                SqlCommand cmd = new SqlCommand("INSERT INTO Registro_B(IdUsuario, HoraEntrada, FechaEntrada, LatitudEntrada, LongitudEntrada, DistanciaEntrada, HoraSalida, FechaSalida, LatitudSalida, LongitudSalida, DistanciaSalida, TiempoTotal)VALUES(@iduser, @entryTime, @entryDate, @entrylongitude, @entrylatitude, @entryLocation, @exitTime, @exitDate, @exitlongitude, @exitlatitude, @exitLocation, @workTime)", ConexionSQLServer.cn);
                 cmd.CommandType = System.Data.CommandType.Text;
                 /*ID Usuario*/
                 cmd.Parameters.AddWithValue("@iduser", IDuserEntry);
                 /*Entrada*/
-                cmd.Parameters.AddWithValue("@entryTime", entryTimeEntry.Text);
-                cmd.Parameters.AddWithValue("@entryDate", entryDateEntry.Text);
+                // cmd.Parameters.AddWithValue("@entryTime", entryTimeEntry.Text);
+                // cmd.Parameters.AddWithValue("@entryDate", entryDateEntry.Text);
+                cmd.Parameters.AddWithValue("@entryTime", entryTime.ToString("HH:mm:ss"));
+                cmd.Parameters.AddWithValue("@entryDate", entryTime.ToString("yyyy-MM-dd"));
                 cmd.Parameters.AddWithValue("@entrylongitude", entrylongitudeEntry);
                 cmd.Parameters.AddWithValue("@entrylatitude", entrylatitudeEntry);
                 cmd.Parameters.AddWithValue("@entryLocation", entryLocationEntry.Text);
                 /*Salida*/
-                cmd.Parameters.AddWithValue("@exitTime", exitTimeEntry.Text);
-                cmd.Parameters.AddWithValue("@exitDate", exitDateEntry.Text);
+                // cmd.Parameters.AddWithValue("@exitTime", exitTimeEntry.Text);
+                // cmd.Parameters.AddWithValue("@exitDate", exitDateEntry.Text);
+                cmd.Parameters.AddWithValue("@exitTime", exitTime.ToString("HH:mm:ss"));
+                cmd.Parameters.AddWithValue("@exitDate", exitTime.ToString("yyyy-MM-dd"));
                 cmd.Parameters.AddWithValue("@exitlongitude", exitlongitudeEntry);
                 cmd.Parameters.AddWithValue("@exitlatitude", exitlatitudeEntry);
                 cmd.Parameters.AddWithValue("@exitLocation", exitLocationEntry.Text);

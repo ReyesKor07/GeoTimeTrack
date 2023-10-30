@@ -49,7 +49,7 @@ namespace GeoTimeTrack
                     DisplayAlert("Error", "Por favor, complete todos los campos.", "OK"); return;
                 }
                 ConexionSQLServer.Abrir();
-                string emailCheckQuery = "SELECT COUNT(*) FROM Usuario WHERE Email = @email";
+                string emailCheckQuery = "SELECT COUNT(*) FROM Usuario_B WHERE Email = @email";
                 using (SqlCommand emailCheckCmd = new SqlCommand(emailCheckQuery, ConexionSQLServer.cn))
                 {
                     emailCheckCmd.Parameters.AddWithValue("@email", emailEntry.Text);
@@ -63,7 +63,7 @@ namespace GeoTimeTrack
                     }
                 }
                 // Consulta SQL para obtener el usuario por correo y contraseña
-                string query = "SELECT IdUsuario, Nombre, ApellidoP, ApellidoM, Email, Password, Rol FROM Usuario WHERE Email = @email AND Password = @password";
+                string query = "SELECT IdUsuario, Nombre, ApellidoP, ApellidoM, Email, Password, Rol FROM Usuario_B WHERE Email = @email AND Password = @password";
                 using (SqlCommand cmd = new SqlCommand(query, ConexionSQLServer.cn))
                 {
                     cmd.Parameters.AddWithValue("@email", emailEntry.Text);

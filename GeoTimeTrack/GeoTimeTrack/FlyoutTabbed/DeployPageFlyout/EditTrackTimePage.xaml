@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GeoTimeTrack.FlyoutTabbed.DeployPageFlyout.EditTrackTimePage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Refresh" Clicked="OnButtonClicked"/>
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+        <ListView x:Name="Registro" SeparatorColor="#044368" HasUnevenRows="True">
+            <ListView.Header>
+                <Grid BackgroundColor="#044368">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <!-- Columna para Contador -->
+                        <ColumnDefinition Width="2*" />
+                        <!-- Columna para Fecha -->
+                        <ColumnDefinition Width="2*" />
+                        <!-- Columna para Distancia Entrada -->
+                        <ColumnDefinition Width="2*" />
+                        <!-- Columna para Distancia Salida -->
+                        <ColumnDefinition Width="2*" />
+                        <!-- Columna para Tiempo Total -->
+                    </Grid.ColumnDefinitions>
+                    <Label Text="#" TextColor="White" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
+                    <Label Text="Fecha" TextColor="White" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
+                    <Label Text="Entrada (m)" TextColor="White" Grid.Column="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
+                    <Label Text="Salida (m)" TextColor="White" Grid.Column="3" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
+                    <Label Text="Tiempo (h)" TextColor="White" Grid.Column="4" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid BackgroundColor="#DEEFFF" Padding="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <!-- Columna para Contador -->
+                                <ColumnDefinition Width="2*" />
+                                <!-- Columna para Fecha -->
+                                <ColumnDefinition Width="2*" />
+                                <!-- Columna para Distancia Entrada -->
+                                <ColumnDefinition Width="2*" />
+                                <!-- Columna para Distancia Salida -->
+                                <ColumnDefinition Width="2*" />
+                                <!-- Columna para Tiempo Total -->
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding Contador}" Grid.Column="0" TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding FechaHoraEntradaSalida}" Grid.Column="1" TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding DistanciaEntrada, StringFormat='{0}m'}" TextColor="Black" Grid.Column="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding DistanciaSalida, StringFormat='{0}m'}" TextColor="Black" Grid.Column="3" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding TiempoTotal}" TextColor="Black" Grid.Column="4" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ScrollView>
+
+</ContentPage>

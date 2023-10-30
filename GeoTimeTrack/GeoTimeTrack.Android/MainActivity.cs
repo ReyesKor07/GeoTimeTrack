@@ -4,6 +4,7 @@ using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
+using Android.Media;
 
 
 namespace GeoTimeTrack.Droid
@@ -35,5 +36,11 @@ namespace GeoTimeTrack.Droid
         {
 
         }
+
+        public void StartForegroundService()
+        {
+
+        }
+
     }
 }

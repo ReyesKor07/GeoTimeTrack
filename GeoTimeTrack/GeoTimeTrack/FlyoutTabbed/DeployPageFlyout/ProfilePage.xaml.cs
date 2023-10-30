@@ -21,21 +21,19 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
 		{
 			InitializeComponent ();
             UserId = LoginPage.UserID;
-            Nombre = LoginPage.Name;
-            ApellidoP = LoginPage.LastName;
-            ApellidoM = LoginPage.MiddleName;
-            Email = LoginPage.Email;
-            Password = LoginPage.Password;
+            Nombre = LoginPage.Name; ApellidoP = LoginPage.LastName; ApellidoM = LoginPage.MiddleName;
+            Email = LoginPage.Email; Password = LoginPage.Password;
             Rol = LoginPage.Rol;
-
-            // Asignar los valores a los Entry
+            // UserId = 1; Nombre = "Brandon"; ApellidoP = "Reyes"; ApellidoM = "De La Cruz"; Email = "brandonreyes@gmail.com"; Password = "123"; Rol = "Administrador";
             IdUsuarioEntry.Text = UserId.ToString();
+            NombreEntry.Text = Nombre; ApellidoPEntry.Text = ApellidoP; ApellidoMEntry.Text = ApellidoM;
+            EmailEntry.Text = Email; passwordEntry.Text = Password;
             RolEntry.Text = Rol;
-            NombreEntry.Text = Nombre;
-            ApellidoPEntry.Text = ApellidoP;
-            ApellidoMEntry.Text = ApellidoM;
-            EmailEntry.Text = Email;
-            passwordEntry.Text = Password;
+            // Verificar el rol del usuario y mostrar/ocultar el botón "Admin" en consecuencia
+            if (Rol == "Administrador")
+            { IdUsuarioEntry.IsVisible = true; RolEntry.IsVisible = true; }
+            else
+            { IdUsuarioEntry.IsVisible = false; RolEntry.IsVisible = false; }
         }
 
         private void GuardarCambios_Clicked(object sender, EventArgs e)
@@ -53,7 +51,7 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
                 if (newEmail != Email)
                 {
                     ConexionSQLServer.Abrir();
-                    string emailCheckQuery = "SELECT COUNT(*) FROM Usuario WHERE Email = @newEmail";
+                    string emailCheckQuery = "SELECT COUNT(*) FROM Usuario_B WHERE Email = @newEmail";
                     using (SqlCommand emailCheckCmd = new SqlCommand(emailCheckQuery, ConexionSQLServer.cn))
                     {
                         emailCheckCmd.Parameters.AddWithValue("@newEmail", newEmail);
@@ -67,7 +65,7 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
                     }
                 }
                 ConexionSQLServer.Abrir();
-                string updateQuery = "UPDATE Usuario SET Nombre = @Nombre, ApellidoP = @ApellidoP, ApellidoM = @ApellidoM, Password = @Password, Email = @newEmail WHERE IdUsuario = @IdUsuario";
+                string updateQuery = "UPDATE Usuario_B SET Nombre = @Nombre, ApellidoP = @ApellidoP, ApellidoM = @ApellidoM, Password = @Password, Email = @newEmail WHERE IdUsuario = @IdUsuario";
                 using (SqlCommand cmd = new SqlCommand(updateQuery, ConexionSQLServer.cn))
                 {
                     cmd.Parameters.AddWithValue("@Nombre", NombreEntry.Text);
@@ -89,7 +87,7 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
             }
             catch (Exception ex)
             {
-                DisplayAlert("Error", "Ocurrió un error al guardar los cambios: " + ex.Message, "Aceptar");
+                DisplayAlert("Error", "Ocurrió un error al guardar los cambios: " + ex.Message + " ProfilePage", "Aceptar");
             }
             finally
             {
@@ -99,17 +97,10 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
 
         private void OnShowPasswordSwitchToggled(object sender, ToggledEventArgs e)
         {
-            // Verifica el valor del interruptor
             if (e.Value)
-            {
-                // Muestra la contraseña
-                passwordEntry.IsPassword = false;
-            }
+            { passwordEntry.IsPassword = false; }
             else
-            {
-                // Oculta la contraseña
-                passwordEntry.IsPassword = true;
-            }
+            { passwordEntry.IsPassword = true; }
         }
     }
 }

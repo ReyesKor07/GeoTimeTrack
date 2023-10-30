@@ -38,7 +38,6 @@ namespace GeoTimeTrack.FlyoutTabbed
         {
             InitializeComponent();
             UserId = LoginPage.UserID;
-            // UserId = 16;
             List<Registro> userRecords = ObtenerRegistrosDeUsuario(UserId);
             Registro.ItemsSource = userRecords;
         }
@@ -54,13 +53,14 @@ namespace GeoTimeTrack.FlyoutTabbed
 
         private List<Registro> ObtenerRegistrosDeUsuario(int UserId)
         {
-            List<Registro> registros = new List<Registro>();
-            SqlConnection cn = new SqlConnection(@"Data source = 192.168.0.11; Initial Catalog = BD_GeoTimeTrack; Integrated Security=False; User Id= BD_GeoTimeTrack; Password=Xamarin2023");
+            List<Registro> registros = new List<Registro>(); // 
+         // SqlConnection cn = new SqlConnection(@"Data source = 192.168.39.152; Initial Catalog = BD_GeoTimeTrack; Integrated Security=False; User Id= BD_GeoTimeTrack; Password=Xamarin2023");
+            SqlConnection cn = new SqlConnection(@"Server= P3NWPLSK12SQL-v08.shr.prod.phx3.secureserver.net; DataBase=projecttes; User ID= prject; Password=proyec2023_;TrustServerCertificate=True;");
             {
                 try
                 {
                     cn.Open();
-                    string query = "SELECT FechaEntrada, HoraEntrada, HoraSalida, DistanciaEntrada, DistanciaSalida, TiempoTotal FROM Registro WHERE IdUsuario = @userId";
+                    string query = "SELECT FechaEntrada, HoraEntrada, HoraSalida, DistanciaEntrada, DistanciaSalida, TiempoTotal FROM Registro_B WHERE IdUsuario = @userId";
                     using (SqlCommand cmd = new SqlCommand(query, cn))
                     {
                         cmd.Parameters.AddWithValue("@userId", UserId);

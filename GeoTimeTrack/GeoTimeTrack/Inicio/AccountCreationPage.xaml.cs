@@ -36,7 +36,7 @@ namespace GeoTimeTrack
                     return;
                 }
                 ConexionSQLServer.Abrir();
-                string emailCheckQuery = "SELECT COUNT(*) FROM Usuario WHERE Email = @email"; // Consulta SQL para verificar si el correo electrónico ya existe
+                string emailCheckQuery = "SELECT COUNT(*) FROM Usuario_B WHERE Email = @email"; // Consulta SQL para verificar si el correo electrónico ya existe
                 using (SqlCommand emailCheckCmd = new SqlCommand(emailCheckQuery, ConexionSQLServer.cn))
                 {
                     emailCheckCmd.Parameters.AddWithValue("@email", emailEntry.Text);
@@ -50,7 +50,7 @@ namespace GeoTimeTrack
                     else
                     {
                         // El correo no existe, insertar el nuevo usuario
-                        SqlCommand cmd = new SqlCommand("INSERT INTO Usuario(Nombre, ApellidoP, ApellidoM, Email, Password, Rol) VALUES (@name, @apellidoP, @apellidoM, @email, @password, @rol)", ConexionSQLServer.cn);
+                        SqlCommand cmd = new SqlCommand("INSERT INTO Usuario_B(Nombre, ApellidoP, ApellidoM, Email, Password, Rol) VALUES (@name, @apellidoP, @apellidoM, @email, @password, @rol)", ConexionSQLServer.cn);
                         cmd.CommandType = System.Data.CommandType.Text;
                         cmd.Parameters.AddWithValue("@name", usernameEntry.Text);
                         cmd.Parameters.AddWithValue("@apellidoP", userlastnameEntry.Text);
