@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VxXqh1MOBi4aZOzzGjGKsxK8xlNTfmf8SvSZKl/TbsSnDEms3dOuksa95zQPayRysVV5of5GRVtlHpcUobp3XQ==",
+  "dgSpecHash": "9pPzufItsJfkmma5GfbDjv4GJvcib6FgGsDQ7+fgbg5YScoAzRRB0fK5T1SsidwwcaOG+iZzpY6qthVAyBpCqg==",
   "success": true,
-  "projectFilePath": "D:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.csproj",
+  "projectFilePath": "C:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\brand\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\brand\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
@@ -18,7 +18,7 @@
     "C:\\Users\\brand\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.0.4\\sqlitepclraw.lib.e_sqlite3.2.0.4.nupkg.sha512",
     "C:\\Users\\brand\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\2.0.4\\sqlitepclraw.provider.e_sqlite3.2.0.4.nupkg.sha512",
     "C:\\Users\\brand\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
-    "C:\\Users\\brand\\.nuget\\packages\\system.data.sqlclient\\4.8.5\\system.data.sqlclient.4.8.5.nupkg.sha512",
+    "C:\\Users\\brand\\.nuget\\packages\\system.data.sqlclient\\4.8.6\\system.data.sqlclient.4.8.6.nupkg.sha512",
     "C:\\Users\\brand\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.0\\system.diagnostics.diagnosticsource.4.7.0.nupkg.sha512",
     "C:\\Users\\brand\\.nuget\\packages\\system.globalization\\4.3.0\\system.globalization.4.3.0.nupkg.sha512",
     "C:\\Users\\brand\\.nuget\\packages\\system.globalization.calendars\\4.3.0\\system.globalization.calendars.4.3.0.nupkg.sha512",
@@ -29,10 +29,10 @@
     "C:\\Users\\brand\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
     "C:\\Users\\brand\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
     "C:\\Users\\brand\\.nuget\\packages\\system.text.encoding.codepages\\4.7.0\\system.text.encoding.codepages.4.7.0.nupkg.sha512",
-    "C:\\Users\\brand\\.nuget\\packages\\xamarin.essentials\\1.8.0\\xamarin.essentials.1.8.0.nupkg.sha512",
-    "C:\\Users\\brand\\.nuget\\packages\\xamarin.forms\\5.0.0.2612\\xamarin.forms.5.0.0.2612.nupkg.sha512",
+    "C:\\Users\\brand\\.nuget\\packages\\xamarin.essentials\\1.8.1\\xamarin.essentials.1.8.1.nupkg.sha512",
+    "C:\\Users\\brand\\.nuget\\packages\\xamarin.forms\\5.0.0.2622\\xamarin.forms.5.0.0.2622.nupkg.sha512",
     "C:\\Users\\brand\\.nuget\\packages\\xamarin.forms.googlemaps\\5.0.0\\xamarin.forms.googlemaps.5.0.0.nupkg.sha512",
-    "C:\\Users\\brand\\.nuget\\packages\\xamarin.forms.maps\\5.0.0.2612\\xamarin.forms.maps.5.0.0.2612.nupkg.sha512"
+    "C:\\Users\\brand\\.nuget\\packages\\xamarin.forms.maps\\5.0.0.2622\\xamarin.forms.maps.5.0.0.2622.nupkg.sha512"
   ],
   "logs": []
 }

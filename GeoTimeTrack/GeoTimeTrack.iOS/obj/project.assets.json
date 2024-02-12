@@ -94,7 +94,7 @@
           }
         }
       },
-      "System.Data.SqlClient/4.8.5": {
+      "System.Data.SqlClient/4.8.6": {
         "type": "package",
         "compile": {
           "ref/xamarinios10/_._": {}
@@ -168,7 +168,7 @@
           "buildTransitive/Xamarin.Build.Download.targets": {}
         }
       },
-      "Xamarin.Essentials/1.8.0": {
+      "Xamarin.Essentials/1.8.1": {
         "type": "package",
         "dependencies": {
           "System.Numerics.Vectors": "4.5.0"
@@ -189,7 +189,7 @@
           }
         }
       },
-      "Xamarin.Forms/5.0.0.2612": {
+      "Xamarin.Forms/5.0.0.2622": {
         "type": "package",
         "compile": {
           "lib/Xamarin.iOS10/Xamarin.Forms.Core.dll": {
@@ -342,10 +342,10 @@
           "lib/Xamarin.iOS10/Xamarin.Forms.GoogleMaps.iOS.dll": {}
         }
       },
-      "Xamarin.Forms.Maps/5.0.0.2612": {
+      "Xamarin.Forms.Maps/5.0.0.2622": {
         "type": "package",
         "dependencies": {
-          "Xamarin.Forms": "5.0.0.2612"
+          "Xamarin.Forms": "5.0.0.2622"
         },
         "compile": {
           "lib/Xamarin.iOS10/Xamarin.Forms.Maps.dll": {
@@ -388,12 +388,12 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "System.Data.SqlClient": "4.8.5",
+          "System.Data.SqlClient": "4.8.6",
           "System.Globalization.Calendars": "4.3.0",
-          "Xamarin.Essentials": "1.8.0",
-          "Xamarin.Forms": "5.0.0.2612",
+          "Xamarin.Essentials": "1.8.1",
+          "Xamarin.Forms": "5.0.0.2622",
           "Xamarin.Forms.GoogleMaps": "5.0.0",
-          "Xamarin.Forms.Maps": "5.0.0.2612",
+          "Xamarin.Forms.Maps": "5.0.0.2622",
           "sqlite-net-pcl": "1.8.116"
         },
         "compile": {
@@ -497,7 +497,7 @@
           }
         }
       },
-      "System.Data.SqlClient/4.8.5": {
+      "System.Data.SqlClient/4.8.6": {
         "type": "package",
         "compile": {
           "ref/xamarinios10/_._": {}
@@ -563,7 +563,7 @@
           "buildTransitive/Xamarin.Build.Download.targets": {}
         }
       },
-      "Xamarin.Essentials/1.8.0": {
+      "Xamarin.Essentials/1.8.1": {
         "type": "package",
         "dependencies": {
           "System.Numerics.Vectors": "4.5.0"
@@ -584,7 +584,7 @@
           }
         }
       },
-      "Xamarin.Forms/5.0.0.2612": {
+      "Xamarin.Forms/5.0.0.2622": {
         "type": "package",
         "compile": {
           "lib/Xamarin.iOS10/Xamarin.Forms.Core.dll": {
@@ -737,10 +737,10 @@
           "lib/Xamarin.iOS10/Xamarin.Forms.GoogleMaps.iOS.dll": {}
         }
       },
-      "Xamarin.Forms.Maps/5.0.0.2612": {
+      "Xamarin.Forms.Maps/5.0.0.2622": {
         "type": "package",
         "dependencies": {
-          "Xamarin.Forms": "5.0.0.2612"
+          "Xamarin.Forms": "5.0.0.2622"
         },
         "compile": {
           "lib/Xamarin.iOS10/Xamarin.Forms.Maps.dll": {
@@ -783,12 +783,12 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "System.Data.SqlClient": "4.8.5",
+          "System.Data.SqlClient": "4.8.6",
           "System.Globalization.Calendars": "4.3.0",
-          "Xamarin.Essentials": "1.8.0",
-          "Xamarin.Forms": "5.0.0.2612",
+          "Xamarin.Essentials": "1.8.1",
+          "Xamarin.Forms": "5.0.0.2622",
           "Xamarin.Forms.GoogleMaps": "5.0.0",
-          "Xamarin.Forms.Maps": "5.0.0.2612",
+          "Xamarin.Forms.Maps": "5.0.0.2622",
           "sqlite-net-pcl": "1.8.116"
         },
         "compile": {
@@ -892,7 +892,7 @@
           }
         }
       },
-      "System.Data.SqlClient/4.8.5": {
+      "System.Data.SqlClient/4.8.6": {
         "type": "package",
         "compile": {
           "ref/xamarinios10/_._": {}
@@ -956,7 +956,7 @@
           "buildTransitive/Xamarin.Build.Download.targets": {}
         }
       },
-      "Xamarin.Essentials/1.8.0": {
+      "Xamarin.Essentials/1.8.1": {
         "type": "package",
         "dependencies": {
           "System.Numerics.Vectors": "4.5.0"
@@ -977,7 +977,7 @@
           }
         }
       },
-      "Xamarin.Forms/5.0.0.2612": {
+      "Xamarin.Forms/5.0.0.2622": {
         "type": "package",
         "compile": {
           "lib/Xamarin.iOS10/Xamarin.Forms.Core.dll": {
@@ -1130,10 +1130,10 @@
           "lib/Xamarin.iOS10/Xamarin.Forms.GoogleMaps.iOS.dll": {}
         }
       },
-      "Xamarin.Forms.Maps/5.0.0.2612": {
+      "Xamarin.Forms.Maps/5.0.0.2622": {
         "type": "package",
         "dependencies": {
-          "Xamarin.Forms": "5.0.0.2612"
+          "Xamarin.Forms": "5.0.0.2622"
         },
         "compile": {
           "lib/Xamarin.iOS10/Xamarin.Forms.Maps.dll": {
@@ -1176,12 +1176,12 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "System.Data.SqlClient": "4.8.5",
+          "System.Data.SqlClient": "4.8.6",
           "System.Globalization.Calendars": "4.3.0",
-          "Xamarin.Essentials": "1.8.0",
-          "Xamarin.Forms": "5.0.0.2612",
+          "Xamarin.Essentials": "1.8.1",
+          "Xamarin.Forms": "5.0.0.2622",
           "Xamarin.Forms.GoogleMaps": "5.0.0",
-          "Xamarin.Forms.Maps": "5.0.0.2612",
+          "Xamarin.Forms.Maps": "5.0.0.2622",
           "sqlite-net-pcl": "1.8.116"
         },
         "compile": {
@@ -1285,7 +1285,7 @@
           }
         }
       },
-      "System.Data.SqlClient/4.8.5": {
+      "System.Data.SqlClient/4.8.6": {
         "type": "package",
         "compile": {
           "ref/xamarinios10/_._": {}
@@ -1351,7 +1351,7 @@
           "buildTransitive/Xamarin.Build.Download.targets": {}
         }
       },
-      "Xamarin.Essentials/1.8.0": {
+      "Xamarin.Essentials/1.8.1": {
         "type": "package",
         "dependencies": {
           "System.Numerics.Vectors": "4.5.0"
@@ -1372,7 +1372,7 @@
           }
         }
       },
-      "Xamarin.Forms/5.0.0.2612": {
+      "Xamarin.Forms/5.0.0.2622": {
         "type": "package",
         "compile": {
           "lib/Xamarin.iOS10/Xamarin.Forms.Core.dll": {
@@ -1525,10 +1525,10 @@
           "lib/Xamarin.iOS10/Xamarin.Forms.GoogleMaps.iOS.dll": {}
         }
       },
-      "Xamarin.Forms.Maps/5.0.0.2612": {
+      "Xamarin.Forms.Maps/5.0.0.2622": {
         "type": "package",
         "dependencies": {
-          "Xamarin.Forms": "5.0.0.2612"
+          "Xamarin.Forms": "5.0.0.2622"
         },
         "compile": {
           "lib/Xamarin.iOS10/Xamarin.Forms.Maps.dll": {
@@ -1571,12 +1571,12 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "System.Data.SqlClient": "4.8.5",
+          "System.Data.SqlClient": "4.8.6",
           "System.Globalization.Calendars": "4.3.0",
-          "Xamarin.Essentials": "1.8.0",
-          "Xamarin.Forms": "5.0.0.2612",
+          "Xamarin.Essentials": "1.8.1",
+          "Xamarin.Forms": "5.0.0.2622",
           "Xamarin.Forms.GoogleMaps": "5.0.0",
-          "Xamarin.Forms.Maps": "5.0.0.2612",
+          "Xamarin.Forms.Maps": "5.0.0.2622",
           "sqlite-net-pcl": "1.8.116"
         },
         "compile": {
@@ -1680,7 +1680,7 @@
           }
         }
       },
-      "System.Data.SqlClient/4.8.5": {
+      "System.Data.SqlClient/4.8.6": {
         "type": "package",
         "compile": {
           "ref/xamarinios10/_._": {}
@@ -1746,7 +1746,7 @@
           "buildTransitive/Xamarin.Build.Download.targets": {}
         }
       },
-      "Xamarin.Essentials/1.8.0": {
+      "Xamarin.Essentials/1.8.1": {
         "type": "package",
         "dependencies": {
           "System.Numerics.Vectors": "4.5.0"
@@ -1767,7 +1767,7 @@
           }
         }
       },
-      "Xamarin.Forms/5.0.0.2612": {
+      "Xamarin.Forms/5.0.0.2622": {
         "type": "package",
         "compile": {
           "lib/Xamarin.iOS10/Xamarin.Forms.Core.dll": {
@@ -1920,10 +1920,10 @@
           "lib/Xamarin.iOS10/Xamarin.Forms.GoogleMaps.iOS.dll": {}
         }
       },
-      "Xamarin.Forms.Maps/5.0.0.2612": {
+      "Xamarin.Forms.Maps/5.0.0.2622": {
         "type": "package",
         "dependencies": {
-          "Xamarin.Forms": "5.0.0.2612"
+          "Xamarin.Forms": "5.0.0.2622"
         },
         "compile": {
           "lib/Xamarin.iOS10/Xamarin.Forms.Maps.dll": {
@@ -1966,12 +1966,12 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "System.Data.SqlClient": "4.8.5",
+          "System.Data.SqlClient": "4.8.6",
           "System.Globalization.Calendars": "4.3.0",
-          "Xamarin.Essentials": "1.8.0",
-          "Xamarin.Forms": "5.0.0.2612",
+          "Xamarin.Essentials": "1.8.1",
+          "Xamarin.Forms": "5.0.0.2622",
           "Xamarin.Forms.GoogleMaps": "5.0.0",
-          "Xamarin.Forms.Maps": "5.0.0.2612",
+          "Xamarin.Forms.Maps": "5.0.0.2622",
           "sqlite-net-pcl": "1.8.116"
         },
         "compile": {
@@ -2210,10 +2210,10 @@
         "version.txt"
       ]
     },
-    "System.Data.SqlClient/4.8.5": {
-      "sha512": "fRqxut4lrndPHrXD+ht1XRmCL3obuKldm4XjCRYS9p5f7FSR7shBxAwTkDrpFMsHC9BhNgjjmUtiIjvehn5zkg==",
+    "System.Data.SqlClient/4.8.6": {
+      "sha512": "2Ij/LCaTQRyAi5lAv7UUTV9R2FobC8xN9mE0fXBZohum/xLl8IZVmE98Rq5ugQHjCgTBRKqpXRb4ORulRdA6Ig==",
       "type": "package",
-      "path": "system.data.sqlclient/4.8.5",
+      "path": "system.data.sqlclient/4.8.6",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2290,7 +2290,7 @@
         "runtimes/win/lib/netstandard2.0/System.Data.SqlClient.xml",
         "runtimes/win/lib/uap10.0.16299/System.Data.SqlClient.dll",
         "runtimes/win/lib/uap10.0.16299/System.Data.SqlClient.xml",
-        "system.data.sqlclient.4.8.5.nupkg.sha512",
+        "system.data.sqlclient.4.8.6.nupkg.sha512",
         "system.data.sqlclient.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -2449,10 +2449,10 @@
         "xamarin.build.download.nuspec"
       ]
     },
-    "Xamarin.Essentials/1.8.0": {
-      "sha512": "g1yB0CkX7BVOx84P0SLm8guypbEfigqjddZsI9KgJzba6yRRcekBqDp6YTT1hO8ZcFcW8VZbsymejTJftJoQyg==",
+    "Xamarin.Essentials/1.8.1": {
+      "sha512": "IzfRGrCrRuytgdQU+Im17Cepib6qUyLj1xfMjn+sDPTfmhmcZotsQCm5Dblm4Vxo9/SGFTdm1OgJUKWzu+dfjw==",
       "type": "package",
-      "path": "xamarin.essentials/1.8.0",
+      "path": "xamarin.essentials/1.8.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2487,14 +2487,14 @@
         "lib/xamarinwatchos10/Xamarin.Essentials.pdb",
         "lib/xamarinwatchos10/Xamarin.Essentials.xml",
         "readme.txt",
-        "xamarin.essentials.1.8.0.nupkg.sha512",
+        "xamarin.essentials.1.8.1.nupkg.sha512",
         "xamarin.essentials.nuspec"
       ]
     },
-    "Xamarin.Forms/5.0.0.2612": {
-      "sha512": "zQcy3NJgRJnLRWQZ2TZPCgDoTDHoYskHLutKDvz1pVNtvJ8U7kkg4mE2XATs3dAkQ+oWoqB4VOBGRk9uAfoRMw==",
+    "Xamarin.Forms/5.0.0.2622": {
+      "sha512": "vuhBbYbYM2fir0HkKeWBt3r+KzfJmXQQj4SlRYqRD/3MG9WS385T2VPuvakXMKgsGEkamaRyZacQ8ZPdac6cpA==",
       "type": "package",
-      "path": "xamarin.forms/5.0.0.2612",
+      "path": "xamarin.forms/5.0.0.2622",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2705,7 +2705,7 @@
         "lib/uap10.0.16299/Xamarin.Forms.Xaml.dll",
         "lib/uap10.0.16299/Xamarin.Forms.Xaml.pdb",
         "lib/uap10.0.16299/Xamarin.Forms.Xaml.xml",
-        "xamarin.forms.5.0.0.2612.nupkg.sha512",
+        "xamarin.forms.5.0.0.2622.nupkg.sha512",
         "xamarin.forms.nuspec"
       ]
     },
@@ -2726,10 +2726,10 @@
         "xamarin.forms.googlemaps.nuspec"
       ]
     },
-    "Xamarin.Forms.Maps/5.0.0.2612": {
-      "sha512": "nQWQ6skgD4VhCyCu1pDvuxPPsZiaU5T4X4xn61nfT9+z5Rtx2Nq8y3pYbUhK3J7op5YyMUa9o3E6t7Y4+W5Uag==",
+    "Xamarin.Forms.Maps/5.0.0.2622": {
+      "sha512": "dqA8nm4Df50KIJ2DaMciqxlhETl01KkUwx17c35fDRXboNUCz8Suyv0Zns7tvKVd7SAyC2rIEYAkOutykyAP7w==",
       "type": "package",
-      "path": "xamarin.forms.maps/5.0.0.2612",
+      "path": "xamarin.forms.maps/5.0.0.2622",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2758,7 +2758,7 @@
         "lib/uap10.0.16299/Xamarin.Forms.Maps.UWP.dll",
         "lib/uap10.0.16299/Xamarin.Forms.Maps.UWP.pri",
         "lib/uap10.0.16299/Xamarin.Forms.Maps.dll",
-        "xamarin.forms.maps.5.0.0.2612.nupkg.sha512",
+        "xamarin.forms.maps.5.0.0.2622.nupkg.sha512",
         "xamarin.forms.maps.nuspec"
       ]
     },
@@ -2789,12 +2789,12 @@
     "Xamarin.iOS,Version=v1.0": [
       "GeoTimeTrack >= 1.0.0",
       "NETStandard.Library >= 2.0.3",
-      "System.Data.SqlClient >= 4.8.5",
+      "System.Data.SqlClient >= 4.8.6",
       "System.Globalization.Calendars >= 4.3.0",
-      "Xamarin.Essentials >= 1.8.0",
-      "Xamarin.Forms >= 5.0.0.2612",
+      "Xamarin.Essentials >= 1.8.1",
+      "Xamarin.Forms >= 5.0.0.2622",
       "Xamarin.Forms.GoogleMaps >= 5.0.0",
-      "Xamarin.Forms.Maps >= 5.0.0.2612",
+      "Xamarin.Forms.Maps >= 5.0.0.2622",
       "sqlite-net-pcl >= 1.8.116"
     ]
   },
@@ -2805,11 +2805,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.iOS\\GeoTimeTrack.iOS.csproj",
+      "projectUniqueName": "C:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.iOS\\GeoTimeTrack.iOS.csproj",
       "projectName": "GeoTimeTrack.iOS",
-      "projectPath": "D:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.iOS\\GeoTimeTrack.iOS.csproj",
+      "projectPath": "C:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.iOS\\GeoTimeTrack.iOS.csproj",
       "packagesPath": "C:\\Users\\brand\\.nuget\\packages\\",
-      "outputPath": "D:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.iOS\\obj\\",
+      "outputPath": "C:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -2830,8 +2830,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "D:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.csproj": {
-              "projectPath": "D:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.csproj"
+            "C:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.csproj": {
+              "projectPath": "C:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.csproj"
             }
           }
         }
@@ -2846,7 +2846,7 @@
           },
           "System.Data.SqlClient": {
             "target": "Package",
-            "version": "[4.8.5, )"
+            "version": "[4.8.6, )"
           },
           "System.Globalization.Calendars": {
             "target": "Package",
@@ -2854,11 +2854,11 @@
           },
           "Xamarin.Essentials": {
             "target": "Package",
-            "version": "[1.8.0, )"
+            "version": "[1.8.1, )"
           },
           "Xamarin.Forms": {
             "target": "Package",
-            "version": "[5.0.0.2612, )"
+            "version": "[5.0.0.2622, )"
           },
           "Xamarin.Forms.GoogleMaps": {
             "target": "Package",
@@ -2866,7 +2866,7 @@
           },
           "Xamarin.Forms.Maps": {
             "target": "Package",
-            "version": "[5.0.0.2612, )"
+            "version": "[5.0.0.2622, )"
           },
           "sqlite-net-pcl": {
             "target": "Package",
