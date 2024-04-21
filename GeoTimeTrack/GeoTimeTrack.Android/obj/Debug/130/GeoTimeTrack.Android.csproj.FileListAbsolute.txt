@@ -1665,7 +1665,6 @@ C:\GeoTimeTrack\GeoTimeTrack\GeoTimeTrack.Android\obj\Debug\130\lp\131\jl\files.
 C:\GeoTimeTrack\GeoTimeTrack\GeoTimeTrack.Android\obj\Debug\130\R.txt
 C:\GeoTimeTrack\GeoTimeTrack\GeoTimeTrack.Android\obj\Debug\130\R.cs.flag
 C:\GeoTimeTrack\GeoTimeTrack\GeoTimeTrack.Android\obj\Debug\130\GeoTimeTrack.Android.csproj.CoreCompileInputs.cache
-C:\GeoTimeTrack\GeoTimeTrack\GeoTimeTrack.Android\obj\Debug\130\GeoTimeTrack.Android.csproj.CopyComplete
 C:\GeoTimeTrack\GeoTimeTrack\GeoTimeTrack.Android\obj\Debug\130\GeoTimeTrack.Android.dll
 C:\GeoTimeTrack\GeoTimeTrack\GeoTimeTrack.Android\obj\Debug\130\GeoTimeTrack.Android.pdb
 C:\GeoTimeTrack\GeoTimeTrack\GeoTimeTrack.Android\obj\Debug\130\android\bin\com.NateRiver.GeoTimeTrack.apk
@@ -2415,3 +2414,4 @@ C:\GeoTimeTrack\GeoTimeTrack\GeoTimeTrack.Android\obj\Debug\130\stamp\_ConvertRe
 C:\GeoTimeTrack\GeoTimeTrack\GeoTimeTrack.Android\obj\Debug\130\stamp\_GenerateJavaStubs.stamp
 C:\GeoTimeTrack\GeoTimeTrack\GeoTimeTrack.Android\obj\Debug\130\stamp\_GeneratePackageManagerJava.stamp
 C:\GeoTimeTrack\GeoTimeTrack\GeoTimeTrack.Android\obj\Debug\130\stamp\_ResolveLibraryProjectImports.stamp
+C:\GeoTimeTrack\GeoTimeTrack\GeoTimeTrack.Android\obj\Debug\130\GeoTimeT.DD0EC30A.Up2Date

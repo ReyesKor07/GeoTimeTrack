@@ -1,0 +1,110 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\GeoTimeTrack\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CDD0FB87-5A47-4A66-A6BA-283C44DB72AE}|GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.csproj|c:\\geotimetrack\\geotimetrack\\geotimetrack\\flyouttabbed\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDD0FB87-5A47-4A66-A6BA-283C44DB72AE}|GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.csproj|solutionrelative:geotimetrack\\geotimetrack\\flyouttabbed\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDD0FB87-5A47-4A66-A6BA-283C44DB72AE}|GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.csproj|c:\\geotimetrack\\geotimetrack\\geotimetrack\\inicio\\loginpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDD0FB87-5A47-4A66-A6BA-283C44DB72AE}|GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.csproj|solutionrelative:geotimetrack\\geotimetrack\\inicio\\loginpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5AC008B0-75B9-4301-AFE7-F6E14AF1FDF9}|GeoTimeTrack\\GeoTimeTrack.iOS\\GeoTimeTrack.iOS.csproj|c:\\geotimetrack\\geotimetrack\\geotimetrack.ios\\entitlements.plist||{675322CE-C60D-4035-BD80-ECC42B60B553}",
+      "RelativeMoniker": "D:0:0:{5AC008B0-75B9-4301-AFE7-F6E14AF1FDF9}|GeoTimeTrack\\GeoTimeTrack.iOS\\GeoTimeTrack.iOS.csproj|solutionrelative:geotimetrack\\geotimetrack.ios\\entitlements.plist||{675322CE-C60D-4035-BD80-ECC42B60B553}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDD0FB87-5A47-4A66-A6BA-283C44DB72AE}|GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.csproj|c:\\geotimetrack\\geotimetrack\\geotimetrack\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDD0FB87-5A47-4A66-A6BA-283C44DB72AE}|GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.csproj|solutionrelative:geotimetrack\\geotimetrack\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDD0FB87-5A47-4A66-A6BA-283C44DB72AE}|GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.csproj|c:\\geotimetrack\\geotimetrack\\geotimetrack\\flyouttabbed\\mainpage.xaml||{2974C621-7033-421A-B08A-11D27B021D1B}",
+      "RelativeMoniker": "D:0:0:{CDD0FB87-5A47-4A66-A6BA-283C44DB72AE}|GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.csproj|solutionrelative:geotimetrack\\geotimetrack\\flyouttabbed\\mainpage.xaml||{2974C621-7033-421A-B08A-11D27B021D1B}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainPage.xaml",
+              "DocumentMoniker": "C:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack\\FlyoutTabbed\\MainPage.xaml",
+              "RelativeDocumentMoniker": "GeoTimeTrack\\GeoTimeTrack\\FlyoutTabbed\\MainPage.xaml",
+              "ToolTip": "C:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack\\FlyoutTabbed\\MainPage.xaml",
+              "RelativeToolTip": "GeoTimeTrack\\GeoTimeTrack\\FlyoutTabbed\\MainPage.xaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2023-12-24T02:34:32.197Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainPage.xaml.cs",
+              "DocumentMoniker": "C:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack\\FlyoutTabbed\\MainPage.xaml.cs",
+              "RelativeDocumentMoniker": "GeoTimeTrack\\GeoTimeTrack\\FlyoutTabbed\\MainPage.xaml.cs",
+              "ToolTip": "C:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack\\FlyoutTabbed\\MainPage.xaml.cs",
+              "RelativeToolTip": "GeoTimeTrack\\GeoTimeTrack\\FlyoutTabbed\\MainPage.xaml.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAACEAAABpAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-24T02:34:32.269Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "C:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack\\App.xaml.cs",
+              "RelativeDocumentMoniker": "GeoTimeTrack\\GeoTimeTrack\\App.xaml.cs",
+              "ToolTip": "C:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack\\App.xaml.cs",
+              "RelativeToolTip": "GeoTimeTrack\\GeoTimeTrack\\App.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-24T02:34:32.328Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LoginPage.xaml.cs",
+              "DocumentMoniker": "C:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack\\Inicio\\LoginPage.xaml.cs",
+              "RelativeDocumentMoniker": "GeoTimeTrack\\GeoTimeTrack\\Inicio\\LoginPage.xaml.cs",
+              "ToolTip": "C:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack\\Inicio\\LoginPage.xaml.cs",
+              "RelativeToolTip": "GeoTimeTrack\\GeoTimeTrack\\Inicio\\LoginPage.xaml.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAA2wCkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-21T01:23:35.92Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Entitlements.plist",
+              "DocumentMoniker": "C:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.iOS\\Entitlements.plist",
+              "RelativeDocumentMoniker": "GeoTimeTrack\\GeoTimeTrack.iOS\\Entitlements.plist",
+              "ToolTip": "C:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.iOS\\Entitlements.plist",
+              "RelativeToolTip": "GeoTimeTrack\\GeoTimeTrack.iOS\\Entitlements.plist",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-04-21T00:13:35.429Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

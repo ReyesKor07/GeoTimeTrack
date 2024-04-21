@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GeoTimeTrack")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3f45511219213d00406a011c724ea6b3b90e0c6a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+103c7e312fab7aa7acda0a553b335e546e0387a7")]
 [assembly: System.Reflection.AssemblyProductAttribute("GeoTimeTrack")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GeoTimeTrack")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
