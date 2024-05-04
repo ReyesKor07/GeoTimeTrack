@@ -38,8 +38,13 @@
                 <Entry x:Name="passwordEntry" PlaceholderColor="#BB6228" TextColor="#1c2757" FontSize="18" BackgroundColor="#F4F4F4" IsPassword="True"/>
             </Frame>
 
+            <Label Text="Confirmar Contraseña" TextColor="#044368" FontSize="18" FontAttributes="Bold" Margin="0,20,0,0"/>
+            <Frame CornerRadius="10" BorderColor="#F4F4F4" Padding="0" HasShadow="True">
+                <Entry x:Name="confirmPasswordEntry" PlaceholderColor="#BB6228" TextColor="#1c2757" FontSize="18" BackgroundColor="#F4F4F4" IsPassword="True"/>
+            </Frame>
+
             <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" Spacing="10" Margin="0,10,0,0">
-                <Label Text="Mostrar contraseña" TextColor="#044368" FontSize="16" VerticalTextAlignment="Center"/>
+                <Label Text="Mostrar contraseñas" TextColor="#044368" FontSize="16" VerticalTextAlignment="Center"/>
                 <Switch x:Name="showPasswordSwitch" VerticalOptions="CenterAndExpand" OnColor="#044368" ThumbColor="#BB6228" Toggled="OnShowPasswordSwitchToggled"/>
             </StackLayout>
 

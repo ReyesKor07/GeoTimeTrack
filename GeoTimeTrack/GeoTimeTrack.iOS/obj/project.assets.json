@@ -26,10 +26,10 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "sqlite-net-pcl/1.8.116": {
+      "sqlite-net-pcl/1.9.172": {
         "type": "package",
         "dependencies": {
-          "SQLitePCLRaw.bundle_green": "2.0.4"
+          "SQLitePCLRaw.bundle_green": "2.1.2"
         },
         "compile": {
           "lib/netstandard2.0/SQLite-net.dll": {
@@ -42,22 +42,29 @@
           }
         }
       },
-      "SQLitePCLRaw.bundle_green/2.0.4": {
+      "SQLitePCLRaw.bundle_green/2.1.2": {
         "type": "package",
         "dependencies": {
-          "SQLitePCLRaw.core": "2.0.4",
-          "SQLitePCLRaw.provider.dynamic_cdecl": "2.0.4"
+          "SQLitePCLRaw.provider.sqlite3": "2.1.2"
         },
+        "frameworkAssemblies": [
+          "System",
+          "System.Core",
+          "System.Drawing.Common.dll",
+          "System.Numerics",
+          "System.Numerics.Vectors",
+          "System.Xml",
+          "Xamarin.iOS",
+          "mscorlib"
+        ],
         "compile": {
-          "lib/Xamarin.iOS10/SQLitePCLRaw.batteries_v2.dll": {},
-          "lib/Xamarin.iOS10/SQLitePCLRaw.nativelibrary.dll": {}
+          "lib/xamarinios10/SQLitePCLRaw.batteries_v2.dll": {}
         },
         "runtime": {
-          "lib/Xamarin.iOS10/SQLitePCLRaw.batteries_v2.dll": {},
-          "lib/Xamarin.iOS10/SQLitePCLRaw.nativelibrary.dll": {}
+          "lib/xamarinios10/SQLitePCLRaw.batteries_v2.dll": {}
         }
       },
-      "SQLitePCLRaw.core/2.0.4": {
+      "SQLitePCLRaw.core/2.1.2": {
         "type": "package",
         "dependencies": {
           "System.Memory": "4.5.3"
@@ -69,16 +76,16 @@
           "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
         }
       },
-      "SQLitePCLRaw.provider.dynamic_cdecl/2.0.4": {
+      "SQLitePCLRaw.provider.sqlite3/2.1.2": {
         "type": "package",
         "dependencies": {
-          "SQLitePCLRaw.core": "2.0.4"
+          "SQLitePCLRaw.core": "2.1.2"
         },
         "compile": {
-          "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll": {}
+          "lib/netstandard2.0/SQLitePCLRaw.provider.sqlite3.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll": {}
+          "lib/netstandard2.0/SQLitePCLRaw.provider.sqlite3.dll": {}
         }
       },
       "System.Buffers/4.4.0": {
@@ -161,7 +168,7 @@
           }
         }
       },
-      "Xamarin.Build.Download/0.11.0": {
+      "Xamarin.Build.Download/0.11.4": {
         "type": "package",
         "build": {
           "buildTransitive/Xamarin.Build.Download.props": {},
@@ -189,7 +196,7 @@
           }
         }
       },
-      "Xamarin.Forms/5.0.0.2622": {
+      "Xamarin.Forms/5.0.0.2662": {
         "type": "package",
         "compile": {
           "lib/Xamarin.iOS10/Xamarin.Forms.Core.dll": {
@@ -342,10 +349,10 @@
           "lib/Xamarin.iOS10/Xamarin.Forms.GoogleMaps.iOS.dll": {}
         }
       },
-      "Xamarin.Forms.Maps/5.0.0.2622": {
+      "Xamarin.Forms.Maps/5.0.0.2662": {
         "type": "package",
         "dependencies": {
-          "Xamarin.Forms": "5.0.0.2622"
+          "Xamarin.Forms": "5.0.0.2662"
         },
         "compile": {
           "lib/Xamarin.iOS10/Xamarin.Forms.Maps.dll": {
@@ -390,11 +397,12 @@
         "dependencies": {
           "System.Data.SqlClient": "4.8.6",
           "System.Globalization.Calendars": "4.3.0",
+          "Xamarin.Build.Download": "0.11.4",
           "Xamarin.Essentials": "1.8.1",
-          "Xamarin.Forms": "5.0.0.2622",
+          "Xamarin.Forms": "5.0.0.2662",
           "Xamarin.Forms.GoogleMaps": "5.0.0",
-          "Xamarin.Forms.Maps": "5.0.0.2622",
-          "sqlite-net-pcl": "1.8.116"
+          "Xamarin.Forms.Maps": "5.0.0.2662",
+          "sqlite-net-pcl": "1.9.172"
         },
         "compile": {
           "bin/placeholder/GeoTimeTrack.dll": {}
@@ -429,10 +437,10 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "sqlite-net-pcl/1.8.116": {
+      "sqlite-net-pcl/1.9.172": {
         "type": "package",
         "dependencies": {
-          "SQLitePCLRaw.bundle_green": "2.0.4"
+          "SQLitePCLRaw.bundle_green": "2.1.2"
         },
         "compile": {
           "lib/netstandard2.0/SQLite-net.dll": {
@@ -445,22 +453,29 @@
           }
         }
       },
-      "SQLitePCLRaw.bundle_green/2.0.4": {
+      "SQLitePCLRaw.bundle_green/2.1.2": {
         "type": "package",
         "dependencies": {
-          "SQLitePCLRaw.core": "2.0.4",
-          "SQLitePCLRaw.provider.dynamic_cdecl": "2.0.4"
+          "SQLitePCLRaw.provider.sqlite3": "2.1.2"
         },
+        "frameworkAssemblies": [
+          "System",
+          "System.Core",
+          "System.Drawing.Common.dll",
+          "System.Numerics",
+          "System.Numerics.Vectors",
+          "System.Xml",
+          "Xamarin.iOS",
+          "mscorlib"
+        ],
         "compile": {
-          "lib/Xamarin.iOS10/SQLitePCLRaw.batteries_v2.dll": {},
-          "lib/Xamarin.iOS10/SQLitePCLRaw.nativelibrary.dll": {}
+          "lib/xamarinios10/SQLitePCLRaw.batteries_v2.dll": {}
         },
         "runtime": {
-          "lib/Xamarin.iOS10/SQLitePCLRaw.batteries_v2.dll": {},
-          "lib/Xamarin.iOS10/SQLitePCLRaw.nativelibrary.dll": {}
+          "lib/xamarinios10/SQLitePCLRaw.batteries_v2.dll": {}
         }
       },
-      "SQLitePCLRaw.core/2.0.4": {
+      "SQLitePCLRaw.core/2.1.2": {
         "type": "package",
         "dependencies": {
           "System.Memory": "4.5.3"
@@ -472,16 +487,16 @@
           "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
         }
       },
-      "SQLitePCLRaw.provider.dynamic_cdecl/2.0.4": {
+      "SQLitePCLRaw.provider.sqlite3/2.1.2": {
         "type": "package",
         "dependencies": {
-          "SQLitePCLRaw.core": "2.0.4"
+          "SQLitePCLRaw.core": "2.1.2"
         },
         "compile": {
-          "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll": {}
+          "lib/netstandard2.0/SQLitePCLRaw.provider.sqlite3.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll": {}
+          "lib/netstandard2.0/SQLitePCLRaw.provider.sqlite3.dll": {}
         }
       },
       "System.Buffers/4.4.0": {
@@ -556,7 +571,7 @@
           }
         }
       },
-      "Xamarin.Build.Download/0.11.0": {
+      "Xamarin.Build.Download/0.11.4": {
         "type": "package",
         "build": {
           "buildTransitive/Xamarin.Build.Download.props": {},
@@ -584,7 +599,7 @@
           }
         }
       },
-      "Xamarin.Forms/5.0.0.2622": {
+      "Xamarin.Forms/5.0.0.2662": {
         "type": "package",
         "compile": {
           "lib/Xamarin.iOS10/Xamarin.Forms.Core.dll": {
@@ -737,10 +752,10 @@
           "lib/Xamarin.iOS10/Xamarin.Forms.GoogleMaps.iOS.dll": {}
         }
       },
-      "Xamarin.Forms.Maps/5.0.0.2622": {
+      "Xamarin.Forms.Maps/5.0.0.2662": {
         "type": "package",
         "dependencies": {
-          "Xamarin.Forms": "5.0.0.2622"
+          "Xamarin.Forms": "5.0.0.2662"
         },
         "compile": {
           "lib/Xamarin.iOS10/Xamarin.Forms.Maps.dll": {
@@ -785,404 +800,12 @@
         "dependencies": {
           "System.Data.SqlClient": "4.8.6",
           "System.Globalization.Calendars": "4.3.0",
+          "Xamarin.Build.Download": "0.11.4",
           "Xamarin.Essentials": "1.8.1",
-          "Xamarin.Forms": "5.0.0.2622",
+          "Xamarin.Forms": "5.0.0.2662",
           "Xamarin.Forms.GoogleMaps": "5.0.0",
-          "Xamarin.Forms.Maps": "5.0.0.2622",
-          "sqlite-net-pcl": "1.8.116"
-        },
-        "compile": {
-          "bin/placeholder/GeoTimeTrack.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/GeoTimeTrack.dll": {}
-        }
-      }
-    },
-    "Xamarin.iOS,Version=v1.0/win-arm64": {
-      "Microsoft.NETCore.Platforms/1.1.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard1.0/_._": {}
-        },
-        "runtime": {
-          "lib/netstandard1.0/_._": {}
-        }
-      },
-      "NETStandard.Library/2.0.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.1.0"
-        },
-        "compile": {
-          "lib/netstandard1.0/_._": {}
-        },
-        "runtime": {
-          "lib/netstandard1.0/_._": {}
-        },
-        "build": {
-          "build/netstandard2.0/NETStandard.Library.targets": {}
-        }
-      },
-      "sqlite-net-pcl/1.8.116": {
-        "type": "package",
-        "dependencies": {
-          "SQLitePCLRaw.bundle_green": "2.0.4"
-        },
-        "compile": {
-          "lib/netstandard2.0/SQLite-net.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/SQLite-net.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "SQLitePCLRaw.bundle_green/2.0.4": {
-        "type": "package",
-        "dependencies": {
-          "SQLitePCLRaw.core": "2.0.4",
-          "SQLitePCLRaw.provider.dynamic_cdecl": "2.0.4"
-        },
-        "compile": {
-          "lib/Xamarin.iOS10/SQLitePCLRaw.batteries_v2.dll": {},
-          "lib/Xamarin.iOS10/SQLitePCLRaw.nativelibrary.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/SQLitePCLRaw.batteries_v2.dll": {},
-          "lib/Xamarin.iOS10/SQLitePCLRaw.nativelibrary.dll": {}
-        }
-      },
-      "SQLitePCLRaw.core/2.0.4": {
-        "type": "package",
-        "dependencies": {
-          "System.Memory": "4.5.3"
-        },
-        "compile": {
-          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
-        }
-      },
-      "SQLitePCLRaw.provider.dynamic_cdecl/2.0.4": {
-        "type": "package",
-        "dependencies": {
-          "SQLitePCLRaw.core": "2.0.4"
-        },
-        "compile": {
-          "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll": {}
-        }
-      },
-      "System.Buffers/4.4.0": {
-        "type": "package",
-        "compile": {
-          "ref/netstandard2.0/System.Buffers.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.Buffers.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "System.Data.SqlClient/4.8.6": {
-        "type": "package",
-        "compile": {
-          "ref/xamarinios10/_._": {}
-        },
-        "runtime": {
-          "lib/xamarinios10/_._": {}
-        }
-      },
-      "System.Globalization.Calendars/4.3.0": {
-        "type": "package",
-        "compile": {
-          "ref/xamarinios10/_._": {}
-        },
-        "runtime": {
-          "lib/xamarinios10/_._": {}
-        }
-      },
-      "System.Memory/4.5.3": {
-        "type": "package",
-        "dependencies": {
-          "System.Buffers": "4.4.0",
-          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
-        },
-        "compile": {
-          "lib/netstandard2.0/System.Memory.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.Memory.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "System.Numerics.Vectors/4.5.0": {
-        "type": "package",
-        "compile": {
-          "ref/xamarinios10/_._": {}
-        },
-        "runtime": {
-          "lib/xamarinios10/_._": {}
-        }
-      },
-      "System.Runtime.CompilerServices.Unsafe/4.5.2": {
-        "type": "package",
-        "compile": {
-          "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Xamarin.Build.Download/0.11.0": {
-        "type": "package",
-        "build": {
-          "buildTransitive/Xamarin.Build.Download.props": {},
-          "buildTransitive/Xamarin.Build.Download.targets": {}
-        }
-      },
-      "Xamarin.Essentials/1.8.1": {
-        "type": "package",
-        "dependencies": {
-          "System.Numerics.Vectors": "4.5.0"
-        },
-        "frameworkAssemblies": [
-          "OpenTK-1.0",
-          "System.Drawing.Common.dll",
-          "System.Numerics"
-        ],
-        "compile": {
-          "lib/xamarinios10/Xamarin.Essentials.dll": {
-            "related": ".pdb;.xml"
-          }
-        },
-        "runtime": {
-          "lib/xamarinios10/Xamarin.Essentials.dll": {
-            "related": ".pdb;.xml"
-          }
-        }
-      },
-      "Xamarin.Forms/5.0.0.2622": {
-        "type": "package",
-        "compile": {
-          "lib/Xamarin.iOS10/Xamarin.Forms.Core.dll": {
-            "related": ".pdb;.xml"
-          },
-          "lib/Xamarin.iOS10/Xamarin.Forms.Platform.dll": {
-            "related": ".iOS.pdb"
-          },
-          "lib/Xamarin.iOS10/Xamarin.Forms.Platform.iOS.dll": {
-            "related": ".pdb"
-          },
-          "lib/Xamarin.iOS10/Xamarin.Forms.Xaml.dll": {
-            "related": ".pdb;.xml"
-          }
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/Xamarin.Forms.Core.dll": {
-            "related": ".pdb;.xml"
-          },
-          "lib/Xamarin.iOS10/Xamarin.Forms.Platform.dll": {
-            "related": ".iOS.pdb"
-          },
-          "lib/Xamarin.iOS10/Xamarin.Forms.Platform.iOS.dll": {
-            "related": ".pdb"
-          },
-          "lib/Xamarin.iOS10/Xamarin.Forms.Xaml.dll": {
-            "related": ".pdb;.xml"
-          }
-        },
-        "resource": {
-          "lib/Xamarin.iOS10/ar/Xamarin.Forms.Platform.iOS.resources.dll": {
-            "locale": "ar"
-          },
-          "lib/Xamarin.iOS10/ca/Xamarin.Forms.Platform.iOS.resources.dll": {
-            "locale": "ca"
-          },
-          "lib/Xamarin.iOS10/cs/Xamarin.Forms.Platform.iOS.resources.dll": {
-            "locale": "cs"
-          },
-          "lib/Xamarin.iOS10/da/Xamarin.Forms.Platform.iOS.resources.dll": {
-            "locale": "da"
-          },
-          "lib/Xamarin.iOS10/de/Xamarin.Forms.Platform.iOS.resources.dll": {
-            "locale": "de"
-          },
-          "lib/Xamarin.iOS10/el/Xamarin.Forms.Platform.iOS.resources.dll": {
-            "locale": "el"
-          },
-          "lib/Xamarin.iOS10/es/Xamarin.Forms.Platform.iOS.resources.dll": {
-            "locale": "es"
-          },
-          "lib/Xamarin.iOS10/fi/Xamarin.Forms.Platform.iOS.resources.dll": {
-            "locale": "fi"
-          },
-          "lib/Xamarin.iOS10/fr/Xamarin.Forms.Platform.iOS.resources.dll": {
-            "locale": "fr"
-          },
-          "lib/Xamarin.iOS10/he/Xamarin.Forms.Platform.iOS.resources.dll": {
-            "locale": "he"
-          },
-          "lib/Xamarin.iOS10/hi/Xamarin.Forms.Platform.iOS.resources.dll": {
-            "locale": "hi"
-          },
-          "lib/Xamarin.iOS10/hr/Xamarin.Forms.Platform.iOS.resources.dll": {
-            "locale": "hr"
-          },
-          "lib/Xamarin.iOS10/hu/Xamarin.Forms.Platform.iOS.resources.dll": {
-            "locale": "hu"
-          },
-          "lib/Xamarin.iOS10/id/Xamarin.Forms.Platform.iOS.resources.dll": {
-            "locale": "id"
-          },
-          "lib/Xamarin.iOS10/it/Xamarin.Forms.Platform.iOS.resources.dll": {
-            "locale": "it"
-          },
-          "lib/Xamarin.iOS10/ja/Xamarin.Forms.Platform.iOS.resources.dll": {
-            "locale": "ja"
-          },
-          "lib/Xamarin.iOS10/ko/Xamarin.Forms.Platform.iOS.resources.dll": {
-            "locale": "ko"
-          },
-          "lib/Xamarin.iOS10/ms/Xamarin.Forms.Platform.iOS.resources.dll": {
-            "locale": "ms"
-          },
-          "lib/Xamarin.iOS10/nb/Xamarin.Forms.Platform.iOS.resources.dll": {
-            "locale": "nb"
-          },
-          "lib/Xamarin.iOS10/nl/Xamarin.Forms.Platform.iOS.resources.dll": {
-            "locale": "nl"
-          },
-          "lib/Xamarin.iOS10/pl/Xamarin.Forms.Platform.iOS.resources.dll": {
-            "locale": "pl"
-          },
-          "lib/Xamarin.iOS10/pt-BR/Xamarin.Forms.Platform.iOS.resources.dll": {
-            "locale": "pt-BR"
-          },
-          "lib/Xamarin.iOS10/pt/Xamarin.Forms.Platform.iOS.resources.dll": {
-            "locale": "pt"
-          },
-          "lib/Xamarin.iOS10/ro/Xamarin.Forms.Platform.iOS.resources.dll": {
-            "locale": "ro"
-          },
-          "lib/Xamarin.iOS10/ru/Xamarin.Forms.Platform.iOS.resources.dll": {
-            "locale": "ru"
-          },
-          "lib/Xamarin.iOS10/sk/Xamarin.Forms.Platform.iOS.resources.dll": {
-            "locale": "sk"
-          },
-          "lib/Xamarin.iOS10/sv/Xamarin.Forms.Platform.iOS.resources.dll": {
-            "locale": "sv"
-          },
-          "lib/Xamarin.iOS10/th/Xamarin.Forms.Platform.iOS.resources.dll": {
-            "locale": "th"
-          },
-          "lib/Xamarin.iOS10/tr/Xamarin.Forms.Platform.iOS.resources.dll": {
-            "locale": "tr"
-          },
-          "lib/Xamarin.iOS10/uk/Xamarin.Forms.Platform.iOS.resources.dll": {
-            "locale": "uk"
-          },
-          "lib/Xamarin.iOS10/vi/Xamarin.Forms.Platform.iOS.resources.dll": {
-            "locale": "vi"
-          },
-          "lib/Xamarin.iOS10/zh-HK/Xamarin.Forms.Platform.iOS.resources.dll": {
-            "locale": "zh-HK"
-          },
-          "lib/Xamarin.iOS10/zh-Hans/Xamarin.Forms.Platform.iOS.resources.dll": {
-            "locale": "zh-Hans"
-          },
-          "lib/Xamarin.iOS10/zh-Hant/Xamarin.Forms.Platform.iOS.resources.dll": {
-            "locale": "zh-Hant"
-          }
-        },
-        "build": {
-          "buildTransitive/Xamarin.Forms.props": {},
-          "buildTransitive/Xamarin.Forms.targets": {}
-        }
-      },
-      "Xamarin.Forms.GoogleMaps/5.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Google.iOS.Maps": "6.0.1.1"
-        },
-        "compile": {
-          "lib/Xamarin.iOS10/Xamarin.Forms.GoogleMaps.dll": {},
-          "lib/Xamarin.iOS10/Xamarin.Forms.GoogleMaps.iOS.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/Xamarin.Forms.GoogleMaps.dll": {},
-          "lib/Xamarin.iOS10/Xamarin.Forms.GoogleMaps.iOS.dll": {}
-        }
-      },
-      "Xamarin.Forms.Maps/5.0.0.2622": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Forms": "5.0.0.2622"
-        },
-        "compile": {
-          "lib/Xamarin.iOS10/Xamarin.Forms.Maps.dll": {
-            "related": ".xml"
-          },
-          "lib/Xamarin.iOS10/Xamarin.Forms.Maps.iOS.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/Xamarin.Forms.Maps.dll": {
-            "related": ".xml"
-          },
-          "lib/Xamarin.iOS10/Xamarin.Forms.Maps.iOS.dll": {}
-        }
-      },
-      "Xamarin.Google.iOS.Maps/6.0.1.1": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Build.Download": "0.11.0"
-        },
-        "frameworkAssemblies": [
-          "System",
-          "System.Core",
-          "System.Numerics",
-          "System.Numerics.Vectors",
-          "System.Xml",
-          "Xamarin.iOS",
-          "mscorlib"
-        ],
-        "compile": {
-          "lib/xamarinios10/Google.Maps.dll": {}
-        },
-        "runtime": {
-          "lib/xamarinios10/Google.Maps.dll": {}
-        },
-        "build": {
-          "buildTransitive/Xamarin.Google.iOS.Maps.targets": {}
-        }
-      },
-      "GeoTimeTrack/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "System.Data.SqlClient": "4.8.6",
-          "System.Globalization.Calendars": "4.3.0",
-          "Xamarin.Essentials": "1.8.1",
-          "Xamarin.Forms": "5.0.0.2622",
-          "Xamarin.Forms.GoogleMaps": "5.0.0",
-          "Xamarin.Forms.Maps": "5.0.0.2622",
-          "sqlite-net-pcl": "1.8.116"
+          "Xamarin.Forms.Maps": "5.0.0.2662",
+          "sqlite-net-pcl": "1.9.172"
         },
         "compile": {
           "bin/placeholder/GeoTimeTrack.dll": {}
@@ -1217,10 +840,10 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "sqlite-net-pcl/1.8.116": {
+      "sqlite-net-pcl/1.9.172": {
         "type": "package",
         "dependencies": {
-          "SQLitePCLRaw.bundle_green": "2.0.4"
+          "SQLitePCLRaw.bundle_green": "2.1.2"
         },
         "compile": {
           "lib/netstandard2.0/SQLite-net.dll": {
@@ -1233,22 +856,29 @@
           }
         }
       },
-      "SQLitePCLRaw.bundle_green/2.0.4": {
+      "SQLitePCLRaw.bundle_green/2.1.2": {
         "type": "package",
         "dependencies": {
-          "SQLitePCLRaw.core": "2.0.4",
-          "SQLitePCLRaw.provider.dynamic_cdecl": "2.0.4"
+          "SQLitePCLRaw.provider.sqlite3": "2.1.2"
         },
+        "frameworkAssemblies": [
+          "System",
+          "System.Core",
+          "System.Drawing.Common.dll",
+          "System.Numerics",
+          "System.Numerics.Vectors",
+          "System.Xml",
+          "Xamarin.iOS",
+          "mscorlib"
+        ],
         "compile": {
-          "lib/Xamarin.iOS10/SQLitePCLRaw.batteries_v2.dll": {},
-          "lib/Xamarin.iOS10/SQLitePCLRaw.nativelibrary.dll": {}
+          "lib/xamarinios10/SQLitePCLRaw.batteries_v2.dll": {}
         },
         "runtime": {
-          "lib/Xamarin.iOS10/SQLitePCLRaw.batteries_v2.dll": {},
-          "lib/Xamarin.iOS10/SQLitePCLRaw.nativelibrary.dll": {}
+          "lib/xamarinios10/SQLitePCLRaw.batteries_v2.dll": {}
         }
       },
-      "SQLitePCLRaw.core/2.0.4": {
+      "SQLitePCLRaw.core/2.1.2": {
         "type": "package",
         "dependencies": {
           "System.Memory": "4.5.3"
@@ -1260,16 +890,16 @@
           "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
         }
       },
-      "SQLitePCLRaw.provider.dynamic_cdecl/2.0.4": {
+      "SQLitePCLRaw.provider.sqlite3/2.1.2": {
         "type": "package",
         "dependencies": {
-          "SQLitePCLRaw.core": "2.0.4"
+          "SQLitePCLRaw.core": "2.1.2"
         },
         "compile": {
-          "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll": {}
+          "lib/netstandard2.0/SQLitePCLRaw.provider.sqlite3.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll": {}
+          "lib/netstandard2.0/SQLitePCLRaw.provider.sqlite3.dll": {}
         }
       },
       "System.Buffers/4.4.0": {
@@ -1344,7 +974,7 @@
           }
         }
       },
-      "Xamarin.Build.Download/0.11.0": {
+      "Xamarin.Build.Download/0.11.4": {
         "type": "package",
         "build": {
           "buildTransitive/Xamarin.Build.Download.props": {},
@@ -1372,7 +1002,7 @@
           }
         }
       },
-      "Xamarin.Forms/5.0.0.2622": {
+      "Xamarin.Forms/5.0.0.2662": {
         "type": "package",
         "compile": {
           "lib/Xamarin.iOS10/Xamarin.Forms.Core.dll": {
@@ -1525,10 +1155,10 @@
           "lib/Xamarin.iOS10/Xamarin.Forms.GoogleMaps.iOS.dll": {}
         }
       },
-      "Xamarin.Forms.Maps/5.0.0.2622": {
+      "Xamarin.Forms.Maps/5.0.0.2662": {
         "type": "package",
         "dependencies": {
-          "Xamarin.Forms": "5.0.0.2622"
+          "Xamarin.Forms": "5.0.0.2662"
         },
         "compile": {
           "lib/Xamarin.iOS10/Xamarin.Forms.Maps.dll": {
@@ -1573,11 +1203,12 @@
         "dependencies": {
           "System.Data.SqlClient": "4.8.6",
           "System.Globalization.Calendars": "4.3.0",
+          "Xamarin.Build.Download": "0.11.4",
           "Xamarin.Essentials": "1.8.1",
-          "Xamarin.Forms": "5.0.0.2622",
+          "Xamarin.Forms": "5.0.0.2662",
           "Xamarin.Forms.GoogleMaps": "5.0.0",
-          "Xamarin.Forms.Maps": "5.0.0.2622",
-          "sqlite-net-pcl": "1.8.116"
+          "Xamarin.Forms.Maps": "5.0.0.2662",
+          "sqlite-net-pcl": "1.9.172"
         },
         "compile": {
           "bin/placeholder/GeoTimeTrack.dll": {}
@@ -1612,10 +1243,10 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "sqlite-net-pcl/1.8.116": {
+      "sqlite-net-pcl/1.9.172": {
         "type": "package",
         "dependencies": {
-          "SQLitePCLRaw.bundle_green": "2.0.4"
+          "SQLitePCLRaw.bundle_green": "2.1.2"
         },
         "compile": {
           "lib/netstandard2.0/SQLite-net.dll": {
@@ -1628,22 +1259,29 @@
           }
         }
       },
-      "SQLitePCLRaw.bundle_green/2.0.4": {
+      "SQLitePCLRaw.bundle_green/2.1.2": {
         "type": "package",
         "dependencies": {
-          "SQLitePCLRaw.core": "2.0.4",
-          "SQLitePCLRaw.provider.dynamic_cdecl": "2.0.4"
+          "SQLitePCLRaw.provider.sqlite3": "2.1.2"
         },
+        "frameworkAssemblies": [
+          "System",
+          "System.Core",
+          "System.Drawing.Common.dll",
+          "System.Numerics",
+          "System.Numerics.Vectors",
+          "System.Xml",
+          "Xamarin.iOS",
+          "mscorlib"
+        ],
         "compile": {
-          "lib/Xamarin.iOS10/SQLitePCLRaw.batteries_v2.dll": {},
-          "lib/Xamarin.iOS10/SQLitePCLRaw.nativelibrary.dll": {}
+          "lib/xamarinios10/SQLitePCLRaw.batteries_v2.dll": {}
         },
         "runtime": {
-          "lib/Xamarin.iOS10/SQLitePCLRaw.batteries_v2.dll": {},
-          "lib/Xamarin.iOS10/SQLitePCLRaw.nativelibrary.dll": {}
+          "lib/xamarinios10/SQLitePCLRaw.batteries_v2.dll": {}
         }
       },
-      "SQLitePCLRaw.core/2.0.4": {
+      "SQLitePCLRaw.core/2.1.2": {
         "type": "package",
         "dependencies": {
           "System.Memory": "4.5.3"
@@ -1655,16 +1293,16 @@
           "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
         }
       },
-      "SQLitePCLRaw.provider.dynamic_cdecl/2.0.4": {
+      "SQLitePCLRaw.provider.sqlite3/2.1.2": {
         "type": "package",
         "dependencies": {
-          "SQLitePCLRaw.core": "2.0.4"
+          "SQLitePCLRaw.core": "2.1.2"
         },
         "compile": {
-          "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll": {}
+          "lib/netstandard2.0/SQLitePCLRaw.provider.sqlite3.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll": {}
+          "lib/netstandard2.0/SQLitePCLRaw.provider.sqlite3.dll": {}
         }
       },
       "System.Buffers/4.4.0": {
@@ -1739,7 +1377,7 @@
           }
         }
       },
-      "Xamarin.Build.Download/0.11.0": {
+      "Xamarin.Build.Download/0.11.4": {
         "type": "package",
         "build": {
           "buildTransitive/Xamarin.Build.Download.props": {},
@@ -1767,7 +1405,7 @@
           }
         }
       },
-      "Xamarin.Forms/5.0.0.2622": {
+      "Xamarin.Forms/5.0.0.2662": {
         "type": "package",
         "compile": {
           "lib/Xamarin.iOS10/Xamarin.Forms.Core.dll": {
@@ -1920,10 +1558,10 @@
           "lib/Xamarin.iOS10/Xamarin.Forms.GoogleMaps.iOS.dll": {}
         }
       },
-      "Xamarin.Forms.Maps/5.0.0.2622": {
+      "Xamarin.Forms.Maps/5.0.0.2662": {
         "type": "package",
         "dependencies": {
-          "Xamarin.Forms": "5.0.0.2622"
+          "Xamarin.Forms": "5.0.0.2662"
         },
         "compile": {
           "lib/Xamarin.iOS10/Xamarin.Forms.Maps.dll": {
@@ -1968,11 +1606,12 @@
         "dependencies": {
           "System.Data.SqlClient": "4.8.6",
           "System.Globalization.Calendars": "4.3.0",
+          "Xamarin.Build.Download": "0.11.4",
           "Xamarin.Essentials": "1.8.1",
-          "Xamarin.Forms": "5.0.0.2622",
+          "Xamarin.Forms": "5.0.0.2662",
           "Xamarin.Forms.GoogleMaps": "5.0.0",
-          "Xamarin.Forms.Maps": "5.0.0.2622",
-          "sqlite-net-pcl": "1.8.116"
+          "Xamarin.Forms.Maps": "5.0.0.2662",
+          "sqlite-net-pcl": "1.9.172"
         },
         "compile": {
           "bin/placeholder/GeoTimeTrack.dll": {}
@@ -2128,10 +1767,10 @@
         "netstandard.library.nuspec"
       ]
     },
-    "sqlite-net-pcl/1.8.116": {
-      "sha512": "W0NuwAOVVAR9LP4eZwNBIrim1p3EN7t8iNfSHXEhtzKAd4YyItekoQ8NyWYs4faVSrN2KZr/P5u4hycCjKKexg==",
+    "sqlite-net-pcl/1.9.172": {
+      "sha512": "go533+huyvg5bOMmCpX+DyvLrcVRiEBIpqEiDHgXRijWIBBNkWnyMr/w+5ZzrUArKY+4ApucsbBnFtP3QITrJg==",
       "type": "package",
-      "path": "sqlite-net-pcl/1.8.116",
+      "path": "sqlite-net-pcl/1.9.172",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2139,50 +1778,54 @@
         "Logo-low.png",
         "lib/netstandard2.0/SQLite-net.dll",
         "lib/netstandard2.0/SQLite-net.xml",
-        "sqlite-net-pcl.1.8.116.nupkg.sha512",
+        "sqlite-net-pcl.1.9.172.nupkg.sha512",
         "sqlite-net-pcl.nuspec"
       ]
     },
-    "SQLitePCLRaw.bundle_green/2.0.4": {
-      "sha512": "ubFgOHDmtTcq2LU7Ss10yHnFVMm2rFVr65Ggi+Mh514KjGx4pal98P2zSvZtWf3wbtJw6G1InBgeozBtnpEfKQ==",
+    "SQLitePCLRaw.bundle_green/2.1.2": {
+      "sha512": "e2FRX87YHoSer+tLFX9P/povHLK0uH7UcdimHRPnfTSam+NZChVVXjBxe1MYnyBGlwX5dSs5sTlDg/yZBM7iVw==",
       "type": "package",
-      "path": "sqlitepclraw.bundle_green/2.0.4",
+      "path": "sqlitepclraw.bundle_green/2.1.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "lib/Xamarin.iOS10/SQLitePCLRaw.batteries_v2.dll",
-        "lib/Xamarin.iOS10/SQLitePCLRaw.nativelibrary.dll",
+        "lib/monoandroid90/SQLitePCLRaw.batteries_v2.dll",
         "lib/net461/SQLitePCLRaw.batteries_v2.dll",
-        "lib/net461/SQLitePCLRaw.nativelibrary.dll",
-        "lib/netcoreapp3.1/SQLitePCLRaw.batteries_v2.dll",
-        "lib/netcoreapp3.1/SQLitePCLRaw.nativelibrary.dll",
+        "lib/net6.0-android31.0/SQLitePCLRaw.batteries_v2.dll",
+        "lib/net6.0-android31.0/SQLitePCLRaw.batteries_v2.xml",
+        "lib/net6.0-ios14.0/SQLitePCLRaw.batteries_v2.dll",
+        "lib/net6.0-ios14.2/SQLitePCLRaw.batteries_v2.dll",
+        "lib/net6.0-tvos10.0/SQLitePCLRaw.batteries_v2.dll",
         "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll",
-        "sqlitepclraw.bundle_green.2.0.4.nupkg.sha512",
+        "lib/xamarinios10/SQLitePCLRaw.batteries_v2.dll",
+        "sqlitepclraw.bundle_green.2.1.2.nupkg.sha512",
         "sqlitepclraw.bundle_green.nuspec"
       ]
     },
-    "SQLitePCLRaw.core/2.0.4": {
-      "sha512": "4XlDZpDAsboMD6qZQcz9AaKblKDUTVHF+8f3lvbP7QjoqSRr2Xc0Lm34IK2pjRIYnyFLhI3yOJ5YWfOiCid2yg==",
+    "SQLitePCLRaw.core/2.1.2": {
+      "sha512": "A8EBepVqY2lnAp3a8jnhbgzF2tlj2S3HcJQGANTYg/TbYbKa8Z5cM1h74An/vy0svhfzT7tVY0sFmUglLgv+2g==",
       "type": "package",
-      "path": "sqlitepclraw.core/2.0.4",
+      "path": "sqlitepclraw.core/2.1.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/netstandard2.0/SQLitePCLRaw.core.dll",
-        "sqlitepclraw.core.2.0.4.nupkg.sha512",
+        "sqlitepclraw.core.2.1.2.nupkg.sha512",
         "sqlitepclraw.core.nuspec"
       ]
     },
-    "SQLitePCLRaw.provider.dynamic_cdecl/2.0.4": {
-      "sha512": "AY6+vv/4ji1mCkLrS6HP/88rHT9YFKRyg3LUj8RyIk6imJMUFdQDiP8rK8gq0a/0FbqspLjK1t7rtKcr7FXRYA==",
+    "SQLitePCLRaw.provider.sqlite3/2.1.2": {
+      "sha512": "RIo4C3+tuhp886uaff1Z8AIBVGUgMampd9YNSlAFS/SgP7kZEoH2SnLHN117RBFW0YLrJyVluZtve8mv1fQrKg==",
       "type": "package",
-      "path": "sqlitepclraw.provider.dynamic_cdecl/2.0.4",
+      "path": "sqlitepclraw.provider.sqlite3/2.1.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll",
-        "sqlitepclraw.provider.dynamic_cdecl.2.0.4.nupkg.sha512",
-        "sqlitepclraw.provider.dynamic_cdecl.nuspec"
+        "lib/net6.0-windows7.0/SQLitePCLRaw.provider.sqlite3.dll",
+        "lib/net6.0/SQLitePCLRaw.provider.sqlite3.dll",
+        "lib/netstandard2.0/SQLitePCLRaw.provider.sqlite3.dll",
+        "sqlitepclraw.provider.sqlite3.2.1.2.nupkg.sha512",
+        "sqlitepclraw.provider.sqlite3.nuspec"
       ]
     },
     "System.Buffers/4.4.0": {
@@ -2427,10 +2070,10 @@
         "version.txt"
       ]
     },
-    "Xamarin.Build.Download/0.11.0": {
-      "sha512": "35/X1Lz4KNoD0VjmDRO/Ap8U823odTUVWGnAmdoweFvjbE3CJ+B8zzOAp+MzvheuEBYlGfX5P4gjvLRZhVTCDg==",
+    "Xamarin.Build.Download/0.11.4": {
+      "sha512": "u2ROt0h6P7mfs0jbmgvmTrqU/YEpEZcf16xcHa78GSEp7fOZunNtJLCZxooeI1V5p+lrr9kYdg3Pa8FoTbgcXQ==",
       "type": "package",
-      "path": "xamarin.build.download/0.11.0",
+      "path": "xamarin.build.download/0.11.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2445,7 +2088,7 @@
         "buildTransitive/Xamarin.Build.Download.dll",
         "buildTransitive/Xamarin.Build.Download.props",
         "buildTransitive/Xamarin.Build.Download.targets",
-        "xamarin.build.download.0.11.0.nupkg.sha512",
+        "xamarin.build.download.0.11.4.nupkg.sha512",
         "xamarin.build.download.nuspec"
       ]
     },
@@ -2491,10 +2134,10 @@
         "xamarin.essentials.nuspec"
       ]
     },
-    "Xamarin.Forms/5.0.0.2622": {
-      "sha512": "vuhBbYbYM2fir0HkKeWBt3r+KzfJmXQQj4SlRYqRD/3MG9WS385T2VPuvakXMKgsGEkamaRyZacQ8ZPdac6cpA==",
+    "Xamarin.Forms/5.0.0.2662": {
+      "sha512": "SNQvq2tNJUl54KXfFrCx7SzfxDeJOUxQPaLxzLK8y/KFd6H9mwnhEu/W0Bejv79ogLYIy4r1ka2AHR+injTNow==",
       "type": "package",
-      "path": "xamarin.forms/5.0.0.2622",
+      "path": "xamarin.forms/5.0.0.2662",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2705,7 +2348,7 @@
         "lib/uap10.0.16299/Xamarin.Forms.Xaml.dll",
         "lib/uap10.0.16299/Xamarin.Forms.Xaml.pdb",
         "lib/uap10.0.16299/Xamarin.Forms.Xaml.xml",
-        "xamarin.forms.5.0.0.2622.nupkg.sha512",
+        "xamarin.forms.5.0.0.2662.nupkg.sha512",
         "xamarin.forms.nuspec"
       ]
     },
@@ -2726,10 +2369,10 @@
         "xamarin.forms.googlemaps.nuspec"
       ]
     },
-    "Xamarin.Forms.Maps/5.0.0.2622": {
-      "sha512": "dqA8nm4Df50KIJ2DaMciqxlhETl01KkUwx17c35fDRXboNUCz8Suyv0Zns7tvKVd7SAyC2rIEYAkOutykyAP7w==",
+    "Xamarin.Forms.Maps/5.0.0.2662": {
+      "sha512": "99WMS9HWLKuQHWBj29yf7NIbbICcwtRIpVdO/5WEdUHlZxKw+LCcUKM2/5vtNwvJmFFFqBf04fmMoL4+xEvNOQ==",
       "type": "package",
-      "path": "xamarin.forms.maps/5.0.0.2622",
+      "path": "xamarin.forms.maps/5.0.0.2662",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2758,7 +2401,7 @@
         "lib/uap10.0.16299/Xamarin.Forms.Maps.UWP.dll",
         "lib/uap10.0.16299/Xamarin.Forms.Maps.UWP.pri",
         "lib/uap10.0.16299/Xamarin.Forms.Maps.dll",
-        "xamarin.forms.maps.5.0.0.2622.nupkg.sha512",
+        "xamarin.forms.maps.5.0.0.2662.nupkg.sha512",
         "xamarin.forms.maps.nuspec"
       ]
     },
@@ -2791,55 +2434,44 @@
       "NETStandard.Library >= 2.0.3",
       "System.Data.SqlClient >= 4.8.6",
       "System.Globalization.Calendars >= 4.3.0",
+      "Xamarin.Build.Download >= 0.11.4",
       "Xamarin.Essentials >= 1.8.1",
-      "Xamarin.Forms >= 5.0.0.2622",
+      "Xamarin.Forms >= 5.0.0.2662",
       "Xamarin.Forms.GoogleMaps >= 5.0.0",
-      "Xamarin.Forms.Maps >= 5.0.0.2622",
-      "sqlite-net-pcl >= 1.8.116"
+      "Xamarin.Forms.Maps >= 5.0.0.2662",
+      "sqlite-net-pcl >= 1.9.172"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\brand\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/Users/user/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.iOS\\GeoTimeTrack.iOS.csproj",
+      "projectUniqueName": "/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.iOS/GeoTimeTrack.iOS.csproj",
       "projectName": "GeoTimeTrack.iOS",
-      "projectPath": "C:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.iOS\\GeoTimeTrack.iOS.csproj",
-      "packagesPath": "C:\\Users\\brand\\.nuget\\packages\\",
-      "outputPath": "C:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.iOS\\obj\\",
+      "projectPath": "/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.iOS/GeoTimeTrack.iOS.csproj",
+      "packagesPath": "/Users/user/.nuget/packages/",
+      "outputPath": "/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.iOS/obj/",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\brand\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/user/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "xamarinios10"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.csproj": {
-              "projectPath": "C:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.csproj"
+            "/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.csproj": {
+              "projectPath": "/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.csproj"
             }
           }
         }
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -2857,13 +2489,17 @@
             "target": "Package",
             "version": "[4.3.0, )"
           },
+          "Xamarin.Build.Download": {
+            "target": "Package",
+            "version": "[0.11.4, )"
+          },
           "Xamarin.Essentials": {
             "target": "Package",
             "version": "[1.8.1, )"
           },
           "Xamarin.Forms": {
             "target": "Package",
-            "version": "[5.0.0.2622, )"
+            "version": "[5.0.0.2662, )"
           },
           "Xamarin.Forms.GoogleMaps": {
             "target": "Package",
@@ -2871,20 +2507,17 @@
           },
           "Xamarin.Forms.Maps": {
             "target": "Package",
-            "version": "[5.0.0.2622, )"
+            "version": "[5.0.0.2662, )"
           },
           "sqlite-net-pcl": {
             "target": "Package",
-            "version": "[1.8.116, )"
+            "version": "[1.9.172, )"
           }
         }
       }
     },
     "runtimes": {
       "win": {
-        "#import": []
-      },
-      "win-arm64": {
         "#import": []
       },
       "win-x64": {

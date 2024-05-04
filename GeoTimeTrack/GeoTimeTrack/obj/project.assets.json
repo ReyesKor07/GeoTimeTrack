@@ -99,10 +99,10 @@
           }
         }
       },
-      "sqlite-net-pcl/1.8.116": {
+      "sqlite-net-pcl/1.9.172": {
         "type": "package",
         "dependencies": {
-          "SQLitePCLRaw.bundle_green": "2.0.4"
+          "SQLitePCLRaw.bundle_green": "2.1.2"
         },
         "compile": {
           "lib/netstandard2.0/SQLite-net.dll": {
@@ -115,12 +115,11 @@
           }
         }
       },
-      "SQLitePCLRaw.bundle_green/2.0.4": {
+      "SQLitePCLRaw.bundle_green/2.1.2": {
         "type": "package",
         "dependencies": {
-          "SQLitePCLRaw.core": "2.0.4",
-          "SQLitePCLRaw.lib.e_sqlite3": "2.0.4",
-          "SQLitePCLRaw.provider.e_sqlite3": "2.0.4"
+          "SQLitePCLRaw.lib.e_sqlite3": "2.1.2",
+          "SQLitePCLRaw.provider.e_sqlite3": "2.1.2"
         },
         "compile": {
           "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll": {}
@@ -129,7 +128,7 @@
           "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll": {}
         }
       },
-      "SQLitePCLRaw.core/2.0.4": {
+      "SQLitePCLRaw.core/2.1.2": {
         "type": "package",
         "dependencies": {
           "System.Memory": "4.5.3"
@@ -141,7 +140,7 @@
           "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
         }
       },
-      "SQLitePCLRaw.lib.e_sqlite3/2.0.4": {
+      "SQLitePCLRaw.lib.e_sqlite3/2.1.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/_._": {}
@@ -150,6 +149,14 @@
           "lib/netstandard2.0/_._": {}
         },
         "runtimeTargets": {
+          "runtimes/alpine-arm/native/libe_sqlite3.so": {
+            "assetType": "native",
+            "rid": "alpine-arm"
+          },
+          "runtimes/alpine-arm64/native/libe_sqlite3.so": {
+            "assetType": "native",
+            "rid": "alpine-arm64"
+          },
           "runtimes/alpine-x64/native/libe_sqlite3.so": {
             "assetType": "native",
             "rid": "alpine-x64"
@@ -170,9 +177,21 @@
             "assetType": "native",
             "rid": "linux-mips64"
           },
+          "runtimes/linux-musl-arm/native/libe_sqlite3.so": {
+            "assetType": "native",
+            "rid": "linux-musl-arm"
+          },
+          "runtimes/linux-musl-arm64/native/libe_sqlite3.so": {
+            "assetType": "native",
+            "rid": "linux-musl-arm64"
+          },
           "runtimes/linux-musl-x64/native/libe_sqlite3.so": {
             "assetType": "native",
             "rid": "linux-musl-x64"
+          },
+          "runtimes/linux-s390x/native/libe_sqlite3.so": {
+            "assetType": "native",
+            "rid": "linux-s390x"
           },
           "runtimes/linux-x64/native/libe_sqlite3.so": {
             "assetType": "native",
@@ -181,6 +200,18 @@
           "runtimes/linux-x86/native/libe_sqlite3.so": {
             "assetType": "native",
             "rid": "linux-x86"
+          },
+          "runtimes/maccatalyst-arm64/native/libe_sqlite3.dylib": {
+            "assetType": "native",
+            "rid": "maccatalyst-arm64"
+          },
+          "runtimes/maccatalyst-x64/native/libe_sqlite3.dylib": {
+            "assetType": "native",
+            "rid": "maccatalyst-x64"
+          },
+          "runtimes/osx-arm64/native/libe_sqlite3.dylib": {
+            "assetType": "native",
+            "rid": "osx-arm64"
           },
           "runtimes/osx-x64/native/libe_sqlite3.dylib": {
             "assetType": "native",
@@ -204,10 +235,10 @@
           }
         }
       },
-      "SQLitePCLRaw.provider.e_sqlite3/2.0.4": {
+      "SQLitePCLRaw.provider.e_sqlite3/2.1.2": {
         "type": "package",
         "dependencies": {
-          "SQLitePCLRaw.core": "2.0.4"
+          "SQLitePCLRaw.core": "2.1.2"
         },
         "compile": {
           "lib/netstandard2.0/SQLitePCLRaw.provider.e_sqlite3.dll": {}
@@ -423,6 +454,13 @@
           }
         }
       },
+      "Xamarin.Build.Download/0.11.4": {
+        "type": "package",
+        "build": {
+          "buildTransitive/Xamarin.Build.Download.props": {},
+          "buildTransitive/Xamarin.Build.Download.targets": {}
+        }
+      },
       "Xamarin.Essentials/1.8.1": {
         "type": "package",
         "dependencies": {
@@ -439,7 +477,7 @@
           }
         }
       },
-      "Xamarin.Forms/5.0.0.2622": {
+      "Xamarin.Forms/5.0.0.2662": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Xamarin.Forms.Core.dll": {
@@ -476,10 +514,10 @@
           "lib/netstandard2.0/Xamarin.Forms.GoogleMaps.dll": {}
         }
       },
-      "Xamarin.Forms.Maps/5.0.0.2622": {
+      "Xamarin.Forms.Maps/5.0.0.2662": {
         "type": "package",
         "dependencies": {
-          "Xamarin.Forms": "5.0.0.2622"
+          "Xamarin.Forms": "5.0.0.2662"
         },
         "compile": {
           "lib/netstandard2.0/Xamarin.Forms.Maps.dll": {
@@ -764,10 +802,10 @@
         "version.txt"
       ]
     },
-    "sqlite-net-pcl/1.8.116": {
-      "sha512": "W0NuwAOVVAR9LP4eZwNBIrim1p3EN7t8iNfSHXEhtzKAd4YyItekoQ8NyWYs4faVSrN2KZr/P5u4hycCjKKexg==",
+    "sqlite-net-pcl/1.9.172": {
+      "sha512": "go533+huyvg5bOMmCpX+DyvLrcVRiEBIpqEiDHgXRijWIBBNkWnyMr/w+5ZzrUArKY+4ApucsbBnFtP3QITrJg==",
       "type": "package",
-      "path": "sqlite-net-pcl/1.8.116",
+      "path": "sqlite-net-pcl/1.9.172",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -775,58 +813,72 @@
         "Logo-low.png",
         "lib/netstandard2.0/SQLite-net.dll",
         "lib/netstandard2.0/SQLite-net.xml",
-        "sqlite-net-pcl.1.8.116.nupkg.sha512",
+        "sqlite-net-pcl.1.9.172.nupkg.sha512",
         "sqlite-net-pcl.nuspec"
       ]
     },
-    "SQLitePCLRaw.bundle_green/2.0.4": {
-      "sha512": "ubFgOHDmtTcq2LU7Ss10yHnFVMm2rFVr65Ggi+Mh514KjGx4pal98P2zSvZtWf3wbtJw6G1InBgeozBtnpEfKQ==",
+    "SQLitePCLRaw.bundle_green/2.1.2": {
+      "sha512": "e2FRX87YHoSer+tLFX9P/povHLK0uH7UcdimHRPnfTSam+NZChVVXjBxe1MYnyBGlwX5dSs5sTlDg/yZBM7iVw==",
       "type": "package",
-      "path": "sqlitepclraw.bundle_green/2.0.4",
+      "path": "sqlitepclraw.bundle_green/2.1.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "lib/Xamarin.iOS10/SQLitePCLRaw.batteries_v2.dll",
-        "lib/Xamarin.iOS10/SQLitePCLRaw.nativelibrary.dll",
+        "lib/monoandroid90/SQLitePCLRaw.batteries_v2.dll",
         "lib/net461/SQLitePCLRaw.batteries_v2.dll",
-        "lib/net461/SQLitePCLRaw.nativelibrary.dll",
-        "lib/netcoreapp3.1/SQLitePCLRaw.batteries_v2.dll",
-        "lib/netcoreapp3.1/SQLitePCLRaw.nativelibrary.dll",
+        "lib/net6.0-android31.0/SQLitePCLRaw.batteries_v2.dll",
+        "lib/net6.0-android31.0/SQLitePCLRaw.batteries_v2.xml",
+        "lib/net6.0-ios14.0/SQLitePCLRaw.batteries_v2.dll",
+        "lib/net6.0-ios14.2/SQLitePCLRaw.batteries_v2.dll",
+        "lib/net6.0-tvos10.0/SQLitePCLRaw.batteries_v2.dll",
         "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll",
-        "sqlitepclraw.bundle_green.2.0.4.nupkg.sha512",
+        "lib/xamarinios10/SQLitePCLRaw.batteries_v2.dll",
+        "sqlitepclraw.bundle_green.2.1.2.nupkg.sha512",
         "sqlitepclraw.bundle_green.nuspec"
       ]
     },
-    "SQLitePCLRaw.core/2.0.4": {
-      "sha512": "4XlDZpDAsboMD6qZQcz9AaKblKDUTVHF+8f3lvbP7QjoqSRr2Xc0Lm34IK2pjRIYnyFLhI3yOJ5YWfOiCid2yg==",
+    "SQLitePCLRaw.core/2.1.2": {
+      "sha512": "A8EBepVqY2lnAp3a8jnhbgzF2tlj2S3HcJQGANTYg/TbYbKa8Z5cM1h74An/vy0svhfzT7tVY0sFmUglLgv+2g==",
       "type": "package",
-      "path": "sqlitepclraw.core/2.0.4",
+      "path": "sqlitepclraw.core/2.1.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/netstandard2.0/SQLitePCLRaw.core.dll",
-        "sqlitepclraw.core.2.0.4.nupkg.sha512",
+        "sqlitepclraw.core.2.1.2.nupkg.sha512",
         "sqlitepclraw.core.nuspec"
       ]
     },
-    "SQLitePCLRaw.lib.e_sqlite3/2.0.4": {
-      "sha512": "oetvmtDZOE4Nnrtxd8Trapl9geBiu0rDCUXff46qGYjnUwzaU1mZ3OHnfR402tl32rx8gBWg3n5OBRaPJRbsGw==",
+    "SQLitePCLRaw.lib.e_sqlite3/2.1.2": {
+      "sha512": "zibGtku8M4Eea1R3ZCAxc86QbNvyEN17mAcQkvWKBuHvRpMiK2g5anG4R5Be7cWKSd1i6baYz8y4dMMAKcXKPg==",
       "type": "package",
-      "path": "sqlitepclraw.lib.e_sqlite3/2.0.4",
+      "path": "sqlitepclraw.lib.e_sqlite3/2.1.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "build/net461/SQLitePCLRaw.lib.e_sqlite3.targets",
+        "buildTransitive/net461/SQLitePCLRaw.lib.e_sqlite3.targets",
+        "buildTransitive/net6.0/SQLitePCLRaw.lib.e_sqlite3.targets",
+        "buildTransitive/net7.0/SQLitePCLRaw.lib.e_sqlite3.targets",
         "lib/net461/_._",
         "lib/netstandard2.0/_._",
+        "runtimes/alpine-arm/native/libe_sqlite3.so",
+        "runtimes/alpine-arm64/native/libe_sqlite3.so",
         "runtimes/alpine-x64/native/libe_sqlite3.so",
+        "runtimes/browser-wasm/nativeassets/net6.0/e_sqlite3.a",
+        "runtimes/browser-wasm/nativeassets/net7.0/e_sqlite3.a",
         "runtimes/linux-arm/native/libe_sqlite3.so",
         "runtimes/linux-arm64/native/libe_sqlite3.so",
         "runtimes/linux-armel/native/libe_sqlite3.so",
         "runtimes/linux-mips64/native/libe_sqlite3.so",
+        "runtimes/linux-musl-arm/native/libe_sqlite3.so",
+        "runtimes/linux-musl-arm64/native/libe_sqlite3.so",
         "runtimes/linux-musl-x64/native/libe_sqlite3.so",
+        "runtimes/linux-s390x/native/libe_sqlite3.so",
         "runtimes/linux-x64/native/libe_sqlite3.so",
         "runtimes/linux-x86/native/libe_sqlite3.so",
+        "runtimes/maccatalyst-arm64/native/libe_sqlite3.dylib",
+        "runtimes/maccatalyst-x64/native/libe_sqlite3.dylib",
+        "runtimes/osx-arm64/native/libe_sqlite3.dylib",
         "runtimes/osx-x64/native/libe_sqlite3.dylib",
         "runtimes/win-arm/native/e_sqlite3.dll",
         "runtimes/win-arm64/native/e_sqlite3.dll",
@@ -836,20 +888,21 @@
         "runtimes/win10-arm64/nativeassets/uap10.0/e_sqlite3.dll",
         "runtimes/win10-x64/nativeassets/uap10.0/e_sqlite3.dll",
         "runtimes/win10-x86/nativeassets/uap10.0/e_sqlite3.dll",
-        "sqlitepclraw.lib.e_sqlite3.2.0.4.nupkg.sha512",
+        "sqlitepclraw.lib.e_sqlite3.2.1.2.nupkg.sha512",
         "sqlitepclraw.lib.e_sqlite3.nuspec"
       ]
     },
-    "SQLitePCLRaw.provider.e_sqlite3/2.0.4": {
-      "sha512": "YiqCw+PfiPIuX2aZnEqt1ya5ldGm4ParIqzaRXtztDu8mdzZxOXVYOrKZazXg6nbwYbCP1H5mOYGmBFQ2W0M5g==",
+    "SQLitePCLRaw.provider.e_sqlite3/2.1.2": {
+      "sha512": "lxCZarZdvAsMl2zw9bXHrXK6RxVhB4b23iTFhCOdHFhxfbsxLxWf+ocvswJwR/9Wh/E//ddMi+wJGqUKV7VwoA==",
       "type": "package",
-      "path": "sqlitepclraw.provider.e_sqlite3/2.0.4",
+      "path": "sqlitepclraw.provider.e_sqlite3/2.1.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "lib/net6.0-windows7.0/SQLitePCLRaw.provider.e_sqlite3.dll",
+        "lib/net6.0/SQLitePCLRaw.provider.e_sqlite3.dll",
         "lib/netstandard2.0/SQLitePCLRaw.provider.e_sqlite3.dll",
-        "lib/uap10.0/SQLitePCLRaw.provider.e_sqlite3.dll",
-        "sqlitepclraw.provider.e_sqlite3.2.0.4.nupkg.sha512",
+        "sqlitepclraw.provider.e_sqlite3.2.1.2.nupkg.sha512",
         "sqlitepclraw.provider.e_sqlite3.nuspec"
       ]
     },
@@ -1428,6 +1481,28 @@
         "version.txt"
       ]
     },
+    "Xamarin.Build.Download/0.11.4": {
+      "sha512": "u2ROt0h6P7mfs0jbmgvmTrqU/YEpEZcf16xcHa78GSEp7fOZunNtJLCZxooeI1V5p+lrr9kYdg3Pa8FoTbgcXQ==",
+      "type": "package",
+      "path": "xamarin.build.download/0.11.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "THIRD-PARTY-NOTICE.txt",
+        "build/Microsoft.Win32.Registry.dll",
+        "build/Newtonsoft.Json.dll",
+        "build/Xamarin.Build.Download.dll",
+        "build/Xamarin.Build.Download.props",
+        "build/Xamarin.Build.Download.targets",
+        "buildTransitive/Microsoft.Win32.Registry.dll",
+        "buildTransitive/Newtonsoft.Json.dll",
+        "buildTransitive/Xamarin.Build.Download.dll",
+        "buildTransitive/Xamarin.Build.Download.props",
+        "buildTransitive/Xamarin.Build.Download.targets",
+        "xamarin.build.download.0.11.4.nupkg.sha512",
+        "xamarin.build.download.nuspec"
+      ]
+    },
     "Xamarin.Essentials/1.8.1": {
       "sha512": "IzfRGrCrRuytgdQU+Im17Cepib6qUyLj1xfMjn+sDPTfmhmcZotsQCm5Dblm4Vxo9/SGFTdm1OgJUKWzu+dfjw==",
       "type": "package",
@@ -1470,10 +1545,10 @@
         "xamarin.essentials.nuspec"
       ]
     },
-    "Xamarin.Forms/5.0.0.2622": {
-      "sha512": "vuhBbYbYM2fir0HkKeWBt3r+KzfJmXQQj4SlRYqRD/3MG9WS385T2VPuvakXMKgsGEkamaRyZacQ8ZPdac6cpA==",
+    "Xamarin.Forms/5.0.0.2662": {
+      "sha512": "SNQvq2tNJUl54KXfFrCx7SzfxDeJOUxQPaLxzLK8y/KFd6H9mwnhEu/W0Bejv79ogLYIy4r1ka2AHR+injTNow==",
       "type": "package",
-      "path": "xamarin.forms/5.0.0.2622",
+      "path": "xamarin.forms/5.0.0.2662",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1684,7 +1759,7 @@
         "lib/uap10.0.16299/Xamarin.Forms.Xaml.dll",
         "lib/uap10.0.16299/Xamarin.Forms.Xaml.pdb",
         "lib/uap10.0.16299/Xamarin.Forms.Xaml.xml",
-        "xamarin.forms.5.0.0.2622.nupkg.sha512",
+        "xamarin.forms.5.0.0.2662.nupkg.sha512",
         "xamarin.forms.nuspec"
       ]
     },
@@ -1705,10 +1780,10 @@
         "xamarin.forms.googlemaps.nuspec"
       ]
     },
-    "Xamarin.Forms.Maps/5.0.0.2622": {
-      "sha512": "dqA8nm4Df50KIJ2DaMciqxlhETl01KkUwx17c35fDRXboNUCz8Suyv0Zns7tvKVd7SAyC2rIEYAkOutykyAP7w==",
+    "Xamarin.Forms.Maps/5.0.0.2662": {
+      "sha512": "99WMS9HWLKuQHWBj29yf7NIbbICcwtRIpVdO/5WEdUHlZxKw+LCcUKM2/5vtNwvJmFFFqBf04fmMoL4+xEvNOQ==",
       "type": "package",
-      "path": "xamarin.forms.maps/5.0.0.2622",
+      "path": "xamarin.forms.maps/5.0.0.2662",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1737,7 +1812,7 @@
         "lib/uap10.0.16299/Xamarin.Forms.Maps.UWP.dll",
         "lib/uap10.0.16299/Xamarin.Forms.Maps.UWP.pri",
         "lib/uap10.0.16299/Xamarin.Forms.Maps.dll",
-        "xamarin.forms.maps.5.0.0.2622.nupkg.sha512",
+        "xamarin.forms.maps.5.0.0.2662.nupkg.sha512",
         "xamarin.forms.maps.nuspec"
       ]
     }
@@ -1747,40 +1822,33 @@
       "NETStandard.Library >= 2.0.3",
       "System.Data.SqlClient >= 4.8.6",
       "System.Globalization.Calendars >= 4.3.0",
+      "Xamarin.Build.Download >= 0.11.4",
       "Xamarin.Essentials >= 1.8.1",
-      "Xamarin.Forms >= 5.0.0.2622",
+      "Xamarin.Forms >= 5.0.0.2662",
       "Xamarin.Forms.GoogleMaps >= 5.0.0",
-      "Xamarin.Forms.Maps >= 5.0.0.2622",
-      "sqlite-net-pcl >= 1.8.116"
+      "Xamarin.Forms.Maps >= 5.0.0.2662",
+      "sqlite-net-pcl >= 1.9.172"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\brand\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/Users/user/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.csproj",
+      "projectUniqueName": "/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.csproj",
       "projectName": "GeoTimeTrack",
-      "projectPath": "C:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack.csproj",
-      "packagesPath": "C:\\Users\\brand\\.nuget\\packages\\",
-      "outputPath": "C:\\GeoTimeTrack\\GeoTimeTrack\\GeoTimeTrack\\obj\\",
+      "projectPath": "/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.csproj",
+      "packagesPath": "/Users/user/.nuget/packages/",
+      "outputPath": "/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\brand\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/user/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1793,11 +1861,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -1818,13 +1881,17 @@
             "target": "Package",
             "version": "[4.3.0, )"
           },
+          "Xamarin.Build.Download": {
+            "target": "Package",
+            "version": "[0.11.4, )"
+          },
           "Xamarin.Essentials": {
             "target": "Package",
             "version": "[1.8.1, )"
           },
           "Xamarin.Forms": {
             "target": "Package",
-            "version": "[5.0.0.2622, )"
+            "version": "[5.0.0.2662, )"
           },
           "Xamarin.Forms.GoogleMaps": {
             "target": "Package",
@@ -1832,11 +1899,11 @@
           },
           "Xamarin.Forms.Maps": {
             "target": "Package",
-            "version": "[5.0.0.2622, )"
+            "version": "[5.0.0.2662, )"
           },
           "sqlite-net-pcl": {
             "target": "Package",
-            "version": "[1.8.116, )"
+            "version": "[1.9.172, )"
           }
         },
         "imports": [
@@ -1845,12 +1912,11 @@
           "net47",
           "net471",
           "net472",
-          "net48",
-          "net481"
+          "net48"
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/Users/user/Library/Caches/VisualStudio/17.0/MSBuild/1890_3/RuntimeIdentifierGraph.json"
       }
     }
   }

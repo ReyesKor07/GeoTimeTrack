@@ -22,7 +22,12 @@ namespace GeoTimeTrack
         public void Clear()
         {
             usernameEntry.Text = null; userlastnameEntry.Text = null; usermiddlenameEntry.Text = null;
-            emailEntry.Text = null; passwordEntry.Text = null;
+            emailEntry.Text = null; passwordEntry.Text = null; confirmPasswordEntry.Text = null;
+        }
+
+        private bool ValidateName(string name)
+        {
+            return name.All(char.IsLetter);
         }
 
         private void OnCreateUserButtonClicked(object sender, EventArgs e)
@@ -30,11 +35,32 @@ namespace GeoTimeTrack
             try
             {
                 // Validar si los campos de nombre, apellidos, correo y contraseña no están vacíos
-                if (string.IsNullOrWhiteSpace(usernameEntry.Text) || string.IsNullOrWhiteSpace(userlastnameEntry.Text) || string.IsNullOrWhiteSpace(usermiddlenameEntry.Text) || string.IsNullOrWhiteSpace(emailEntry.Text) || string.IsNullOrWhiteSpace(passwordEntry.Text))
+                if (string.IsNullOrWhiteSpace(usernameEntry.Text) ||
+                    string.IsNullOrWhiteSpace(userlastnameEntry.Text) ||
+                    string.IsNullOrWhiteSpace(usermiddlenameEntry.Text) ||
+                    string.IsNullOrWhiteSpace(emailEntry.Text) ||
+                    string.IsNullOrWhiteSpace(passwordEntry.Text) ||
+                    string.IsNullOrWhiteSpace(confirmPasswordEntry.Text))
                 {
                     DisplayAlert("Error", "Por favor, complete todos los campos.", "OK");
                     return;
                 }
+
+                if (!ValidateName(usernameEntry.Text) ||
+                    !ValidateName(userlastnameEntry.Text) ||
+                    !ValidateName(usermiddlenameEntry.Text))
+                {
+                    DisplayAlert("Error", "Por favor, ingrese solo letras en los campos de nombre y apellidos.", "OK");
+                    return;
+                }
+
+                // Verificar si la contraseña y la confirmación de contraseña coinciden
+                if (passwordEntry.Text != confirmPasswordEntry.Text)
+                {
+                    DisplayAlert("Error", "Las contraseñas no coinciden.", "OK");
+                    return;
+                }
+
                 ConexionSQLServer.Abrir();
                 string emailCheckQuery = "SELECT COUNT(*) FROM Usuario_B WHERE Email = @email"; // Consulta SQL para verificar si el correo electrónico ya existe
                 using (SqlCommand emailCheckCmd = new SqlCommand(emailCheckQuery, ConexionSQLServer.cn))
@@ -78,7 +104,9 @@ namespace GeoTimeTrack
 
         private void OnShowPasswordSwitchToggled(object sender, ToggledEventArgs e)
         {
-            passwordEntry.IsPassword = !e.Value; // Cambia el valor de IsPassword según el estado del Switch
+            // Cambiar la visibilidad del texto de contraseña basado en el estado del Switch
+            passwordEntry.IsPassword = !e.Value;
+            confirmPasswordEntry.IsPassword = !e.Value;
         }
     }
 }

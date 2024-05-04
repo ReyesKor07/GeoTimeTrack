@@ -1,0 +1,32 @@
+﻿<Properties StartupConfiguration="{5AC008B0-75B9-4301-AFE7-F6E14AF1FDF9}|Default">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="GeoTimeTrack/GeoTimeTrack.iOS/Main.cs">
+    <Files>
+      <File FileName="GeoTimeTrack/GeoTimeTrack/Inicio/LoginPage.xaml" Line="1" Column="1" />
+      <File FileName="GeoTimeTrack/GeoTimeTrack/Inicio/LoginPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="GeoTimeTrack/GeoTimeTrack.iOS/AppDelegate.cs" Line="2" Column="1" />
+      <File FileName="GeoTimeTrack/GeoTimeTrack.iOS/Entitlements.plist" />
+      <File FileName="GeoTimeTrack/GeoTimeTrack.iOS/Info.plist" />
+      <File FileName="GeoTimeTrack/GeoTimeTrack.iOS/Main.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="GeoTimeTrack" expanded="True">
+            <Node name="GeoTimeTrack.iOS" expanded="True">
+              <Node name="Main.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.GeoTimeTrack.Android PreferredExecutionTarget="Android.pixel_2_-_api_30" />
+  <MonoDevelop.Ide.ItemProperties.GeoTimeTrack.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.C7265A4C-1647-46E8-A71A-76F745E66A82" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MultiItemStartupConfigurations />
+  <Xamarin.Addins.Core.Project ActiveDebugTarget="Android.pixel_2_-_api_30" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+</Properties>

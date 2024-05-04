@@ -97,7 +97,7 @@ namespace GeoTimeTrack
                         map.Pins.Add(entryLocationPin);
                         entryTimeEntry.Text = entryTime.ToString("HH:mm:ss"); // Actualizar los campos de la interfaz con la hora y ubicación de entrada
                         entryDateEntry.Text = entryTime.ToString("dd-MM-yyyy");
-                        var newMapSpan = MapSpan.FromCenterAndRadius(entryLocationPin.Position, Distance.FromMeters(20)); // Centrar el mapa en la ubicación de entrada
+                        var newMapSpan = MapSpan.FromCenterAndRadius(entryLocationPin.Position, Distance.FromMeters(40)); // Centrar el mapa en la ubicación de entrada
                         map.MoveToRegion(newMapSpan);
                         entrylongitudeEntry = (decimal)location.Latitude;
                         entrylatitudeEntry = (decimal)location.Longitude;
@@ -158,7 +158,7 @@ namespace GeoTimeTrack
                             exitTimeEntry.Text = exitTime.ToString("HH:mm:ss"); // Actualizar los campos de la interfaz con la hora y ubicación de salida
                             exitDateEntry.Text = exitTime.ToString("dd-MM-yyyy");
                             workTimeEntry.Text = timeDifference.ToString(@"hh\:mm\:ss");
-                            var newMapSpan = MapSpan.FromCenterAndRadius(exitLocationPin.Position, Distance.FromMeters(20)); // Centrar el mapa en la ubicación de salida
+                            var newMapSpan = MapSpan.FromCenterAndRadius(exitLocationPin.Position, Distance.FromMeters(40)); // Centrar el mapa en la ubicación de salida
                             map.MoveToRegion(newMapSpan);
                             exitlongitudeEntry = (decimal)location.Latitude;
                             exitlatitudeEntry = (decimal)location.Longitude;

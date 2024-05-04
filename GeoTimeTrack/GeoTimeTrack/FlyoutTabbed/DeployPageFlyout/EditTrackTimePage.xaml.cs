@@ -51,17 +51,19 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
                         {
                             Registro registro = new Registro
                             {
-                                Contador = contador,
-                                FechaEntrada = reader.GetDateTime(reader.GetOrdinal("FechaEntrada")),
-                                HoraEntrada = reader.GetTimeSpan(reader.GetOrdinal("HoraEntrada")).ToString(),
-                                HoraSalida = reader.GetTimeSpan(reader.GetOrdinal("HoraSalida")).ToString(),
-                                DistanciaEntrada = reader.GetDecimal(reader.GetOrdinal("DistanciaEntrada")),
-                                DistanciaSalida = reader.GetDecimal(reader.GetOrdinal("DistanciaSalida")),
-                                TiempoTotal = reader.GetTimeSpan(reader.GetOrdinal("TiempoTotal")).ToString(),
-                                FechaHoraEntradaSalida = $"{reader.GetDateTime(reader.GetOrdinal("FechaEntrada")).ToString("ddd, dd MMM", new System.Globalization.CultureInfo("es-ES"))} {reader.GetTimeSpan(reader.GetOrdinal("HoraEntrada")).ToString(@"hh\:mm")} - {reader.GetTimeSpan(reader.GetOrdinal("HoraSalida")).ToString(@"hh\:mm")}",
+                                Contador = contador, // Asigna el contador
+                                FechaBD = reader.GetDateTime(reader.GetOrdinal("FechaEntrada")),
+                                Fecha = $"{reader.GetDateTime(reader.GetOrdinal("FechaEntrada")).ToString("dddd dd\nMMMM\nyyyy", new System.Globalization.CultureInfo("es-ES"))}",
+                                HoraEntrada = reader.GetTimeSpan(reader.GetOrdinal("HoraEntrada")).ToString(@"hh\:mm"),
+                                HoraSalida = reader.GetTimeSpan(reader.GetOrdinal("HoraSalida")).ToString(@"hh\:mm"),
+                                EstanciaTotal = reader.GetTimeSpan(reader.GetOrdinal("TiempoTotal")).ToString(@"hh\:mm"),
                             };
+                            // Convertir la primera letra del día de la semana a mayúscula
+                            registro.Fecha = char.ToUpper(registro.Fecha[0]) + registro.Fecha.Substring(1);
+                            // Convertir la primera letra del mes a mayúscula
+                            registro.Fecha = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(registro.Fecha);
                             registros.Add(registro);
-                            contador++;
+                            contador++; // Incrementa el contador para el siguiente registro
                         }
                     }
                 }

@@ -61,9 +61,9 @@
                 <Grid.RowDefinitions> <RowDefinition Height="Auto" /> <RowDefinition Height="Auto" /> <RowDefinition Height="Auto" /> <RowDefinition Height="Auto" /> <RowDefinition Height="Auto" /> <RowDefinition Height="Auto" /> </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions> <ColumnDefinition Width="*" /> <ColumnDefinition Width="*" /> </Grid.ColumnDefinitions>
 
-                <!-- Tiempo Laboral -->
+                <!-- Tiempo de Estancia -->
                 <Frame CornerRadius="15" BorderColor="#F4F4F4" Padding="0" HasShadow="True" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" >
-                    <Label Text="Tiempo Laboral" TextColor="White" FontSize="25" FontAttributes="Bold" BackgroundColor="#BB6228" HorizontalTextAlignment="Center"/>
+                    <Label Text="Tiempo de Estancia" TextColor="White" FontSize="25" FontAttributes="Bold" BackgroundColor="#BB6228" HorizontalTextAlignment="Center"/>
                 </Frame>
 
                 <Frame CornerRadius="15" BorderColor="#F4F4F4" Padding="0" HasShadow="True" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" >
