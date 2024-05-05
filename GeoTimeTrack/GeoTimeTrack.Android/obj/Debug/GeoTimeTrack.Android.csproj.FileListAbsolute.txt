@@ -808,3 +808,6 @@
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/stamp/_GenerateJavaStubs.stamp
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/stamp/_GeneratePackageManagerJava.stamp
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/stamp/_ResolveLibraryProjectImports.stamp
+/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/drawable/search_icon.png
+/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/drawable/user_icon.png
+/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/drawable/admin_icon.png

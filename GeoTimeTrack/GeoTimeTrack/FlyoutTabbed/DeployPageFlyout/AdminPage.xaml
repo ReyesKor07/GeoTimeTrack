@@ -8,38 +8,63 @@
         <ToolbarItem Text="Refresh" Clicked="OnButtonClicked"/>
     </ContentPage.ToolbarItems>
 
-<StackLayout Padding="10">
+    <StackLayout Padding="10">
 
-    <!-- Título de la página -->
-    <Label Text="Administrador" TextColor="#044368" FontSize="45" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,0,0,10"/>
+        <!-- Título de la página con icono de búsqueda -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Icono de búsqueda -->
+            <Image Source="admin_icon.png" HeightRequest="90" WidthRequest="90" VerticalOptions="Center" HorizontalOptions="End" Margin="0,0,0,10" Grid.Column="0"/>
+
+            <!-- Título de la página -->
+            <Label Text="Administrador" TextColor="#044368" FontSize="43" FontAttributes="Bold" HorizontalOptions="Start" Margin="0,0,0,0" Grid.Column="1"/>
+        </Grid>
 
         <!-- Barra de búsqueda -->
-    <Frame CornerRadius="10" BorderColor="#F4F4F4" Padding="0" HasShadow="True">
-         <Entry Placeholder="Buscar usuario por nombre, apellido o ID" TextChanged="OnSearchTextChanged" PlaceholderColor="#BB6228" TextColor="#1c2757" FontSize="18" BackgroundColor="#F4F4F4"/>
-    </Frame>
-    
-    <!-- Lista de usuarios -->
-    <CollectionView x:Name="Usuarios">
-        <CollectionView.ItemsLayout>
-            <GridItemsLayout Orientation="Vertical" Span="1"/>
-        </CollectionView.ItemsLayout>
-        <CollectionView.ItemTemplate>
-            <DataTemplate>
-                <Frame BorderColor="#BB6228" HasShadow="True" CornerRadius="30" Margin="0,0,20,0" BackgroundColor="White">
-                    <StackLayout Padding="5">
-                        <Label Text="{Binding Rol}" TextColor="#BB6228" FontSize="20" FontAttributes="Bold"/>
-                        <Label Text="{Binding ApellidoP}" TextColor="#1c2757" FontSize="25" FontAttributes="Bold"/>
-                        <Label Text="{Binding ApellidoM}" TextColor="#1c2757" FontSize="23"/>
-                        <Label Text="{Binding Nombre}" TextColor="#1c2757" FontSize="21"/>
-                        <Label Text="{Binding IdUsuario, StringFormat='ID: {0}'}" TextColor="#1c2757" FontSize="20" FontAttributes="Bold" Margin="0,10,0,0"/>
+        <Frame CornerRadius="5" BorderColor="#BB6228" Padding="0" HasShadow="True" BackgroundColor="White">
+            <StackLayout Orientation="Horizontal" Padding="10">
+                <Entry Placeholder="Buscar usuario por nombre, apellido o ID" TextChanged="OnSearchTextChanged" PlaceholderColor="#BB6228" TextColor="#1c2757" FontSize="18" BackgroundColor="Transparent" />
+                <Image Source="search_icon.png" HeightRequest="20" WidthRequest="20" VerticalOptions="Center" HorizontalOptions="End"/>
+            </StackLayout>
+        </Frame>
 
-                        <Button Text="Tiempos de registro" BackgroundColor="#BB6228" TextColor="White" FontSize="20" Clicked="Button_Clicked" Margin="0,10,0,0" CornerRadius="20"/>
-                    </StackLayout>
-                </Frame>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
-</StackLayout>
+        <!-- Lista de usuarios -->
+        <CollectionView x:Name="Usuarios">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="1"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="#E0E0E0" HasShadow="True" CornerRadius="15" Margin="1.0">
+                        <StackLayout Padding="10">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Rol}" TextColor="#BB6228" FontSize="16" FontAttributes="Bold" Grid.Row="0" Grid.Column="0"/>
+                                <Label Text="{Binding ApellidoP}" TextColor="#1c2757" FontSize="20" FontAttributes="Bold" Grid.Row="1" Grid.Column="0"/>
+                                <Label Text="{Binding ApellidoM}" TextColor="#1c2757" FontSize="18" Grid.Row="2" Grid.Column="0"/>
+                                <Label Text="{Binding Nombre}" TextColor="#1c2757" FontSize="16" Grid.Row="3" Grid.Column="0"/>
+                                <Label Text="{Binding IdUsuario, StringFormat='ID: {0}'}" TextColor="#1c2757" FontSize="14" FontAttributes="Bold" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="End"/>
+                                <Button Text="Ver registro" BackgroundColor="#BB6228" TextColor="White" FontSize="16" Clicked="Button_Clicked" Grid.Row="1" Grid.Column="1" Grid.RowSpan="3" Margin="10" CornerRadius="10"/>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
 
+    </StackLayout>
 
 </ContentPage>
