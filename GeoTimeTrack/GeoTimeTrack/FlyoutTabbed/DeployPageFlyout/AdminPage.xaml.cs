@@ -38,7 +38,6 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
             Nombre = LoginPage.Name; ApellidoP = LoginPage.LastName; ApellidoM = LoginPage.MiddleName;
             Email = LoginPage.Email; Password = LoginPage.Password;
             Rol = LoginPage.Rol;
-            // UserId = 1; Nombre = "Brandon"; ApellidoP = "Reyes"; ApellidoM = "De La Cruz"; Email = "brandonreyes@gmail.com"; Password = "123"; Rol = "Administrador";
             List<Usuario> usuarios = ObtenerUsuarios();
             Usuarios.ItemsSource = usuarios;
             // Obtener la lista completa de usuarios
@@ -60,9 +59,9 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
                 {
                     if (button.BindingContext is Usuario selectedUser)
                     {
-                        // Crea una instancia de EditProfilePage y pasa los datos del usuario
-                        EditProfilePage editProfilePage = new EditProfilePage(selectedUser);
-                        await Navigation.PushModalAsync(editProfilePage);
+                        // Crea una instancia de EditTrackTimePage y pasa los datos del usuario
+                        EditTrackTimePage editTrackTimePage = new EditTrackTimePage(selectedUser);
+                        await Navigation.PushModalAsync(editTrackTimePage);
                     }
                 }
             }
