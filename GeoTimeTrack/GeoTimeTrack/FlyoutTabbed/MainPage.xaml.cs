@@ -30,13 +30,14 @@ namespace GeoTimeTrack
             HolaLabel.Text = $"¡Hola! {Nombre} {ApellidoP} \nTu ID es: {UserId}";
             Position initialPosition = new Position(26.028688727720997, -98.27560757446295); // Establecer la posición inicial del mapa UAT
             map.MoveToRegion(MapSpan.FromCenterAndRadius(initialPosition, Distance.FromMeters(200)));
+            map.MapType = MapType.Satellite; // Establecer el modo de mapa predeterminado como satélite
             mapTypeSwitch.Toggled += MapTypeSwitch_Toggled; // Agregar un controlador de eventos al Switch
         }
 
         private void MapTypeSwitch_Toggled(object sender, ToggledEventArgs e)
         {
-            map.MapType = e.Value ? MapType.Satellite : MapType.Street; // Cambiar el tipo de mapa (MapType) en función del estado del Switch
-            string mapTypeText = e.Value ? "Satélite" : "Mapa"; // Cambiar el texto del Label para reflejar el estado actual
+            map.MapType = e.Value ? MapType.Street : MapType.Satellite; // Cambiar el tipo de mapa (MapType) en función del estado del Switch
+            string mapTypeText = e.Value ? "Mapa" : "Satélite"; // Cambiar el texto del Label para reflejar el estado actual
         }
 
         // Coordenadas fijas para comparación UAT

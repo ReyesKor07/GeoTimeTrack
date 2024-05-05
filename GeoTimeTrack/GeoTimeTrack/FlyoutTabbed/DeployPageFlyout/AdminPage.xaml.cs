@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -28,7 +29,8 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
     {
         int UserId;
         string Nombre, ApellidoP, ApellidoM, Email, Password, Rol;
-        
+        ObservableCollection<Usuario> allUsuarios;
+
         public AdminPage()
         {
             InitializeComponent();
@@ -39,6 +41,9 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
             // UserId = 1; Nombre = "Brandon"; ApellidoP = "Reyes"; ApellidoM = "De La Cruz"; Email = "brandonreyes@gmail.com"; Password = "123"; Rol = "Administrador";
             List<Usuario> usuarios = ObtenerUsuarios();
             Usuarios.ItemsSource = usuarios;
+            // Obtener la lista completa de usuarios
+            allUsuarios = new ObservableCollection<Usuario>(ObtenerUsuarios());
+            Usuarios.ItemsSource = allUsuarios;
         }
 
         private void OnButtonClicked(object sender, EventArgs e)
@@ -107,6 +112,27 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
             // Ordenar la lista por ApellidoP en orden alfabético
             usuarios = usuarios.OrderBy(usuario => usuario.ApellidoP).ToList();
             return usuarios;
+        }
+
+        private void OnSearchTextChanged(object sender, TextChangedEventArgs e)
+        {
+            string searchText = e.NewTextValue;
+            if (string.IsNullOrWhiteSpace(searchText))
+            {
+                // Si el texto de búsqueda está vacío, mostrar todos los usuarios
+                Usuarios.ItemsSource = allUsuarios;
+            }
+            else
+            {
+                // Filtrar la lista de usuarios según el texto de búsqueda
+                var filteredUsuarios = allUsuarios.Where(u =>
+                    u.Nombre.ToLower().Contains(searchText.ToLower()) ||
+                    u.ApellidoP.ToLower().Contains(searchText.ToLower()) ||
+                    u.ApellidoM.ToLower().Contains(searchText.ToLower()) ||
+                    u.IdUsuario.ToString().Contains(searchText.ToLower())
+                );
+                Usuarios.ItemsSource = new ObservableCollection<Usuario>(filteredUsuarios);
+            }
         }
     }
 }
