@@ -51,7 +51,7 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
             Usuarios.ItemsSource = usuarios;
         }
 
-        public async void Button_Clicked(object sender, EventArgs e)
+        public async void VerRegistro_Clicked(object sender, EventArgs e)
         {
             try
             {
@@ -68,6 +68,26 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
             catch (Exception ex)
             {
                 await DisplayAlert("Error", $"Se produjo un error: {ex.Message} AdminPage", "OK");
+            }
+        }
+
+        private async void VerPerfil_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                if (sender is Button button)
+                {
+                    if (button.BindingContext is Usuario selectedUser)
+                    {
+                        // Crea una instancia de EditProfilePage y pasa los datos del usuario
+                        EditProfilePage editProfilePage = new EditProfilePage(selectedUser);
+                        await Navigation.PushAsync(editProfilePage);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", $"Se produjo un error: {ex.Message}", "OK");
             }
         }
 

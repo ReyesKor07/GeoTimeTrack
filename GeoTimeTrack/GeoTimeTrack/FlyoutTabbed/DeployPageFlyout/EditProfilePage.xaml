@@ -66,8 +66,8 @@
             <!-- Botón para guardar los cambios -->
             <Button Text="Guardar Cambios" Clicked="GuardarCambios_Clicked" BackgroundColor="#BB6228" TextColor="White" FontSize="Large" CornerRadius="20" HeightRequest="50" HorizontalOptions="CenterAndExpand"/>
 
-            <!-- Botón para guardar los cambios -->
-            <Button Text="Tiempos de registro" Clicked="RegistroUsuario_Clicked" x:Name="AdminTrackTime" BackgroundColor="#BB6228" TextColor="White" FontSize="Large" CornerRadius="20" HeightRequest="50" HorizontalOptions="CenterAndExpand"/>
+             <!--Botón para guardar los cambios 
+            <Button Text="Tiempos de registro" Clicked="RegistroUsuario_Clicked" x:Name="AdminTrackTime" BackgroundColor="#BB6228" TextColor="White" FontSize="Large" CornerRadius="20" HeightRequest="50" HorizontalOptions="CenterAndExpand"/>-->
         </StackLayout>
     </ScrollView>
 

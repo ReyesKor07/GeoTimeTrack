@@ -92,25 +92,25 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
             }
         }
 
-        private async void RegistroUsuario_Clicked(object sender, EventArgs e)
-        {
-            try
-            {
-                if (sender is Button button)
-                {
-                    if (button.BindingContext is Usuario selectedUser2)
-                    {
-                        // Crea una instancia de EditProfilePage y pasa los datos del usuario
-                        EditTrackTimePage editTrackTimePage = new EditTrackTimePage(selectedUser2);
-                        await Navigation.PushModalAsync(editTrackTimePage);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                await DisplayAlert("Error", $"Se produjo un error: {ex.Message} AdminPage", "OK");
-            }
-        }
+        //private async void RegistroUsuario_Clicked(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (sender is Button button)
+        //        {
+        //            if (button.BindingContext is Usuario selectedUser2)
+        //            {
+        //                // Crea una instancia de EditProfilePage y pasa los datos del usuario
+        //                EditTrackTimePage editTrackTimePage = new EditTrackTimePage(selectedUser2);
+        //                await Navigation.PushModalAsync(editTrackTimePage);
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        await DisplayAlert("Error", $"Se produjo un error: {ex.Message} AdminPage", "OK");
+        //    }
+        //}
 
         private void OnShowPasswordSwitchToggled(object sender, ToggledEventArgs e)
         {
