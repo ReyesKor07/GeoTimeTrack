@@ -20,7 +20,7 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout {
         private global::Xamarin.Forms.Entry IdUsuarioEntry;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Xamarin.Forms.Entry RolEntry;
+        private global::Xamarin.Forms.Picker RolPicker;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::Xamarin.Forms.Entry NombreEntry;
@@ -44,7 +44,7 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout {
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(EditProfilePage));
             IdUsuarioEntry = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Entry>(this, "IdUsuarioEntry");
-            RolEntry = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Entry>(this, "RolEntry");
+            RolPicker = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Picker>(this, "RolPicker");
             NombreEntry = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Entry>(this, "NombreEntry");
             ApellidoPEntry = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Entry>(this, "ApellidoPEntry");
             ApellidoMEntry = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Entry>(this, "ApellidoMEntry");

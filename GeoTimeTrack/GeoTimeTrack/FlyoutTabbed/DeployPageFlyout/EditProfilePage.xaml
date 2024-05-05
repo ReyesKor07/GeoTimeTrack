@@ -24,7 +24,12 @@
             <!-- Rol del usuario -->
             <Label Text="Rol" TextColor="#044368" FontSize="18" FontAttributes="Bold" />
             <Frame CornerRadius="10" BorderColor="#F4F4F4" Padding="0" HasShadow="True">
-                <Entry x:Name="RolEntry" Placeholder="Usuario / Administrador" PlaceholderColor="#BB6228" TextColor="Black" FontSize="18" BackgroundColor="#F4F4F4" IsEnabled="True" />
+                <Picker x:Name="RolPicker" SelectedIndexChanged="RolPicker_SelectedIndexChanged" Title="Seleccionar Rol">
+                    <Picker.Items>
+                        <x:String>Usuario</x:String>
+                        <x:String>Administrador</x:String>
+                    </Picker.Items>
+                </Picker>
             </Frame>
 
             <!-- Nombre del usuario -->
@@ -52,7 +57,7 @@
             </Frame>
 
             <!-- Contraseña del usuario -->
-            <Label Text="Contraseña" TextColor="#044368" FontSize="18" FontAttributes="Bold" />
+            <Label Text="Modificar contraseña" TextColor="#044368" FontSize="18" FontAttributes="Bold" />
             <Frame CornerRadius="10" BorderColor="#F4F4F4" Padding="0" HasShadow="True">
                 <Entry x:Name="PasswordEntry" PlaceholderColor="#BB6228" TextColor="Black" FontSize="18" BackgroundColor="#F4F4F4" IsPassword="True" IsEnabled="True" />
             </Frame>
@@ -66,8 +71,9 @@
             <!-- Botón para guardar los cambios -->
             <Button Text="Guardar Cambios" Clicked="GuardarCambios_Clicked" BackgroundColor="#BB6228" TextColor="White" FontSize="Large" CornerRadius="20" HeightRequest="50" HorizontalOptions="CenterAndExpand"/>
 
-             <!--Botón para guardar los cambios 
-            <Button Text="Tiempos de registro" Clicked="RegistroUsuario_Clicked" x:Name="AdminTrackTime" BackgroundColor="#BB6228" TextColor="White" FontSize="Large" CornerRadius="20" HeightRequest="50" HorizontalOptions="CenterAndExpand"/>-->
+            <!-- Botón para eliminar el usuario -->
+            <Button Text="Eliminar Usuario" Clicked="EliminarUsuario_Clicked" BackgroundColor="DarkRed" TextColor="White" FontSize="Large" CornerRadius="20" HeightRequest="50" HorizontalOptions="CenterAndExpand"/>
+
         </StackLayout>
     </ScrollView>
 

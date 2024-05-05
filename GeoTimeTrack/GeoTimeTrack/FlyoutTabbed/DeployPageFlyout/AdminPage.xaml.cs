@@ -40,8 +40,7 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
             Rol = LoginPage.Rol;
             List<Usuario> usuarios = ObtenerUsuarios();
             Usuarios.ItemsSource = usuarios;
-            // Obtener la lista completa de usuarios
-            allUsuarios = new ObservableCollection<Usuario>(ObtenerUsuarios());
+            allUsuarios = new ObservableCollection<Usuario>(ObtenerUsuarios()); // Obtener la lista completa de usuarios
             Usuarios.ItemsSource = allUsuarios;
         }
 
