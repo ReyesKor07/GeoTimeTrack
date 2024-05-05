@@ -14,7 +14,7 @@ namespace GeoTimeTrack
 
             // Envolver la página en un NavigationPage
             MainPage = new NavigationPage(new HomePage());
-            //MainPage = new MainPage();
+            // MainPage = new MainPage();
             // MainPage = new NavigationPage(new MainPage());
             // MainPage = new NavigationPage(new DeploymentPage());
             // MainPage = new NavigationPage(new DeploymentPageFlyout());

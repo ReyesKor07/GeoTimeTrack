@@ -29,8 +29,7 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
             ApellidoPEntry.Text = user.ApellidoP;
             ApellidoMEntry.Text = user.ApellidoM;
             EmailEntry.Text = user.Email;
-            // Establece el valor seleccionado en el Picker
-            RolPicker.SelectedItem = user.Rol;
+            RolPicker.SelectedItem = user.Rol; // Establece el valor seleccionado en el Picker
             // PasswordEntry.Text = user.Password;
             // RolEntry.Text = user.Rol; // Eliminar esta línea
         }
@@ -43,10 +42,9 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
             { PasswordEntry.IsPassword = true; }
         }
 
-        // Dentro de la clase EditProfilePage
         private void RolPicker_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Aquí puedes agregar lógica si deseas realizar alguna acción cuando el valor del Picker cambie
+            
         }
 
         private void GuardarCambios_Clicked(object sender, EventArgs e)
@@ -54,7 +52,7 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
             try
             {
                 // Verifica campos obligatorios
-                if (string.IsNullOrWhiteSpace(NombreEntry.Text) || string.IsNullOrWhiteSpace(ApellidoPEntry.Text) || string.IsNullOrWhiteSpace(ApellidoMEntry.Text) || string.IsNullOrWhiteSpace(EmailEntry.Text) || string.IsNullOrWhiteSpace(PasswordEntry.Text) || RolPicker.SelectedItem == null)
+                if (string.IsNullOrWhiteSpace(NombreEntry.Text) || string.IsNullOrWhiteSpace(ApellidoPEntry.Text) || string.IsNullOrWhiteSpace(ApellidoMEntry.Text) || string.IsNullOrWhiteSpace(EmailEntry.Text))
                 {
                     DisplayAlert("Advertencia", "Todos los campos obligatorios son requeridos y no pueden estar vacíos.", "Aceptar");
                     return;
@@ -64,24 +62,50 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
                 string newEmail = EmailEntry.Text;
                 if (newEmail != SelectedUser.Email)
                 {
-                    // Código de verificación de correo electrónico...
+                    ConexionSQLServer.Abrir();
+                    string emailCheckQuery = "SELECT COUNT(*) FROM Usuario_B WHERE Email = @newEmail";
+                    using (SqlCommand emailCheckCmd = new SqlCommand(emailCheckQuery, ConexionSQLServer.cn))
+                    {
+                        emailCheckCmd.Parameters.AddWithValue("@newEmail", newEmail);
+                        int emailCount = (int)emailCheckCmd.ExecuteScalar();
+                        emailCheckCmd.Dispose();
+                        if (emailCount > 0)
+                        {
+                            DisplayAlert("Error", "El nuevo correo proporcionado ya existe.", "Aceptar");
+                            return;
+                        }
+                    }
                 }
 
                 ConexionSQLServer.Abrir();
-                string updateQuery = "UPDATE Usuario_B SET Nombre = @Nombre, ApellidoP = @ApellidoP, ApellidoM = @ApellidoM, Password = @Password, Email = @newEmail, Rol = @Rol WHERE IdUsuario = @IdUsuario";
+                string updateQuery = "UPDATE Usuario_B SET Nombre = @Nombre, ApellidoP = @ApellidoP, ApellidoM = @ApellidoM, Email = @newEmail";
+
+                // Verifica si se proporcionó una nueva contraseña
+                if (!string.IsNullOrWhiteSpace(PasswordEntry.Text))
+                {
+                    updateQuery += ", Password = @Password";
+                }
+
+                updateQuery += " WHERE IdUsuario = @IdUsuario";
+
                 using (SqlCommand cmd = new SqlCommand(updateQuery, ConexionSQLServer.cn))
                 {
                     cmd.Parameters.AddWithValue("@Nombre", NombreEntry.Text);
                     cmd.Parameters.AddWithValue("@ApellidoP", ApellidoPEntry.Text);
                     cmd.Parameters.AddWithValue("@ApellidoM", ApellidoMEntry.Text);
-                    cmd.Parameters.AddWithValue("@Password", PasswordEntry.Text);
                     cmd.Parameters.AddWithValue("@newEmail", newEmail);
-                    cmd.Parameters.AddWithValue("@Rol", RolPicker.SelectedItem.ToString()); // Obtener el valor seleccionado del Picker
+
+                    // Agrega el parámetro de contraseña solo si se proporcionó una nueva
+                    if (!string.IsNullOrWhiteSpace(PasswordEntry.Text))
+                    {
+                        cmd.Parameters.AddWithValue("@Password", PasswordEntry.Text);
+                    }
+
                     cmd.Parameters.AddWithValue("@IdUsuario", SelectedUser.IdUsuario);
                     int rowsAffected = cmd.ExecuteNonQuery();
                     if (rowsAffected > 0)
                     {
-                        DisplayAlert("Éxito", "Los cambios se guardaron correctamente.", "Aceptar");
+                        DisplayAlert("Éxito", "Los cambios se guardaron correctamente. Los cambios serán visibles después.", "Aceptar");
                     }
                     else
                     {
