@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
-
+using System.Security.Cryptography;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using GeoTimeTrack.Data;
@@ -19,15 +19,24 @@ namespace GeoTimeTrack
             InitializeComponent();
         }
 
-        public void Clear()
-        {
-            usernameEntry.Text = null; userlastnameEntry.Text = null; usermiddlenameEntry.Text = null;
-            emailEntry.Text = null; passwordEntry.Text = null; confirmPasswordEntry.Text = null;
-        }
-
         private bool ValidateName(string name)
         {
-            return name.All(char.IsLetter);
+            // Verifica si el nombre contiene solo letras y espacios en blanco
+            return name.All(c => char.IsLetter(c) || char.IsWhiteSpace(c));
+        }
+
+        public static string HashPassword(string password)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < hashedBytes.Length; i++)
+                {
+                    builder.Append(hashedBytes[i].ToString("x2"));
+                }
+                return builder.ToString();
+            }
         }
 
         private void OnCreateUserButtonClicked(object sender, EventArgs e)
@@ -82,6 +91,8 @@ namespace GeoTimeTrack
                         cmd.Parameters.AddWithValue("@apellidoP", userlastnameEntry.Text);
                         cmd.Parameters.AddWithValue("@apellidoM", usermiddlenameEntry.Text);
                         cmd.Parameters.AddWithValue("@email", emailEntry.Text);
+                        // string hashedPassword = HashPassword(passwordEntry.Text); // Antes de insertar la contraseña en la base de datos, obtenemos su hash
+                        // cmd.Parameters.AddWithValue("@password", hashedPassword); // Insertamos el hash en lugar de la contraseña original
                         cmd.Parameters.AddWithValue("@password", passwordEntry.Text);
                         cmd.Parameters.AddWithValue("@rol", "Usuario");
                         cmd.ExecuteNonQuery();
@@ -100,6 +111,12 @@ namespace GeoTimeTrack
         private async void OnLoginLabelTapped(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
+        }
+
+        public void Clear()
+        {
+            usernameEntry.Text = null; userlastnameEntry.Text = null; usermiddlenameEntry.Text = null;
+            emailEntry.Text = null; passwordEntry.Text = null; confirmPasswordEntry.Text = null;
         }
 
         private void OnShowPasswordSwitchToggled(object sender, ToggledEventArgs e)

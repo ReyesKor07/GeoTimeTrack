@@ -58,8 +58,18 @@
             </Grid>
 
             <Grid BackgroundColor="Transparent" VerticalOptions="CenterAndExpand">
-                <Grid.RowDefinitions> <RowDefinition Height="Auto" /> <RowDefinition Height="Auto" /> <RowDefinition Height="Auto" /> <RowDefinition Height="Auto" /> <RowDefinition Height="Auto" /> <RowDefinition Height="Auto" /> </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions> <ColumnDefinition Width="*" /> <ColumnDefinition Width="*" /> </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions> 
+                    <RowDefinition Height="Auto" /> 
+                    <RowDefinition Height="Auto" /> 
+                    <RowDefinition Height="Auto" /> 
+                    <RowDefinition Height="Auto" /> 
+                    <RowDefinition Height="Auto" /> 
+                    <RowDefinition Height="Auto" /> 
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions> 
+                    <ColumnDefinition Width="*" /> 
+                    <ColumnDefinition Width="*" /> 
+                </Grid.ColumnDefinitions>
 
                 <!-- Tiempo de Estancia -->
                 <Frame CornerRadius="15" BorderColor="#F4F4F4" Padding="0" HasShadow="True" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" >
@@ -89,37 +99,53 @@
                     <Entry x:Name="entryDateEntry" Placeholder="Fecha - Mes - Año" PlaceholderColor="#044368" TextColor="#1c2757" FontSize="16" IsReadOnly="True" BackgroundColor="White" HorizontalTextAlignment="Center"/>
                 </Frame>
 
-                <Label Text="  Distancia (m):" TextColor="#BB6228" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Start"
-               Grid.Row="5" Grid.Column="0" />
+                <!-- Entrada: Coordenadas de Longitud y Latitud -->
+                <Label Text="  Longitud:" TextColor="#BB6228" FontSize="20" FontAttributes="Bold"
+                Grid.Row="5" Grid.Column="0" />
 
                 <Frame CornerRadius="15" BorderColor="#F4F4F4" Padding="0" HasShadow="True" Grid.Row="5" Grid.Column="1" >
-                    <Entry x:Name="entryLocationEntry" Placeholder="Distancia en metros" PlaceholderColor="#044368" TextColor="#1c2757" FontSize="16" IsReadOnly="True" BackgroundColor="White" HorizontalTextAlignment="Center"/>
+                    <Entry x:Name="entryLongitudeEntry" Placeholder="Longitud" PlaceholderColor="#044368" TextColor="#1c2757" FontSize="16" IsReadOnly="True" BackgroundColor="White" HorizontalTextAlignment="Center"/>
+                </Frame>
+
+                <Label Text="  Latitud:" TextColor="#BB6228" FontSize="20" FontAttributes="Bold"
+                Grid.Row="6" Grid.Column="0" />
+
+                <Frame CornerRadius="15" BorderColor="#F4F4F4" Padding="0" HasShadow="True" Grid.Row="6" Grid.Column="1" >
+                    <Entry x:Name="entryLatitudeEntry" Placeholder="Latitud" PlaceholderColor="#044368" TextColor="#1c2757" FontSize="16" IsReadOnly="True" BackgroundColor="White" HorizontalTextAlignment="Center"/>
                 </Frame>
 
                 <!-- Salida -->
-                <Frame CornerRadius="15" BorderColor="#F4F4F4" Padding="0" HasShadow="True" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2">
+                <Frame CornerRadius="15" BorderColor="#F4F4F4" Padding="0" HasShadow="True" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2">
                     <Label Text="Salida" TextColor="#F2F2F2" FontSize="23" FontAttributes="Bold" BackgroundColor="#044368" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
                 </Frame>
 
                 <Label Text="  Tiempo:" TextColor="#BB6228" FontSize="20" FontAttributes="Bold"
-                Grid.Row="7" Grid.Column="0" />
+                Grid.Row="8" Grid.Column="0" />
 
-                <Frame CornerRadius="15" BorderColor="#F4F4F4" Padding="0" HasShadow="True" Grid.Row="7" Grid.Column="1" >
+                <Frame CornerRadius="15" BorderColor="#F4F4F4" Padding="0" HasShadow="True" Grid.Row="8" Grid.Column="1" >
                     <Entry x:Name="exitTimeEntry" Placeholder="Hora : Minuto : Segundo" PlaceholderColor="#044368" TextColor="#1c2757" FontSize="16" IsReadOnly="True" BackgroundColor="White" HorizontalTextAlignment="Center"/>
                 </Frame>
 
                 <Label Text="  Fecha:" TextColor="#BB6228" FontSize="20" FontAttributes="Bold"
-                Grid.Row="8" Grid.Column="0" />
+                Grid.Row="9" Grid.Column="0" />
 
-                <Frame CornerRadius="15" BorderColor="#F4F4F4" Padding="0" HasShadow="True" Grid.Row="8" Grid.Column="1" >
+                <Frame CornerRadius="15" BorderColor="#F4F4F4" Padding="0" HasShadow="True" Grid.Row="9" Grid.Column="1" >
                     <Entry x:Name="exitDateEntry" Placeholder="Fecha - Mes - Año" PlaceholderColor="#044368" TextColor="#1c2757" FontSize="16" IsReadOnly="True" BackgroundColor="White" HorizontalTextAlignment="Center"/>
                 </Frame>
 
-                <Label Text="  Distancia (m):" TextColor="#BB6228" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Start"
-                Grid.Row="9" Grid.Column="0" />
+                <!-- Salida: Coordenadas de Longitud y Latitud -->
+                <Label Text="  Longitud:" TextColor="#BB6228" FontSize="20" FontAttributes="Bold"
+                Grid.Row="10" Grid.Column="0" />
 
-                <Frame CornerRadius="15" BorderColor="#F4F4F4" Padding="0" HasShadow="True" Grid.Row="9" Grid.Column="1">
-                    <Entry x:Name="exitLocationEntry" Placeholder="Distancia en metros" PlaceholderColor="#044368" TextColor="#1c2757" FontSize="16" IsReadOnly="True" BackgroundColor="White" HorizontalTextAlignment="Center"/>
+                <Frame CornerRadius="15" BorderColor="#F4F4F4" Padding="0" HasShadow="True" Grid.Row="10" Grid.Column="1" >
+                    <Entry x:Name="exitLongitudeEntry" Placeholder="Longitud" PlaceholderColor="#044368" TextColor="#1c2757" FontSize="16" IsReadOnly="True" BackgroundColor="White" HorizontalTextAlignment="Center"/>
+                </Frame>
+
+                <Label Text="  Latitud:" TextColor="#BB6228" FontSize="20" FontAttributes="Bold"
+                Grid.Row="11" Grid.Column="0" />
+
+                <Frame CornerRadius="15" BorderColor="#F4F4F4" Padding="0" HasShadow="True" Grid.Row="11" Grid.Column="1" >
+                    <Entry x:Name="exitLatitudeEntry" Placeholder="Latitud" PlaceholderColor="#044368" TextColor="#1c2757" FontSize="16" IsReadOnly="True" BackgroundColor="White" HorizontalTextAlignment="Center"/>
                 </Frame>
             </Grid>
         </StackLayout>
