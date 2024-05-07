@@ -69,13 +69,15 @@
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/values/colors.xml
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/mipmap-anydpi-v26/icon.xml
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/mipmap-anydpi-v26/icon_round.xml
+/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/drawable/search_icon.png
+/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/drawable/user_icon.png
+/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/drawable/admin_icon.png
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/mipmap-hdpi/ic_launcher.png
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/mipmap-ldpi/ic_launcher.png
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/mipmap-mdpi/ic_launcher.png
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/mipmap-xhdpi/ic_launcher.png
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/mipmap-xxhdpi/ic_launcher.png
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/mipmap-xxxhdpi/ic_launcher.png
-/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/drawable/geotime.jpeg
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/mipmap-xxxhdpi/ic_launcher_background.png
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/mipmap-xxxhdpi/ic_launcher_foreground.png
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/mipmap-xxxhdpi/ic_launcher_monochrome.png
@@ -92,8 +94,6 @@
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/mipmap-xxhdpi/ic_launcher_background.png
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/mipmap-xxhdpi/ic_launcher_foreground.png
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/mipmap-xxhdpi/ic_launcher_monochrome.png
-/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/drawable/geotimetransparent.png
-/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/drawable/about.png
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/drawable/tracktime.png
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/uploadflags.txt
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/resolvedassemblies.hash
@@ -808,6 +808,8 @@
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/stamp/_GenerateJavaStubs.stamp
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/stamp/_GeneratePackageManagerJava.stamp
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/stamp/_ResolveLibraryProjectImports.stamp
-/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/drawable/search_icon.png
-/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/drawable/user_icon.png
-/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/drawable/admin_icon.png
+/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/drawable/about_icon.png
+/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/drawable/geotimetrack_transparent.png
+/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/drawable/geotimetrack.jpeg
+/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/drawable/mainpage_icon.png
+/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/drawable/userprofile_icon.png

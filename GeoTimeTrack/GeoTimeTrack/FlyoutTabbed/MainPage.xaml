@@ -5,7 +5,7 @@
              x:Class="GeoTimeTrack.MainPage"
              BackgroundColor="White"
              Title="Inicio"
-             IconImageSource="GeoTimeTransparent.png">
+             IconImageSource="MainPage_icon.png">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Cerrar Sesión" Clicked="OnLogoutButtonClicked"/>

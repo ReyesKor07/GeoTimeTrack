@@ -4,33 +4,34 @@
              x:Class="GeoTimeTrack.FlyoutTabbed.DeploymentPageFlyout"
              Title="GeoTimeTrack" BackgroundColor="White">
 
+    <ContentPage.Resources>
+        <Style TargetType="Label" x:Key="SubtitleStyle">
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="TextColor" Value="White" />
+        </Style>
+    </ContentPage.Resources>
+
     <StackLayout>
         <ListView x:Name="MenuItemsListView" SeparatorVisibility="None" HasUnevenRows="true" ItemsSource="{Binding MenuItems}">
 
             <ListView.Header>
-                <Grid BackgroundColor="#044368">
+                <Grid BackgroundColor="#044368" Padding="20">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
-                        <!-- Primera columna para la imagen -->
-                        <ColumnDefinition Width="*"/>
-                        <!-- Segunda columna para la información del usuario -->
+                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="10"/>
-                        <!-- Única fila con altura automática -->
-                    </Grid.RowDefinitions>
 
-                    <!-- Imagen del usuario (puedes establecer la fuente de la imagen) -->
-                    <Frame Grid.Column="0" BorderColor="#CCECFF" HasShadow="True" Padding="20">
-                        <Image Source="icon_user.jpeg" HeightRequest="50" WidthRequest="100" Aspect="AspectFill" />
+                    <!-- Imagen del usuario -->
+                    <Frame Grid.Column="0" BorderColor="#CCECFF" HasShadow="True" Padding="10">
+                        <Image Source="User_icon.png" HeightRequest="80" WidthRequest="80" Aspect="AspectFill" />
                     </Frame>
 
-                    <!-- Información del usuario (nombre, apellido y correo electrónico) -->
+                    <!-- Información del usuario -->
                     <StackLayout Grid.Column="1" Padding="10">
-                        <Label x:Name="NombreLabel" Text="Nombre Usuario" TextColor="White" FontSize="15" FontAttributes="Bold" Style="{DynamicResource SubtitleStyle}" />
-                        <Label x:Name="EmailLabel" Text="Apellido Usuario" TextColor="White" FontSize="15" FontAttributes="Bold" Style="{DynamicResource SubtitleStyle}" />
-                        <Label x:Name="RolLabel" Text="usuario@example.com" TextColor="White" FontSize="15" FontAttributes="Bold" Style="{DynamicResource SubtitleStyle}" IsEnabled="False"/>
+                        <Label x:Name="NombreLabel" Text="Nombre Usuario" Style="{StaticResource SubtitleStyle}" />
+                        <Label x:Name="EmailLabel" Text="Apellido Usuario" Style="{StaticResource SubtitleStyle}" />
+                        <Label x:Name="RolLabel" Text="usuario@example.com" Style="{StaticResource SubtitleStyle}" IsEnabled="False"/>
                     </StackLayout>
                 </Grid>
             </ListView.Header>
@@ -38,29 +39,28 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Padding="10" Orientation="Vertical">
-                            <Grid BackgroundColor="#F5F5F5" Padding="10">
+                        <StackLayout Padding="10">
+                            <Grid BackgroundColor="#FFFFFF" Padding="10" Margin="0,5">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="80" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
-                                <Image Source="icon_user.jpeg" Aspect="AspectFill" HeightRequest="80" WidthRequest="80" VerticalOptions="Center" />
+                                <Image Grid.Column="0" Source="User_icon.png" Aspect="AspectFill" HeightRequest="80" WidthRequest="80" VerticalOptions="Center" />
                                 <Label Grid.Column="1" Text="{Binding Title}" TextColor="Black" FontSize="18" FontAttributes="Bold" VerticalOptions="Center" />
                             </Grid>
-                            <BoxView HeightRequest="1" BackgroundColor="#DDDDDD" Margin="0,5" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
 
-
             <ListView.Footer>
-                <StackLayout>
-                    <Button Text="Cuenta" Clicked="Cuenta_Clicked" TextColor="White" BackgroundColor="#BB6228" FontSize="20" FontAttributes="Bold" Padding="20"/>
-                    <Button Text="Admin" Clicked="Admin_Clicked" x:Name="AdminButton" TextColor="White" BackgroundColor="#BB6228" FontSize="20" FontAttributes="Bold" Padding="20"/>
+                <StackLayout Padding="20" Spacing="10">
+                    <Button Text="Perfil" Clicked="Cuenta_Clicked" TextColor="White" BackgroundColor="#BB6228" FontSize="20" FontAttributes="Bold" />
+                    <Button Text="Administrador" Clicked="Admin_Clicked" x:Name="AdminButton" TextColor="White" BackgroundColor="#BB6228" FontSize="20" FontAttributes="Bold" />
                 </StackLayout>
             </ListView.Footer>
 
         </ListView>
     </StackLayout>
+
 </ContentPage>

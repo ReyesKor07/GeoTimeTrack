@@ -11,6 +11,7 @@ using Xamarin.Forms.Xaml;
 using System.Data;
 using GeoTimeTrack.Data;
 using System.Security.Cryptography;
+using Xamarin.Essentials;
 
 namespace GeoTimeTrack
 {
@@ -30,20 +31,6 @@ namespace GeoTimeTrack
             InitializeComponent();
         }
 
-        public static string HashPassword(string password)
-        {
-            using (SHA256 sha256 = SHA256.Create())
-            {
-                byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
-                StringBuilder builder = new StringBuilder();
-                for (int i = 0; i < hashedBytes.Length; i++)
-                {
-                    builder.Append(hashedBytes[i].ToString("x2"));
-                }
-                return builder.ToString();
-            }
-        }
-
         public async void navigation()
         {
             await Navigation.PushModalAsync(new DeploymentPage());
@@ -57,9 +44,6 @@ namespace GeoTimeTrack
                 {
                     DisplayAlert("Error", "Por favor, complete todos los campos.", "OK"); return;
                 }
-
-                // Cifrar la contraseña ingresada por el usuario
-                string hashedPassword = HashPassword(passwordEntry.Text);
 
                 ConexionSQLServer.Abrir();
                 string emailCheckQuery = "SELECT COUNT(*) FROM Usuario_B WHERE Email = @email";
@@ -85,22 +69,6 @@ namespace GeoTimeTrack
                     {
                         if (reader.Read())
                         {
-                            // string storedPassword = reader.GetString(reader.GetOrdinal("Password"));
-                            // Comparar el hash cifrado de la contraseña ingresada con el hash almacenado en la base de datos
-                            // if (hashedPassword == storedPassword)
-                            // {
-                                // int userId = reader.GetInt32(reader.GetOrdinal("IdUsuario"));
-                                // string nombre = reader.GetString(reader.GetOrdinal("Nombre"));
-                                // string apellidoP = reader.GetString(reader.GetOrdinal("ApellidoP"));
-                                // string apellidoM = reader.GetString(reader.GetOrdinal("ApellidoM"));
-                                // string email = reader.GetString(reader.GetOrdinal("Email"));
-                                // string rol = reader.GetString(reader.GetOrdinal("Rol"));
-                                // UserID = userId;  Name = nombre; LastName = apellidoP; MiddleName = apellidoM; Email = email; Password = storedPassword; Rol = rol;
-                                // DisplayAlert("Inicio de sesión exitoso", $"¡Bienvenido, {nombre} {apellidoP}!\nTu ID de usuario es: {userId}", "Continuar");
-                                // Clear();
-                                // navigation();
-                            // }
-
                             int userId = reader.GetInt32(reader.GetOrdinal("IdUsuario"));
                             string nombre = reader.GetString(reader.GetOrdinal("Nombre"));
                             string apellidoP = reader.GetString(reader.GetOrdinal("ApellidoP"));
@@ -108,8 +76,25 @@ namespace GeoTimeTrack
                             string email = reader.GetString(reader.GetOrdinal("Email"));
                             string password = reader.GetString(reader.GetOrdinal("Password"));
                             string rol = reader.GetString(reader.GetOrdinal("Rol"));
-                            UserID = userId;  Name = nombre; LastName = apellidoP; MiddleName = apellidoM; Email = email; Password = password; Rol = rol;
+                            UserID = userId; Name = nombre; LastName = apellidoP; MiddleName = apellidoM; Email = email; Password = password; Rol = rol;
                             DisplayAlert("Inicio de sesión exitoso", $"¡Bienvenido, {nombre} {apellidoP}!\nTu ID de usuario es: {userId}", "Continuar");
+                            try
+                            {
+                                // Guardar las credenciales en el almacenamiento seguro
+                                SecureStorage.SetAsync("UsuarioID", UserID.ToString());
+                                SecureStorage.SetAsync("Nombre", Name);
+                                SecureStorage.SetAsync("ApellidoP", LastName);
+                                SecureStorage.SetAsync("ApellidoM", MiddleName);
+                                SecureStorage.SetAsync("Email", Email);
+                                SecureStorage.SetAsync("Password", Password);
+                                SecureStorage.SetAsync("Rol", Rol);
+                            }
+                            catch (Exception ex)
+                            {
+                                // Manejar cualquier excepción que pueda ocurrir al guardar en el almacenamiento seguro
+                                Console.WriteLine($"Error al guardar en el almacenamiento seguro: {ex.Message}");
+                            }
+
                             Clear();
                             navigation();
                         }

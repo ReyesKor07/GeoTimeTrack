@@ -28,16 +28,16 @@ namespace GeoTimeTrack.FlyoutTabbed
 
             BindingContext = new DeploymentPageFlyoutViewModel();
             ListView = MenuItemsListView;
-            // UserId = 1; Nombre = "Brandon"; ApellidoP = "Reyes"; ApellidoM = "De La Cruz"; Email = "brandonreyes@gmail.com"; Password = "123"; Rol = "Administrador";
+            // UserId = 1; Nombre = "Brandon"; ApellidoP = "Reyes"; ApellidoM = "De La Cruz"; Email = "brandon.reyes@gmail.com"; Password = "123"; Rol = "Administrador";
             UserId = LoginPage.UserID;
             Nombre = LoginPage.Name; ApellidoP = LoginPage.LastName;
             Email = LoginPage.Email;
             Rol = LoginPage.Rol;
-            NombreLabel.Text = $"{Nombre} {ApellidoP}, ID: {UserId}";
-            EmailLabel.Text = $"Email: {Email}";
+            NombreLabel.Text = $"ID: {UserId} \n{Nombre} {ApellidoP}";
+            EmailLabel.Text = $"Email: \n{Email}";
 
             if (Rol == "Administrador")
-            {   AdminButton.IsVisible = true; RolLabel.IsVisible = true; RolLabel.Text = $"{Rol}"; }
+            { AdminButton.IsVisible = true; RolLabel.IsVisible = true; RolLabel.Text = $"{Rol}"; }
             else
             { AdminButton.IsVisible = false; RolLabel.IsVisible = false; }
         }

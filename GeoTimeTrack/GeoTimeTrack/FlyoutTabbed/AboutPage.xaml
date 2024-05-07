@@ -4,11 +4,11 @@
              x:Class="GeoTimeTrack.FlyoutTabbed.AboutPage"
              BackgroundColor="White"
              Title="About" 
-             IconImageSource="About.png">
+             IconImageSource="About_icon.png">
 
     <ContentPage.Content>
         <StackLayout VerticalOptions="CenterAndExpand" Padding="20">
-            <Image Source="GeoTimeTransparent.png" HeightRequest="150" Aspect="AspectFit" HorizontalOptions="Center" Margin="0,0,0,30"/>
+            <Image Source="GeoTimeTrack_Transparent.png" HeightRequest="150" Aspect="AspectFit" HorizontalOptions="Center" Margin="0,0,0,30"/>
 
             <Label Text="GeoTimeTrack" FontSize="28" TextColor="#1c2757" FontAttributes="Bold" HorizontalTextAlignment="Center" Margin="0,0,0,10"/>
 

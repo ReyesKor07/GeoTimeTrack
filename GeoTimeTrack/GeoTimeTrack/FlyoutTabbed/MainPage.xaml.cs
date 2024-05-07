@@ -32,6 +32,8 @@ namespace GeoTimeTrack
             map.MoveToRegion(MapSpan.FromCenterAndRadius(initialPosition, Distance.FromMeters(200)));
             map.MapType = MapType.Satellite; // Establecer el modo de mapa predeterminado como satélite
             mapTypeSwitch.Toggled += MapTypeSwitch_Toggled; // Agregar un controlador de eventos al Switch
+            entryButton.IsEnabled = true; // Habilitar el botón de entrada y deshabilitar el de salida
+            exitButton.IsEnabled = false;
         }
 
         private void MapTypeSwitch_Toggled(object sender, ToggledEventArgs e)

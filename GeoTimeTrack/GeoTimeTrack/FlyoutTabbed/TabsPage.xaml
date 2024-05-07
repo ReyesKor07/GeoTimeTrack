@@ -6,9 +6,4 @@
             x:Class="GeoTimeTrack.FlyoutTabbed.TabsPage"
             BarBackgroundColor="#044368" UnselectedTabColor="#044368">
 
-    <!--
-    <Local:MainPage/>
-    <Local1:AboutPage/>
-    -->
-
 </TabbedPage>

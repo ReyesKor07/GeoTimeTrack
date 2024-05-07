@@ -18,7 +18,7 @@
             </Grid.ColumnDefinitions>
 
             <!-- Icono de búsqueda -->
-            <Image Source="admin_icon.png" HeightRequest="90" WidthRequest="90" VerticalOptions="Center" HorizontalOptions="End" Margin="0,0,0,10" Grid.Column="0"/>
+            <Image Source="Admin_icon.png" HeightRequest="90" WidthRequest="90" VerticalOptions="Center" HorizontalOptions="End" Margin="0,0,0,10" Grid.Column="0"/>
 
             <!-- Título de la página -->
             <Label Text="Administrador" TextColor="#044368" FontSize="43" FontAttributes="Bold" HorizontalOptions="Start" Margin="0,0,0,0" Grid.Column="1"/>
@@ -28,7 +28,7 @@
         <Frame CornerRadius="5" BorderColor="#BB6228" Padding="0" HasShadow="True" BackgroundColor="White">
             <StackLayout Orientation="Horizontal" Padding="10">
                 <Entry Placeholder="Buscar usuario por nombre, apellido o ID" TextChanged="OnSearchTextChanged" PlaceholderColor="#BB6228" TextColor="#1c2757" FontSize="18" BackgroundColor="Transparent" />
-                <Image Source="search_icon.png" HeightRequest="20" WidthRequest="20" VerticalOptions="Center" HorizontalOptions="End"/>
+                <Image Source="Search_icon.png" HeightRequest="20" WidthRequest="20" VerticalOptions="Center" HorizontalOptions="End"/>
             </StackLayout>
         </Frame>
 
