@@ -32,8 +32,8 @@ namespace GeoTimeTrack
             map.MoveToRegion(MapSpan.FromCenterAndRadius(initialPosition, Distance.FromMeters(200)));
             map.MapType = MapType.Satellite; // Establecer el modo de mapa predeterminado como satélite
             mapTypeSwitch.Toggled += MapTypeSwitch_Toggled; // Agregar un controlador de eventos al Switch
-            entryButton.IsEnabled = true; // Habilitar el botón de entrada y deshabilitar el de salida
-            exitButton.IsEnabled = false;
+            entryButton.IsEnabled = true; // Habilitar el botón de entrada
+            exitButton.IsEnabled = false; // Deshabilitar el botón de salida
         }
 
         private void MapTypeSwitch_Toggled(object sender, ToggledEventArgs e)
@@ -71,21 +71,16 @@ namespace GeoTimeTrack
                 Clear();
                 if (location != null)
                 {
-                    // Crear Location para la ubicación actual del usuario
-                    Location userLocation = new Location(location.Latitude, location.Longitude);
-                    // Crear Location para las coordenadas fijas
-                    Location fixedLocation = new Location(targetLatitude, targetLongitude);
-                    // Calcular la distancia en metros entre las dos ubicaciones
-                    double distanceInMeters = Location.CalculateDistance(userLocation, fixedLocation, DistanceUnits.Kilometers) * 1000;
+                    Location userLocation = new Location(location.Latitude, location.Longitude); // Crear Location para la ubicación actual del usuario
+                    Location fixedLocation = new Location(targetLatitude, targetLongitude); // Crear Location para las coordenadas fijas
+                    double distanceInMeters = Location.CalculateDistance(userLocation, fixedLocation, DistanceUnits.Kilometers) * 1000; // Calcular la distancia en metros entre las dos ubicaciones
                     if (distanceInMeters <= 100) // Verificar si la distancia es igual o menor a 100 metros
                     {
-                        // Verificar si ya existe un pin de entrada anterior y eliminarlo
-                        if (entryLocationPin != null)
+                        if (entryLocationPin != null) // Verificar si ya existe un pin de entrada anterior y eliminarlo
                         {
                             map.Pins.Remove(entryLocationPin);
                         }
-                        // Crear un nuevo pin de entrada
-                        entryLocationPin = new Pin
+                        entryLocationPin = new Pin // Crear un nuevo pin de entrada
                         {
                             Type = PinType.Place,
                             Label = "Entrada",
@@ -131,21 +126,16 @@ namespace GeoTimeTrack
                     var location = await Geolocation.GetLocationAsync();
                     if (location != null)
                     {
-                        // Crear Location para la ubicación actual del usuario
-                        Location userLocation = new Location(location.Latitude, location.Longitude);
-                        // Crear Location para las coordenadas fijas
-                        Location fixedLocation = new Location(targetLatitude, targetLongitude);
-                        // Calcular la distancia en metros entre las dos ubicaciones
-                        double distanceInMeters = Location.CalculateDistance(userLocation, fixedLocation, DistanceUnits.Kilometers) * 1000;
+                        Location userLocation = new Location(location.Latitude, location.Longitude); // Crear Location para la ubicación actual del usuario
+                        Location fixedLocation = new Location(targetLatitude, targetLongitude); // Crear Location para las coordenadas fijas
+                        double distanceInMeters = Location.CalculateDistance(userLocation, fixedLocation, DistanceUnits.Kilometers) * 1000; // Calcular la distancia en metros entre las dos ubicaciones
                         if (distanceInMeters <= 100) // Verificar si la distancia es igual o menor a 100 metros
                         {
-                            // Verificar si ya existe un pin de salida anterior y eliminarlo
-                            if (exitLocationPin != null)
+                            if (exitLocationPin != null) // Verificar si ya existe un pin de salida anterior y eliminarlo
                             {
                                 map.Pins.Remove(exitLocationPin);
                             }
-                            // Crear un nuevo pin de salida
-                            exitLocationPin = new Pin
+                            exitLocationPin = new Pin // Crear un nuevo pin de salida
                             {
                                 Type = PinType.Place,
                                 Label = "Salida",
@@ -219,38 +209,25 @@ namespace GeoTimeTrack
             }
         }
 
-
         public void Clear()
         {
             /*Entrada*/
             entryTimeEntry.Text = null;
             entryDateEntry.Text = null;
-            entryLongitudeEntry.Text = null; // Limpiar longitud
-            entryLatitudeEntry.Text = null; // Limpiar latitud
+            entryLongitudeEntry.Text = null;
+            entryLatitudeEntry.Text = null;
             /*Salida*/
             exitTimeEntry.Text = null;
             exitDateEntry.Text = null;
-            exitLongitudeEntry.Text = null; // Limpiar longitud
-            exitLatitudeEntry.Text = null; // Limpiar latitud
+            exitLongitudeEntry.Text = null;
+            exitLatitudeEntry.Text = null;
             /*Tiempo Laboral*/
             workTimeEntry.Text = null;
         }
 
         private async void OnLogoutButtonClicked(object sender, EventArgs e)
         {
-            string name = LoginPage.Name;
-            string lastname = LoginPage.LastName;
-            int userid = LoginPage.UserID;
-            bool answer = await DisplayAlert("Confirmación", "¿Estás seguro de que deseas cerrar la sesión?", "Sí", "Cancelar");
-            if (answer)
-            {
-                // Elimina los datos de usuario almacenados
-                name = null; 
-                lastname = null; 
-                userid = 0;
-                // Redirige al usuario a la página de inicio de sesión o a la página de inicio de la aplicación
-                await Navigation.PushModalAsync(new LoginPage()); // O la página principal de tu aplicación
-            }
+
         }
     }
 }

@@ -29,11 +29,7 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
             NombreEntry.Text = Nombre; ApellidoPEntry.Text = ApellidoP; ApellidoMEntry.Text = ApellidoM;
             EmailEntry.Text = Email; passwordEntry.Text = Password;
             RolEntry.Text = Rol;
-            // Verificar el rol del usuario y mostrar/ocultar el botón "Admin" en consecuencia
-            if (Rol == "Administrador")
-            { IdUsuarioEntry.IsVisible = true; RolEntry.IsVisible = true; }
-            else
-            { IdUsuarioEntry.IsVisible = false; RolEntry.IsVisible = false; }
+            IdUsuarioEntry.IsVisible = true; RolEntry.IsVisible = true;
         }
 
         private void GuardarCambios_Clicked(object sender, EventArgs e)

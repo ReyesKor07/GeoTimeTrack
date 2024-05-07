@@ -21,8 +21,6 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
         public string Email { get; set; }
         public string Password { get; set; }
         public string Rol { get; set; }
-        public string NombreC => $" {ApellidoP} {ApellidoM} {Nombre}";
-        public string CombinedInfo => $" {IdUsuario} {NombreC} {Rol}";
     }
 
     public partial class AdminPage : ContentPage

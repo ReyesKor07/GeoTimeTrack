@@ -18,13 +18,13 @@
             <!-- ID de usuario (no editable) -->
             <Label Text="ID de Usuario" TextColor="#044368" FontSize="18" FontAttributes="Bold" />
             <Frame CornerRadius="10" BorderColor="#F4F4F4" Padding="0" HasShadow="True">
-                <Entry x:Name="IdUsuarioEntry" PlaceholderColor="#BB6228" TextColor="Black" FontSize="18" BackgroundColor="#F4F4F4" />
+                <Entry x:Name="IdUsuarioEntry" PlaceholderColor="#BB6228" TextColor="Black" FontSize="18" BackgroundColor="#F4F4F4" IsEnabled="False" />
             </Frame>
 
             <!-- Rol del usuario (no editable) -->
             <Label Text="Rol" TextColor="#044368" FontSize="18" FontAttributes="Bold" />
             <Frame CornerRadius="10" BorderColor="#F4F4F4" Padding="0" HasShadow="True">
-                <Entry x:Name="RolEntry" Placeholder="Usuario / Administrador" PlaceholderColor="#BB6228" TextColor="Black" FontSize="18" BackgroundColor="#F4F4F4" />
+                <Entry x:Name="RolEntry" Placeholder="Usuario / Administrador" PlaceholderColor="#BB6228" TextColor="Black" FontSize="18" BackgroundColor="#F4F4F4" IsEnabled="False" />
             </Frame>
 
             <!-- Nombre del usuario -->
