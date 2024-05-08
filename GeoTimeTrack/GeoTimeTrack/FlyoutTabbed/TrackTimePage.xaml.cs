@@ -37,9 +37,15 @@ namespace GeoTimeTrack.FlyoutTabbed
         public TrackTimePage()
         {
             InitializeComponent();
-            UserId = LoginPage.UserID;
+            // UserId = LoginPage.UserID;
+            InitializeUserData();
             List<Registro> userRecords = ObtenerRegistrosDeUsuario(UserId);
             Registro.ItemsSource = userRecords;
+        }
+
+        private async void InitializeUserData()
+        {
+            UserId = Convert.ToInt32(await SecureStorage.GetAsync("UsuarioID"));
         }
 
         private void OnButtonClicked(object sender, EventArgs e)
@@ -54,7 +60,7 @@ namespace GeoTimeTrack.FlyoutTabbed
         private List<Registro> ObtenerRegistrosDeUsuario(int UserId)
         {
             List<Registro> registros = new List<Registro>(); // 
-                                                             // SqlConnection cn = new SqlConnection(@"Data source = 192.168.39.152; Initial Catalog = BD_GeoTimeTrack; Integrated Security=False; User Id= BD_GeoTimeTrack; Password=Xamarin2023");
+            // SqlConnection cn = new SqlConnection(@"Data source = 192.168.39.152; Initial Catalog = BD_GeoTimeTrack; Integrated Security=False; User Id= BD_GeoTimeTrack; Password=Xamarin2023");
             SqlConnection cn = new SqlConnection(@"Server= P3NWPLSK12SQL-v08.shr.prod.phx3.secureserver.net; DataBase=projecttes; User ID= prject; Password=proyec2023_;TrustServerCertificate=True;");
             {
                 try

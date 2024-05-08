@@ -24,16 +24,22 @@ namespace GeoTimeTrack
         public MainPage()
         {
             InitializeComponent();
-            UserId = LoginPage.UserID;
-            Nombre = LoginPage.Name;
-            ApellidoP = LoginPage.LastName;
-            HolaLabel.Text = $"¡Hola! {Nombre} {ApellidoP} \nTu ID es: {UserId}";
+            //UserId = LoginPage.UserID; Nombre = LoginPage.Name; ApellidoP = LoginPage.LastName;
+            InitializeUserData();
             Position initialPosition = new Position(26.028688727720997, -98.27560757446295); // Establecer la posición inicial del mapa UAT
             map.MoveToRegion(MapSpan.FromCenterAndRadius(initialPosition, Distance.FromMeters(200)));
             map.MapType = MapType.Satellite; // Establecer el modo de mapa predeterminado como satélite
             mapTypeSwitch.Toggled += MapTypeSwitch_Toggled; // Agregar un controlador de eventos al Switch
             entryButton.IsEnabled = true; // Habilitar el botón de entrada
             exitButton.IsEnabled = false; // Deshabilitar el botón de salida
+        }
+
+        private async void InitializeUserData()
+        {
+            UserId = Convert.ToInt32(await SecureStorage.GetAsync("UsuarioID"));
+            Nombre = await SecureStorage.GetAsync("Nombre");
+            ApellidoP = await SecureStorage.GetAsync("ApellidoP");
+            HolaLabel.Text = $"¡Hola! {Nombre} {ApellidoP} \nTu ID es: {UserId}";
         }
 
         private void MapTypeSwitch_Toggled(object sender, ToggledEventArgs e)
@@ -225,7 +231,7 @@ namespace GeoTimeTrack
             workTimeEntry.Text = null;
         }
 
-        private async void OnLogoutButtonClicked(object sender, EventArgs e)
+        private void OnLogoutButtonClicked(object sender, EventArgs e)
         {
 
         }

@@ -18,7 +18,7 @@ namespace GeoTimeTrack.FlyoutTabbed
     {
         public string Usuario { get; set; }
         int UserId;
-        string Nombre, ApellidoP, ApellidoM, Email, Password, Rol;
+        string Nombre, ApellidoP, Email, Rol;
 
         public ListView ListView;
 
@@ -28,11 +28,8 @@ namespace GeoTimeTrack.FlyoutTabbed
 
             BindingContext = new DeploymentPageFlyoutViewModel();
             ListView = MenuItemsListView;
-            // UserId = 1; Nombre = "Brandon"; ApellidoP = "Reyes"; ApellidoM = "De La Cruz"; Email = "brandon.reyes@gmail.com"; Password = "123"; Rol = "Administrador";
-            UserId = LoginPage.UserID;
-            Nombre = LoginPage.Name; ApellidoP = LoginPage.LastName;
-            Email = LoginPage.Email;
-            Rol = LoginPage.Rol;
+            //UserId = LoginPage.UserID; Nombre = LoginPage.Name; ApellidoP = LoginPage.LastName; Email = LoginPage.Email; Rol = LoginPage.Rol;
+            InitializeUserData();
             NombreLabel.Text = $"ID: {UserId} \n{Nombre} {ApellidoP}";
             EmailLabel.Text = $"Email: \n{Email}";
 
@@ -40,6 +37,15 @@ namespace GeoTimeTrack.FlyoutTabbed
             { AdminButton.IsVisible = true; RolLabel.IsVisible = true; RolLabel.Text = $"{Rol}"; }
             else
             { AdminButton.IsVisible = false; RolLabel.IsVisible = false; }
+        }
+
+        private async void InitializeUserData()
+        {
+            UserId = Convert.ToInt32(await SecureStorage.GetAsync("UsuarioID"));
+            Nombre = await SecureStorage.GetAsync("Nombre");
+            ApellidoP = await SecureStorage.GetAsync("ApellidoP");
+            Email = await SecureStorage.GetAsync("Email");
+            Rol = await SecureStorage.GetAsync("Rol");
         }
 
         public async void NavigationProfilePage()

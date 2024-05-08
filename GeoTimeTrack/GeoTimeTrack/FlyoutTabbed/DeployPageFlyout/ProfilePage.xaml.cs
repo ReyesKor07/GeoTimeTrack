@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -20,16 +21,27 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
         public ProfilePage ()
 		{
 			InitializeComponent ();
-            UserId = LoginPage.UserID;
-            Nombre = LoginPage.Name; ApellidoP = LoginPage.LastName; ApellidoM = LoginPage.MiddleName;
-            Email = LoginPage.Email; Password = LoginPage.Password;
-            Rol = LoginPage.Rol;
-            // UserId = 1; Nombre = "Brandon"; ApellidoP = "Reyes"; ApellidoM = "De La Cruz"; Email = "brandonreyes@gmail.com"; Password = "123"; Rol = "Administrador";
+            //UserId = LoginPage.UserID;
+            //Nombre = LoginPage.Name; ApellidoP = LoginPage.LastName; ApellidoM = LoginPage.MiddleName;
+            //Email = LoginPage.Email; Password = LoginPage.Password;
+            //Rol = LoginPage.Rol;
+            InitializeUserData();
             IdUsuarioEntry.Text = UserId.ToString();
             NombreEntry.Text = Nombre; ApellidoPEntry.Text = ApellidoP; ApellidoMEntry.Text = ApellidoM;
             EmailEntry.Text = Email; passwordEntry.Text = Password;
             RolEntry.Text = Rol;
             IdUsuarioEntry.IsVisible = true; RolEntry.IsVisible = true;
+        }
+
+        private async void InitializeUserData()
+        {
+            UserId = Convert.ToInt32(await SecureStorage.GetAsync("UsuarioID"));
+            Nombre = await SecureStorage.GetAsync("Nombre");
+            ApellidoP = await SecureStorage.GetAsync("ApellidoP");
+            ApellidoM = await SecureStorage.GetAsync("ApellidoM");
+            Email = await SecureStorage.GetAsync("Email");
+            Password = await SecureStorage.GetAsync("Password");
+            Rol = await SecureStorage.GetAsync("Rol");
         }
 
         private void GuardarCambios_Clicked(object sender, EventArgs e)

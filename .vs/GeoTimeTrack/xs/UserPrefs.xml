@@ -1,42 +1,35 @@
-﻿<Properties StartupConfiguration="{5CEEAF38-CA8E-454C-8532-E5D229E5F24A}|Default">
-  <MonoDevelop.Ide.ItemProperties.GeoTimeTrack.Android PreferredExecutionTarget="Android.pixel_2_-_api_30" />
+﻿<Properties StartupConfiguration="{5AC008B0-75B9-4301-AFE7-F6E14AF1FDF9}|Default">
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GeoTimeTrack/GeoTimeTrack/FlyoutTabbed/DeployPageFlyout/AdminPage.xaml">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.GeoTimeTrack.Android PreferredExecutionTarget="Android.pixel_2_-_api_30" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.ItemProperties.GeoTimeTrack.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.C7265A4C-1647-46E8-A71A-76F745E66A82" />
+  <MonoDevelop.MonoDroid LastDeploySdkVersion="13.2.2.0" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <Xamarin.Addins.Core.Project ActiveDebugTarget="Android.pixel_2_-_api_30" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../../../Applications/Visual Studio.app/Contents/MonoBundle/MSBuild/Current/bin/Microsoft.Common.CurrentVersion.targets">
     <Files>
-      <File FileName="GeoTimeTrack/GeoTimeTrack/FlyoutTabbed/DeployPageFlyout/AdminPage.xaml" Line="5" Column="37" />
-      <File FileName="GeoTimeTrack/GeoTimeTrack/App.xaml.cs" Line="24" Column="13" />
-      <File FileName="GeoTimeTrack/GeoTimeTrack/FlyoutTabbed/DeployPageFlyout/AdminPage.xaml.cs" Line="1" Column="1" />
-      <File FileName="GeoTimeTrack/GeoTimeTrack/FlyoutTabbed/AboutPage.xaml" Line="7" Column="14" />
+      <File FileName="GeoTimeTrack/GeoTimeTrack/Inicio/LoginPage.xaml.cs" Line="21" Column="9" />
+      <File FileName="GeoTimeTrack/GeoTimeTrack/Inicio/HomePage.xaml.cs" Line="20" Column="1" />
+      <File FileName="GeoTimeTrack/GeoTimeTrack/App.xaml.cs" Line="106" Column="35" />
+      <File FileName="GeoTimeTrack/GeoTimeTrack/FlyoutTabbed/MainPage.xaml.cs" Line="234" Column="16" />
+      <File FileName="GeoTimeTrack/GeoTimeTrack/FlyoutTabbed/DeployPageFlyout/ProfilePage.xaml.cs" Line="43" Column="65" />
+      <File FileName="GeoTimeTrack/GeoTimeTrack/FlyoutTabbed/DeploymentPageFlyout.xaml.cs" Line="21" Column="46" />
+      <File FileName="GeoTimeTrack/GeoTimeTrack/FlyoutTabbed/DeployPageFlyout/EditProfilePage.xaml.cs" Line="19" Column="22" />
+      <File FileName="../../../../Applications/Visual Studio.app/Contents/MonoBundle/MSBuild/Current/bin/Microsoft.Common.CurrentVersion.targets" Line="2218" Column="5" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GeoTimeTrack" expanded="True">
-            <Node name="GeoTimeTrack">
-              <Node name="FlyoutTabbed">
-                <Node name="DeployPageFlyout" expanded="True">
-                  <Node name="AdminPage.xaml" expanded="True" />
-                </Node>
-              </Node>
-              <Node name="App.xaml" expanded="True" />
-            </Node>
-            <Node name="GeoTimeTrack.Android" expanded="True">
-              <Node name="Resources" expanded="True">
-                <Node name="drawable" expanded="True" />
-              </Node>
-              <Node name="MainActivity.cs" selected="True" />
-            </Node>
+            <Node name="GeoTimeTrack" expanded="True" />
+            <Node name="GeoTimeTrack.Android" expanded="True" />
+            <Node name="GeoTimeTrack.iOS" expanded="True" />
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.GeoTimeTrack.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.14FC0DF4-6C13-4CB9-ADF0-E342918C3A85" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <Xamarin.Addins.Core.Project ActiveDebugTarget="Android.pixel_2_-_api_30" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.MonoDroid LastDeploySdkVersion="13.2.2.0" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
 </Properties>

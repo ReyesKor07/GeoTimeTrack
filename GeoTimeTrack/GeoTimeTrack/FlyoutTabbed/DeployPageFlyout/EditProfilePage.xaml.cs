@@ -16,8 +16,8 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
 	{
 
         private Usuario SelectedUser;
-        int UserId;
-        string Nombre, ApellidoP, ApellidoM, Email, Password, Rol;
+        //int UserId;
+        //string Nombre, ApellidoP, ApellidoM, Email, Password, Rol;
 
         public EditProfilePage(Usuario user)
         {
