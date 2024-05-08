@@ -123,6 +123,14 @@
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.iOS/obj/iPhoneSimulator/Debug/GeoTimeTrack.iOS.csproj.CopyComplete
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.iOS/obj/iPhoneSimulator/Debug/GeoTimeTrack.iOS.exe
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.iOS/obj/iPhoneSimulator/Debug/GeoTimeTrack.iOS.pdb
+/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.iOS/obj/iPhoneSimulator/Debug/optimized/About_icon.png
+/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.iOS/obj/iPhoneSimulator/Debug/optimized/Admin_icon.png
+/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.iOS/obj/iPhoneSimulator/Debug/optimized/GeoTimeTrack_Transparent.png
+/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.iOS/obj/iPhoneSimulator/Debug/optimized/MainPage_icon.png
+/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.iOS/obj/iPhoneSimulator/Debug/optimized/Search_icon.png
+/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.iOS/obj/iPhoneSimulator/Debug/optimized/TrackTime.png
+/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.iOS/obj/iPhoneSimulator/Debug/optimized/User_icon.png
+/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.iOS/obj/iPhoneSimulator/Debug/optimized/UserProfile_icon.png
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.iOS/obj/iPhoneSimulator/Debug/resourcestamps/GeoTimeTrack.stamp
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.iOS/obj/iPhoneSimulator/Debug/resourcestamps/Google.Maps.stamp
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.iOS/obj/iPhoneSimulator/Debug/resourcestamps/mscorlib.stamp

@@ -1,3 +1,0 @@
-Target dependency graph (2 targets)
-Target 'GeoTimeTrack.iOS' in project 'GeoTimeTrack.iOS' (no dependencies)
-Target 'GeoTimeTrack.iOS' in project 'GeoTimeTrack.iOS' (no dependencies)

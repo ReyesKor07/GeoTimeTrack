@@ -116,6 +116,7 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Contents.json" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -156,5 +157,16 @@
       <Project>{CDD0FB87-5A47-4A66-A6BA-283C44DB72AE}</Project>
       <Name>GeoTimeTrack</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\About_icon.png" />
+    <BundleResource Include="Resources\Admin_icon.png" />
+    <BundleResource Include="Resources\GeoTimeTrack_Transparent.png" />
+    <BundleResource Include="Resources\GeoTimeTrack.jpeg" />
+    <BundleResource Include="Resources\MainPage_icon.png" />
+    <BundleResource Include="Resources\Search_icon.png" />
+    <BundleResource Include="Resources\TrackTime.png" />
+    <BundleResource Include="Resources\User_icon.png" />
+    <BundleResource Include="Resources\UserProfile_icon.png" />
   </ItemGroup>
 </Project>
