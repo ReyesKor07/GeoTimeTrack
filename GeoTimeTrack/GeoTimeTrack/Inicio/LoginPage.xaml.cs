@@ -29,6 +29,75 @@ namespace GeoTimeTrack
         public LoginPage()
         {
             InitializeComponent();
+            OnAppearing();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            CheckInternetConnection();
+        }
+
+        private async void CheckInternetConnection()
+        {
+            var current = Connectivity.NetworkAccess;
+            if (current != NetworkAccess.Internet)
+            {
+                // No hay conexión a Internet, mostrar mensaje de advertencia y deshabilitar el inicio de sesión
+                await DisplayAlert("Error", "Necesitas estar conectado a Internet para usar la aplicación correctamente.", "OK");
+                loginButton.IsEnabled = false;
+            }
+            else
+            {
+                // Hay conexión a Internet, habilitar el inicio de sesión y continuar con la lógica de la aplicación
+                loginButton.IsEnabled = true;
+
+                // Por ejemplo, intentar autenticar al usuario automáticamente si hay credenciales guardadas
+                string userId = await SecureStorage.GetAsync("UserId");
+                string password = await SecureStorage.GetAsync("Password");
+
+                if (!string.IsNullOrEmpty(userId) && !string.IsNullOrEmpty(password))
+                {
+                    await AutenticarUsuario(userId, password);
+                }
+            }
+        }
+
+        private async Task AutenticarUsuario(string userId, string password)
+        {
+            try
+            {
+                // Realizar la autenticación utilizando las credenciales guardadas
+                ConexionSQLServer.Abrir();
+                string query = "SELECT * FROM Usuario_B WHERE IdUsuario = @UserId AND Password = @Password";
+                using (SqlCommand cmd = new SqlCommand(query, ConexionSQLServer.cn))
+                {
+                    cmd.Parameters.AddWithValue("@UserId", userId);
+                    cmd.Parameters.AddWithValue("@Password", password);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            // Autenticación exitosa, navegar a la página principal
+                            await Navigation.PushModalAsync(new DeploymentPage());
+                        }
+                        else
+                        {
+                            // Autenticación fallida, mostrar mensaje de error o navegar a la página de inicio de sesión
+                            await DisplayAlert("Error", "No se pudieron recuperar las credenciales almacenadas.", "Aceptar");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejar cualquier excepción que pueda ocurrir durante la autenticación
+                // await DisplayAlert("Error", "Ocurrió un error al autenticar al usuario: " + ex.Message, "Aceptar");
+            }
+            finally
+            {
+                ConexionSQLServer.Cerrar();
+            }
         }
 
         public async void navigation()
@@ -36,13 +105,22 @@ namespace GeoTimeTrack
             await Navigation.PushModalAsync(new DeploymentPage());
         }
 
-        private void OnMainPageButtonClicked(object sender, EventArgs e)
+        private void LoginButtonClicked(object sender, EventArgs e)
         {
             try
             {
                 if (string.IsNullOrWhiteSpace(emailEntry.Text) || string.IsNullOrWhiteSpace(passwordEntry.Text))
                 {
                     DisplayAlert("Error", "Por favor, complete todos los campos.", "OK"); return;
+                }
+
+                // Verificar la conectividad de red antes de intentar iniciar sesión
+                var current = Connectivity.NetworkAccess;
+                if (current != NetworkAccess.Internet)
+                {
+                    // No hay conexión a Internet, mostrar mensaje de advertencia
+                    DisplayAlert("Error", "Necesitas estar conectado a Internet para iniciar sesión.", "OK");
+                    return;
                 }
 
                 ConexionSQLServer.Abrir();

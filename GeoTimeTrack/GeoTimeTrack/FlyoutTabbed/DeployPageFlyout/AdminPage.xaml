@@ -5,7 +5,7 @@
              BackgroundColor="White">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Refresh" Clicked="OnButtonClicked"/>
+        <ToolbarItem Text="Refresh" Clicked="RefreshButtonClicked"/>
     </ContentPage.ToolbarItems>
 
     <StackLayout Padding="10">

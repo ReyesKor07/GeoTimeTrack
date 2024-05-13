@@ -37,7 +37,6 @@ namespace GeoTimeTrack.FlyoutTabbed
         public TrackTimePage()
         {
             InitializeComponent();
-            // UserId = LoginPage.UserID;
             InitializeUserData();
             List<Registro> userRecords = ObtenerRegistrosDeUsuario(UserId);
             Registro.ItemsSource = userRecords;
@@ -48,19 +47,24 @@ namespace GeoTimeTrack.FlyoutTabbed
             UserId = Convert.ToInt32(await SecureStorage.GetAsync("UsuarioID"));
         }
 
-        private void OnButtonClicked(object sender, EventArgs e)
+        private void RefreshButtonClicked(object sender, EventArgs e)
         {
+            var current = Connectivity.NetworkAccess;
+            if (current != NetworkAccess.Internet)
+            {
+                // No hay conexión a Internet, mostrar mensaje de advertencia
+                DisplayAlert("Error", "Necesitas estar conectado a Internet para refrescar la página.", "OK");
+                return;
+            }
             // Llama nuevamente al método para obtener registros actualizados
             List<Registro> userRecords = ObtenerRegistrosDeUsuario(UserId);
-
             // Actualiza la propiedad ItemsSource con la nueva lista de registros
             Registro.ItemsSource = userRecords;
         }
 
         private List<Registro> ObtenerRegistrosDeUsuario(int UserId)
         {
-            List<Registro> registros = new List<Registro>(); // 
-            // SqlConnection cn = new SqlConnection(@"Data source = 192.168.39.152; Initial Catalog = BD_GeoTimeTrack; Integrated Security=False; User Id= BD_GeoTimeTrack; Password=Xamarin2023");
+            List<Registro> registros = new List<Registro>();
             SqlConnection cn = new SqlConnection(@"Server= P3NWPLSK12SQL-v08.shr.prod.phx3.secureserver.net; DataBase=projecttes; User ID= prject; Password=proyec2023_;TrustServerCertificate=True;");
             {
                 try
@@ -79,10 +83,10 @@ namespace GeoTimeTrack.FlyoutTabbed
                                 {
                                     Contador = contador, // Asigna el contador
                                     FechaBD = reader.GetDateTime(reader.GetOrdinal("FechaEntrada")),
-                                    Fecha = $"{reader.GetDateTime(reader.GetOrdinal("FechaEntrada")).ToString("dddd dd\nMMMM\nyyyy", new System.Globalization.CultureInfo("es-ES"))}",
-                                    HoraEntrada = reader.GetTimeSpan(reader.GetOrdinal("HoraEntrada")).ToString(@"hh\:mm"),
-                                    HoraSalida = reader.GetTimeSpan(reader.GetOrdinal("HoraSalida")).ToString(@"hh\:mm"),
-                                    EstanciaTotal = reader.GetTimeSpan(reader.GetOrdinal("TiempoTotal")).ToString(@"hh\:mm"),
+                                    Fecha = $"{reader.GetDateTime(reader.GetOrdinal("FechaEntrada")).ToString("dddd", new System.Globalization.CultureInfo("es-ES"))}\n{reader.GetDateTime(reader.GetOrdinal("FechaEntrada")).ToString("dd/MM/yyyy")}",
+                                    HoraEntrada = ConvertTo12HourFormat(reader.GetTimeSpan(reader.GetOrdinal("HoraEntrada"))),
+                                    HoraSalida = ConvertTo12HourFormat(reader.GetTimeSpan(reader.GetOrdinal("HoraSalida"))),
+                                    EstanciaTotal = reader.GetTimeSpan(reader.GetOrdinal("TiempoTotal")).ToString(@"hh\:mm") + " h",
                                 };
                                 // Convertir la primera letra del día de la semana a mayúscula
                                 registro.Fecha = char.ToUpper(registro.Fecha[0]) + registro.Fecha.Substring(1);
@@ -101,6 +105,13 @@ namespace GeoTimeTrack.FlyoutTabbed
                 }
             }
             return registros;
+        }
+
+        private string ConvertTo12HourFormat(TimeSpan time)
+        {
+            string formattedTime = time.ToString(@"hh\:mm");
+            DateTime dateTime = DateTime.Parse(formattedTime);
+            return dateTime.ToString("h:mm tt", System.Globalization.CultureInfo.InvariantCulture);
         }
     }
 }

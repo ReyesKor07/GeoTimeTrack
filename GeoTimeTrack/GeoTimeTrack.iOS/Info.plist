@@ -34,5 +34,13 @@
 	<string>GeoTimeTrack</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Nos gustaría mostrarle un mapa.</string>
+	<key>LocationAlwaysandWhenInUseUsageDescription</key>
+	<string>Nos gustaría mostrarle un mapa.</string>
+	<key>LocationUsageDescription</key>
+	<string>Nos gustaría mostrarle un mapa.</string>
+	<key>LocationAlwaysUsageDescription</key>
+	<string>Nos gustaría mostrarle un mapa.</string>
 </dict>
 </plist>

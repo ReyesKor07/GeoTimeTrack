@@ -30,7 +30,7 @@
                 <Switch x:Name="showPasswordSwitch" VerticalOptions="CenterAndExpand" OnColor="#044368" ThumbColor="#BB6228" Toggled="OnShowPasswordSwitchToggled"/>
             </StackLayout>
 
-            <Button Text="Iniciar Sesión" BackgroundColor="#BB6228" TextTransform="None" TextColor="White" FontSize="20" CornerRadius="20" HeightRequest="50" Clicked="OnMainPageButtonClicked"/>
+            <Button Text="Iniciar Sesión" x:Name="loginButton" Clicked="LoginButtonClicked" BackgroundColor="#BB6228" TextTransform="None" TextColor="White" FontSize="20" CornerRadius="20" HeightRequest="50"/>
 
             <!--
             <Label Text="¿Olvidaste tu contraseña? Haga clic aquí" TextColor="#044368" FontSize="16" HorizontalTextAlignment="Center">

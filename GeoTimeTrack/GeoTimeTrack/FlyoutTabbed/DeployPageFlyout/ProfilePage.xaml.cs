@@ -21,15 +21,10 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
         public ProfilePage ()
 		{
 			InitializeComponent ();
-            //UserId = LoginPage.UserID;
-            //Nombre = LoginPage.Name; ApellidoP = LoginPage.LastName; ApellidoM = LoginPage.MiddleName;
-            //Email = LoginPage.Email; Password = LoginPage.Password;
-            //Rol = LoginPage.Rol;
             InitializeUserData();
             IdUsuarioEntry.Text = UserId.ToString();
             NombreEntry.Text = Nombre; ApellidoPEntry.Text = ApellidoP; ApellidoMEntry.Text = ApellidoM;
-            EmailEntry.Text = Email; passwordEntry.Text = Password;
-            RolEntry.Text = Rol;
+            EmailEntry.Text = Email; passwordEntry.Text = Password; RolEntry.Text = Rol;
             IdUsuarioEntry.IsVisible = true; RolEntry.IsVisible = true;
         }
 
@@ -46,6 +41,13 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
 
         private void GuardarCambios_Clicked(object sender, EventArgs e)
         {
+            var current = Connectivity.NetworkAccess;
+            if (current != NetworkAccess.Internet)
+            {
+                // No hay conexión a Internet, mostrar mensaje de advertencia
+                DisplayAlert("Error", "Necesitas estar conectado a Internet para guaradr los cambios.", "OK");
+                return;
+            }
             try
             {
                 // Verificar campos obligatorios

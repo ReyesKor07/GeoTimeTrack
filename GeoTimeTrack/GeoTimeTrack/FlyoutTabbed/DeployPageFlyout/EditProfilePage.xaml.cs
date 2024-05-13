@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using Xamarin.Essentials;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,6 +50,13 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
 
         private void GuardarCambios_Clicked(object sender, EventArgs e)
         {
+            var current = Connectivity.NetworkAccess;
+            if (current != NetworkAccess.Internet)
+            {
+                // No hay conexión a Internet, mostrar mensaje de advertencia
+                DisplayAlert("Error", "Necesitas estar conectado a Internet para refrescar la página.", "OK");
+                return;
+            }
             try
             {
                 // Verifica campos obligatorios
@@ -125,6 +133,13 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
 
         private async void EliminarUsuario_Clicked(object sender, EventArgs e)
         {
+            var current = Connectivity.NetworkAccess;
+            if (current != NetworkAccess.Internet)
+            {
+                // No hay conexión a Internet, mostrar mensaje de advertencia
+                await DisplayAlert("Error", "Necesitas estar conectado a Internet para refrescar la página.", "OK");
+                return;
+            }
             try
             {
                 // Mostrar un mensaje de confirmación antes de eliminar el usuario

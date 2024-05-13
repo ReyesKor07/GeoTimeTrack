@@ -1,35 +1,30 @@
-﻿<Properties StartupConfiguration="{5AC008B0-75B9-4301-AFE7-F6E14AF1FDF9}|Default">
-  <MultiItemStartupConfigurations />
+﻿<Properties StartupConfiguration="{5CEEAF38-CA8E-454C-8532-E5D229E5F24A}|Default">
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.GeoTimeTrack.Android PreferredExecutionTarget="Android.pixel_2_-_api_30" />
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
-  <MonoDevelop.Ide.ItemProperties.GeoTimeTrack.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.C7265A4C-1647-46E8-A71A-76F745E66A82" />
-  <MonoDevelop.MonoDroid LastDeploySdkVersion="13.2.2.0" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <Xamarin.Addins.Core.Project ActiveDebugTarget="Android.pixel_2_-_api_30" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../../../../Applications/Visual Studio.app/Contents/MonoBundle/MSBuild/Current/bin/Microsoft.Common.CurrentVersion.targets">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GeoTimeTrack/GeoTimeTrack/FlyoutTabbed/DeploymentPageFlyout.xaml.cs">
     <Files>
-      <File FileName="GeoTimeTrack/GeoTimeTrack/Inicio/LoginPage.xaml.cs" Line="21" Column="9" />
-      <File FileName="GeoTimeTrack/GeoTimeTrack/Inicio/HomePage.xaml.cs" Line="20" Column="1" />
-      <File FileName="GeoTimeTrack/GeoTimeTrack/App.xaml.cs" Line="106" Column="35" />
-      <File FileName="GeoTimeTrack/GeoTimeTrack/FlyoutTabbed/MainPage.xaml.cs" Line="234" Column="16" />
-      <File FileName="GeoTimeTrack/GeoTimeTrack/FlyoutTabbed/DeployPageFlyout/ProfilePage.xaml.cs" Line="43" Column="65" />
-      <File FileName="GeoTimeTrack/GeoTimeTrack/FlyoutTabbed/DeploymentPageFlyout.xaml.cs" Line="21" Column="46" />
-      <File FileName="GeoTimeTrack/GeoTimeTrack/FlyoutTabbed/DeployPageFlyout/EditProfilePage.xaml.cs" Line="19" Column="22" />
-      <File FileName="../../../../Applications/Visual Studio.app/Contents/MonoBundle/MSBuild/Current/bin/Microsoft.Common.CurrentVersion.targets" Line="2218" Column="5" />
+      <File FileName="GeoTimeTrack/GeoTimeTrack/FlyoutTabbed/MainPage.xaml" Line="1" Column="1" />
+      <File FileName="GeoTimeTrack/GeoTimeTrack/FlyoutTabbed/MainPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="GeoTimeTrack/GeoTimeTrack/FlyoutTabbed/DeploymentPageFlyout.xaml" Line="60" Column="71" />
+      <File FileName="GeoTimeTrack/GeoTimeTrack/FlyoutTabbed/DeploymentPageFlyout.xaml.cs" Line="72" Column="40" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GeoTimeTrack" expanded="True">
             <Node name="GeoTimeTrack" expanded="True" />
-            <Node name="GeoTimeTrack.Android" expanded="True" />
-            <Node name="GeoTimeTrack.iOS" expanded="True" />
+            <Node name="GeoTimeTrack.iOS" selected="True" />
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.MonoDroid LastDeploySdkVersion="13.2.2.0" />
+  <Xamarin.Addins.Core.Project ActiveDebugTarget="Android.pixel_2_-_api_30" />
+  <MonoDevelop.Ide.ItemProperties.GeoTimeTrack.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.FB65BA2C-A08D-457E-8055-C959D1C563C2" />
+  <MonoDevelop.Ide.ItemProperties.GeoTimeTrack.Android PreferredExecutionTarget="Android.pixel_2_-_api_30" />
 </Properties>

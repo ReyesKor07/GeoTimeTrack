@@ -72,38 +72,4 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <None Remove="Images\About.png" />
-    <None Remove="Images\admin_icon.png" />
-    <None Remove="Images\GeoTimeTransparent.png" />
-    <None Remove="Images\search_icon.png" />
-    <None Remove="Images\TrackTime.png" />
-    <None Remove="Images\user_icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Images\About.png">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-    </AndroidResource>
-    <AndroidResource Include="Images\admin_icon.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Images\GeoTimeTransparent.png">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-    </AndroidResource>
-    <AndroidResource Include="Images\search_icon.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Images\TrackTime.png">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-    </AndroidResource>
-    <AndroidResource Include="Images\user_icon.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-  </ItemGroup>
 </Project>

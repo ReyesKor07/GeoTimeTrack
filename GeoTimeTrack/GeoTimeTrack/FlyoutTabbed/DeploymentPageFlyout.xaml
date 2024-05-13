@@ -57,6 +57,7 @@
                 <StackLayout Padding="20" Spacing="10">
                     <Button Text="Perfil" Clicked="Cuenta_Clicked" TextColor="White" BackgroundColor="#BB6228" FontSize="20" FontAttributes="Bold" />
                     <Button Text="Administrador" Clicked="Admin_Clicked" x:Name="AdminButton" TextColor="White" BackgroundColor="#BB6228" FontSize="20" FontAttributes="Bold" />
+                    <Button Text="Cerrar Sesión" Clicked="Exit_Clicked" TextColor="White" BackgroundColor="#BB6228" FontSize="20" FontAttributes="Bold" />
                 </StackLayout>
             </ListView.Footer>
 

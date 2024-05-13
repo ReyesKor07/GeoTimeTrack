@@ -28,7 +28,6 @@ namespace GeoTimeTrack.FlyoutTabbed
 
             BindingContext = new DeploymentPageFlyoutViewModel();
             ListView = MenuItemsListView;
-            //UserId = LoginPage.UserID; Nombre = LoginPage.Name; ApellidoP = LoginPage.LastName; Email = LoginPage.Email; Rol = LoginPage.Rol;
             InitializeUserData();
             NombreLabel.Text = $"ID: {UserId} \n{Nombre} {ApellidoP}";
             EmailLabel.Text = $"Email: \n{Email}";
@@ -63,10 +62,52 @@ namespace GeoTimeTrack.FlyoutTabbed
 
         private async void Admin_Clicked(object sender, EventArgs e)
         {
+            var current = Connectivity.NetworkAccess;
+            if (current != NetworkAccess.Internet)
+            {
+                // No hay conexión a Internet, mostrar mensaje de advertencia
+                await DisplayAlert("Error", "Necesitas estar conectado a Internet para ingresar al panel administrador.", "OK");
+                return;
+            }
             try // Realiza la navegación a la página de Administrador
             { NavigationAdminPage(); }
             catch (Exception ex)
             { await DisplayAlert("Error", ex.Message + "DeploymentPageFlyout.Cuenta_Clicked", "OK"); }
+        }
+
+        private async void Exit_Clicked(object sender, EventArgs e)
+        {
+            var current = Connectivity.NetworkAccess;
+            if (current != NetworkAccess.Internet)
+            {
+                // No hay conexión a Internet, mostrar mensaje de advertencia
+                await DisplayAlert("Error", "Necesitas estar conectado a Internet para cerrar sesión.", "OK");
+                return;
+            }
+            try
+            {
+                // Pedir confirmación al usuario antes de salir de la cuenta
+                bool answer = await DisplayAlert("Confirmación", "¿Estás seguro de que deseas salir de tu cuenta?", "Sí", "No");
+
+                if (answer)
+                {
+                    // Si se confirma la salida, entonces navegar a la página de inicio de sesión
+                    App.Current.MainPage = new NavigationPage(new LoginPage());
+
+                    // Borrar las credenciales del usuario del almacenamiento seguro
+                    await SecureStorage.SetAsync("UsuarioID", string.Empty);
+                    await SecureStorage.SetAsync("Nombre", string.Empty);
+                    await SecureStorage.SetAsync("ApellidoP", string.Empty);
+                    await SecureStorage.SetAsync("ApellidoM", string.Empty);
+                    await SecureStorage.SetAsync("Email", string.Empty);
+                    await SecureStorage.SetAsync("Password", string.Empty);
+                    await SecureStorage.SetAsync("Rol", string.Empty);
+                }
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", ex.Message + "DeploymentPageFlyout.Exit_Clicked", "OK");
+            }
         }
 
         class DeploymentPageFlyoutViewModel : INotifyPropertyChanged

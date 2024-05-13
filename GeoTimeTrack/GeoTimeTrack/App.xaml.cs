@@ -16,8 +16,6 @@ namespace GeoTimeTrack
         {
             InitializeComponent();
 
-            // Envolver la página en un NavigationPage
-            MainPage = new NavigationPage(new HomePage());
             // MainPage = new MainPage();
             // MainPage = new NavigationPage(new MainPage());
             // MainPage = new NavigationPage(new DeploymentPage());
@@ -28,30 +26,42 @@ namespace GeoTimeTrack
             // MainPage = new NavigationPage(new AdminPage());
         }
 
-        //protected override async void OnStart()
-        //{
-        //    try
-        //    {
-        //        // Recuperar las credenciales del almacenamiento seguro
-        //        string usuarioID = await SecureStorage.GetAsync("UsuarioID");
-        //        string nombre = await SecureStorage.GetAsync("Nombre");
-        //        string apellidoP = await SecureStorage.GetAsync("ApellidoP");
-        //        string apellidoM = await SecureStorage.GetAsync("ApellidoM");
-        //        string email = await SecureStorage.GetAsync("Email");
-        //        string password = await SecureStorage.GetAsync("Password");
-        //        string rol = await SecureStorage.GetAsync("Rol");
+        protected override async void OnStart()
+        {
+            // Verificar la conectividad de red
+            var current = Connectivity.NetworkAccess;
+            if (current != NetworkAccess.Internet)
+            {
+                // No hay conexión a Internet, mostrar mensaje de advertencia
+                Console.WriteLine("Necesitas estar conectado a Internet para usar la aplicación correctamente.");
+            }
+            else
+            {
+                try
+                {
+                    // Recuperar las credenciales del almacenamiento seguro
+                    string usuarioID = await SecureStorage.GetAsync("UsuarioID");
+                    string password = await SecureStorage.GetAsync("Password");
 
-        //        // Convertir las cadenas recuperadas según sea necesario
-        //        int userID = Convert.ToInt32(usuarioID);
-
-        //        // Utilizar las credenciales recuperadas como sea necesario
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        // Manejar cualquier excepción que pueda ocurrir al recuperar del almacenamiento seguro
-        //        Console.WriteLine($"Error al recuperar del almacenamiento seguro: {ex.Message}");
-        //    }
-        //}
+                    if (!string.IsNullOrEmpty(usuarioID) && !string.IsNullOrEmpty(password))
+                    {
+                        // Autenticar automáticamente con las credenciales guardadas
+                        await AutenticarUsuario(usuarioID, password);
+                    }
+                    else
+                    {
+                        // No hay credenciales guardadas, navegar a la página principal (HomePage)
+                        MainPage = new NavigationPage(new HomePage());
+                        // MainPage = new NavigationPage(new TrackTimePage());
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Manejar cualquier excepción que pueda ocurrir al recuperar del almacenamiento seguro
+                    Console.WriteLine($"Error al recuperar del almacenamiento seguro: {ex.Message}");
+                }
+            }
+        }
 
         private async Task AutenticarUsuario(string userId, string password)
         {
@@ -74,9 +84,7 @@ namespace GeoTimeTrack
                         else
                         {
                             // Autenticación fallida, mostrar mensaje de error o navegar a la página de inicio de sesión
-                            await MainPage.DisplayAlert("Error", "No se pudieron recuperar las credenciales almacenadas.", "Aceptar");
-                            // Alternativamente, navegar a la página de inicio de sesión:
-                            // await MainPage.Navigation.PushModalAsync(new LoginPage());
+                            Console.WriteLine("No se pudieron recuperar las credenciales almacenadas.");
                         }
                     }
                 }
@@ -84,7 +92,7 @@ namespace GeoTimeTrack
             catch (Exception ex)
             {
                 // Manejar cualquier excepción que pueda ocurrir durante la autenticación
-                await MainPage.DisplayAlert("Error", "Ocurrió un error al autenticar al usuario: " + ex.Message, "Aceptar");
+                Console.WriteLine($"Ocurrió un error al autenticar al usuario: {ex.Message}");
             }
             finally
             {
@@ -92,39 +100,14 @@ namespace GeoTimeTrack
             }
         }
 
-
-        protected override async void OnStart()
-        {
-            try
-            {
-                // Recuperar las credenciales del almacenamiento seguro
-                string usuarioID = await SecureStorage.GetAsync("UsuarioID");
-                string nombre = await SecureStorage.GetAsync("Nombre");
-                string apellidoP = await SecureStorage.GetAsync("ApellidoP");
-                string apellidoM = await SecureStorage.GetAsync("ApellidoM");
-                string email = await SecureStorage.GetAsync("Email");
-                string password = await SecureStorage.GetAsync("Password");
-                string rol = await SecureStorage.GetAsync("Rol");
-
-                if (!string.IsNullOrEmpty(usuarioID) && !string.IsNullOrEmpty(password))
-                {
-                    // Autenticar automáticamente con las credenciales guardadas
-                    await AutenticarUsuario(usuarioID, password);
-                }
-            }
-            catch (Exception ex)
-            {
-                // Manejar cualquier excepción que pueda ocurrir al recuperar del almacenamiento seguro
-                Console.WriteLine($"Error al recuperar del almacenamiento seguro: {ex.Message}");
-            }
-        }
-
         protected override void OnSleep()
         {
+
         }
 
         protected override void OnResume()
         {
+
         }
     }
 }

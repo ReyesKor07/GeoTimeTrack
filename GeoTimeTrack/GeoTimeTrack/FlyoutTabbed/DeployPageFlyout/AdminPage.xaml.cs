@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -32,10 +33,10 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
         public AdminPage()
         {
             InitializeComponent();
-            UserId = LoginPage.UserID;
-            Nombre = LoginPage.Name; ApellidoP = LoginPage.LastName; ApellidoM = LoginPage.MiddleName;
-            Email = LoginPage.Email; Password = LoginPage.Password;
-            Rol = LoginPage.Rol;
+            //UserId = LoginPage.UserID;
+            //Nombre = LoginPage.Name; ApellidoP = LoginPage.LastName; ApellidoM = LoginPage.MiddleName;
+            //Email = LoginPage.Email; Password = LoginPage.Password;
+            //Rol = LoginPage.Rol;
             List<Usuario> usuarios = ObtenerUsuarios();
             Usuarios.ItemsSource = usuarios;
             // Obtener la lista completa de usuarios
@@ -43,14 +44,31 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
             Usuarios.ItemsSource = allUsuarios;
         }
 
-        private void OnButtonClicked(object sender, EventArgs e)
+        private void RefreshButtonClicked(object sender, EventArgs e)
         {
-            List<Usuario> usuarios = ObtenerUsuarios();
-            Usuarios.ItemsSource = usuarios;
+            var current = Connectivity.NetworkAccess;
+            if (current != NetworkAccess.Internet)
+            {
+                // No hay conexión a Internet, mostrar mensaje de advertencia
+                DisplayAlert("Error", "Necesitas estar conectado a Internet para refrescar la página.", "OK");
+                return;
+            }
+            else
+            {
+                List<Usuario> usuarios = ObtenerUsuarios();
+                Usuarios.ItemsSource = usuarios;
+            }
         }
 
         public async void VerRegistro_Clicked(object sender, EventArgs e)
         {
+            var current = Connectivity.NetworkAccess;
+            if (current != NetworkAccess.Internet)
+            {
+                // No hay conexión a Internet, mostrar mensaje de advertencia
+                await DisplayAlert("Error", "Necesitas estar conectado a Internet para observar el registro.", "OK");
+                return;
+            }
             try
             {
                 if (sender is Button button)
@@ -71,6 +89,13 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
 
         private async void VerPerfil_Clicked(object sender, EventArgs e)
         {
+            var current = Connectivity.NetworkAccess;
+            if (current != NetworkAccess.Internet)
+            {
+                // No hay conexión a Internet, mostrar mensaje de advertencia
+                await DisplayAlert("Error", "Necesitas estar conectado a Internet para observar el perfil.", "OK");
+                return;
+            }
             try
             {
                 if (sender is Button button)

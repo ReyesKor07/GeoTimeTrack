@@ -4,6 +4,7 @@
 	--sgen-conc \
 	'/target-framework:Xamarin.iOS,Version=v1.0' \
 	--http-message-handler=NSUrlSessionHandler \
+	--i18n=west \
 	--cache=/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.iOS/obj/iPhoneSimulator/Debug/mtouch-cache \
 	--root-assembly=/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.iOS/bin/iPhoneSimulator/Debug/GeoTimeTrack.iOS.exe \
 	--sdkroot=/Applications/Xcode.app/Contents/Developer \

@@ -8,6 +8,7 @@ using System.Security.Cryptography;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using GeoTimeTrack.Data;
+using Xamarin.Essentials;
 
 namespace GeoTimeTrack
 {
@@ -39,6 +40,22 @@ namespace GeoTimeTrack
             }
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            CheckInternetConnection();
+        }
+
+        private async void CheckInternetConnection()
+        {
+            var current = Connectivity.NetworkAccess;
+            if (current != NetworkAccess.Internet)
+            {
+                // No hay conexión a Internet, mostrar mensaje de advertencia
+                await DisplayAlert("Error", "Necesitas estar conectado a Internet para usar la aplicación correctamente.", "OK");
+            }
+        }
+
         private void OnCreateUserButtonClicked(object sender, EventArgs e)
         {
             try
@@ -67,6 +84,15 @@ namespace GeoTimeTrack
                 if (passwordEntry.Text != confirmPasswordEntry.Text)
                 {
                     DisplayAlert("Error", "Las contraseñas no coinciden.", "OK");
+                    return;
+                }
+
+                // Verificar la conectividad de red antes de intentar iniciar sesión
+                var current = Connectivity.NetworkAccess;
+                if (current != NetworkAccess.Internet)
+                {
+                    // No hay conexión a Internet, mostrar mensaje de advertencia
+                    DisplayAlert("Error", "Necesitas estar conectado a Internet para crear tu cuenta.", "OK");
                     return;
                 }
 

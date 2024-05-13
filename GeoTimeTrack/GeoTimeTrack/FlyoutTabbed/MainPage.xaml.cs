@@ -24,7 +24,6 @@ namespace GeoTimeTrack
         public MainPage()
         {
             InitializeComponent();
-            //UserId = LoginPage.UserID; Nombre = LoginPage.Name; ApellidoP = LoginPage.LastName;
             InitializeUserData();
             Position initialPosition = new Position(26.028688727720997, -98.27560757446295); // Establecer la posición inicial del mapa UAT
             map.MoveToRegion(MapSpan.FromCenterAndRadius(initialPosition, Distance.FromMeters(200)));
@@ -65,16 +64,22 @@ namespace GeoTimeTrack
         private decimal entrylatitudeEntry;
         private decimal exitlongitudeEntry;
         private decimal exitlatitudeEntry;
-        
+
         private int IDuserEntry;
 
         private async void OnEntryButtonClicked(object sender, EventArgs e)
         {
+            var current = Connectivity.NetworkAccess;
+            if (current != NetworkAccess.Internet)
+            {
+                await DisplayAlert("Error", "Necesitas estar conectado a Internet para marcar tu entrada.", "OK");
+                return;
+            }
             try
             {
+                Clear();
                 entryTime = DateTime.Now; // Registrar la hora de entrada
                 var location = await Geolocation.GetLocationAsync();
-                Clear();
                 if (location != null)
                 {
                     Location userLocation = new Location(location.Latitude, location.Longitude); // Crear Location para la ubicación actual del usuario
@@ -107,7 +112,7 @@ namespace GeoTimeTrack
                     }
                     else
                     {
-                       await DisplayAlert("Advertencia", "Estás fuera del rango para marcar tu asistencia (distancia superior a 100 metros).", "OK");
+                        await DisplayAlert("Advertencia", "Estás fuera del rango para marcar tu asistencia (distancia superior a 100 metros).", "OK");
                     }
                 }
                 else
@@ -123,6 +128,12 @@ namespace GeoTimeTrack
 
         private async void OnExitButtonClicked(object sender, EventArgs e)
         {
+            var current = Connectivity.NetworkAccess;
+            if (current != NetworkAccess.Internet)
+            {
+                await DisplayAlert("Error", "Necesitas estar conectado a Internet para marcar tu salida.", "OK");
+                return;
+            }
             try
             {
                 if (entryTime != DateTime.MinValue)
@@ -229,11 +240,6 @@ namespace GeoTimeTrack
             exitLatitudeEntry.Text = null;
             /*Tiempo Laboral*/
             workTimeEntry.Text = null;
-        }
-
-        private void OnLogoutButtonClicked(object sender, EventArgs e)
-        {
-
         }
     }
 }

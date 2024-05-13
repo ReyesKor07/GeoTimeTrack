@@ -8,7 +8,7 @@
              IconImageSource="TrackTime.png">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Refresh" Clicked="OnButtonClicked"/>
+        <ToolbarItem Text="Refresh" Clicked="RefreshButtonClicked"/>
     </ContentPage.ToolbarItems>
 
     <ScrollView>
@@ -16,14 +16,14 @@
             <ListView.Header>
                 <Grid BackgroundColor="#044368">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="0.5*" />
                         <!-- Columna para Contador -->
                         <ColumnDefinition Width="2*" />
                         <!-- Columna para Fecha -->
                         <ColumnDefinition Width="2*" />
-                        <!-- Columna para Distancia Entrada -->
+                        <!-- Columna para Hora Entrada -->
                         <ColumnDefinition Width="2*" />
-                        <!-- Columna para Distancia Salida -->
+                        <!-- Columna para Hora Salida -->
                         <ColumnDefinition Width="2*" />
                         <!-- Columna para Tiempo Total -->
                     </Grid.ColumnDefinitions>
@@ -31,7 +31,7 @@
                     <Label Text="Fecha" TextColor="White" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
                     <Label Text="Entrada" TextColor="White" Grid.Column="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
                     <Label Text="Salida" TextColor="White" Grid.Column="3" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
-                    <Label Text="Tiempo" TextColor="White" Grid.Column="4" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
+                    <Label Text="Estancia" TextColor="White" Grid.Column="4" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
                 </Grid>
             </ListView.Header>
             <ListView.ItemTemplate>
@@ -39,7 +39,7 @@
                     <ViewCell>
                         <Grid BackgroundColor="#DEEFFF" Padding="5">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="0.5*" />
                                 <!-- Columna para Contador -->
                                 <ColumnDefinition Width="2*" />
                                 <!-- Columna para Fecha -->
