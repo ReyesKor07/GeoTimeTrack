@@ -5,19 +5,31 @@
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GeoTimeTrack/GeoTimeTrack/FlyoutTabbed/DeploymentPageFlyout.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GeoTimeTrack/GeoTimeTrack.Android/Properties/AndroidManifest.xml">
     <Files>
-      <File FileName="GeoTimeTrack/GeoTimeTrack/FlyoutTabbed/MainPage.xaml" Line="1" Column="1" />
-      <File FileName="GeoTimeTrack/GeoTimeTrack/FlyoutTabbed/MainPage.xaml.cs" Line="1" Column="1" />
-      <File FileName="GeoTimeTrack/GeoTimeTrack/FlyoutTabbed/DeploymentPageFlyout.xaml" Line="60" Column="71" />
-      <File FileName="GeoTimeTrack/GeoTimeTrack/FlyoutTabbed/DeploymentPageFlyout.xaml.cs" Line="72" Column="40" />
+      <File FileName="GeoTimeTrack/GeoTimeTrack/FlyoutTabbed/MainPage.xaml" />
+      <File FileName="GeoTimeTrack/GeoTimeTrack/FlyoutTabbed/MainPage.xaml.cs" Line="57" Column="82" />
+      <File FileName="GeoTimeTrack/GeoTimeTrack/App.xaml.cs" />
+      <File FileName="GeoTimeTrack/GeoTimeTrack.Android/MainActivity.cs" />
+      <File FileName="GeoTimeTrack/GeoTimeTrack.iOS/AppDelegate.cs" />
+      <File FileName="GeoTimeTrack/GeoTimeTrack.iOS/Info.plist" />
+      <File FileName="GeoTimeTrack/GeoTimeTrack.Android/Properties/AndroidManifest.xml" Line="15" Column="12" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GeoTimeTrack" expanded="True">
-            <Node name="GeoTimeTrack" expanded="True" />
-            <Node name="GeoTimeTrack.iOS" selected="True" />
+            <Node name="GeoTimeTrack" expanded="True">
+              <Node name="FlyoutTabbed" expanded="True">
+                <Node name="MainPage.xaml" expanded="True" />
+              </Node>
+            </Node>
+            <Node name="GeoTimeTrack.Android" expanded="True">
+              <Node name="Properties" expanded="True">
+                <Node name="AndroidManifest.xml" selected="True" />
+              </Node>
+            </Node>
+            <Node name="GeoTimeTrack.iOS" expanded="True" />
           </Node>
         </State>
       </Pad>

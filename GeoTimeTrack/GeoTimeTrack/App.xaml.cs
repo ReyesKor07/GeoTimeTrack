@@ -17,7 +17,7 @@ namespace GeoTimeTrack
             InitializeComponent();
 
             // MainPage = new MainPage();
-            // MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new MainPage());
             // MainPage = new NavigationPage(new DeploymentPage());
             // MainPage = new NavigationPage(new DeploymentPageFlyout());
             // MainPage = new NavigationPage(new AccountCreationPage());
