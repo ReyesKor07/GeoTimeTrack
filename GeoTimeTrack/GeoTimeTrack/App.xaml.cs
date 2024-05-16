@@ -26,44 +26,66 @@ namespace GeoTimeTrack
             // MainPage = new NavigationPage(new AdminPage());
         }
 
+        //protected override async void OnStart()
+        //{
+        //    var current = Connectivity.NetworkAccess; // Verificar la conectividad de red
+        //    if (current != NetworkAccess.Internet)
+        //    {
+        //        Console.WriteLine("Necesitas estar conectado a Internet para usar la aplicación correctamente."); // No hay conexión a Internet, mostrar mensaje de advertencia
+        //    }
+        //    else
+        //    {
+        //        try
+        //        {
+        //            // Recuperar las credenciales del almacenamiento seguro
+        //            string usuarioID = await SecureStorage.GetAsync("UsuarioID");
+        //            string password = await SecureStorage.GetAsync("Password");
+        //            if (!string.IsNullOrEmpty(usuarioID) && !string.IsNullOrEmpty(password))
+        //            {
+        //                await AutenticarUsuario(usuarioID, password); // Autenticar automáticamente con las credenciales guardadas
+        //            }
+        //            else
+        //            {
+        //                MainPage = new NavigationPage(new HomePage()); // No hay credenciales guardadas, navegar a la página principal (HomePage)
+        //            }
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            // Manejar cualquier excepción que pueda ocurrir al recuperar del almacenamiento seguro
+        //            Console.WriteLine($"Error al recuperar del almacenamiento seguro: {ex.Message}. App.xaml.cs\n");
+        //        }
+        //    }
+        //}
+
         protected override async void OnStart()
         {
-            // Verificar la conectividad de red
-            var current = Connectivity.NetworkAccess;
-            if (current != NetworkAccess.Internet)
+            try
             {
-                // No hay conexión a Internet, mostrar mensaje de advertencia
-                Console.WriteLine("Necesitas estar conectado a Internet para usar la aplicación correctamente.");
+                var current = Connectivity.NetworkAccess; // Verificar la conectividad de red
+                if (current != NetworkAccess.Internet)
+                {
+                    Console.WriteLine("Necesitas estar conectado a Internet para usar la aplicación correctamente."); // No hay conexión a Internet, mostrar mensaje de advertencia
+                }
+                // Recuperar las credenciales del almacenamiento seguro
+                string usuarioID = await SecureStorage.GetAsync("UsuarioID");
+                string password = await SecureStorage.GetAsync("Password");
+                if (!string.IsNullOrEmpty(usuarioID) && !string.IsNullOrEmpty(password))
+                {
+                    await AutenticarUsuario(usuarioID, password); // Autenticar automáticamente con las credenciales guardadas
+                }
+                else
+                {
+                    MainPage = new NavigationPage(new HomePage()); // No hay credenciales guardadas, navegar a la página principal (HomePage)
+                }
             }
-            else
+            catch (Exception ex)
             {
-                try
-                {
-                    // Recuperar las credenciales del almacenamiento seguro
-                    string usuarioID = await SecureStorage.GetAsync("UsuarioID");
-                    string password = await SecureStorage.GetAsync("Password");
-
-                    if (!string.IsNullOrEmpty(usuarioID) && !string.IsNullOrEmpty(password))
-                    {
-                        // Autenticar automáticamente con las credenciales guardadas
-                        await AutenticarUsuario(usuarioID, password);
-                    }
-                    else
-                    {
-                        // No hay credenciales guardadas, navegar a la página principal (HomePage)
-                        MainPage = new NavigationPage(new HomePage());
-                        // MainPage = new NavigationPage(new TrackTimePage());
-                    }
-                }
-                catch (Exception ex)
-                {
-                    // Manejar cualquier excepción que pueda ocurrir al recuperar del almacenamiento seguro
-                    Console.WriteLine($"Error al recuperar del almacenamiento seguro: {ex.Message}");
-                }
+                // Manejar cualquier excepción que pueda ocurrir al recuperar del almacenamiento seguro
+                Console.WriteLine($"Error al recuperar del almacenamiento seguro: {ex.Message}. App.xaml.cs\n");
             }
         }
 
-        private async Task AutenticarUsuario(string userId, string password)
+        public async Task AutenticarUsuario(string userId, string password)
         {
             try
             {
@@ -78,13 +100,12 @@ namespace GeoTimeTrack
                     {
                         if (reader.Read())
                         {
-                            // Autenticación exitosa, navegar a la página principal
-                            await MainPage.Navigation.PushModalAsync(new DeploymentPage());
+                            await MainPage.Navigation.PushModalAsync(new DeploymentPage()); // Autenticación exitosa, navegar a la página principal
                         }
                         else
                         {
                             // Autenticación fallida, mostrar mensaje de error o navegar a la página de inicio de sesión
-                            Console.WriteLine("No se pudieron recuperar las credenciales almacenadas.");
+                            Console.WriteLine("No se pudieron recuperar las credenciales almacenadas. App.xaml.cs\n");
                         }
                     }
                 }
@@ -92,7 +113,7 @@ namespace GeoTimeTrack
             catch (Exception ex)
             {
                 // Manejar cualquier excepción que pueda ocurrir durante la autenticación
-                Console.WriteLine($"Ocurrió un error al autenticar al usuario: {ex.Message}");
+                Console.WriteLine($"Ocurrió un error al autenticar al usuario: {ex.Message}. App.xaml.cs\n");
             }
             finally
             {

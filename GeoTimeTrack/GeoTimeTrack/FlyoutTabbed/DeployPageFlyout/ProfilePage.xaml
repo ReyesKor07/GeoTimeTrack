@@ -54,7 +54,7 @@
             <!-- Contraseña del usuario -->
             <Label Text="Contraseña" TextColor="#044368" FontSize="18" FontAttributes="Bold" />
             <Frame CornerRadius="10" BorderColor="#F4F4F4" Padding="0" HasShadow="True">
-                <Entry x:Name="passwordEntry" PlaceholderColor="#BB6228" TextColor="Black" FontSize="18" BackgroundColor="#F4F4F4" IsPassword="True" IsEnabled="True" />
+                <Entry x:Name="PasswordEntry" PlaceholderColor="#BB6228" TextColor="Black" FontSize="18" BackgroundColor="#F4F4F4" IsPassword="True" IsEnabled="True" />
             </Frame>
 
             <!-- Mostrar contraseña -->

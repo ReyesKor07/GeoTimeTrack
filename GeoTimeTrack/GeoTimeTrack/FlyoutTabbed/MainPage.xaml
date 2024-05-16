@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
              x:Class="GeoTimeTrack.MainPage"
              BackgroundColor="White"
              Title="Inicio"
-             IconImageSource="MainPage_icon.png">
+             >
 
     <ScrollView>
         <StackLayout Margin="20" Spacing="20" VerticalOptions="CenterAndExpand">
@@ -14,7 +14,10 @@
                 <Label x:Name="HolaLabel" Text="" TextColor="#044368" FontSize="Medium" FontAttributes="Bold" BackgroundColor="#F4F4F4" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HeightRequest="60" />
             </Frame>
 
-            <!-- Separador visual  -->
+            <!-- Separador visual
+            xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
+            xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+            IconImageSource="MainPage_icon.png"-->
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />

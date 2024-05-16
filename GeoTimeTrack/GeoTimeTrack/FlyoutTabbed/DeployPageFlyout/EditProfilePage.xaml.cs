@@ -15,10 +15,7 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class EditProfilePage : ContentPage
 	{
-
         private Usuario SelectedUser;
-        //int UserId;
-        //string Nombre, ApellidoP, ApellidoM, Email, Password, Rol;
 
         public EditProfilePage(Usuario user)
         {
@@ -32,7 +29,6 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
             EmailEntry.Text = user.Email;
             RolPicker.SelectedItem = user.Rol; // Establece el valor seleccionado en el Picker
             // PasswordEntry.Text = user.Password;
-            // RolEntry.Text = user.Rol; // Eliminar esta línea
         }
 
         private void OnShowPasswordSwitchToggled(object sender, ToggledEventArgs e)

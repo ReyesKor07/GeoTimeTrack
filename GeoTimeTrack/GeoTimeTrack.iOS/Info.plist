@@ -23,9 +23,9 @@
 	<key>MinimumOSVersion</key>
 	<string>8.0</string>
 	<key>CFBundleDisplayName</key>
-	<string>GeoTime</string>
+	<string>GeoTimeTrack</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.nateriver.GeoTime</string>
+	<string>com.nateriver.GeoTimeTrack</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>UILaunchStoryboardName</key>
@@ -36,11 +36,11 @@
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Nos gustaría mostrarle un mapa.</string>
-	<key>LocationAlwaysandWhenInUseUsageDescription</key>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Nos gustaría mostrarle un mapa.</string>
-	<key>LocationUsageDescription</key>
+	<key>NSLocationUsageDescription</key>
 	<string>Nos gustaría mostrarle un mapa.</string>
-	<key>LocationAlwaysUsageDescription</key>
+	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Nos gustaría mostrarle un mapa.</string>
 </dict>
 </plist>

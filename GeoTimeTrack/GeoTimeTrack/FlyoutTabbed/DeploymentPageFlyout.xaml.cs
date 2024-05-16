@@ -16,35 +16,40 @@ namespace GeoTimeTrack.FlyoutTabbed
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DeploymentPageFlyout : ContentPage
     {
-        public string Usuario { get; set; }
-        int UserId;
-        string Nombre, ApellidoP, Email, Rol;
+        public int UserID { get; private set; }
+        public string Name { get; private set; }
+        public string LastName { get; private set; }
+        public string Email { get; private set; }
+        public string Rol { get; private set; }
 
         public ListView ListView;
 
         public DeploymentPageFlyout()
         {
             InitializeComponent();
-
+            InitializeUserData();
             BindingContext = new DeploymentPageFlyoutViewModel();
             ListView = MenuItemsListView;
-            InitializeUserData();
-            NombreLabel.Text = $"ID: {UserId} \n{Nombre} {ApellidoP}";
-            EmailLabel.Text = $"Email: \n{Email}";
+        }
 
+        private void InitializeUserData()
+        {
+            //UserID = Convert.ToInt32(await SecureStorage.GetAsync("IdUsuario"));
+            //Name = await SecureStorage.GetAsync("Nombre");
+            //LastName = await SecureStorage.GetAsync("ApellidoP");
+            //Email = await SecureStorage.GetAsync("Email");
+            //Rol = await SecureStorage.GetAsync("Rol");
+            UserID = LoginPage.UserID;
+            Name = LoginPage.Rol;
+            LastName = LoginPage.LastName;
+            Email = LoginPage.Email;
+            Rol = LoginPage.Rol;
+            NombreLabel.Text = $"ID: {UserID} \n{Name} {LastName}";
+            EmailLabel.Text = $"Email: \n{Email}";
             if (Rol == "Administrador")
             { AdminButton.IsVisible = true; RolLabel.IsVisible = true; RolLabel.Text = $"{Rol}"; }
             else
             { AdminButton.IsVisible = false; RolLabel.IsVisible = false; }
-        }
-
-        private async void InitializeUserData()
-        {
-            UserId = Convert.ToInt32(await SecureStorage.GetAsync("UsuarioID"));
-            Nombre = await SecureStorage.GetAsync("Nombre");
-            ApellidoP = await SecureStorage.GetAsync("ApellidoP");
-            Email = await SecureStorage.GetAsync("Email");
-            Rol = await SecureStorage.GetAsync("Rol");
         }
 
         public async void NavigationProfilePage()
@@ -95,13 +100,13 @@ namespace GeoTimeTrack.FlyoutTabbed
                     App.Current.MainPage = new NavigationPage(new LoginPage());
 
                     // Borrar las credenciales del usuario del almacenamiento seguro
-                    await SecureStorage.SetAsync("UsuarioID", string.Empty);
-                    await SecureStorage.SetAsync("Nombre", string.Empty);
-                    await SecureStorage.SetAsync("ApellidoP", string.Empty);
-                    await SecureStorage.SetAsync("ApellidoM", string.Empty);
-                    await SecureStorage.SetAsync("Email", string.Empty);
-                    await SecureStorage.SetAsync("Password", string.Empty);
-                    await SecureStorage.SetAsync("Rol", string.Empty);
+                    //await SecureStorage.SetAsync("IdUsuario", string.Empty);
+                    //await SecureStorage.SetAsync("Nombre", string.Empty);
+                    //await SecureStorage.SetAsync("ApellidoP", string.Empty);
+                    //await SecureStorage.SetAsync("ApellidoM", string.Empty);
+                    //await SecureStorage.SetAsync("Email", string.Empty);
+                    //await SecureStorage.SetAsync("Password", string.Empty);
+                    //await SecureStorage.SetAsync("Rol", string.Empty);
                 }
             }
             catch (Exception ex)

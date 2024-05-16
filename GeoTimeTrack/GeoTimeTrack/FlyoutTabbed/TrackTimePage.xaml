@@ -5,7 +5,7 @@
              x:Name="trackTimePage"
              BackgroundColor="White"
              Title="TrackTime" 
-             IconImageSource="TrackTime.png">
+             >
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Refresh" Clicked="RefreshButtonClicked"/>
@@ -17,7 +17,7 @@
                 <Grid BackgroundColor="#044368">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="0.5*" />
-                        <!-- Columna para Contador -->
+                        <!-- Columna para Contador IconImageSource="TrackTime.png"-->
                         <ColumnDefinition Width="2*" />
                         <!-- Columna para Fecha -->
                         <ColumnDefinition Width="2*" />

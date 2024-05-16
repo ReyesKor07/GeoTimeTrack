@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using Xamarin.Essentials;
 
 namespace GeoTimeTrack.iOS
 {
@@ -25,8 +26,54 @@ namespace GeoTimeTrack.iOS
             global::Xamarin.Forms.Forms.Init();
             Xamarin.FormsMaps.Init();
             LoadApplication(new App());
+            RetrieveUserCredentials();
 
             return base.FinishedLaunching(app, options);
         }
+
+        private async void RetrieveUserCredentials()
+        {
+            try
+            {
+                // Recuperar las credenciales del almacenamiento seguro
+                string usuarioID = await SecureStorage.GetAsync("UsuarioID");
+                string nombre = await SecureStorage.GetAsync("Nombre");
+                string apellidoP = await SecureStorage.GetAsync("ApellidoP");
+                string apellidoM = await SecureStorage.GetAsync("ApellidoM");
+                string email = await SecureStorage.GetAsync("Email");
+                string password = await SecureStorage.GetAsync("Password");
+                string rol = await SecureStorage.GetAsync("Rol");
+                // Convertir las cadenas recuperadas según sea necesario
+                int userID = Convert.ToInt32(usuarioID);
+            }
+            catch (Exception ex)
+            {
+                // Manejar cualquier excepción que pueda ocurrir al recuperar del almacenamiento seguro
+                Console.WriteLine($"Error al recuperar del almacenamiento seguro: {ex.Message}. AppDelegate.cs\n");
+            }
+        }
+
+        //private async void RetrieveUserCredentials()
+        //{
+        //    try
+        //    {
+        //        // Recuperar las credenciales del almacenamiento seguro
+        //        string userId = await SecureStorage.GetAsync("UserId");
+        //        string password = await SecureStorage.GetAsync("Password");
+
+        //        if (!string.IsNullOrEmpty(userId) && !string.IsNullOrEmpty(password))
+        //        {
+        //            // Autenticar automáticamente al usuario utilizando las credenciales recuperadas
+        //            // Esto debería ser similar a la lógica en la página de inicio de sesión (LoginPage.cs)
+        //            var app = Xamarin.Forms.Application.Current as App;
+        //            await app.AutenticarUsuario(userId, password);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // Manejar cualquier excepción que pueda ocurrir al recuperar las credenciales
+        //        System.Console.WriteLine($"Error al recuperar del almacenamiento seguro: {ex.Message}");
+        //    }
+        //}
     }
 } 

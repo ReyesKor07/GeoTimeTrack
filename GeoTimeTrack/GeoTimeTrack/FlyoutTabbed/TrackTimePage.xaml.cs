@@ -32,19 +32,20 @@ namespace GeoTimeTrack.FlyoutTabbed
 
     public partial class TrackTimePage : ContentPage
     {
-        int UserId;
+        public static int UserID { get; private set; }
 
         public TrackTimePage()
         {
             InitializeComponent();
             InitializeUserData();
-            List<Registro> userRecords = ObtenerRegistrosDeUsuario(UserId);
+            List<Registro> userRecords = ObtenerRegistrosDeUsuario(UserID);
             Registro.ItemsSource = userRecords;
         }
 
-        private async void InitializeUserData()
+        private void InitializeUserData()
         {
-            UserId = Convert.ToInt32(await SecureStorage.GetAsync("UsuarioID"));
+            // UserId = Convert.ToInt32(await SecureStorage.GetAsync("IdUsuario"));
+            UserID = LoginPage.UserID;
         }
 
         private void RefreshButtonClicked(object sender, EventArgs e)
@@ -53,16 +54,14 @@ namespace GeoTimeTrack.FlyoutTabbed
             if (current != NetworkAccess.Internet)
             {
                 // No hay conexión a Internet, mostrar mensaje de advertencia
-                DisplayAlert("Error", "Necesitas estar conectado a Internet para refrescar la página.", "OK");
+                DisplayAlert("Advertencia", "Necesitas estar conectado a Internet para refrescar la página.", "OK");
                 return;
             }
-            // Llama nuevamente al método para obtener registros actualizados
-            List<Registro> userRecords = ObtenerRegistrosDeUsuario(UserId);
-            // Actualiza la propiedad ItemsSource con la nueva lista de registros
-            Registro.ItemsSource = userRecords;
+            List<Registro> userRecords = ObtenerRegistrosDeUsuario(UserID); // Llama nuevamente al método para obtener registros actualizados
+            Registro.ItemsSource = userRecords; // Actualiza la propiedad ItemsSource con la nueva lista de registros
         }
 
-        private List<Registro> ObtenerRegistrosDeUsuario(int UserId)
+        private List<Registro> ObtenerRegistrosDeUsuario(int UserID)
         {
             List<Registro> registros = new List<Registro>();
             SqlConnection cn = new SqlConnection(@"Server= P3NWPLSK12SQL-v08.shr.prod.phx3.secureserver.net; DataBase=projecttes; User ID= prject; Password=proyec2023_;TrustServerCertificate=True;");
@@ -73,7 +72,7 @@ namespace GeoTimeTrack.FlyoutTabbed
                     string query = "SELECT FechaEntrada, HoraEntrada, HoraSalida, DistanciaEntrada, DistanciaSalida, TiempoTotal FROM Registro_B WHERE IdUsuario = @userId";
                     using (SqlCommand cmd = new SqlCommand(query, cn))
                     {
-                        cmd.Parameters.AddWithValue("@userId", UserId);
+                        cmd.Parameters.AddWithValue("@userId", UserID);
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             int contador = 1; // Inicializa el contador en 1

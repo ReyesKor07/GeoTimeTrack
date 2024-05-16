@@ -13,6 +13,7 @@ using Xamarin.Forms.Xaml;
 namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
+
     public class Usuario
     {
         public int IdUsuario { get; set; }
@@ -26,21 +27,14 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
 
     public partial class AdminPage : ContentPage
     {
-        int UserId;
-        string Nombre, ApellidoP, ApellidoM, Email, Password, Rol;
         ObservableCollection<Usuario> allUsuarios;
 
         public AdminPage()
         {
             InitializeComponent();
-            //UserId = LoginPage.UserID;
-            //Nombre = LoginPage.Name; ApellidoP = LoginPage.LastName; ApellidoM = LoginPage.MiddleName;
-            //Email = LoginPage.Email; Password = LoginPage.Password;
-            //Rol = LoginPage.Rol;
             List<Usuario> usuarios = ObtenerUsuarios();
             Usuarios.ItemsSource = usuarios;
-            // Obtener la lista completa de usuarios
-            allUsuarios = new ObservableCollection<Usuario>(ObtenerUsuarios());
+            allUsuarios = new ObservableCollection<Usuario>(ObtenerUsuarios()); // Obtener la lista completa de usuarios
             Usuarios.ItemsSource = allUsuarios;
         }
 

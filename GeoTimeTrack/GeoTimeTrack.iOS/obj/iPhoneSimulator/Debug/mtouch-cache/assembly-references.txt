@@ -29,4 +29,3 @@
 /Library/Frameworks/Xamarin.iOS.framework/Versions/16.4.0.23/lib/mono/Xamarin.iOS/Facades/System.Data.SqlClient.dll
 /Users/user/.nuget/packages/xamarin.essentials/1.8.1/lib/xamarinios10/Xamarin.Essentials.dll
 /Library/Frameworks/Xamarin.iOS.framework/Versions/16.4.0.23/lib/mono/Xamarin.iOS/OpenTK-1.0.dll
-/Users/user/.nuget/packages/xamarin.forms.googlemaps/5.0.0/lib/Xamarin.iOS10/Xamarin.Forms.GoogleMaps.dll

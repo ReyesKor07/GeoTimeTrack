@@ -10,6 +10,7 @@ public class MainActivity
 	public static final String __md_methods;
 	static {
 		__md_methods = 
+			"n_onStart:()V:GetOnStartHandler\n" +
 			"n_onCreate:(Landroid/os/Bundle;)V:GetOnCreate_Landroid_os_Bundle_Handler\n" +
 			"n_onRequestPermissionsResult:(I[Ljava/lang/String;[I)V:GetOnRequestPermissionsResult_IarrayLjava_lang_String_arrayIHandler\n" +
 			"";
@@ -33,6 +34,14 @@ public class MainActivity
 			mono.android.TypeManager.Activate ("GeoTimeTrack.Droid.MainActivity, GeoTimeTrack.Android", "System.Int32, mscorlib", this, new java.lang.Object[] { p0 });
 		}
 	}
+
+
+	public void onStart ()
+	{
+		n_onStart ();
+	}
+
+	private native void n_onStart ();
 
 
 	public void onCreate (android.os.Bundle p0)

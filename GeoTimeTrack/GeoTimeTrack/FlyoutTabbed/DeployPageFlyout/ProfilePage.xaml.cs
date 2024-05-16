@@ -15,28 +15,36 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ProfilePage : ContentPage
 	{
-        int UserId;
-        string Nombre, ApellidoP, ApellidoM, Email, Password, Rol;
+        public static int UserID { get; private set; }
+        public static string Name { get; private set; }
+        public static string LastName { get; private set; }
+        public static string MiddleName { get; private set; }
+        public static string Email { get; private set; }
+        public static string Password { get; private set; }
+        public static string Rol { get; private set; }
 
         public ProfilePage ()
 		{
 			InitializeComponent ();
             InitializeUserData();
-            IdUsuarioEntry.Text = UserId.ToString();
-            NombreEntry.Text = Nombre; ApellidoPEntry.Text = ApellidoP; ApellidoMEntry.Text = ApellidoM;
-            EmailEntry.Text = Email; passwordEntry.Text = Password; RolEntry.Text = Rol;
-            IdUsuarioEntry.IsVisible = true; RolEntry.IsVisible = true;
         }
 
-        private async void InitializeUserData()
+        private void InitializeUserData()
         {
-            UserId = Convert.ToInt32(await SecureStorage.GetAsync("UsuarioID"));
-            Nombre = await SecureStorage.GetAsync("Nombre");
-            ApellidoP = await SecureStorage.GetAsync("ApellidoP");
-            ApellidoM = await SecureStorage.GetAsync("ApellidoM");
-            Email = await SecureStorage.GetAsync("Email");
-            Password = await SecureStorage.GetAsync("Password");
-            Rol = await SecureStorage.GetAsync("Rol");
+            //UserId = Convert.ToInt32(await SecureStorage.GetAsync("UsuarioID"));
+            //Nombre = await SecureStorage.GetAsync("Nombre");
+            //ApellidoP = await SecureStorage.GetAsync("ApellidoP");
+            //ApellidoM = await SecureStorage.GetAsync("ApellidoM");
+            //Email = await SecureStorage.GetAsync("Email");
+            //Password = await SecureStorage.GetAsync("Password");
+            //Rol = await SecureStorage.GetAsync("Rol");
+            UserID = LoginPage.UserID;
+            Name = LoginPage.Rol; LastName = LoginPage.LastName; MiddleName = LoginPage.MiddleName;
+            Email = LoginPage.Email; Password = LoginPage.Password; Rol = LoginPage.Rol;
+            IdUsuarioEntry.Text = UserID.ToString();
+            NombreEntry.Text = Name; ApellidoPEntry.Text = LastName; ApellidoMEntry.Text = MiddleName;
+            EmailEntry.Text = Email; PasswordEntry.Text = Password; RolEntry.Text = Rol;
+            IdUsuarioEntry.IsVisible = true; RolEntry.IsVisible = true;
         }
 
         private void GuardarCambios_Clicked(object sender, EventArgs e)
@@ -51,7 +59,7 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
             try
             {
                 // Verificar campos obligatorios
-                if (string.IsNullOrWhiteSpace(NombreEntry.Text) || string.IsNullOrWhiteSpace(ApellidoPEntry.Text) || string.IsNullOrWhiteSpace(ApellidoMEntry.Text) || string.IsNullOrWhiteSpace(EmailEntry.Text) || string.IsNullOrWhiteSpace(passwordEntry.Text))
+                if (string.IsNullOrWhiteSpace(NombreEntry.Text) || string.IsNullOrWhiteSpace(ApellidoPEntry.Text) || string.IsNullOrWhiteSpace(ApellidoMEntry.Text) || string.IsNullOrWhiteSpace(EmailEntry.Text) || string.IsNullOrWhiteSpace(PasswordEntry.Text))
                 {
                     DisplayAlert("Advertencia", "Todos los campos obligatorios son requeridos y no pueden estar vacíos.", "Aceptar");
                     return;
@@ -78,12 +86,13 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
                 string updateQuery = "UPDATE Usuario_B SET Nombre = @Nombre, ApellidoP = @ApellidoP, ApellidoM = @ApellidoM, Password = @Password, Email = @newEmail WHERE IdUsuario = @IdUsuario";
                 using (SqlCommand cmd = new SqlCommand(updateQuery, ConexionSQLServer.cn))
                 {
+                    cmd.Parameters.AddWithValue("@IdUsuario", UserID);
                     cmd.Parameters.AddWithValue("@Nombre", NombreEntry.Text);
                     cmd.Parameters.AddWithValue("@ApellidoP", ApellidoPEntry.Text);
                     cmd.Parameters.AddWithValue("@ApellidoM", ApellidoMEntry.Text);
-                    cmd.Parameters.AddWithValue("@Password", passwordEntry.Text);
                     cmd.Parameters.AddWithValue("@newEmail", newEmail);
-                    cmd.Parameters.AddWithValue("@IdUsuario", UserId);
+                    cmd.Parameters.AddWithValue("@Password", PasswordEntry.Text);
+
                     int rowsAffected = cmd.ExecuteNonQuery();
                     if (rowsAffected > 0)
                     {
@@ -108,9 +117,9 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
         private void OnShowPasswordSwitchToggled(object sender, ToggledEventArgs e)
         {
             if (e.Value)
-            { passwordEntry.IsPassword = false; }
+            { PasswordEntry.IsPassword = false; }
             else
-            { passwordEntry.IsPassword = true; }
+            { PasswordEntry.IsPassword = true; }
         }
     }
 }

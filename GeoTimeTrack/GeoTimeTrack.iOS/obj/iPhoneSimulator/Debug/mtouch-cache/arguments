@@ -12,7 +12,7 @@
 	--sim=/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.iOS/bin/iPhoneSimulator/Debug/GeoTimeTrack.iOS.app \
 	--executable=GeoTimeTrack.iOS \
 	--nolink \
-	--sdk=17.4 \
+	--sdk=17.5 \
 	--aot-options=-O=-float32 \
 	--abi=x86_64 \
 	--symbollist=/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.iOS/obj/iPhoneSimulator/Debug/mtouch-symbols.list \

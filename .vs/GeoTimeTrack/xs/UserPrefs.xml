@@ -1,35 +1,31 @@
-﻿<Properties StartupConfiguration="{5CEEAF38-CA8E-454C-8532-E5D229E5F24A}|Default">
+﻿<Properties StartupConfiguration="{5AC008B0-75B9-4301-AFE7-F6E14AF1FDF9}|Default">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.GeoTimeTrack.Android PreferredExecutionTarget="Android.pixel_2_-_api_30" AndroidDesignerPreferredTheme="MainTheme" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GeoTimeTrack/GeoTimeTrack.Android/Properties/AndroidManifest.xml">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="GeoTimeTrack/GeoTimeTrack.iOS/AppDelegate.cs">
     <Files>
-      <File FileName="GeoTimeTrack/GeoTimeTrack/FlyoutTabbed/MainPage.xaml" />
-      <File FileName="GeoTimeTrack/GeoTimeTrack/FlyoutTabbed/MainPage.xaml.cs" Line="57" Column="82" />
-      <File FileName="GeoTimeTrack/GeoTimeTrack/App.xaml.cs" />
-      <File FileName="GeoTimeTrack/GeoTimeTrack.Android/MainActivity.cs" />
-      <File FileName="GeoTimeTrack/GeoTimeTrack.iOS/AppDelegate.cs" />
-      <File FileName="GeoTimeTrack/GeoTimeTrack.iOS/Info.plist" />
-      <File FileName="GeoTimeTrack/GeoTimeTrack.Android/Properties/AndroidManifest.xml" Line="15" Column="12" />
+      <File FileName="GeoTimeTrack/GeoTimeTrack/FlyoutTabbed/MainPage.xaml" Line="8" Column="14" />
+      <File FileName="GeoTimeTrack/GeoTimeTrack/FlyoutTabbed/MainPage.xaml.cs" Line="56" Column="85" />
+      <File FileName="GeoTimeTrack/GeoTimeTrack/Inicio/LoginPage.xaml.cs" Line="92" Column="30" />
+      <File FileName="GeoTimeTrack/GeoTimeTrack/App.xaml.cs" Line="66" Column="76" />
+      <File FileName="GeoTimeTrack/GeoTimeTrack.Android/MainActivity.cs" Line="1" Column="1" />
+      <File FileName="GeoTimeTrack/GeoTimeTrack.iOS/AppDelegate.cs" Line="46" Column="72" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GeoTimeTrack" expanded="True">
-            <Node name="GeoTimeTrack" expanded="True">
+            <Node name="GeoTimeTrack">
               <Node name="FlyoutTabbed" expanded="True">
-                <Node name="MainPage.xaml" expanded="True" />
+                <Node name="TrackTimePage.xaml" expanded="True" />
               </Node>
             </Node>
-            <Node name="GeoTimeTrack.Android" expanded="True">
-              <Node name="Properties" expanded="True">
-                <Node name="AndroidManifest.xml" selected="True" />
-              </Node>
-            </Node>
-            <Node name="GeoTimeTrack.iOS" expanded="True" />
+            <Node name="GeoTimeTrack.Android" expanded="True" />
+            <Node name="GeoTimeTrack.iOS" selected="True" />
           </Node>
         </State>
       </Pad>
@@ -37,6 +33,5 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.MonoDroid LastDeploySdkVersion="13.2.2.0" />
   <Xamarin.Addins.Core.Project ActiveDebugTarget="Android.pixel_2_-_api_30" />
-  <MonoDevelop.Ide.ItemProperties.GeoTimeTrack.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.FB65BA2C-A08D-457E-8055-C959D1C563C2" />
-  <MonoDevelop.Ide.ItemProperties.GeoTimeTrack.Android PreferredExecutionTarget="Android.pixel_2_-_api_30" />
+  <MonoDevelop.Ide.ItemProperties.GeoTimeTrack.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.105AD357-50CA-4334-9C0F-6F0DBAD55DD6" />
 </Properties>
