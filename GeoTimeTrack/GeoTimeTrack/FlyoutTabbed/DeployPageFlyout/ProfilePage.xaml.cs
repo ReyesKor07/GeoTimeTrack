@@ -39,7 +39,7 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
             //Password = await SecureStorage.GetAsync("Password");
             //Rol = await SecureStorage.GetAsync("Rol");
             UserID = LoginPage.UserID;
-            Name = LoginPage.Rol; LastName = LoginPage.LastName; MiddleName = LoginPage.MiddleName;
+            Name = LoginPage.Name; LastName = LoginPage.LastName; MiddleName = LoginPage.MiddleName;
             Email = LoginPage.Email; Password = LoginPage.Password; Rol = LoginPage.Rol;
             IdUsuarioEntry.Text = UserID.ToString();
             NombreEntry.Text = Name; ApellidoPEntry.Text = LastName; ApellidoMEntry.Text = MiddleName;

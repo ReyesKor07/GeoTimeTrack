@@ -8,8 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
-
-//using Xamarin.Forms.GoogleMaps;
 using Xamarin.Forms.Maps;
 using GeoTimeTrack.FlyoutTabbed;
 using System.Data.SqlClient;
@@ -18,12 +16,9 @@ namespace GeoTimeTrack
 {
     public partial class MainPage : ContentPage
     {
-        // Coordenadas fijas para comparación UAT
+        // Coordenadas fijas UAT
         private readonly double targetLatitude = 26.028688727720997;
         private readonly double targetLongitude = -98.27560757446295;
-
-        private Color entryPinColor = Color.Blue; // Color del pin de entrada
-        private Color exitPinColor = Color.Red; // Color del pin de salida
 
         private Pin entryLocationPin; // Variable para el Pin de Entrada
         private Pin exitLocationPin;  // Variable para el Pin de Salida
@@ -50,23 +45,12 @@ namespace GeoTimeTrack
             map.MoveToRegion(MapSpan.FromCenterAndRadius(initialPosition, Distance.FromMeters(200)));
             map.MapType = MapType.Satellite; // Establecer el modo de mapa predeterminado como satélite
             mapTypeSwitch.Toggled += MapTypeSwitch_Toggled; // Agregar un controlador de eventos al Switch
-            entryButton.IsEnabled = true; // Habilitar el botón de entrada
-            exitButton.IsEnabled = false; // Deshabilitar el botón de salida
+            entryButton.IsEnabled = true;
+            exitButton.IsEnabled = false;
         }
-
-        //public MainPage(int userId, string nombre, string apellidoP)
-        //{
-        //    UserId = userId;
-        //    Nombre = nombre;
-        //    ApellidoP = apellidoP;
-        //}
 
         private void InitializeUserData()
         {
-            //int usuarioID = Convert.ToInt32(await SecureStorage.GetAsync("UsuarioID"));
-            //string Nombre = await SecureStorage.GetAsync("Nombre");
-            //string ApellidoP = await SecureStorage.GetAsync("ApellidoP");
-            //HolaLabel.Text = $"¡Hola! {Nombre} {ApellidoP} \nTu ID es: {UserId}";
             UserID = LoginPage.UserID;
             Name = LoginPage.Name;
             LastName = LoginPage.LastName;
@@ -89,43 +73,43 @@ namespace GeoTimeTrack
             }
             try
             {
-                Clear();
-                entryTime = DateTime.Now; // Registrar la hora de entrada
+                entryTime = DateTime.Now;
                 var location = await Geolocation.GetLocationAsync();
                 if (location != null)
                 {
-                    Location userLocation = new Location(location.Latitude, location.Longitude); // Crear Location para la ubicación actual del usuario
-                    Location fixedLocation = new Location(targetLatitude, targetLongitude); // Crear Location para las coordenadas fijas
-                    double distanceInMeters = Location.CalculateDistance(userLocation, fixedLocation, DistanceUnits.Kilometers) * 1000; // Calcular la distancia en metros entre las dos ubicaciones
-                    //if (distanceInMeters <= 200) // Verificar la distancia
-                    //{
-                        if (entryLocationPin != null) // Verificar si ya existe un pin de entrada anterior y eliminarlo
+                    if (IsInsideArea(location)) // Verificar si la ubicación está dentro del área permitida
+                    {
+                        // Eliminar los pines de entrada y salida existentes
+                        if (entryLocationPin != null && exitLocationPin != null)
                         {
                             map.Pins.Remove(entryLocationPin);
+                            map.Pins.Remove(exitLocationPin);
                         }
-                        entryLocationPin = new Pin // Crear un nuevo pin de entrada
+                        // La ubicación está dentro del área permitida, permitir al usuario marcar la entrada
+                        Location userLocation = new Location(location.Latitude, location.Longitude);
+                        entryLocationPin = new Pin
                         {
                             Type = PinType.Place,
                             Label = "Entrada",
                             Position = new Position(location.Latitude, location.Longitude),
-                            // Icon = BitmapDescriptorFactory.DefaultMarker(entryPinColor)
                         };
                         map.Pins.Add(entryLocationPin);
-                        entryTimeEntry.Text = entryTime.ToString("HH:mm:ss"); // Actualizar los campos de la interfaz con la hora y ubicación de entrada
+                        entryTimeEntry.Text = entryTime.ToString("HH:mm:ss");
                         entryDateEntry.Text = entryTime.ToString("dd-MMMM-yyyy");
-                        var newMapSpan = MapSpan.FromCenterAndRadius(entryLocationPin.Position, Distance.FromMeters(40)); // Centrar el mapa en la ubicación de entrada
+                        var newMapSpan = MapSpan.FromCenterAndRadius(entryLocationPin.Position, Distance.FromMeters(40));
                         map.MoveToRegion(newMapSpan);
                         entrylongitudeEntry = (decimal)location.Longitude;
                         entrylatitudeEntry = (decimal)location.Latitude;
-                        entryLongitudeEntry.Text = $"{entrylongitudeEntry:F6}"; // Mostrar longitud
-                        entryLatitudeEntry.Text = $"{entrylatitudeEntry:F6}"; // Mostrar latitud
-                        entryButton.IsEnabled = false; // Deshabilitar el botón de entrada y habilitar el de salida
+                        entryLongitudeEntry.Text = $"{entrylongitudeEntry:F6}";
+                        entryLatitudeEntry.Text = $"{entrylatitudeEntry:F6}";
+                        entryButton.IsEnabled = false;
                         exitButton.IsEnabled = true;
-                    //}
-                    //else
-                    //{
-                    //    await DisplayAlert("Advertencia", "Estás fuera del rango para marcar tu asistencia.", "OK");
-                    //}
+                    }
+                    else
+                    {
+                        // La ubicación está fuera del área permitida, mostrar un mensaje de advertencia
+                        await DisplayAlert("Advertencia", "Estás fuera del área permitida para marcar tu asistencia.", "OK");
+                    }
                 }
                 else
                 {
@@ -151,45 +135,49 @@ namespace GeoTimeTrack
                 if (entryTime != DateTime.MinValue)
                 {
                     IDuserEntry = UserID;
-                    exitTime = DateTime.Now; // Registrar la hora de salida
+                    exitTime = DateTime.Now;
                     var location = await Geolocation.GetLocationAsync();
                     if (location != null)
                     {
-                        Location userLocation = new Location(location.Latitude, location.Longitude); // Crear Location para la ubicación actual del usuario
-                        Location fixedLocation = new Location(targetLatitude, targetLongitude); // Crear Location para las coordenadas fijas
-                        double distanceInMeters = Location.CalculateDistance(userLocation, fixedLocation, DistanceUnits.Kilometers) * 1000; // Calcular la distancia en metros entre las dos ubicaciones
-                        //if (distanceInMeters <= 200) // Verificar la distancia
-                        //{
-                            if (exitLocationPin != null) // Verificar si ya existe un pin de salida anterior y eliminarlo
-                            {
-                                map.Pins.Remove(exitLocationPin);
-                            }
-                            exitLocationPin = new Pin // Crear un nuevo pin de salida
-                            {
-                                Type = PinType.Place,
-                                Label = "Salida",
-                                Position = new Position(location.Latitude, location.Longitude),
-                                // Icon = BitmapDescriptorFactory.DefaultMarker(exitPinColor)
-                            };
-                            map.Pins.Add(exitLocationPin);
-                            TimeSpan timeDifference = exitTime - entryTime; // Calcular la diferencia de tiempo entre entrada y salida
-                            exitTimeEntry.Text = exitTime.ToString("HH:mm:ss"); // Actualizar los campos de la interfaz con la hora y ubicación de salida
-                            exitDateEntry.Text = exitTime.ToString("dd-MMMM-yyyy");
-                            workTimeEntry.Text = timeDifference.ToString(@"hh\:mm\:ss");
-                            var newMapSpan = MapSpan.FromCenterAndRadius(exitLocationPin.Position, Distance.FromMeters(40)); // Centrar el mapa en la ubicación de salida
-                            map.MoveToRegion(newMapSpan);
-                            exitlongitudeEntry = (decimal)location.Longitude;
-                            exitlatitudeEntry = (decimal)location.Latitude;
-                            exitLongitudeEntry.Text = $"{exitlongitudeEntry:F6}"; // Mostrar longitud
-                            exitLatitudeEntry.Text = $"{exitlatitudeEntry:F6}"; // Mostrar latitud
-                            entryButton.IsEnabled = true; // Habilitar el botón de entrada y deshabilitar el de salida
-                            exitButton.IsEnabled = false;
-                            Conexion();
-                        //}
-                        //else
-                        //{
-                        //    await DisplayAlert("Advertencia", "Estás fuera del rango para marcar tu salida.", "OK");
-                        //}
+                        Location userLocation = new Location(location.Latitude, location.Longitude);
+                        if (exitLocationPin != null)
+                        {
+                            map.Pins.Remove(exitLocationPin);
+                        }
+                        exitLocationPin = new Pin
+                        {
+                            Type = PinType.Place,
+                            Label = "Salida",
+                            Position = new Position(location.Latitude, location.Longitude),
+                        };
+                        map.Pins.Add(exitLocationPin);
+                        TimeSpan timeDifference = exitTime - entryTime;
+                        exitTimeEntry.Text = exitTime.ToString("HH:mm:ss");
+                        exitDateEntry.Text = exitTime.ToString("dd-MMMM-yyyy");
+                        workTimeEntry.Text = timeDifference.ToString(@"hh\:mm\:ss");
+
+                        // Calcular el punto intermedio entre la entrada y la salida
+                        double midLatitude = (entryLocationPin.Position.Latitude + exitLocationPin.Position.Latitude) / 2;
+                        double midLongitude = (entryLocationPin.Position.Longitude + exitLocationPin.Position.Longitude) / 2;
+
+                        // Centrar el mapa en el punto intermedio con un zoom que permita ver ambos pines
+                        var newMapSpan = MapSpan.FromCenterAndRadius(new Position(midLatitude, midLongitude), Distance.FromKilometers(0.2)); // 200 metros de radio para ver ambos pines
+                        map.MoveToRegion(newMapSpan);
+
+                        // Mostrar la ubicación de salida en la interfaz
+                        exitlongitudeEntry = (decimal)location.Longitude;
+                        exitlatitudeEntry = (decimal)location.Latitude;
+                        exitLongitudeEntry.Text = $"{exitlongitudeEntry:F6}";
+                        exitLatitudeEntry.Text = $"{exitlatitudeEntry:F6}";
+                        entryButton.IsEnabled = true;
+                        exitButton.IsEnabled = false;
+                        Conexion();
+
+                        if (!IsInsideArea(location))
+                        {
+                            // Mostrar un mensaje de advertencia si la salida está registrada fuera del área permitida
+                            await DisplayAlert("Advertencia", "Tu salida ha sido registrada fuera del área permitida.", "OK");
+                        }
                     }
                     else
                     {
@@ -198,7 +186,7 @@ namespace GeoTimeTrack
                 }
                 else
                 {
-                    await DisplayAlert("Advertencia", "Antes de continuar, por favor registre tu entrada.", "OK");
+                    await DisplayAlert("Advertencia", "Antes de continuar, por favor registra tu entrada.", "OK");
                 }
             }
             catch (Exception ex)
@@ -206,6 +194,7 @@ namespace GeoTimeTrack
                 await DisplayAlert("Error", $"Error: {ex.Message}", "OK");
             }
         }
+
 
         public void Conexion()
         {
@@ -253,5 +242,33 @@ namespace GeoTimeTrack
             /*Tiempo Laboral*/
             workTimeEntry.Text = null;
         }
+
+        private bool IsInsideArea(Location location)
+        {
+            // Coordenadas de los puntos A, B, C, D, E y F
+            Location pointA = new Location(26.029963, -98.277397);
+            Location pointB = new Location(26.028999, -98.277300);
+            Location pointC = new Location(26.029037, -98.276693);
+            Location pointD = new Location(26.026312, -98.276426);
+            Location pointE = new Location(26.026433, -98.274688);
+            Location pointF = new Location(26.030060, -98.275011);
+
+            // Verificar si la ubicación está dentro del área permitida
+            return IsInsideTriangle(location, pointA, pointB, pointC) ||
+                   IsInsideTriangle(location, pointA, pointC, pointD) ||
+                   IsInsideTriangle(location, pointA, pointD, pointE) ||
+                   IsInsideTriangle(location, pointA, pointE, pointF);
+        }
+
+        // Método auxiliar para verificar si un punto está dentro de un triángulo
+        private bool IsInsideTriangle(Location location, Location point1, Location point2, Location point3)
+        {
+            double area = 0.5 * (-point2.Longitude * point3.Latitude + point1.Longitude * (-point2.Latitude + point3.Latitude) + point1.Latitude * (point2.Longitude - point3.Longitude) + point2.Latitude * point3.Longitude);
+            double s = 1 / (2 * area) * (point1.Longitude * point3.Latitude - point1.Latitude * point3.Longitude + (point3.Longitude - point1.Longitude) * location.Latitude + (point1.Latitude - point3.Latitude) * location.Longitude);
+            double t = 1 / (2 * area) * (point1.Latitude * point2.Longitude - point1.Longitude * point2.Latitude + (point1.Longitude - point2.Longitude) * location.Latitude + (point2.Latitude - point1.Latitude) * location.Longitude);
+
+            return s > 0 && t > 0 && 1 - s - t > 0;
+        }
+
     }
 }

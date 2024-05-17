@@ -14,10 +14,7 @@
                 <Label x:Name="HolaLabel" Text="" TextColor="#044368" FontSize="Medium" FontAttributes="Bold" BackgroundColor="#F4F4F4" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HeightRequest="60" />
             </Frame>
 
-            <!-- Separador visual
-            xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
-            xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
-            IconImageSource="MainPage_icon.png"-->
+            <!-- Separador visual - IconImageSource="MainPage_icon.png"-->
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
