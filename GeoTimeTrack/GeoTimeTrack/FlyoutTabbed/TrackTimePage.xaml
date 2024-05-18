@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GeoTimeTrack.FlyoutTabbed.TrackTimePage"
              x:Name="trackTimePage"
-             BackgroundColor="White"
+             BackgroundColor="#044368"
              Title="TrackTime" 
              >
 
@@ -11,44 +11,45 @@
         <ToolbarItem Text="Refresh" Clicked="RefreshButtonClicked"/>
     </ContentPage.ToolbarItems>
 
-    <ScrollView>
+    <StackLayout>
+        <!-- Encabezado fijo de la tabla -->
+        <Grid BackgroundColor="#044368">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*" />
+                <!-- Columna para Contador IconImageSource="TrackTime.png"-->
+                <ColumnDefinition Width="2.3*" />
+                <!-- Columna para Fecha -->
+                <ColumnDefinition Width="1.9*" />
+                <!-- Columna para Hora Entrada -->
+                <ColumnDefinition Width="1.9*" />
+                <!-- Columna para Hora Salida -->
+                <ColumnDefinition Width="1.9*" />
+                <!-- Columna para Tiempo Total -->
+            </Grid.ColumnDefinitions>
+            <Label Text="#" TextColor="White" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
+            <Label Text="Fecha" TextColor="White" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
+            <Label Text="Entrada" TextColor="White" Grid.Column="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
+            <Label Text="Salida" TextColor="White" Grid.Column="3" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
+            <Label Text="Estancia" TextColor="White" Grid.Column="4" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
+        </Grid>
+
+        <!-- ListView con los registros -->
         <ListView x:Name="Registro" SeparatorColor="#044368" HasUnevenRows="True">
-            <ListView.Header>
-                <Grid BackgroundColor="#044368">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="0.5*" />
-                        <!-- Columna para Contador IconImageSource="TrackTime.png"-->
-                        <ColumnDefinition Width="2*" />
-                        <!-- Columna para Fecha -->
-                        <ColumnDefinition Width="2*" />
-                        <!-- Columna para Hora Entrada -->
-                        <ColumnDefinition Width="2*" />
-                        <!-- Columna para Hora Salida -->
-                        <ColumnDefinition Width="2*" />
-                        <!-- Columna para Tiempo Total -->
-                    </Grid.ColumnDefinitions>
-                    <Label Text="#" TextColor="White" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
-                    <Label Text="Fecha" TextColor="White" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
-                    <Label Text="Entrada" TextColor="White" Grid.Column="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
-                    <Label Text="Salida" TextColor="White" Grid.Column="3" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
-                    <Label Text="Estancia" TextColor="White" Grid.Column="4" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
-                </Grid>
-            </ListView.Header>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <Grid BackgroundColor="#DEEFFF" Padding="5">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="0.5*" />
-                                <!-- Columna para Contador -->
-                                <ColumnDefinition Width="2*" />
+                                <!-- Columna para Contador IconImageSource="TrackTime.png"-->
+                                <ColumnDefinition Width="2.3*" />
                                 <!-- Columna para Fecha -->
-                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="1.9*" />
                                 <!-- Columna para Hora Entrada -->
-                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="1.9*" />
                                 <!-- Columna para Hora Salida -->
-                                <ColumnDefinition Width="2*" />
-                                <!-- Columna para Estancia Total -->
+                                <ColumnDefinition Width="1.9*" />
+                                <!-- Columna para Tiempo Total -->
                             </Grid.ColumnDefinitions>
                             <Label Text="{Binding Contador}" Grid.Column="0" TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                             <Label Text="{Binding Fecha}" Grid.Column="1" TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
@@ -60,6 +61,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-    </ScrollView>
+    </StackLayout>
 
 </ContentPage>

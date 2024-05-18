@@ -58,33 +58,33 @@ namespace GeoTimeTrack
         //    }
         //}
 
-        protected override async void OnStart()
-        {
-            //try
-            //{
-            //    var current = Connectivity.NetworkAccess; // Verificar la conectividad de red
-            //    if (current != NetworkAccess.Internet)
-            //    {
-            //        Console.WriteLine("Necesitas estar conectado a Internet para usar la aplicación correctamente."); // No hay conexión a Internet, mostrar mensaje de advertencia
-            //    }
-            //    // Recuperar las credenciales del almacenamiento seguro
-            //    string usuarioID = await SecureStorage.GetAsync("UsuarioID");
-            //    string password = await SecureStorage.GetAsync("Password");
-            //    if (!string.IsNullOrEmpty(usuarioID) && !string.IsNullOrEmpty(password))
-            //    {
-            //        await AutenticarUsuario(usuarioID, password); // Autenticar automáticamente con las credenciales guardadas
-            //    }
-            //    else
-            //    {
-            //        MainPage = new NavigationPage(new HomePage()); // No hay credenciales guardadas, navegar a la página principal (HomePage)
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    // Manejar cualquier excepción que pueda ocurrir al recuperar del almacenamiento seguro
-            //    Console.WriteLine($"Error al recuperar del almacenamiento seguro: {ex.Message}. App.xaml.cs\n");
-            //}
-        }
+        //protected override async void OnStart()
+        //{
+        //try
+        //{
+        //    var current = Connectivity.NetworkAccess; // Verificar la conectividad de red
+        //    if (current != NetworkAccess.Internet)
+        //    {
+        //        Console.WriteLine("Necesitas estar conectado a Internet para usar la aplicación correctamente."); // No hay conexión a Internet, mostrar mensaje de advertencia
+        //    }
+        //    // Recuperar las credenciales del almacenamiento seguro
+        //    string usuarioID = await SecureStorage.GetAsync("UsuarioID");
+        //    string password = await SecureStorage.GetAsync("Password");
+        //    if (!string.IsNullOrEmpty(usuarioID) && !string.IsNullOrEmpty(password))
+        //    {
+        //        await AutenticarUsuario(usuarioID, password); // Autenticar automáticamente con las credenciales guardadas
+        //    }
+        //    else
+        //    {
+        //        MainPage = new NavigationPage(new HomePage()); // No hay credenciales guardadas, navegar a la página principal (HomePage)
+        //    }
+        //}
+        //catch (Exception ex)
+        //{
+        //    // Manejar cualquier excepción que pueda ocurrir al recuperar del almacenamiento seguro
+        //    Console.WriteLine($"Error al recuperar del almacenamiento seguro: {ex.Message}. App.xaml.cs\n");
+        //}
+        //}
 
         //public async Task AutenticarUsuario(string userId, string password)
         //{
@@ -121,6 +121,11 @@ namespace GeoTimeTrack
         //        ConexionSQLServer.Cerrar();
         //    }
         //}
+
+        protected override void OnStart()
+        {
+
+        }
 
         protected override void OnSleep()
         {
