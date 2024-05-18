@@ -16,26 +16,21 @@ namespace GeoTimeTrack
 {
     public partial class MainPage : ContentPage
     {
-        // Coordenadas fijas UAT
-        private readonly double targetLatitude = 26.028688727720997;
-        private readonly double targetLongitude = -98.27560757446295;
-
-        private Pin entryLocationPin; // Variable para el Pin de Entrada
-        private Pin exitLocationPin;  // Variable para el Pin de Salida
-
-        private DateTime entryTime; // Almacena la hora de entrada
-        private DateTime exitTime;  // Almacena la hora de salida
+        public int UserID { get; private set; }
+        public string Name { get; private set; }
+        public string LastName { get; private set; }
+        private int IDuserEntry;
 
         private decimal entrylongitudeEntry;
         private decimal entrylatitudeEntry;
         private decimal exitlongitudeEntry;
         private decimal exitlatitudeEntry;
 
-        private int IDuserEntry;
+        private Pin entryLocationPin; // Variable para el Pin de Entrada
+        private Pin exitLocationPin;  // Variable para el Pin de Salida
 
-        public int UserID { get; private set; }
-        public string Name { get; private set; }
-        public string LastName { get; private set; }
+        private DateTime entryTime; // Almacena la hora de entrada
+        private DateTime exitTime;  // Almacena la hora de salida
 
         public MainPage()
         {
@@ -63,12 +58,36 @@ namespace GeoTimeTrack
             string mapTypeText = e.Value ? "Mapa" : "Satélite"; // Cambiar el texto del Label para reflejar el estado actual
         }
 
+        //public async void RegisterAttendance()
+        //{
+
+
+        //    // Si pasa todas las verificaciones, llamar al método existente
+        //    OnEntryButtonClicked(null, EventArgs.Empty);
+        //}
+
         private async void OnEntryButtonClicked(object sender, EventArgs e)
         {
+            // Verificar si esta conectado a Internet
             var current = Connectivity.NetworkAccess;
             if (current != NetworkAccess.Internet)
             {
                 await DisplayAlert("Error", "Necesitas estar conectado a Internet para marcar tu entrada.", "OK");
+                return;
+            }
+            // Verificar si es sábado o domingo
+            if (DateTime.Now.DayOfWeek == DayOfWeek.Saturday || DateTime.Now.DayOfWeek == DayOfWeek.Sunday)
+            {
+                await DisplayAlert("Advertencia", "No se pueden registrar asistencias los fines de semana.", "OK");
+                return;
+            }
+            // Verificar si es antes de las 6 am o después de las 10 pm
+            TimeSpan startTime = new TimeSpan(6, 0, 0); // 6 am
+            TimeSpan endTime = new TimeSpan(22, 0, 0);  // 10 pm
+            TimeSpan currentTime = DateTime.Now.TimeOfDay;
+            if (currentTime < startTime || currentTime > endTime)
+            {
+                await DisplayAlert("Advertencia", "Fuera del horario permitido para registrar asistencias.", "OK");
                 return;
             }
             try
@@ -90,8 +109,9 @@ namespace GeoTimeTrack
                         entryLocationPin = new Pin
                         {
                             Type = PinType.Place,
-                            Label = "Entrada",
+                            Label = $"Entrada: {Name} {LastName}",
                             Position = new Position(location.Latitude, location.Longitude),
+                            Address = $"Entrada registrada a las {entryTime.ToString("HH:mm:ss")}"
                         };
                         map.Pins.Add(entryLocationPin);
                         entryTimeEntry.Text = entryTime.ToString("HH:mm:ss");
@@ -147,8 +167,9 @@ namespace GeoTimeTrack
                         exitLocationPin = new Pin
                         {
                             Type = PinType.Place,
-                            Label = "Salida",
+                            Label = $"Salida: {Name} {LastName}",
                             Position = new Position(location.Latitude, location.Longitude),
+                            Address = $"Salida registrada a las {exitTime.ToString("HH:mm:ss")}"
                         };
                         map.Pins.Add(exitLocationPin);
                         TimeSpan timeDifference = exitTime - entryTime;
@@ -194,7 +215,6 @@ namespace GeoTimeTrack
                 await DisplayAlert("Error", $"Error: {ex.Message}", "OK");
             }
         }
-
 
         public void Conexion()
         {
@@ -269,6 +289,5 @@ namespace GeoTimeTrack
 
             return s > 0 && t > 0 && 1 - s - t > 0;
         }
-
     }
 }
