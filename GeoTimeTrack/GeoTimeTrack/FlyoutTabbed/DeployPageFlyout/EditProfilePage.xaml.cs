@@ -1,38 +1,32 @@
 ﻿using GeoTimeTrack.Data;
 using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
 using Xamarin.Essentials;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class EditProfilePage : ContentPage
 	{
-        private Usuario SelectedUser;
-
+        private Usuario SelectedUser; // Variable para almacenar el usuario seleccionado
         public EditProfilePage(Usuario user)
         {
             InitializeComponent();
-            SelectedUser = user;
+            SelectedUser = user; // Almacena el usuario seleccionado
+            // Llena los campos de entrada con la información del usuario seleccionado
             IdUsuarioEntry.Text = user.IdUsuario.ToString();
-            
             NombreEntry.Text = user.Nombre;
             ApellidoPEntry.Text = user.ApellidoP;
             ApellidoMEntry.Text = user.ApellidoM;
             EmailEntry.Text = user.Email;
-            RolPicker.SelectedItem = user.Rol; // Establece el valor seleccionado en el Picker
-            // PasswordEntry.Text = user.Password;
+            RolPicker.SelectedItem = user.Rol;
         }
 
         private void OnShowPasswordSwitchToggled(object sender, ToggledEventArgs e)
         {
+            // Muestra u oculta la contraseña según el estado del interruptor
             if (e.Value)
             { PasswordEntry.IsPassword = false; }
             else
@@ -41,7 +35,7 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
 
         private void RolPicker_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            // Evento para manejar el cambio en el selector de rol (si es necesario)
         }
 
         private void GuardarCambios_Clicked(object sender, EventArgs e)
@@ -49,14 +43,17 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
             var current = Connectivity.NetworkAccess;
             if (current != NetworkAccess.Internet)
             {
-                // No hay conexión a Internet, mostrar mensaje de advertencia
                 DisplayAlert("Error", "Necesitas estar conectado a Internet para refrescar la página.", "OK");
                 return;
             }
+
             try
             {
                 // Verifica campos obligatorios
-                if (string.IsNullOrWhiteSpace(NombreEntry.Text) || string.IsNullOrWhiteSpace(ApellidoPEntry.Text) || string.IsNullOrWhiteSpace(ApellidoMEntry.Text) || string.IsNullOrWhiteSpace(EmailEntry.Text))
+                if (string.IsNullOrWhiteSpace(NombreEntry.Text) ||
+                    string.IsNullOrWhiteSpace(ApellidoPEntry.Text) ||
+                    string.IsNullOrWhiteSpace(ApellidoMEntry.Text) ||
+                    string.IsNullOrWhiteSpace(EmailEntry.Text))
                 {
                     DisplayAlert("Advertencia", "Todos los campos obligatorios son requeridos y no pueden estar vacíos.", "Aceptar");
                     return;
@@ -66,6 +63,7 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
                 string newEmail = EmailEntry.Text;
                 if (newEmail != SelectedUser.Email)
                 {
+                    // Verifica si el nuevo correo ya existe en la base de datos
                     ConexionSQLServer.Abrir();
                     string emailCheckQuery = "SELECT COUNT(*) FROM Usuario_B WHERE Email = @newEmail";
                     using (SqlCommand emailCheckCmd = new SqlCommand(emailCheckQuery, ConexionSQLServer.cn))
@@ -81,6 +79,7 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
                     }
                 }
 
+                // Realiza la actualización de los datos del usuario en la base de datos
                 ConexionSQLServer.Abrir();
                 string updateQuery = "UPDATE Usuario_B SET Nombre = @Nombre, ApellidoP = @ApellidoP, ApellidoM = @ApellidoM, Email = @newEmail";
 
@@ -132,13 +131,13 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
             var current = Connectivity.NetworkAccess;
             if (current != NetworkAccess.Internet)
             {
-                // No hay conexión a Internet, mostrar mensaje de advertencia
                 await DisplayAlert("Error", "Necesitas estar conectado a Internet para refrescar la página.", "OK");
                 return;
             }
+
             try
             {
-                // Mostrar un mensaje de confirmación antes de eliminar el usuario
+                // Pregunta al usuario si está seguro de eliminar el usuario
                 bool answer = await DisplayAlert("Confirmación", "¿Estás seguro de que deseas eliminar este usuario?", "Sí", "No");
                 if (!answer)
                     return;
@@ -152,7 +151,7 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
                     cmdDeleteRegistros.ExecuteNonQuery();
                 }
 
-                // Eliminar el usuario
+                // Eliminar el usuario de la base de datos
                 string deleteUsuarioQuery = "DELETE FROM Usuario_B WHERE IdUsuario = @IdUsuario";
                 using (SqlCommand cmdDeleteUsuario = new SqlCommand(deleteUsuarioQuery, ConexionSQLServer.cn))
                 {
@@ -177,5 +176,6 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
                 ConexionSQLServer.Cerrar();
             }
         }
+
     }
 }

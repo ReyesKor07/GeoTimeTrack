@@ -6,9 +6,11 @@
             x:Class="GeoTimeTrack.FlyoutTabbed.DeploymentPageDetail"
             Title="GeoTimeTrack" BarBackgroundColor="#044368" BackgroundColor="#044368" UnselectedTabColor="#DEEFFF">
 
-    <!-- TabbedPage Principal -->
+    <!-- Página principal -->
     <Local:MainPage/>
+    <!-- Página para rastrear el tiempo -->
     <Local1:TrackTimePage/>
+    <!-- Página de información -->
     <Local1:AboutPage/>
 
 </TabbedPage>

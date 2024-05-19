@@ -1,16 +1,9 @@
 ﻿using GeoTimeTrack.FlyoutTabbed;
 using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using System.Data;
 using GeoTimeTrack.Data;
-using System.Security.Cryptography;
 using Xamarin.Essentials;
 
 namespace GeoTimeTrack
@@ -29,76 +22,7 @@ namespace GeoTimeTrack
         public LoginPage()
         {
             InitializeComponent();
-            // OnAppearing();
         }
-
-        //protected override void OnAppearing()
-        //{
-        //    base.OnAppearing();
-        //    CheckInternetConnection();
-        //}
-
-        //private async void CheckInternetConnection()
-        //{
-        //    // Por ejemplo, intentar autenticar al usuario automáticamente si hay credenciales guardadas
-        //    string usuarioID = await SecureStorage.GetAsync("UsuarioID");
-        //    string password = await SecureStorage.GetAsync("Password");
-
-        //    if (!string.IsNullOrEmpty(usuarioID) && !string.IsNullOrEmpty(password))
-        //    {
-        //        await AutenticarUsuario(usuarioID, password);
-        //    }
-
-        //    var current = Connectivity.NetworkAccess;
-        //    if (current != NetworkAccess.Internet)
-        //    {
-        //        // No hay conexión a Internet, mostrar mensaje de advertencia y deshabilitar el inicio de sesión
-        //        await DisplayAlert("Error", "Necesitas estar conectado a Internet para usar la aplicación correctamente. LoginPage", "OK");
-        //        loginButton.IsEnabled = false;
-        //    }
-        //    else
-        //    {
-        //        // Hay conexión a Internet, habilitar el inicio de sesión y continuar con la lógica de la aplicación
-        //        loginButton.IsEnabled = true;
-        //    }
-        //}
-
-        //private async Task AutenticarUsuario(string usuarioID, string password)
-        //{
-        //    try
-        //    {
-        //        // Realizar la autenticación utilizando las credenciales guardadas
-        //        ConexionSQLServer.Abrir();
-        //        string query = "SELECT * FROM Usuario_B WHERE IdUsuario = @UserId AND Password = @Password";
-        //        using (SqlCommand cmd = new SqlCommand(query, ConexionSQLServer.cn))
-        //        {
-        //            cmd.Parameters.AddWithValue("@UserId", usuarioID);
-        //            cmd.Parameters.AddWithValue("@Password", password);
-        //            using (SqlDataReader reader = cmd.ExecuteReader())
-        //            {
-        //                if (reader.Read())
-        //                {
-        //                    // Autenticación exitosa, navegar a la página principal
-        //                    await Navigation.PushModalAsync(new DeploymentPage());
-        //                }
-        //                else
-        //                {
-        //                    // Autenticación fallida, mostrar mensaje de error o navegar a la página de inicio de sesión
-        //                    await DisplayAlert("Error", "No se pudieron recuperar las credenciales almacenadas. LoginPage", "Aceptar");
-        //                }
-        //            }
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        // Manejar cualquier excepción que pueda ocurrir durante la autenticación
-        //        await DisplayAlert("Error", "Ocurrió un error al autenticar al usuario. LoginPage", "Aceptar");
-        //    }
-        //    finally
-        //    {
-        //        ConexionSQLServer.Cerrar();
-        //    }
-        //}
 
         public async void navigation()
         {
@@ -109,34 +33,36 @@ namespace GeoTimeTrack
         {
             try
             {
+                // Mostrar mensaje de error si los campos están vacíos
                 if (string.IsNullOrWhiteSpace(emailEntry.Text) || string.IsNullOrWhiteSpace(passwordEntry.Text))
                 {
-                    DisplayAlert("Error", "Por favor, complete todos los campos.", "OK"); return;
+                    DisplayAlert("Error", "Por favor, complete todos los campos.", "OK");
+                    return;
                 }
 
                 // Verificar la conectividad de red antes de intentar iniciar sesión
                 var current = Connectivity.NetworkAccess;
                 if (current != NetworkAccess.Internet)
                 {
-                    // No hay conexión a Internet, mostrar mensaje de advertencia
                     DisplayAlert("Error", "Necesitas estar conectado a Internet para iniciar sesión.", "OK");
                     return;
                 }
 
+                // Abrir conexión a la base de datos, verificar si el correo electrónico existe
                 ConexionSQLServer.Abrir();
                 string emailCheckQuery = "SELECT COUNT(*) FROM Usuario_B WHERE Email = @email";
                 using (SqlCommand emailCheckCmd = new SqlCommand(emailCheckQuery, ConexionSQLServer.cn))
                 {
                     emailCheckCmd.Parameters.AddWithValue("@email", emailEntry.Text);
                     int emailCount = (int)emailCheckCmd.ExecuteScalar();
-
-                    emailCheckCmd.Dispose(); // Cierra y libera recursos del DataReader
-
+                    emailCheckCmd.Dispose();
                     if (emailCount == 0)
                     {
-                        DisplayAlert("Error", "El correo proporcionado no existe.", "OK"); return;
+                        DisplayAlert("Error", "El correo proporcionado no existe.", "OK");
+                        return;
                     }
                 }
+
                 // Consulta SQL para obtener el usuario por correo y contraseña
                 string query = "SELECT IdUsuario, Nombre, ApellidoP, ApellidoM, Email, Password, Rol FROM Usuario_B WHERE Email = @email AND Password = @password";
                 using (SqlCommand cmd = new SqlCommand(query, ConexionSQLServer.cn))
@@ -147,6 +73,7 @@ namespace GeoTimeTrack
                     {
                         if (reader.Read())
                         {
+                            // Obtener la información del usuario de la base de datos
                             int userId = reader.GetInt32(reader.GetOrdinal("IdUsuario"));
                             string nombre = reader.GetString(reader.GetOrdinal("Nombre"));
                             string apellidoP = reader.GetString(reader.GetOrdinal("ApellidoP"));
@@ -154,20 +81,21 @@ namespace GeoTimeTrack
                             string email = reader.GetString(reader.GetOrdinal("Email"));
                             string password = reader.GetString(reader.GetOrdinal("Password"));
                             string rol = reader.GetString(reader.GetOrdinal("Rol"));
-                            UserID = userId; Name = nombre; LastName = apellidoP; MiddleName = apellidoM; Email = email; Password = password; Rol = rol;
-                            // En sistema android si funcionaba, en iOS se requiere de una licencia de costo, su razon de no usuarlo y comentarlo.
-                            //SecureStorage.SetAsync("IdUsuario", userId.ToString());
-                            //SecureStorage.SetAsync("Nombre", nombre);
-                            //SecureStorage.SetAsync("ApellidoP", apellidoP);
-                            //SecureStorage.SetAsync("ApellidoM", apellidoM);
-                            //SecureStorage.SetAsync("Email", email);
-                            //SecureStorage.SetAsync("Password", password);
-                            //SecureStorage.SetAsync("Rol", rol);
-                            Clear();
-                            navigation();
+
+                            // Asignar la información del usuario a las propiedades estáticas
+                            UserID = userId;
+                            Name = nombre;
+                            LastName = apellidoP;
+                            MiddleName = apellidoM;
+                            Email = email;
+                            Password = password;
+                            Rol = rol;
+                            Clear(); // Limpiar los campos de entrada
+                            navigation(); // Navegar a la página de despliegue
                         }
                         else
                         {
+                            // Mostrar mensaje de error si la contraseña es incorrecta
                             DisplayAlert("Error", "La contraseña es incorrecta.", "OK");
                         }
                     }
@@ -175,10 +103,12 @@ namespace GeoTimeTrack
             }
             catch (Exception ex)
             {
+                // Mostrar mensaje de error en caso de excepción
                 DisplayAlert("Error", ex.Message + " LoginPage1\n", "OK");
             }
             finally
             {
+                // Cerrar la conexión a la base de datos
                 ConexionSQLServer.Cerrar();
             }
         }
@@ -196,6 +126,7 @@ namespace GeoTimeTrack
 
         private void OnShowPasswordSwitchToggled(object sender, ToggledEventArgs e)
         {
+            // Cambiar la visibilidad del texto de contraseña basado en el estado del Switch
             passwordEntry.IsPassword = !e.Value;
         }
     }

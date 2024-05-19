@@ -4,17 +4,18 @@
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
              x:Class="GeoTimeTrack.MainPage"
              BackgroundColor="White"
-             Title="Inicio"
-             >
+             Title="Inicio">
+    <!--IconImageSource="MainPage_icon.png"-->
 
-    <ScrollView>
+<ScrollView>
         <StackLayout Margin="20" Spacing="20" VerticalOptions="CenterAndExpand">
 
+            <!-- Frame para mostrar un saludo -->
             <Frame BorderColor="#0C148E" CornerRadius="15" Padding="5" HasShadow="True" BackgroundColor="#F4F4F4" >
                 <Label x:Name="HolaLabel" Text="" TextColor="#044368" FontSize="Medium" FontAttributes="Bold" BackgroundColor="#F4F4F4" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HeightRequest="60" />
             </Frame>
 
-            <!-- Separador visual - IconImageSource="MainPage_icon.png"-->
+            <!-- Separador visual con un mapa y un interruptor para cambiar el tipo de mapa -->
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
@@ -35,6 +36,7 @@
                 </Frame>
             </Grid>
 
+            <!-- Botones de Entrada y Salida -->
             <Grid VerticalOptions="CenterAndExpand">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -44,15 +46,14 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <!-- Botón de Entrada -->
                 <Button x:Name="entryButton" Text="Entrada" Clicked="OnEntryButtonClicked" BackgroundColor="#044368" TextColor="White" FontSize="20" CornerRadius="20" HeightRequest="50" Padding="5" 
                 Grid.Row="0" Grid.Column="0" Margin="5"/>
 
-                <!-- Botón de Salida -->
                 <Button x:Name="exitButton" Text="Salida" Clicked="OnExitButtonClicked" BackgroundColor="#BB6228" TextColor="White" FontSize="20" CornerRadius="20" HeightRequest="50"
                 Grid.Row="0" Grid.Column="1" Margin="5"/>
             </Grid>
 
+            <!-- Información de Estancia, Entrada y Salida -->
             <Grid BackgroundColor="Transparent" VerticalOptions="CenterAndExpand">
                 <Grid.RowDefinitions> 
                     <RowDefinition Height="Auto" /> 
@@ -146,5 +147,6 @@
             </Grid>
         </StackLayout>
     </ScrollView>
+
 
 </ContentPage>

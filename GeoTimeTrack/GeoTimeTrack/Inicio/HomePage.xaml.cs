@@ -1,16 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Xamarin.Essentials;
-using System.Data;
-using GeoTimeTrack.Data;
-using GeoTimeTrack.FlyoutTabbed;
 
 namespace GeoTimeTrack
 {
@@ -25,12 +15,14 @@ namespace GeoTimeTrack
 
         private async void OnLoginButtonClicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new LoginPage()); // Navegar a la página principal
+            // Navega a la página de inicio de sesión
+            await Navigation.PushModalAsync(new LoginPage());
         }
 
         private async void OnRegisterButtonClicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new AccountCreationPage()); // Navegar a la página principal
+            // Navega a la página de creación de cuenta
+            await Navigation.PushModalAsync(new AccountCreationPage());
         }
     }
 }

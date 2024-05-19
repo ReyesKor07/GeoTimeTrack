@@ -4,19 +4,20 @@
              x:Class="GeoTimeTrack.FlyoutTabbed.TrackTimePage"
              x:Name="trackTimePage"
              BackgroundColor="#044368"
-             Title="TrackTime" 
-             >
+             Title="TrackTime">
+         <!--IconImageSource="TrackTime.png"-->
 
+    <!-- Definición de los elementos de la barra de herramientas -->
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Refresh" Clicked="RefreshButtonClicked"/>
     </ContentPage.ToolbarItems>
 
-    <StackLayout>
+<StackLayout>
         <!-- Encabezado fijo de la tabla -->
         <Grid BackgroundColor="#044368">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.5*" />
-                <!-- Columna para Contador IconImageSource="TrackTime.png"-->
+                <!-- Columna para Contador -->
                 <ColumnDefinition Width="2.3*" />
                 <!-- Columna para Fecha -->
                 <ColumnDefinition Width="1.9*" />
@@ -26,6 +27,7 @@
                 <ColumnDefinition Width="1.9*" />
                 <!-- Columna para Tiempo Total -->
             </Grid.ColumnDefinitions>
+            <!-- Etiquetas de encabezado para cada columna -->
             <Label Text="#" TextColor="White" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
             <Label Text="Fecha" TextColor="White" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
             <Label Text="Entrada" TextColor="White" Grid.Column="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
@@ -35,13 +37,15 @@
 
         <!-- ListView con los registros -->
         <ListView x:Name="Registro" SeparatorColor="#044368" HasUnevenRows="True">
+            <!-- Plantilla de datos para mostrar los registros -->
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
+                        <!-- Grid para mostrar cada registro -->
                         <Grid BackgroundColor="#DEEFFF" Padding="5">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="0.5*" />
-                                <!-- Columna para Contador IconImageSource="TrackTime.png"-->
+                                <!-- Columna para Contador -->
                                 <ColumnDefinition Width="2.3*" />
                                 <!-- Columna para Fecha -->
                                 <ColumnDefinition Width="1.9*" />
@@ -51,6 +55,7 @@
                                 <ColumnDefinition Width="1.9*" />
                                 <!-- Columna para Tiempo Total -->
                             </Grid.ColumnDefinitions>
+                            <!-- Etiquetas enlazadas a los datos del registro -->
                             <Label Text="{Binding Contador}" Grid.Column="0" TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                             <Label Text="{Binding Fecha}" Grid.Column="1" TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                             <Label Text="{Binding HoraEntrada}" Grid.Column="2" TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>

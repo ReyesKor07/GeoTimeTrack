@@ -1,15 +1,11 @@
-﻿using GeoTimeTrack.FlyoutTabbed.DeployPageFlyout;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using GeoTimeTrack.FlyoutTabbed.DeployPageFlyout;
 
 namespace GeoTimeTrack.FlyoutTabbed
 {
@@ -34,79 +30,96 @@ namespace GeoTimeTrack.FlyoutTabbed
 
         private void InitializeUserData()
         {
-            //UserID = Convert.ToInt32(await SecureStorage.GetAsync("IdUsuario"));
-            //Name = await SecureStorage.GetAsync("Nombre");
-            //LastName = await SecureStorage.GetAsync("ApellidoP");
-            //Email = await SecureStorage.GetAsync("Email");
-            //Rol = await SecureStorage.GetAsync("Rol");
+            // Obtiene los datos del usuario desde LoginPage
             UserID = LoginPage.UserID;
             Name = LoginPage.Rol;
             LastName = LoginPage.LastName;
             Email = LoginPage.Email;
             Rol = LoginPage.Rol;
+
+            // Actualiza los Labels con la información del usuario
             NombreLabel.Text = $"ID: {UserID} \n{Name} {LastName}";
             EmailLabel.Text = $"Email: \n{Email}";
+
+            // Muestra u oculta elementos basados en el rol del usuario
             if (Rol == "Administrador")
-            { AdminButton.IsVisible = true; RolLabel.IsVisible = true; RolLabel.Text = $"{Rol}"; }
+            {
+                AdminButton.IsVisible = true;
+                RolLabel.IsVisible = true;
+                RolLabel.Text = $"{Rol}";
+            }
             else
-            { AdminButton.IsVisible = false; RolLabel.IsVisible = false; }
+            {
+                AdminButton.IsVisible = false;
+                RolLabel.IsVisible = false;
+            }
         }
 
         public async void NavigationProfilePage()
-        { await Navigation.PushModalAsync(new ProfilePage()); }
+        {
+            // Navega a la página de perfil
+            await Navigation.PushModalAsync(new ProfilePage());
+        }
+
         public async void NavigationAdminPage()
-        { await Navigation.PushModalAsync(new AdminPage()); }
+        {
+            // Navega a la página de administrador
+            await Navigation.PushModalAsync(new AdminPage());
+        }
 
         private async void Cuenta_Clicked(object sender, EventArgs e)
         {
-            try // Realiza la navegación a la página de perfil
-            { NavigationProfilePage(); }
+            try
+            {
+                // Realiza la navegación a la página de perfil
+                NavigationProfilePage();
+            }
             catch (Exception ex)
-            { await DisplayAlert("Error", ex.Message + "DeploymentPageFlyout.Cuenta_Clicked", "OK"); }
+            {
+                await DisplayAlert("Error", ex.Message + "DeploymentPageFlyout.Cuenta_Clicked", "OK");
+            }
         }
 
         private async void Admin_Clicked(object sender, EventArgs e)
         {
+            // Verifica la conectividad de red antes de navegar
             var current = Connectivity.NetworkAccess;
             if (current != NetworkAccess.Internet)
             {
-                // No hay conexión a Internet, mostrar mensaje de advertencia
                 await DisplayAlert("Error", "Necesitas estar conectado a Internet para ingresar al panel administrador.", "OK");
                 return;
             }
-            try // Realiza la navegación a la página de Administrador
-            { NavigationAdminPage(); }
+
+            try
+            {
+                // Realiza la navegación a la página de administrador
+                NavigationAdminPage();
+            }
             catch (Exception ex)
-            { await DisplayAlert("Error", ex.Message + "DeploymentPageFlyout.Cuenta_Clicked", "OK"); }
+            {
+                await DisplayAlert("Error", ex.Message + "DeploymentPageFlyout.Admin_Clicked", "OK");
+            }
         }
 
         private async void Exit_Clicked(object sender, EventArgs e)
         {
+            // Verifica la conectividad de red antes de cerrar sesión
             var current = Connectivity.NetworkAccess;
             if (current != NetworkAccess.Internet)
             {
-                // No hay conexión a Internet, mostrar mensaje de advertencia
                 await DisplayAlert("Error", "Necesitas estar conectado a Internet para cerrar sesión.", "OK");
                 return;
             }
+
             try
             {
-                // Pedir confirmación al usuario antes de salir de la cuenta
+                // Pide confirmación al usuario antes de cerrar sesión
                 bool answer = await DisplayAlert("Confirmación", "¿Estás seguro de que deseas salir de tu cuenta?", "Sí", "No");
 
                 if (answer)
                 {
-                    // Si se confirma la salida, entonces navegar a la página de inicio de sesión
+                    // Navega a la página de inicio de sesión si se confirma la salida
                     App.Current.MainPage = new NavigationPage(new LoginPage());
-
-                    // Borrar las credenciales del usuario del almacenamiento seguro
-                    //await SecureStorage.SetAsync("IdUsuario", string.Empty);
-                    //await SecureStorage.SetAsync("Nombre", string.Empty);
-                    //await SecureStorage.SetAsync("ApellidoP", string.Empty);
-                    //await SecureStorage.SetAsync("ApellidoM", string.Empty);
-                    //await SecureStorage.SetAsync("Email", string.Empty);
-                    //await SecureStorage.SetAsync("Password", string.Empty);
-                    //await SecureStorage.SetAsync("Rol", string.Empty);
                 }
             }
             catch (Exception ex)
@@ -118,21 +131,27 @@ namespace GeoTimeTrack.FlyoutTabbed
         class DeploymentPageFlyoutViewModel : INotifyPropertyChanged
         {
             public ObservableCollection<DeploymentPageFlyoutMenuItem> MenuItems { get; set; }
-            
+
             public DeploymentPageFlyoutViewModel()
             {
-
+                // Inicializa la colección de elementos del menú
+                MenuItems = new ObservableCollection<DeploymentPageFlyoutMenuItem>
+                {
+                    //new DeploymentPageFlyoutMenuItem { Id = 0, Title = "Page 1" },
+                    //new DeploymentPageFlyoutMenuItem { Id = 1, Title = "Page 2" },
+                    // Añadir más elementos si es necesario
+                };
             }
+
             #region INotifyPropertyChanged Implementation
+
             public event PropertyChangedEventHandler PropertyChanged;
 
             void OnPropertyChanged([CallerMemberName] string propertyName = "")
             {
-                if (PropertyChanged == null)
-                    return;
-
-                PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
+
             #endregion
         }
     }

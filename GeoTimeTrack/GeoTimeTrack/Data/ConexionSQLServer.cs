@@ -1,23 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Text;
+﻿using System.Data.SqlClient;
 
 namespace GeoTimeTrack.Data
 {
     public class ConexionSQLServer
     {
-        /*IP Casa*/
-        // SqlConnection cn = new SqlConnection(@"Data source = 192.168.0.11; Initial Catalog = BD_GeoTimeTrack; Integrated Security=False; User Id= BD_GeoTimeTrack; Password=Xamarin2023");
-        /*IP Secundaria*/
-        // SqlConnection cn = new SqlConnection(@"Data source = 192.168.1.129; Initial Catalog = BD_GeoTimeTrack; Integrated Security=False; User Id= BD_GeoTimeTrack; Password=Xamarin2023");
-        /*IP UAT*/
-        // SqlConnection cn = new SqlConnection(@"Data source = 172.23.149.111; Initial Catalog = BD_GeoTimeTrack; Integrated Security=False; User Id= BD_GeoTimeTrack; Password=Xamarin2023");
-        /*IP AZURE*/
+        // Cadena de conexión al servidor SQL Server
         public static string connectionString = "Server= P3NWPLSK12SQL-v08.shr.prod.phx3.secureserver.net; DataBase=projecttes; User ID= prject; Password=proyec2023_;TrustServerCertificate=True;";
-
+        // Objeto de conexión a la base de datos
         public static SqlConnection cn = new SqlConnection(connectionString);
-
+        // Método para abrir la conexión
         public static void Abrir()
         {
             if (cn.State == System.Data.ConnectionState.Closed)
@@ -25,7 +16,7 @@ namespace GeoTimeTrack.Data
                 cn.Open();
             }
         }
-
+        // Método para cerrar la conexión
         public static void Cerrar()
         {
             if (cn.State == System.Data.ConnectionState.Open)

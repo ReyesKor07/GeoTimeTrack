@@ -6,12 +6,14 @@
             Title="Flyout">
     
   <FlyoutPage.Flyout>
+    <!-- Definición del menú lateral -->
     <pages:DeploymentPageFlyout x:Name="FlyoutPage" />
   </FlyoutPage.Flyout>
   
   <FlyoutPage.Detail>
     <NavigationPage>
       <x:Arguments>
+        <!-- Detalle de la página principal -->
         <pages:DeploymentPageDetail />
       </x:Arguments>
     </NavigationPage>

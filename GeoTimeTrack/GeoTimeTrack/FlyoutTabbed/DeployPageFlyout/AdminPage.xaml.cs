@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Net.NetworkInformation;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -27,14 +24,15 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
 
     public partial class AdminPage : ContentPage
     {
-        ObservableCollection<Usuario> allUsuarios;
+        ObservableCollection<Usuario> allUsuarios; // Colección observable de todos los usuarios
 
         public AdminPage()
         {
             InitializeComponent();
+            // Obtener y mostrar todos los usuarios
             List<Usuario> usuarios = ObtenerUsuarios();
             Usuarios.ItemsSource = usuarios;
-            allUsuarios = new ObservableCollection<Usuario>(ObtenerUsuarios()); // Obtener la lista completa de usuarios
+            allUsuarios = new ObservableCollection<Usuario>(ObtenerUsuarios());
             Usuarios.ItemsSource = allUsuarios;
         }
 
@@ -43,23 +41,23 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
             var current = Connectivity.NetworkAccess;
             if (current != NetworkAccess.Internet)
             {
-                // No hay conexión a Internet, mostrar mensaje de advertencia
                 DisplayAlert("Error", "Necesitas estar conectado a Internet para refrescar la página.", "OK");
                 return;
             }
             else
             {
+                // Refrescar la lista de usuarios
                 List<Usuario> usuarios = ObtenerUsuarios();
                 Usuarios.ItemsSource = usuarios;
             }
         }
 
+        // Método para manejar el evento de hacer clic en el botón "Ver Registro" de un usuario
         public async void VerRegistro_Clicked(object sender, EventArgs e)
         {
             var current = Connectivity.NetworkAccess;
             if (current != NetworkAccess.Internet)
             {
-                // No hay conexión a Internet, mostrar mensaje de advertencia
                 await DisplayAlert("Error", "Necesitas estar conectado a Internet para observar el registro.", "OK");
                 return;
             }
@@ -69,7 +67,7 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
                 {
                     if (button.BindingContext is Usuario selectedUser)
                     {
-                        // Crea una instancia de EditTrackTimePage y pasa los datos del usuario
+                        // Crear y mostrar la página para editar el registro del usuario seleccionado
                         EditTrackTimePage editTrackTimePage = new EditTrackTimePage(selectedUser);
                         await Navigation.PushModalAsync(editTrackTimePage);
                     }
@@ -81,12 +79,12 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
             }
         }
 
+        // Método para manejar el evento de hacer clic en el botón "Ver Perfil" de un usuario
         private async void VerPerfil_Clicked(object sender, EventArgs e)
         {
             var current = Connectivity.NetworkAccess;
             if (current != NetworkAccess.Internet)
             {
-                // No hay conexión a Internet, mostrar mensaje de advertencia
                 await DisplayAlert("Error", "Necesitas estar conectado a Internet para observar el perfil.", "OK");
                 return;
             }
@@ -96,7 +94,7 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
                 {
                     if (button.BindingContext is Usuario selectedUser)
                     {
-                        // Crea una instancia de EditProfilePage y pasa los datos del usuario
+                        // Crear y mostrar la página para editar el perfil del usuario seleccionado
                         EditProfilePage editProfilePage = new EditProfilePage(selectedUser);
                         await Navigation.PushModalAsync(editProfilePage);
                     }
@@ -108,6 +106,7 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
             }
         }
 
+        // Método para obtener la lista de todos los usuarios
         private List<Usuario> ObtenerUsuarios()
         {
             List<Usuario> usuarios = new List<Usuario>();
@@ -124,6 +123,7 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
                         {
                             while (reader.Read())
                             {
+                                // Crear un usuario a partir de los datos de la base de datos y agregarlo a la lista
                                 Usuario usuario = new Usuario
                                 {
                                     IdUsuario = reader.GetInt32(reader.GetOrdinal("IdUsuario")),
@@ -142,10 +142,9 @@ namespace GeoTimeTrack.FlyoutTabbed.DeployPageFlyout
             }
             catch (Exception ex)
             {
-                // Manejar la excepción aquí, por ejemplo, mostrar un mensaje de error.
                 DisplayAlert("Error", "Ocurrió un error al obtener usuarios: " + ex.Message + "AdminPage", "OK");
             }
-            // Ordenar la lista por ApellidoP en orden alfabético
+            // Ordenar la lista de usuarios por ApellidoP en orden alfabético
             usuarios = usuarios.OrderBy(usuario => usuario.ApellidoP).ToList();
             return usuarios;
         }

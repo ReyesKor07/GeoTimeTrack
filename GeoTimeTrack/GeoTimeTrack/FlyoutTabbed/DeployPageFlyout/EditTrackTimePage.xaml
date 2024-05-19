@@ -2,8 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GeoTimeTrack.FlyoutTabbed.DeployPageFlyout.EditTrackTimePage"
-             BackgroundColor="#044368"
-             Title="TrackTime">
+             BackgroundColor="#044368">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Refresh" Clicked="RefreshButtonClicked"/>
@@ -13,17 +12,18 @@
         <!-- Encabezado fijo de la tabla -->
         <Grid BackgroundColor="#044368">
             <Grid.ColumnDefinitions>
+                <!-- Columna para Contador -->
                 <ColumnDefinition Width="0.5*" />
-                <!-- Columna para Contador IconImageSource="TrackTime.png"-->
-                <ColumnDefinition Width="2.3*" />
                 <!-- Columna para Fecha -->
-                <ColumnDefinition Width="1.9*" />
+                <ColumnDefinition Width="2.3*" />
                 <!-- Columna para Hora Entrada -->
                 <ColumnDefinition Width="1.9*" />
                 <!-- Columna para Hora Salida -->
                 <ColumnDefinition Width="1.9*" />
                 <!-- Columna para Tiempo Total -->
+                <ColumnDefinition Width="1.9*" />
             </Grid.ColumnDefinitions>
+            <!-- Etiquetas para el encabezado de la tabla -->
             <Label Text="#" TextColor="White" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
             <Label Text="Fecha" TextColor="White" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
             <Label Text="Entrada" TextColor="White" Grid.Column="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
@@ -38,17 +38,18 @@
                     <ViewCell>
                         <Grid BackgroundColor="#DEEFFF" Padding="5">
                             <Grid.ColumnDefinitions>
+                                <!-- Columna para Contador -->
                                 <ColumnDefinition Width="0.5*" />
-                                <!-- Columna para Contador IconImageSource="TrackTime.png"-->
-                                <ColumnDefinition Width="2.3*" />
                                 <!-- Columna para Fecha -->
-                                <ColumnDefinition Width="1.9*" />
+                                <ColumnDefinition Width="2.3*" />
                                 <!-- Columna para Hora Entrada -->
                                 <ColumnDefinition Width="1.9*" />
                                 <!-- Columna para Hora Salida -->
                                 <ColumnDefinition Width="1.9*" />
                                 <!-- Columna para Tiempo Total -->
+                                <ColumnDefinition Width="1.9*" />
                             </Grid.ColumnDefinitions>
+                            <!-- Etiquetas para mostrar los datos de cada registro -->
                             <Label Text="{Binding Contador}" Grid.Column="0" TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                             <Label Text="{Binding Fecha}" Grid.Column="1" TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                             <Label Text="{Binding HoraEntrada}" Grid.Column="2" TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>

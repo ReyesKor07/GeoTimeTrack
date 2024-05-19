@@ -6,7 +6,7 @@
 
     <ScrollView>
         <StackLayout Margin="20" Spacing="20" Padding="10">
-            <!-- Icono de la app -->
+
             <Frame CornerRadius="100" BorderColor="#1c2757" BackgroundColor="Transparent" HeightRequest="100" WidthRequest="100" HorizontalOptions="Center">
                 <Image Source="GeoTimeTrack_Transparent.png" VerticalOptions="CenterAndExpand" HeightRequest="100" Aspect="AspectFit"/>
             </Frame>

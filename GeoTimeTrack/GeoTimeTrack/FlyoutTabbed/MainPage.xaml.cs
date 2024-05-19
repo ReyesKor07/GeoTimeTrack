@@ -1,15 +1,8 @@
 ﻿using GeoTimeTrack.Data;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Net.NetworkInformation;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
-using GeoTimeTrack.FlyoutTabbed;
 using System.Data.SqlClient;
 
 namespace GeoTimeTrack
@@ -19,33 +12,38 @@ namespace GeoTimeTrack
         public int UserID { get; private set; }
         public string Name { get; private set; }
         public string LastName { get; private set; }
-        private int IDuserEntry;
 
+        private int IDuserEntry;
         private decimal entrylongitudeEntry;
         private decimal entrylatitudeEntry;
         private decimal exitlongitudeEntry;
         private decimal exitlatitudeEntry;
 
-        private Pin entryLocationPin; // Variable para el Pin de Entrada
-        private Pin exitLocationPin;  // Variable para el Pin de Salida
-
-        private DateTime entryTime; // Almacena la hora de entrada
-        private DateTime exitTime;  // Almacena la hora de salida
+        // Variable para el Pin de Entrada y Salida
+        private Pin entryLocationPin;
+        private Pin exitLocationPin;
+        // Almacena la hora de Entrada y Salida
+        private DateTime entryTime;
+        private DateTime exitTime;
 
         public MainPage()
         {
             InitializeComponent();
             InitializeUserData();
-            Position initialPosition = new Position(26.028688727720997, -98.27560757446295); // Establecer la posición inicial del mapa UAT
+            // Establecer la posición inicial del mapa UAT
+            Position initialPosition = new Position(26.028688727720997, -98.27560757446295);
             map.MoveToRegion(MapSpan.FromCenterAndRadius(initialPosition, Distance.FromMeters(200)));
-            map.MapType = MapType.Satellite; // Establecer el modo de mapa predeterminado como satélite
-            mapTypeSwitch.Toggled += MapTypeSwitch_Toggled; // Agregar un controlador de eventos al Switch
+            // Establecer el modo de mapa predeterminado como satélite
+            map.MapType = MapType.Satellite;
+            // Agregar un controlador de eventos al Switch
+            mapTypeSwitch.Toggled += MapTypeSwitch_Toggled;
             entryButton.IsEnabled = true;
             exitButton.IsEnabled = false;
         }
 
         private void InitializeUserData()
         {
+            // Inicializar datos del usuario desde la página de inicio de sesión
             UserID = LoginPage.UserID;
             Name = LoginPage.Name;
             LastName = LoginPage.LastName;
@@ -54,17 +52,10 @@ namespace GeoTimeTrack
 
         private void MapTypeSwitch_Toggled(object sender, ToggledEventArgs e)
         {
-            map.MapType = e.Value ? MapType.Street : MapType.Satellite; // Cambiar el tipo de mapa (MapType) en función del estado del Switch
-            string mapTypeText = e.Value ? "Mapa" : "Satélite"; // Cambiar el texto del Label para reflejar el estado actual
+            // Cambiar el tipo de mapa (MapType) en función del estado del Switch
+            map.MapType = e.Value ? MapType.Street : MapType.Satellite;
+            string mapTypeText = e.Value ? "Mapa" : "Satélite";
         }
-
-        //public async void RegisterAttendance()
-        //{
-
-
-        //    // Si pasa todas las verificaciones, llamar al método existente
-        //    OnEntryButtonClicked(null, EventArgs.Empty);
-        //}
 
         private async void OnEntryButtonClicked(object sender, EventArgs e)
         {
@@ -75,12 +66,14 @@ namespace GeoTimeTrack
                 await DisplayAlert("Error", "Necesitas estar conectado a Internet para marcar tu entrada.", "OK");
                 return;
             }
+
             // Verificar si es sábado o domingo
             if (DateTime.Now.DayOfWeek == DayOfWeek.Saturday || DateTime.Now.DayOfWeek == DayOfWeek.Sunday)
             {
                 await DisplayAlert("Advertencia", "No se pueden registrar asistencias los fines de semana.", "OK");
                 return;
             }
+
             // Verificar si es antes de las 6 am o después de las 10 pm
             TimeSpan startTime = new TimeSpan(6, 0, 0); // 6 am
             TimeSpan endTime = new TimeSpan(22, 0, 0);  // 10 pm
@@ -90,13 +83,16 @@ namespace GeoTimeTrack
                 await DisplayAlert("Advertencia", "Fuera del horario permitido para registrar asistencias.", "OK");
                 return;
             }
+
             try
             {
+                Clear();
                 entryTime = DateTime.Now;
                 var location = await Geolocation.GetLocationAsync();
                 if (location != null)
                 {
-                    if (IsInsideArea(location)) // Verificar si la ubicación está dentro del área permitida
+                    // Verificar si la ubicación está dentro del área permitida
+                    if (IsInsideArea(location))
                     {
                         // Eliminar los pines de entrada y salida existentes
                         if (entryLocationPin != null && exitLocationPin != null)
@@ -114,6 +110,8 @@ namespace GeoTimeTrack
                             Address = $"Entrada registrada a las {entryTime.ToString("HH:mm:ss")}"
                         };
                         map.Pins.Add(entryLocationPin);
+
+                        // Actualizar la UI con la información de la entrada
                         entryTimeEntry.Text = entryTime.ToString("HH:mm:ss");
                         entryDateEntry.Text = entryTime.ToString("dd-MMMM-yyyy");
                         var newMapSpan = MapSpan.FromCenterAndRadius(entryLocationPin.Position, Distance.FromMeters(40));
@@ -144,12 +142,14 @@ namespace GeoTimeTrack
 
         private async void OnExitButtonClicked(object sender, EventArgs e)
         {
+            // Verificar si esta conectado a Internet
             var current = Connectivity.NetworkAccess;
             if (current != NetworkAccess.Internet)
             {
                 await DisplayAlert("Error", "Necesitas estar conectado a Internet para marcar tu salida.", "OK");
                 return;
             }
+
             try
             {
                 if (entryTime != DateTime.MinValue)
@@ -160,10 +160,7 @@ namespace GeoTimeTrack
                     if (location != null)
                     {
                         Location userLocation = new Location(location.Latitude, location.Longitude);
-                        if (exitLocationPin != null)
-                        {
-                            map.Pins.Remove(exitLocationPin);
-                        }
+                        // Registrar y marcar la salida
                         exitLocationPin = new Pin
                         {
                             Type = PinType.Place,
@@ -172,17 +169,20 @@ namespace GeoTimeTrack
                             Address = $"Salida registrada a las {exitTime.ToString("HH:mm:ss")}"
                         };
                         map.Pins.Add(exitLocationPin);
+
+                        // Calcular y mostrar el tiempo de estancia
                         TimeSpan timeDifference = exitTime - entryTime;
                         exitTimeEntry.Text = exitTime.ToString("HH:mm:ss");
                         exitDateEntry.Text = exitTime.ToString("dd-MMMM-yyyy");
                         workTimeEntry.Text = timeDifference.ToString(@"hh\:mm\:ss");
 
                         // Calcular el punto intermedio entre la entrada y la salida
-                        double midLatitude = (entryLocationPin.Position.Latitude + exitLocationPin.Position.Latitude) / 2;
-                        double midLongitude = (entryLocationPin.Position.Longitude + exitLocationPin.Position.Longitude) / 2;
+                        //double midLatitude = (entryLocationPin.Position.Latitude + exitLocationPin.Position.Latitude) / 2;
+                        //double midLongitude = (entryLocationPin.Position.Longitude + exitLocationPin.Position.Longitude) / 2;
 
                         // Centrar el mapa en el punto intermedio con un zoom que permita ver ambos pines
-                        var newMapSpan = MapSpan.FromCenterAndRadius(new Position(midLatitude, midLongitude), Distance.FromKilometers(0.2)); // 200 metros de radio para ver ambos pines
+                        //var newMapSpan = MapSpan.FromCenterAndRadius(new Position(midLatitude, midLongitude), Distance.FromKilometers(.15)); // Metros de radio para ver ambos pines
+                        var newMapSpan = MapSpan.FromCenterAndRadius(exitLocationPin.Position, Distance.FromMeters(40));
                         map.MoveToRegion(newMapSpan);
 
                         // Mostrar la ubicación de salida en la interfaz
@@ -194,9 +194,9 @@ namespace GeoTimeTrack
                         exitButton.IsEnabled = false;
                         Conexion();
 
+                        // Mostrar un mensaje de advertencia si la salida está registrada fuera del área permitida
                         if (!IsInsideArea(location))
                         {
-                            // Mostrar un mensaje de advertencia si la salida está registrada fuera del área permitida
                             await DisplayAlert("Advertencia", "Tu salida ha sido registrada fuera del área permitida.", "OK");
                         }
                     }
@@ -215,6 +215,7 @@ namespace GeoTimeTrack
                 await DisplayAlert("Error", $"Error: {ex.Message}", "OK");
             }
         }
+
 
         public void Conexion()
         {
@@ -237,6 +238,7 @@ namespace GeoTimeTrack
                 cmd.Parameters.AddWithValue("@exitlatitude", exitlatitudeEntry);
                 /*Tiempo de Estancia*/
                 cmd.Parameters.AddWithValue("@workTime", workTimeEntry.Text);
+                // Ejecutar la consulta
                 cmd.ExecuteNonQuery();
                 DisplayAlert("Info", "Datos capturados con exito", "Okay");
                 ConexionSQLServer.Cerrar();
@@ -249,17 +251,15 @@ namespace GeoTimeTrack
 
         public void Clear()
         {
-            /*Entrada*/
+            // Limpiar los campos de entrada y salida
             entryTimeEntry.Text = null;
             entryDateEntry.Text = null;
             entryLongitudeEntry.Text = null;
             entryLatitudeEntry.Text = null;
-            /*Salida*/
             exitTimeEntry.Text = null;
             exitDateEntry.Text = null;
             exitLongitudeEntry.Text = null;
             exitLatitudeEntry.Text = null;
-            /*Tiempo Laboral*/
             workTimeEntry.Text = null;
         }
 

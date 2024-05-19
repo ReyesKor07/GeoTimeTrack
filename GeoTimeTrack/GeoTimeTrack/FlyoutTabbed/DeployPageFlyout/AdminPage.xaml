@@ -4,20 +4,22 @@
              x:Class="GeoTimeTrack.FlyoutTabbed.DeployPageFlyout.AdminPage"
              BackgroundColor="White">
 
+    <!-- Barra de herramientas con un botón de actualización -->
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Refresh" Clicked="RefreshButtonClicked"/>
     </ContentPage.ToolbarItems>
 
+    <!-- Diseño de la página con un StackLayout -->
     <StackLayout Padding="10">
 
-        <!-- Título de la página con icono de búsqueda -->
+        <!-- Título de la página con icono de administrador -->
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <!-- Icono de búsqueda -->
+            <!-- Icono de administrador -->
             <Image Source="Admin_icon.png" HeightRequest="90" WidthRequest="90" VerticalOptions="Center" HorizontalOptions="End" Margin="0,0,0,10" Grid.Column="0"/>
 
             <!-- Título de la página -->
@@ -52,10 +54,15 @@
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
+                                <!-- Rol del usuario -->
                                 <Label Text="{Binding Rol}" TextColor="#BB6228" FontSize="16" FontAttributes="Bold" Grid.Row="0" Grid.Column="0"/>
+                                <!-- Apellido paterno del usuario -->
                                 <Label Text="{Binding ApellidoP}" TextColor="#1c2757" FontSize="22" FontAttributes="Bold" Grid.Row="1" Grid.Column="0"/>
+                                <!-- Apellido materno del usuario -->
                                 <Label Text="{Binding ApellidoM}" TextColor="#1c2757" FontSize="20" Grid.Row="2" Grid.Column="0"/>
+                                <!-- Nombre del usuario -->
                                 <Label Text="{Binding Nombre}" TextColor="#1c2757" FontSize="18" Grid.Row="3" Grid.Column="0"/>
+                                <!-- ID del usuario -->
                                 <Label Text="{Binding IdUsuario, StringFormat='ID: {0}'}" TextColor="#1c2757" FontSize="14" FontAttributes="Bold" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="End"/>
                                 <!-- Botón para ver el registro del usuario -->
                                 <Button Text="Registro" BackgroundColor="#BB6228" TextColor="White" FontSize="16" Clicked="VerRegistro_Clicked" Grid.Row="1" Grid.Column="1" Grid.RowSpan="3" Margin="10,0,0,40" CornerRadius="60"/>

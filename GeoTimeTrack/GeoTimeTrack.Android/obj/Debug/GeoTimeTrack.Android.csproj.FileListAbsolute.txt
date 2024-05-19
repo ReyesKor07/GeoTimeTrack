@@ -1,10 +1,5 @@
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/bin/Debug/GeoTimeTrack.Android.dll
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/bin/Debug/GeoTimeTrack.Android.pdb
-/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/bin/Debug/com.NateRiver.GeoTimeTrack.apk
-/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/bin/Debug/com.NateRiver.GeoTimeTrack.aab
-/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/bin/Debug/com.NateRiver.GeoTimeTrack-Signed.aab
-/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/bin/Debug/com.NateRiver.GeoTimeTrack-Signed.apk
-/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/bin/Debug/com.NateRiver.GeoTimeTrack-Signed.apk.idsig
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/bin/Debug/GeoTimeTrack.dll
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/bin/Debug/GeoTimeTrack.pdb
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/MonoAndroid,Version=v13.0.AssemblyAttributes.cs
@@ -61,10 +56,7 @@
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/GeoTimeTrack.Android.csproj.CopyComplete
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/GeoTimeTrack.Android.dll
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/GeoTimeTrack.Android.pdb
-/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/android/bin/com.NateRiver.GeoTimeTrack.apk
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/android/bin/base.zip
-/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/android/bin/com.NateRiver.GeoTimeTrack.aab
-/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/android/bin/com.NateRiver.GeoTimeTrack.apks
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/values/styles.xml
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/values/colors.xml
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/mipmap-anydpi-v26/icon.xml
@@ -795,3 +787,12 @@
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/drawable/geotimetrack.jpeg
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/drawable/mainpage_icon.png
 /Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/res/drawable/userprofile_icon.png
+/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/bin/Debug/com.NateRevers.GeoTimeTrack.apk
+/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/bin/Debug/com.NateRevers.GeoTimeTrack.aab
+/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/bin/Debug/com.NateRevers.GeoTimeTrack-Signed.aab
+/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/bin/Debug/com.NateRevers.GeoTimeTrack-Signed.apk
+/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/bin/Debug/com.NateRevers.GeoTimeTrack-Signed.apk.idsig
+/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/android/bin/com.NateRevers.GeoTimeTrack.apk
+/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/android/bin/com.NateRevers.GeoTimeTrack.aab
+/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/android/bin/com.NateRevers.GeoTimeTrack.apks
+/Users/user/Documents/GeoTimeTrack/GeoTimeTrack/GeoTimeTrack.Android/obj/Debug/android/src/com/naterevers/geotimetrack/R.java

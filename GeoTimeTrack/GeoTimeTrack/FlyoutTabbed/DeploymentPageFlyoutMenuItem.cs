@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GeoTimeTrack.FlyoutTabbed
 {
@@ -11,6 +7,7 @@ namespace GeoTimeTrack.FlyoutTabbed
     {
         public DeploymentPageFlyoutMenuItem()
         {
+            // Inicializa TargetType con el tipo de la clase
             TargetType = typeof(DeploymentPageFlyoutMenuItem);
         }
         public int Id { get; set; }
